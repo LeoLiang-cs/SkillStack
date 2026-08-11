@@ -1,0 +1,12 @@
+[project]
+name = "skillstack"
+version = "0.0.1"
+description = "Experimental harness for studying composable Skill Agent components"
+readme = "README.md"
+requires-python = ">=3.9,<3.11"
+dependencies = [
+    "alfworld",
+]
+
+[tool.uv]
+package = false

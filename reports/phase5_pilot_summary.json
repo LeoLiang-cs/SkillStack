@@ -1,0 +1,116 @@
+{
+  "experiment_id": "p0_0_vertical_slice",
+  "phase": "5_pilot",
+  "pilot_type": "interface-validation pilot",
+  "raw_runs": {
+    "c0_no_skill": {
+      "run_id": "20260810T223523023307Z_c0_no_skill",
+      "run_directory": "runs/20260810T223523023307Z_c0_no_skill",
+      "episodes": "runs/20260810T223523023307Z_c0_no_skill/episodes.jsonl"
+    },
+    "c1_debug_lexical": {
+      "run_id": "20260810T223529379013Z_c1_debug_lexical",
+      "run_directory": "runs/20260810T223529379013Z_c1_debug_lexical",
+      "episodes": "runs/20260810T223529379013Z_c1_debug_lexical/episodes.jsonl"
+    }
+  },
+  "design": {
+    "task_split": "valid_unseen",
+    "fixed_task_count": 5,
+    "c0": "No-skill control; empty native-skill selection.",
+    "c1": "Task-instruction-only IDF-weighted lexical Top-2 retrieval.",
+    "shared_executor": "RecordedActionExecutor",
+    "shared_action_fixture": "One admissible `look` action per task."
+  },
+  "pipeline_metrics": {
+    "c0_no_skill": {
+      "episode_count": 5,
+      "task_success_count": 0,
+      "runner_exception_count": 0,
+      "pipeline_complete_count": 5,
+      "total_environment_actions": 5,
+      "mean_environment_actions": 1.0
+    },
+    "c1_debug_lexical": {
+      "episode_count": 5,
+      "task_success_count": 0,
+      "runner_exception_count": 0,
+      "pipeline_complete_count": 5,
+      "total_environment_actions": 5,
+      "mean_environment_actions": 1.0
+    }
+  },
+  "retrieval_metrics_c1": {
+    "correctness_reference": "Frozen task-family to static-skill mapping in configs/p0_tasks.json.",
+    "top_1_match_count": 3,
+    "top_k_contains_expected_count": 4,
+    "task_count": 5,
+    "cases": [
+      {
+        "task_id": "valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542",
+        "task_family": "look_at_obj_in_light",
+        "expected_skill_id": "skill_light_inspection",
+        "c0_selected_skill_ids": [],
+        "c1_selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_clean_then_place"
+        ],
+        "top_1_matches_expected": true,
+        "top_k_contains_expected": true
+      },
+      {
+        "task_id": "valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190908_125200_737896",
+        "task_family": "pick_and_place_simple",
+        "expected_skill_id": "skill_pick_and_place",
+        "c0_selected_skill_ids": [],
+        "c1_selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_pick_and_place"
+        ],
+        "top_1_matches_expected": false,
+        "top_k_contains_expected": true
+      },
+      {
+        "task_id": "valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061130_844814",
+        "task_family": "pick_clean_then_place_in_recep",
+        "expected_skill_id": "skill_clean_then_place",
+        "c0_selected_skill_ids": [],
+        "c1_selected_skill_ids": [
+          "skill_clean_then_place",
+          "skill_cool_then_place"
+        ],
+        "top_1_matches_expected": true,
+        "top_k_contains_expected": true
+      },
+      {
+        "task_id": "valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182259_116320",
+        "task_family": "pick_heat_then_place_in_recep",
+        "expected_skill_id": "skill_heat_then_place",
+        "c0_selected_skill_ids": [],
+        "c1_selected_skill_ids": [
+          "skill_cool_then_place",
+          "skill_clean_then_place"
+        ],
+        "top_1_matches_expected": false,
+        "top_k_contains_expected": false
+      },
+      {
+        "task_id": "valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091747_866951",
+        "task_family": "pick_cool_then_place_in_recep",
+        "expected_skill_id": "skill_cool_then_place",
+        "c0_selected_skill_ids": [],
+        "c1_selected_skill_ids": [
+          "skill_cool_then_place",
+          "skill_pick_and_place"
+        ],
+        "top_1_matches_expected": true,
+        "top_k_contains_expected": true
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "Task success is not evaluated: both configurations replay only one `look` action.",
+    "The lexical retriever is a transparent debug baseline, not embedding Top-k or SkillReranker.",
+    "The task-family mapping measures selection agreement only; it does not establish downstream utility."
+  ]
+}

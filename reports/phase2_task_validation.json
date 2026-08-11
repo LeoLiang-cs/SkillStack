@@ -1,0 +1,52 @@
+{
+  "experiment_id": "p0_0_vertical_slice",
+  "phase": "2_and_4_0",
+  "timestamp_utc": "2026-08-10T22:21:12.388380+00:00",
+  "manifest": "configs/p0_tasks.json",
+  "data_root": "/Users/leo/Project/Research/USC/FORTIS/SkillStack/data/alfworld",
+  "task_count": 5,
+  "status": "passed",
+  "checks": [
+    {
+      "task_id": "valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542",
+      "task_family": "look_at_obj_in_light",
+      "expected_skill_id": "skill_light_inspection",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190908_125200_737896",
+      "task_family": "pick_and_place_simple",
+      "expected_skill_id": "skill_pick_and_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061130_844814",
+      "task_family": "pick_clean_then_place_in_recep",
+      "expected_skill_id": "skill_clean_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182259_116320",
+      "task_family": "pick_heat_then_place_in_recep",
+      "expected_skill_id": "skill_heat_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091747_866951",
+      "task_family": "pick_cool_then_place_in_recep",
+      "expected_skill_id": "skill_cool_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,57 @@
+# P0.0 is a vertical-slice validation. Values marked TODO are intentionally
+# frozen only after ALFWorld is installed and tasks have been enumerated.
+experiment:
+  id: p0_0_vertical_slice
+  milestone: P0.0
+  purpose: operational_validation
+  status: phase_0_scaffolded
+
+environment:
+  provider: alfworld_text
+  data_root: data/alfworld
+  split: valid_unseen
+  task_count: 5
+  task_manifest: configs/p0_tasks.json
+  max_steps: 50
+  seed: 42
+
+skill_library:
+  name: alfworld_static_v0
+  format: native_text_with_metadata
+  expected_skill_count: 6
+  path: skills/alfworld_static
+
+retrieval:
+  control: no_skill
+  pilot: debug_lexical_top_k
+  top_k: 2
+  seed: 42
+
+execution:
+  mode: pending_environment_and_model_access
+  retry_policy: none
+  model_seed: 42
+
+tracing:
+  output_root: runs
+  format: jsonl
+  envelope: docs/p0_runtime_contracts.md
+  retain_raw_observations: true
+  retain_adapter_events: true
+  retain_failures: true
+
+comparisons:
+  planned:
+    - C0_no_skill_control
+    - C1_static_skill_debug_retrieval
+  interpretation: engineering_pilot_only
+
+scope:
+  excluded:
+    - faithful_paper_reproductions
+    - graph_planner
+    - state_aware_reranker
+    - acquisition
+    - governance
+    - canonical_skill_schema
+    - statistical_performance_claims

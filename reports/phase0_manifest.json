@@ -1,0 +1,16 @@
+{
+  "experiment_id": "p0_0_vertical_slice",
+  "phase": "0",
+  "status": "phase_1_environment_verified",
+  "created_on": "2026-08-10",
+  "host": {
+    "platform": "Darwin",
+    "architecture": "arm64",
+    "python": "3.9.6",
+    "uv": "0.11.28"
+  },
+  "environment_status": "alfworld_text_0.4.2_installed_and_smoke_verified",
+  "environment_data": "project-local text assets only; visual detector and checkpoints excluded",
+  "model_access_status": "not_configured",
+  "next_gate": "ALFWorld text environment can reset and execute one valid action"
+}

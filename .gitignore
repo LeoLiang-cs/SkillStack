@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Raw traces can be large and may include generated model outputs.
+runs/*
+!runs/.gitkeep
+
+# Downloaded ALFWorld benchmark assets are reproducible external data.
+data/alfworld/
+!data/.gitkeep

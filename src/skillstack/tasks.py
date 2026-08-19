@@ -14,20 +14,32 @@ DEFAULT_TASK_MANIFEST = REPOSITORY_ROOT / "configs" / "p0_tasks.json"
 DEFAULT_RECORDED_ACTIONS = REPOSITORY_ROOT / "configs" / "p0_recorded_actions.json"
 
 
-def load_p0_tasks(manifest_path: Optional[Path] = None) -> List[Dict[str, Any]]:
-    """Load and validate the five immutable P0.0 task records."""
+def load_task_manifest(
+    manifest_path: Optional[Path] = None, exact_count: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """Load and validate a frozen task manifest.
+
+    ``exact_count`` enforces a fixed task count when the manifest's contract
+    requires it (the P0.0 manifest requires five).
+    """
 
     path = (manifest_path or DEFAULT_TASK_MANIFEST).resolve()
     manifest = json.loads(path.read_text(encoding="utf-8"))
     tasks = manifest["tasks"]
-    if len(tasks) != 5:
-        raise ValueError(f"P0.0 requires five fixed tasks, found {len(tasks)}")
+    if exact_count is not None and len(tasks) != exact_count:
+        raise ValueError(f"Expected {exact_count} tasks, found {len(tasks)}")
     for task in tasks:
-        require_fields(task, TASK_RECORD_FIELDS, "P0.0 task record")
+        require_fields(task, TASK_RECORD_FIELDS, "task record")
     task_ids = [task["task_id"] for task in tasks]
     if len(task_ids) != len(set(task_ids)):
-        raise ValueError("P0.0 task manifest contains duplicate task IDs")
+        raise ValueError("Task manifest contains duplicate task IDs")
     return tasks
+
+
+def load_p0_tasks(manifest_path: Optional[Path] = None) -> List[Dict[str, Any]]:
+    """Load and validate the five immutable P0.0 task records."""
+
+    return load_task_manifest(manifest_path, exact_count=5)
 
 
 def find_task(task_id: str, manifest_path: Optional[Path] = None) -> Dict[str, Any]:

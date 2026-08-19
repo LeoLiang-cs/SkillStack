@@ -33,7 +33,8 @@ skills/alfworld_static/  Native static skill artifacts
 src/skillstack/          Environment, retrieval, execution, and tracing code
 scripts/                 Runnable entry points
 runs/                    Immutable raw run outputs (git-ignored)
-reports/                 Human-readable pilot summaries
+reports/week1/           P0.0 milestone reports (Phases 0–7)
+reports/week2/           Phase 2A plan and results
 tests/                   Lightweight checks
 ```
 
@@ -62,7 +63,7 @@ uv run python scripts/alfworld_smoke.py
 
 This validates a deterministic `valid_unseen` game reset and one admissible
 environment action. Its raw result is written to
-`reports/phase1_alfworld_smoke.json`.
+`reports/week1/phase1_alfworld_smoke.json`.
 
 ## Experiment discipline
 
@@ -148,19 +149,77 @@ uv run python scripts/summarize_pilot.py \
   --c1-run runs/<c1-run-id>
 ```
 
-The resulting `reports/phase5_pilot_summary.json` reports pipeline completion
-separately from task success and reports C1 retrieval agreement against the
-frozen task-family mapping.
+The resulting `reports/week1/phase5_pilot_summary.json` reports pipeline
+completion separately from task success and reports C1 retrieval agreement
+against the frozen task-family mapping.
 
 ## Phase 6: results and friction audit
 
 The completed pilot audit is available in
-[`reports/phase6_pilot_audit.md`](reports/phase6_pilot_audit.md). It separates
-observed retrieval mismatches from untested execution effects, and records the
-first adapter-friction ledger without prematurely freezing interface fields.
+[`reports/week1/phase6_pilot_audit.md`](reports/week1/phase6_pilot_audit.md).
+It separates observed retrieval mismatches from untested execution effects, and
+records the first adapter-friction ledger without prematurely freezing interface
+fields.
 
 ## Phase 7: advisor brief
 
-[`reports/phase7_advisor_brief.md`](reports/phase7_advisor_brief.md) packages
-the P0.0 evidence, the supported and unsupported claims, a next-experiment
-recommendation, advisor decision questions, and a four-slide meeting outline.
+[`reports/week1/phase7_advisor_brief.md`](reports/week1/phase7_advisor_brief.md)
+packages the P0.0 evidence, the supported and unsupported claims, a
+next-experiment recommendation, advisor decision questions, and a four-slide
+meeting outline.
+
+## Phase 2A (Week 2): skill-conditioned execution
+
+Phase 2A closes the causal chain the P0.0 pilot left open: it replaces the
+recorded one-step fixture with a deterministic multi-step executor that
+actually consumes the selected skill context, then runs four skill-input
+conditions (no-skill, random-skill, lexical Top-2, oracle) over the frozen
+five tasks. Its committed plan lives in
+[`reports/week2/plan_phase2a.md`](reports/week2/plan_phase2a.md), and its
+results are reported under `reports/week2/`.
+
+```bash
+uv run python scripts/run_w2_skill_conditions.py --conditions all
+```
+
+Each condition receives an immutable run under `runs/`. Bind the four runs
+into a reproducible pilot summary (refuses to overwrite):
+
+```bash
+uv run python scripts/summarize_w2_pilot.py \
+  --no-skill-run runs/<w2-no-skill-run> \
+  --random-skill-run runs/<w2-random-skill-run> \
+  --lexical-run runs/<w2-lexical-run> \
+  --oracle-run runs/<w2-oracle-run>
+```
+
+## Phase 2C (Week 3): LLM ReAct executor swap
+
+Phase 2C swaps the executor slot for the first time: a zero-shot prompt-based
+ReAct executor backed by an external LLM (`glm-4.7-flashx` primary,
+`deepseek-v4-flash` secondary), holding retrievers, adapter, tasks, and traces
+fixed. Backends and API keys are configured via
+[`configs/llm_backends.json`](configs/llm_backends.json) and the git-ignored
+`.env` file (keys are never committed). The committed plan lives in
+[`reports/week3/plan_phase2c.md`](reports/week3/plan_phase2c.md).
+
+```bash
+uv run python scripts/run_w3_react_pilot.py --backend zhipu_glm_flashx
+uv run python scripts/run_w3_react_pilot.py --backend deepseek_v4_flash
+```
+
+Bind the four runs of one backend into a reproducible summary:
+
+```bash
+uv run python scripts/summarize_w3_react_pilot.py --backend zhipu_glm_flashx \
+  --no-skill-run runs/<w3-no-skill-run> \
+  --random-skill-run runs/<w3-random-skill-run> \
+  --lexical-run runs/<w3-lexical-run> \
+  --oracle-run runs/<w3-oracle-run>
+```
+
+## Reports organization
+
+`reports/` is organized by research week. `reports/week1/` holds the P0.0
+vertical-slice milestone reports (Phases 0–7). `reports/week2/` holds the
+Phase 2A plan and results. Future weeks receive their own directories.

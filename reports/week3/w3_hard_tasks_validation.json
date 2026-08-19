@@ -1,0 +1,75 @@
+{
+  "experiment_id": "w3_hard_task_set",
+  "phase": "2d_d1",
+  "timestamp_utc": "2026-08-18T14:46:06.936504+00:00",
+  "manifest": "configs/p0_tasks_hard.json",
+  "task_count": 8,
+  "status": "passed",
+  "checks": [
+    {
+      "task_id": "valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020029_636862",
+      "task_family": "look_at_obj_in_light",
+      "expected_skill_id": "skill_light_inspection",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205204_244321",
+      "task_family": "pick_and_place_simple",
+      "expected_skill_id": "skill_pick_and_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022321_380927",
+      "task_family": "pick_clean_then_place_in_recep",
+      "expected_skill_id": "skill_clean_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083346_800823",
+      "task_family": "pick_heat_then_place_in_recep",
+      "expected_skill_id": "skill_heat_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_123133_763972",
+      "task_family": "pick_cool_then_place_in_recep",
+      "expected_skill_id": "skill_cool_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

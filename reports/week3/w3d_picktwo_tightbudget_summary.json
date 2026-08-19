@@ -1,0 +1,250 @@
+{
+  "experiment_id": "w3_react_executor_swap",
+  "phase": "2c_pilot",
+  "pilot_type": "LLM ReAct executor swap",
+  "backend": "deepseek_v4_flash",
+  "model": "deepseek-v4-flash",
+  "raw_runs": {
+    "no_skill": {
+      "run_id": "20260818T150521707631Z_w3_picktwo_deepseek_no_skill",
+      "run_directory": "runs/20260818T150521707631Z_w3_picktwo_deepseek_no_skill",
+      "episodes": "runs/20260818T150521707631Z_w3_picktwo_deepseek_no_skill/episodes.jsonl"
+    },
+    "random_skill": {
+      "run_id": "20260818T150639225059Z_w3_picktwo_deepseek_random_skill",
+      "run_directory": "runs/20260818T150639225059Z_w3_picktwo_deepseek_random_skill",
+      "episodes": "runs/20260818T150639225059Z_w3_picktwo_deepseek_random_skill/episodes.jsonl"
+    },
+    "lexical": {
+      "run_id": "20260818T150749387135Z_w3_picktwo_deepseek_lexical",
+      "run_directory": "runs/20260818T150749387135Z_w3_picktwo_deepseek_lexical",
+      "episodes": "runs/20260818T150749387135Z_w3_picktwo_deepseek_lexical/episodes.jsonl"
+    },
+    "oracle": {
+      "run_id": "20260818T150902933415Z_w3_picktwo_deepseek_oracle",
+      "run_directory": "runs/20260818T150902933415Z_w3_picktwo_deepseek_oracle",
+      "episodes": "runs/20260818T150902933415Z_w3_picktwo_deepseek_oracle/episodes.jsonl"
+    }
+  },
+  "design": {
+    "task_split": "valid_unseen",
+    "fixed_task_count": 3,
+    "shared_executor": "ReActExecutor (zero-shot prompt, native thinking disabled)",
+    "conditions": {
+      "no_skill": "No-skill control; empty skill context injected into the prompt.",
+      "random_skill": "Seeded per-task wrong-skill control.",
+      "lexical": "Task-instruction-only IDF-weighted lexical Top-2 retrieval.",
+      "oracle": "Frozen task-family to expected-skill mapping."
+    },
+    "seed": 42,
+    "max_steps": 50,
+    "top_k": 2
+  },
+  "pipeline_metrics": {
+    "no_skill": {
+      "episode_count": 3,
+      "task_success_count": 1,
+      "runner_exception_count": 0,
+      "total_environment_actions": 52,
+      "mean_environment_actions": 17.333333333333332,
+      "total_llm_calls": 56,
+      "total_prompt_tokens": 177928,
+      "total_completion_tokens": 1880,
+      "total_cost_estimate_usd": 0.011734,
+      "retry_calls_after_invalid_action": 4,
+      "stop_reasons": {
+        "environment_done": 1,
+        "max_steps_exhausted": 2
+      }
+    },
+    "random_skill": {
+      "episode_count": 3,
+      "task_success_count": 2,
+      "runner_exception_count": 0,
+      "total_environment_actions": 42,
+      "mean_environment_actions": 14.0,
+      "total_llm_calls": 45,
+      "total_prompt_tokens": 153676,
+      "total_completion_tokens": 2304,
+      "total_cost_estimate_usd": 0.012045,
+      "retry_calls_after_invalid_action": 3,
+      "stop_reasons": {
+        "environment_done": 2,
+        "max_steps_exhausted": 1
+      }
+    },
+    "lexical": {
+      "episode_count": 3,
+      "task_success_count": 2,
+      "runner_exception_count": 0,
+      "total_environment_actions": 45,
+      "mean_environment_actions": 15.0,
+      "total_llm_calls": 48,
+      "total_prompt_tokens": 152735,
+      "total_completion_tokens": 1569,
+      "total_cost_estimate_usd": 0.0112,
+      "retry_calls_after_invalid_action": 3,
+      "stop_reasons": {
+        "environment_done": 2,
+        "max_steps_exhausted": 1
+      }
+    },
+    "oracle": {
+      "episode_count": 3,
+      "task_success_count": 2,
+      "runner_exception_count": 0,
+      "total_environment_actions": 44,
+      "mean_environment_actions": 14.666666666666666,
+      "total_llm_calls": 46,
+      "total_prompt_tokens": 131949,
+      "total_completion_tokens": 1641,
+      "total_cost_estimate_usd": 0.009238,
+      "retry_calls_after_invalid_action": 2,
+      "stop_reasons": {
+        "environment_done": 2,
+        "max_steps_exhausted": 1
+      }
+    }
+  },
+  "per_task_cases": [
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 12,
+        "llm_call_count": 13
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place",
+          "skill_light_inspection"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 12,
+        "llm_call_count": 13
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_pick_two_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 12,
+        "llm_call_count": 13
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 11,
+        "llm_call_count": 12
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": false,
+        "stop_reason": "max_steps_exhausted",
+        "action_count": 20,
+        "llm_call_count": 22
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_heat_then_place",
+          "skill_clean_then_place"
+        ],
+        "success": false,
+        "stop_reason": "max_steps_exhausted",
+        "action_count": 20,
+        "llm_call_count": 21
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place",
+          "skill_clean_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 13,
+        "llm_call_count": 14
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 13,
+        "llm_call_count": 14
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": false,
+        "stop_reason": "max_steps_exhausted",
+        "action_count": 20,
+        "llm_call_count": 21
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_clean_then_place",
+          "skill_pick_and_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 10,
+        "llm_call_count": 11
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place",
+          "skill_clean_then_place"
+        ],
+        "success": false,
+        "stop_reason": "max_steps_exhausted",
+        "action_count": 20,
+        "llm_call_count": 21
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_pick_two_then_place"
+        ],
+        "success": false,
+        "stop_reason": "max_steps_exhausted",
+        "action_count": 20,
+        "llm_call_count": 20
+      }
+    }
+  ],
+  "g2_gate": {
+    "description": "C-oracle must strictly outperform C-no-skill and C-random on task success under the ReAct executor.",
+    "success_by_condition": {
+      "no_skill": 1,
+      "random_skill": 2,
+      "lexical": 2,
+      "oracle": 2
+    },
+    "passes": false
+  },
+  "interpretation_limits": [
+    "Zero-shot ReAct is SkillStack's own implementation; no few-shot trajectories.",
+    "Five tasks, one per family: raw counts only, no statistical inference.",
+    "Cost figures are estimates from list prices in configs/llm_backends.json.",
+    "DeepSeek runs are a portability control, not a model-quality bake-off."
+  ]
+}

@@ -10,3 +10,10 @@ runs/*
 # Downloaded ALFWorld benchmark assets are reproducible external data.
 data/alfworld/
 !data/.gitkeep
+
+# Local secrets: API keys must never be committed.
+.env
+.env.*
+
+# Throwaway dev probes and unrelated local files (contract scans, one-off scripts).
+tmp/

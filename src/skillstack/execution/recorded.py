@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, Iterable, List, Optional
 
 
 class RecordedActionExecutor:
@@ -21,9 +21,12 @@ class RecordedActionExecutor:
         initial_observation: str,
         initial_info: Dict[str, Any],
         execution_input: Dict[str, Any],
-        recorded_actions: Iterable[str],
+        recorded_actions: Optional[Iterable[str]] = None,
+        task_record: Optional[Dict[str, Any]] = None,
+        max_steps: Optional[int] = None,
     ) -> Dict[str, Any]:
         _validate_execution_input(execution_input)
+        recorded_actions = list(recorded_actions or [])
         current_info = initial_info
         observations = [initial_observation]
         actions: List[str] = []

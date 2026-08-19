@@ -20,7 +20,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--c0-run", type=Path, required=True, help="C0 run directory")
     parser.add_argument("--c1-run", type=Path, required=True, help="C1 run directory")
     parser.add_argument(
-        "--output", type=Path, default=ROOT / "reports" / "phase5_pilot_summary.json"
+        "--output", type=Path, default=ROOT / "reports" / "week1" / "phase5_pilot_summary.json"
     )
     return parser.parse_args()
 

@@ -1,0 +1,329 @@
+{
+  "experiment_id": "w3_react_executor_swap",
+  "phase": "2c_pilot",
+  "pilot_type": "LLM ReAct executor swap",
+  "backend": "deepseek_v4_flash",
+  "model": "deepseek-v4-flash",
+  "raw_runs": {
+    "no_skill": {
+      "run_id": "20260818T105216264850Z_w3_deepseek_v4_flash_no_skill",
+      "run_directory": "runs/20260818T105216264850Z_w3_deepseek_v4_flash_no_skill",
+      "episodes": "runs/20260818T105216264850Z_w3_deepseek_v4_flash_no_skill/episodes.jsonl"
+    },
+    "random_skill": {
+      "run_id": "20260818T105351332661Z_w3_deepseek_v4_flash_random_skill",
+      "run_directory": "runs/20260818T105351332661Z_w3_deepseek_v4_flash_random_skill",
+      "episodes": "runs/20260818T105351332661Z_w3_deepseek_v4_flash_random_skill/episodes.jsonl"
+    },
+    "lexical": {
+      "run_id": "20260818T105621216748Z_w3_deepseek_v4_flash_lexical",
+      "run_directory": "runs/20260818T105621216748Z_w3_deepseek_v4_flash_lexical",
+      "episodes": "runs/20260818T105621216748Z_w3_deepseek_v4_flash_lexical/episodes.jsonl"
+    },
+    "oracle": {
+      "run_id": "20260818T105912012474Z_w3_deepseek_v4_flash_oracle",
+      "run_directory": "runs/20260818T105912012474Z_w3_deepseek_v4_flash_oracle",
+      "episodes": "runs/20260818T105912012474Z_w3_deepseek_v4_flash_oracle/episodes.jsonl"
+    }
+  },
+  "design": {
+    "task_split": "valid_unseen",
+    "fixed_task_count": 5,
+    "shared_executor": "ReActExecutor (zero-shot prompt, native thinking disabled)",
+    "conditions": {
+      "no_skill": "No-skill control; empty skill context injected into the prompt.",
+      "random_skill": "Seeded per-task wrong-skill control.",
+      "lexical": "Task-instruction-only IDF-weighted lexical Top-2 retrieval.",
+      "oracle": "Frozen task-family to expected-skill mapping."
+    },
+    "seed": 42,
+    "max_steps": 50,
+    "top_k": 2
+  },
+  "pipeline_metrics": {
+    "no_skill": {
+      "episode_count": 5,
+      "task_success_count": 5,
+      "runner_exception_count": 0,
+      "total_environment_actions": 71,
+      "mean_environment_actions": 14.2,
+      "total_llm_calls": 71,
+      "total_prompt_tokens": 230207,
+      "total_completion_tokens": 2154,
+      "total_cost_estimate_usd": 0.016072,
+      "retry_calls_after_invalid_action": 0,
+      "stop_reasons": {
+        "environment_done": 5
+      }
+    },
+    "random_skill": {
+      "episode_count": 5,
+      "task_success_count": 5,
+      "runner_exception_count": 0,
+      "total_environment_actions": 100,
+      "mean_environment_actions": 20.0,
+      "total_llm_calls": 100,
+      "total_prompt_tokens": 466263,
+      "total_completion_tokens": 2750,
+      "total_cost_estimate_usd": 0.025026,
+      "retry_calls_after_invalid_action": 0,
+      "stop_reasons": {
+        "environment_done": 5
+      }
+    },
+    "lexical": {
+      "episode_count": 5,
+      "task_success_count": 5,
+      "runner_exception_count": 0,
+      "total_environment_actions": 106,
+      "mean_environment_actions": 21.2,
+      "total_llm_calls": 106,
+      "total_prompt_tokens": 532729,
+      "total_completion_tokens": 2984,
+      "total_cost_estimate_usd": 0.027535,
+      "retry_calls_after_invalid_action": 0,
+      "stop_reasons": {
+        "environment_done": 5
+      }
+    },
+    "oracle": {
+      "episode_count": 5,
+      "task_success_count": 4,
+      "runner_exception_count": 0,
+      "total_environment_actions": 113,
+      "mean_environment_actions": 22.6,
+      "total_llm_calls": 115,
+      "total_prompt_tokens": 569201,
+      "total_completion_tokens": 3275,
+      "total_cost_estimate_usd": 0.024827,
+      "retry_calls_after_invalid_action": 1,
+      "stop_reasons": {
+        "agent_declared_done": 1,
+        "environment_done": 4
+      }
+    }
+  },
+  "per_task_cases": [
+    {
+      "task_id": "valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542",
+      "task_family": "look_at_obj_in_light",
+      "expected_skill_id": "skill_light_inspection",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 10,
+        "llm_call_count": 10
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_clean_then_place",
+          "skill_pick_and_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 6,
+        "llm_call_count": 6
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_clean_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 6,
+        "llm_call_count": 6
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_light_inspection"
+        ],
+        "success": false,
+        "stop_reason": "agent_declared_done",
+        "action_count": 8,
+        "llm_call_count": 9
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190908_125200_737896",
+      "task_family": "pick_and_place_simple",
+      "expected_skill_id": "skill_pick_and_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 5,
+        "llm_call_count": 5
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_clean_then_place",
+          "skill_light_inspection"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 5,
+        "llm_call_count": 5
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_pick_and_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 5,
+        "llm_call_count": 5
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_pick_and_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 6,
+        "llm_call_count": 6
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061130_844814",
+      "task_family": "pick_clean_then_place_in_recep",
+      "expected_skill_id": "skill_clean_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 8,
+        "llm_call_count": 8
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_light_inspection",
+          "skill_pick_two_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 28,
+        "llm_call_count": 28
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_clean_then_place",
+          "skill_cool_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 26,
+        "llm_call_count": 26
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_clean_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 27,
+        "llm_call_count": 27
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182259_116320",
+      "task_family": "pick_heat_then_place_in_recep",
+      "expected_skill_id": "skill_heat_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 29,
+        "llm_call_count": 29
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_pick_and_place",
+          "skill_pick_two_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 32,
+        "llm_call_count": 32
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_cool_then_place",
+          "skill_clean_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 37,
+        "llm_call_count": 37
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_heat_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 38,
+        "llm_call_count": 39
+      }
+    },
+    {
+      "task_id": "valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091747_866951",
+      "task_family": "pick_cool_then_place_in_recep",
+      "expected_skill_id": "skill_cool_then_place",
+      "no_skill": {
+        "selected_skill_ids": [],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 19,
+        "llm_call_count": 19
+      },
+      "random_skill": {
+        "selected_skill_ids": [
+          "skill_pick_and_place",
+          "skill_light_inspection"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 29,
+        "llm_call_count": 29
+      },
+      "lexical": {
+        "selected_skill_ids": [
+          "skill_cool_then_place",
+          "skill_pick_and_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 32,
+        "llm_call_count": 32
+      },
+      "oracle": {
+        "selected_skill_ids": [
+          "skill_cool_then_place"
+        ],
+        "success": true,
+        "stop_reason": "environment_done",
+        "action_count": 34,
+        "llm_call_count": 34
+      }
+    }
+  ],
+  "g2_gate": {
+    "description": "C-oracle must strictly outperform C-no-skill and C-random on task success under the ReAct executor.",
+    "success_by_condition": {
+      "no_skill": 5,
+      "random_skill": 5,
+      "lexical": 5,
+      "oracle": 4
+    },
+    "passes": false
+  },
+  "interpretation_limits": [
+    "Zero-shot ReAct is SkillStack's own implementation; no few-shot trajectories.",
+    "Five tasks, one per family: raw counts only, no statistical inference.",
+    "Cost figures are estimates from list prices in configs/llm_backends.json.",
+    "DeepSeek runs are a portability control, not a model-quality bake-off."
+  ]
+}

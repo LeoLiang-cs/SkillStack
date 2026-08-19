@@ -1,0 +1,83 @@
+{
+  "experiment_id": "task_set_validation",
+  "phase": "2d_d1",
+  "timestamp_utc": "2026-08-18T15:48:41.387497+00:00",
+  "manifest": "configs/p0_tasks_picktwo9.json",
+  "task_count": 9,
+  "status": "passed",
+  "checks": [
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a ",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a",
+      "errors": []
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "reset_passed": true,
+      "initial_observation_preview": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a ",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

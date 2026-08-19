@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, Iterable, List, Optional
 
 from skillstack.adapters.retrieval_to_execution import adapt_retrieval_for_execution
 from skillstack.contracts import TASK_RECORD_FIELDS, require_fields
@@ -29,8 +29,9 @@ class EpisodeRunner:
     def run(
         self,
         task_record: Dict[str, Any],
-        recorded_actions: Iterable[str],
+        recorded_actions: Optional[Iterable[str]] = None,
         top_k: int = 2,
+        max_steps: Optional[int] = None,
     ) -> Dict[str, Any]:
         require_fields(task_record, TASK_RECORD_FIELDS, "episode task record")
         trace: Dict[str, Any] = {
@@ -58,7 +59,9 @@ class EpisodeRunner:
                 initial_observation,
                 initial_info,
                 execution_input,
-                recorded_actions,
+                recorded_actions=recorded_actions,
+                task_record=task_record,
+                max_steps=max_steps,
             )
             trace.update(
                 {
@@ -69,6 +72,7 @@ class EpisodeRunner:
                     "adapter_events": [adapter_event],
                     "executor_report": executor_report,
                     "actions": executor_report["actions"],
+                    "action_rationales": executor_report.get("action_rationales", []),
                     "rewards": executor_report["rewards"],
                     "success": executor_report["success"],
                     "stop_reason": executor_report["stop_reason"],

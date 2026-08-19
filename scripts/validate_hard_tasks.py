@@ -1,17 +1,25 @@
-"""Validate P0.0's fixed ALFWorld task set, including real environment reset."""
+"""Validate a task manifest with a real ALFWorld reset per task."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
-
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / "configs" / "p0_tasks.json"
-REPORT_PATH = ROOT / "reports" / "week1" / "phase2_task_validation.json"
+DEFAULT_MANIFEST = ROOT / "configs" / "p0_tasks_hard.json"
+DEFAULT_REPORT = ROOT / "reports" / "week3" / "w3_hard_tasks_validation.json"
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--expected-count", type=int, default=None)
+    return parser.parse_args()
 
 
 def build_alfworld_config(data_root: Path) -> Dict[str, Any]:
@@ -32,16 +40,17 @@ def build_alfworld_config(data_root: Path) -> Dict[str, Any]:
 
 
 def main() -> int:
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    args = parse_args()
+    manifest_path = args.manifest.resolve()
+    report_path = args.report.resolve()
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     data_root = (ROOT / manifest["environment"]["data_root"]).resolve()
     tasks: List[Dict[str, Any]] = manifest["tasks"]
     errors: List[str] = []
-    if len(tasks) != 5:
-        errors.append(f"Expected 5 tasks, found {len(tasks)}")
+    if args.expected_count is not None and len(tasks) != args.expected_count:
+        errors.append(f"Expected {args.expected_count} tasks, found {len(tasks)}")
     if len({task["task_id"] for task in tasks}) != len(tasks):
         errors.append("Task IDs are not unique")
-    if len({task["task_family"] for task in tasks}) != len(tasks):
-        errors.append("Task families are not unique")
 
     os.environ["ALFWORLD_DATA"] = str(data_root)
     from alfworld.agents.environment.alfred_tw_env import AlfredTWEnv
@@ -82,7 +91,7 @@ def main() -> int:
                 observation_preview = observations[0][:160]
                 if not infos["admissible_commands"][0]:
                     task_errors.append("reset returned no admissible commands")
-            except Exception as error:  # Preserve the task-specific failure in the report.
+            except Exception as error:
                 task_errors.append(f"environment reset failed: {error}")
             finally:
                 env.close()
@@ -100,21 +109,20 @@ def main() -> int:
         errors.extend(f"{task['task_id']}: {error}" for error in task_errors)
 
     report = {
-        "experiment_id": "p0_0_vertical_slice",
-        "phase": "2_and_4_0",
+        "experiment_id": "task_set_validation",
+        "phase": "2d_d1",
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "manifest": str(MANIFEST_PATH.relative_to(ROOT)),
-        "data_root": str(data_root),
+        "manifest": str(manifest_path.relative_to(ROOT)),
         "task_count": len(tasks),
         "status": "passed" if not errors else "failed",
         "checks": checks,
         "errors": errors,
     }
-    REPORT_PATH.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2, ensure_ascii=False))
     return 0 if not errors else 1
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

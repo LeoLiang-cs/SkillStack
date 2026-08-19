@@ -14,7 +14,7 @@ from typing import Any, Dict
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_ROOT = ROOT / "data" / "alfworld"
-DEFAULT_OUTPUT = ROOT / "reports" / "phase1_alfworld_smoke.json"
+DEFAULT_OUTPUT = ROOT / "reports" / "week1" / "phase1_alfworld_smoke.json"
 
 
 def parse_args() -> argparse.Namespace:

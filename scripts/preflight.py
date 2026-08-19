@@ -26,7 +26,7 @@ REQUIRED_FILES = (
     "README.md",
     "pyproject.toml",
     "configs/p0_smoke.yaml",
-    "reports/phase0_manifest.json",
+    "reports/week1/phase0_manifest.json",
 )
 
 

@@ -1,0 +1,83 @@
+{
+  "manifest_version": "p0.0-picktwo9-v1",
+  "environment": {
+    "split": "valid_unseen",
+    "data_root": "data/alfworld",
+    "seed": 42
+  },
+  "selection_rule": "Nine solvable pick_two_obj_and_place trials with object-type diversity (CD, keys, salt shaker, pillow, soap, toilet paper) and destination diversity (safe, drawer, sofa, couch, cabinet, trash bin).",
+  "tasks": [
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Transfer the two CDs from the desk to the vault.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two sets of keys in the safe. ",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Place two salt shakers in a drawer.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two pillows on the sofa.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two bars of soap in the cabinet.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Throw two bars of soap in the trash bin.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Secure two discs in a bedroom safe.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two pillows on the couch.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put toilet paper rolls in a cabinet under the sink.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010/game.tw-pddl"
+    }
+  ]
+}

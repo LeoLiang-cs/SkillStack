@@ -1,0 +1,132 @@
+{
+  "experiment_id": "w3_2_factorial",
+  "phase": "3c_factorial",
+  "pilot_type": "RQ3 retrieval x composition factorial",
+  "design": {
+    "retrievers": {
+      "R0": "lexical",
+      "R1": "task_semantic"
+    },
+    "executors": {
+      "E0": "flat ReAct",
+      "E1": "structured ReAct"
+    },
+    "cells": {
+      "b00": "R0 x E0",
+      "b10": "R1 x E0",
+      "b01": "R0 x E1",
+      "b11": "R1 x E1",
+      "control": "no-skill x E0 (ablation, excluded from I)"
+    },
+    "task_manifest": "configs/p0_tasks_picktwo9.json",
+    "max_steps": 20,
+    "seed": 42
+  },
+  "raw_runs": {
+    "b00": {
+      "run_id": "20260818T154917764174Z_w3_2_b00",
+      "run_directory": "runs/20260818T154917764174Z_w3_2_b00",
+      "retriever": "debug_lexical_top_k",
+      "structured_skills": false
+    },
+    "b10": {
+      "run_id": "20260818T155258922797Z_w3_2_b10",
+      "run_directory": "runs/20260818T155258922797Z_w3_2_b10",
+      "retriever": "task_semantic_top_k",
+      "structured_skills": false
+    },
+    "b01": {
+      "run_id": "20260818T155625913852Z_w3_2_b01",
+      "run_directory": "runs/20260818T155625913852Z_w3_2_b01",
+      "retriever": "debug_lexical_top_k",
+      "structured_skills": true
+    },
+    "b11": {
+      "run_id": "20260818T155938729458Z_w3_2_b11",
+      "run_directory": "runs/20260818T155938729458Z_w3_2_b11",
+      "retriever": "task_semantic_top_k",
+      "structured_skills": true
+    },
+    "control": {
+      "run_id": "20260818T161157142962Z_w3_2_control",
+      "run_directory": "runs/20260818T161157142962Z_w3_2_control",
+      "retriever": "no_skill",
+      "structured_skills": false
+    }
+  },
+  "cell_metrics": {
+    "b00": {
+      "episode_count": 9,
+      "success_count": 5,
+      "success_rate": 0.5556,
+      "mean_steps": 16.44,
+      "mean_llm_calls": 17.44,
+      "total_cost_estimate_usd": 0.033403
+    },
+    "b10": {
+      "episode_count": 9,
+      "success_count": 5,
+      "success_rate": 0.5556,
+      "mean_steps": 16.0,
+      "mean_llm_calls": 16.89,
+      "total_cost_estimate_usd": 0.02929
+    },
+    "b01": {
+      "episode_count": 9,
+      "success_count": 5,
+      "success_rate": 0.5556,
+      "mean_steps": 15.56,
+      "mean_llm_calls": 16.22,
+      "total_cost_estimate_usd": 0.031876
+    },
+    "b11": {
+      "episode_count": 9,
+      "success_count": 5,
+      "success_rate": 0.5556,
+      "mean_steps": 15.44,
+      "mean_llm_calls": 16.11,
+      "total_cost_estimate_usd": 0.027801
+    },
+    "control": {
+      "episode_count": 9,
+      "success_count": 3,
+      "success_rate": 0.3333,
+      "mean_steps": 18.22,
+      "mean_llm_calls": 19.67,
+      "total_cost_estimate_usd": 0.032576
+    }
+  },
+  "interactions": {
+    "success_rate": {
+      "metric": "success_rate",
+      "y11": 0.5556,
+      "y10": 0.5556,
+      "y01": 0.5556,
+      "y00": 0.5556,
+      "i": 0.0
+    },
+    "mean_steps": {
+      "metric": "mean_steps",
+      "y11": 15.44,
+      "y10": 15.56,
+      "y01": 16.0,
+      "y00": 16.44,
+      "i": 0.32
+    },
+    "total_cost": {
+      "metric": "total_cost_estimate_usd",
+      "y11": 0.027801,
+      "y10": 0.031876,
+      "y01": 0.02929,
+      "y00": 0.033403,
+      "i": 3.8e-05
+    }
+  },
+  "verdict_on_success": "approximately_independent",
+  "interpretation": "I = Y11 - Y10 - Y01 + Y00 with A=retriever (R1 vs R0) and B=executor (E1 vs E0). Positive I on success = synergy; near zero = independent; negative = redundancy or interference. Success tolerance: ±1e-9.",
+  "interpretation_limits": [
+    "n=9 pick_two tasks; raw counts only.",
+    "Single seed at temperature 0; sampling nondeterminism across providers applies.",
+    "Control cell is an ablation reference and is excluded from I."
+  ]
+}

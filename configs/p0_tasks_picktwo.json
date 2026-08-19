@@ -1,0 +1,35 @@
+{
+  "manifest_version": "p0.0-picktwo-set-v1",
+  "environment": {
+    "split": "valid_unseen",
+    "data_root": "data/alfworld",
+    "seed": 42
+  },
+  "selection_rule": "The three pick_two_obj_and_place tasks from the hard manifest.",
+  "tasks": [
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Transfer the two CDs from the desk to the vault.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two shakers in a drawer.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435/game.tw-pddl"
+    },
+    {
+      "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "task_family": "pick_two_obj_and_place",
+      "expected_skill_id": "skill_pick_two_then_place",
+      "task_instruction": "Put two pillows on the sofa.",
+      "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/traj_data.json",
+      "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/game.tw-pddl"
+    }
+  ]
+}

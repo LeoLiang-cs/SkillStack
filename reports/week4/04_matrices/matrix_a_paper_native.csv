@@ -1,0 +1,7 @@
+paper_id,boundary_id,benchmark_split,host_model,library_or_data,budget,native_metrics,required_controls,key_ablations,transfer_or_stress,seeds_and_statistics,axis_provenance,target_fidelity_status,observed_fidelity_status,execution_status,blocker_notes
+skillreranker,full_selector,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/skillreranker.md,reconstructed,TBD,blocked,official source and exact library snapshot not verified
+grasp_dag,full_orchestrator,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/grasp.md,reconstructed,TBD,blocked,typed library memory prompts verifiers and source not verified
+skillcat,full_cce_aae_tte,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/skillcat.md,reconstructed,TBD,blocked,source prompts replay artifacts and topology implementation not verified
+skillrl,full_training_pipeline,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/skillrl.md,paper_faithful,TBD,not_run,substantial compute and paper-source variant decision required
+grasp_gate,method_run,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/grasp_gate.md,source_variant,TBD,not_run,native task and endpoint setup required; strict disjoint first-batch probe required for paper-faithful label
+skillops,library_maintenance,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,algorithm_cards/skillops.md,paper_faithful,TBD,blocked,full paper loop and paper-scale artifacts absent; released primitives use separate source_variant rows

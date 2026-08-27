@@ -1,0 +1,51 @@
+{
+  "fixture_id": "w4_i3_historical_failure_v1",
+  "fixture_kind": "historical_trace_interface_fixture",
+  "source_run_id": "20260818T154917764174Z_w3_2_b00",
+  "source_task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197",
+  "source_outcome": {
+    "success": false,
+    "stop_reason": "max_steps_exhausted"
+  },
+  "failed_trajectories": [
+    {
+      "task": "Place two salt shakers in a drawer.",
+      "task_type": "pick_two_obj_and_place",
+      "trajectory": [
+        {
+          "action": "open drawer 3",
+          "observation": "You open the drawer 3. The drawer 3 is open. In it, you see a dishsponge 2, and a fork 1."
+        },
+        {
+          "action": "go to countertop 1",
+          "observation": "You arrive at countertop 1. On the countertop 1, you see a apple 1, a creditcard 2, a egg 1, and a tomato 1."
+        },
+        {
+          "action": "go to countertop 2",
+          "observation": "You arrive at countertop 2. On the countertop 2, you see a bread 1, a butterknife 1, a cellphone 1, a cup 3, a knife 1, a pan 1, a papertowelroll 1, a peppershaker 1, a saltshaker 1, and a spatula 1."
+        },
+        {
+          "action": "take peppershaker 1 from countertop 2",
+          "observation": "You pick up the peppershaker 1 from the countertop 2."
+        },
+        {
+          "action": "go to countertop 3",
+          "observation": "You arrive at countertop 3. On the countertop 3, you see a butterknife 2, a creditcard 3, a dishsponge 3, a houseplant 1, a knife 2, a lettuce 1, a peppershaker 2, a spatula 3, a vase 3, a vase 2, and a vase 1."
+        }
+      ]
+    }
+  ],
+  "current_skills": {
+    "general_skills": [],
+    "task_specific_skills": {
+      "pick_two_obj_and_place": [
+        {
+          "skill_id": "static_pick_two",
+          "title": "Collect Both Before Placement",
+          "principle": "Locate and collect both required objects before completing the placement sequence.",
+          "when_to_apply": "When the task requests two objects of the same type."
+        }
+      ]
+    }
+  }
+}

@@ -19,6 +19,25 @@ ADAPTER_EVENT_FIELDS = (
     "warnings",
 )
 EXECUTOR_REPORT_FIELDS = ("actions", "observations", "rewards", "success", "stop_reason", "warnings")
+PROPOSAL_ENVELOPE_FIELDS = (
+    "proposal_id",
+    "producer_method",
+    "source_commit",
+    "native_action",
+    "native_payload",
+    "normalized_action",
+    "normalized_name",
+    "normalized_description",
+    "normalized_content",
+    "normalized_tags",
+    "triggering_evidence_ids",
+    "adapter_events",
+    "unsupported_semantics",
+    "writer_model",
+    "decoding",
+    "call_usage",
+    "parse_status",
+)
 
 
 def require_fields(

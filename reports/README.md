@@ -9,7 +9,8 @@ evidence stays immutable under `runs/`.
 | `week1/` | P0.0 vertical slice (Phases 0–7): environment smoke, frozen tasks, static library, C0/C1 interchangeability pilot, friction ledger, advisor brief | Complete |
 | `week2/` | Phase 2A: skill-conditioned execution — deterministic multi-step executor × four skill-input conditions | Complete |
 | `week3/` | Phase 2C+2D: LLM ReAct executor swap, ceiling finding, tight-budget skill signal, GLM few-shot attribution | Complete |
-| `week3_2/` | Phase 3: RQ3 retrieval × composition 2×2 factorial + Canonical Interface v1 induction | In progress |
+| `week3_2/` | Phase 3: RQ3 retrieval × composition 2×2 factorial + Canonical Interface v1 induction | Complete |
+| `week4/` | Cross-paper A-slot component portability: GRASP proposer vs SkillRL updater under a fixed GRASP gate | Compatibility complete; task performance environment-blocked |
 
 ## Week 1 (P0.0)
 
@@ -48,3 +49,15 @@ evidence stays immutable under `runs/`.
 - `w3_2_rq1_assessment.md` — RQ1 reference-architecture assessment
 - `w3_2_advisor_brief.md` / `_zh.md` — fifth advisor update
 - `docs/canonical_interface_v1.md` — interface induction draft
+
+## Week 4 (Cross-paper component portability)
+
+- `README.md` — Week 4 navigation, directory roles and claim boundaries
+- `00_overview/w4_advisor_brief_zh.md` — sixth advisor update
+- `00_overview/week4_final_summary_zh.md` — internal final technical summary
+- `01_planning/decisions/week4_research_goal_corrected_zh.md` — meeting-driven goal correction
+- `02_paper_analysis/` — six Algorithm Cards and architecture crosswalk
+- `03_protocols/` — performance-matrix protocol and frozen A-slot integration specification
+- `04_matrices/` — paper-native, portability and dry-run matrices
+- `05_experiments/` — source, gate-parity, provider and paired-compatibility evidence
+- `90_archive/` — superseded planning and daily progress notes retained for provenance

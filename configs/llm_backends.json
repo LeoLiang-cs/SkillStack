@@ -1,8 +1,30 @@
 {
-  "_comment": "LLM backends for executor experiments. Keys come from environment variables (.env, git-ignored), never from this file. Prices are list prices at config time (2026-08-18) and are used only for per-run cost estimation.",
+  "_comment": "LLM backends for executor experiments. Keys come from environment variables (.env, git-ignored), never from this file. Public API prices are list prices at config time; ASU-hosted access is recorded as zero personal API cost because it is provided by the lab.",
   "backends": {
+    "asu_glm_5_2": {
+      "label": "ASU-hosted GLM-5-2 (primary substituted writer)",
+      "base_url": "https://openai.rc.asu.edu/v1/chat/completions",
+      "model": "glm-5-2",
+      "api_key_env": "ASU_API_KEY",
+      "prices_usd_per_1m": {
+        "input": 0.0,
+        "cached_input": 0.0,
+        "output": 0.0
+      }
+    },
+    "asu_qwen3_235b_thinking_2507": {
+      "label": "ASU-hosted Qwen3-235B-A22B-Thinking-2507 (reasoning comparison)",
+      "base_url": "https://openai.rc.asu.edu/v1/chat/completions",
+      "model": "qwen3-235b-a22b-thinking-2507",
+      "api_key_env": "ASU_API_KEY",
+      "prices_usd_per_1m": {
+        "input": 0.0,
+        "cached_input": 0.0,
+        "output": 0.0
+      }
+    },
     "zhipu_glm_flashx": {
-      "label": "GLM-4.7-FlashX (primary)",
+      "label": "GLM-4.7-FlashX (budget fallback)",
       "base_url": "https://api.z.ai/api/paas/v4/chat/completions",
       "model": "glm-4.7-flashx",
       "api_key_env": "GLM_API_KEY",
@@ -14,7 +36,7 @@
       }
     },
     "deepseek_v4_flash": {
-      "label": "DeepSeek V4-Flash (secondary)",
+      "label": "DeepSeek V4-Flash (validated fallback)",
       "base_url": "https://api.deepseek.com/chat/completions",
       "model": "deepseek-v4-flash",
       "api_key_env": "DEEPSEEK_API_KEY",

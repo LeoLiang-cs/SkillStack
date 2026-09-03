@@ -1,4 +1,4 @@
-"""Run matched DeepSeek A0-GRASP and A1-SkillRL compatibility cells."""
+"""Run matched provider-substituted A0-GRASP and A1-SkillRL compatibility cells."""
 
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--grasp-root", type=Path, required=True)
     parser.add_argument("--skillrl-root", type=Path, required=True)
-    parser.add_argument("--backend", default="deepseek_v4_flash")
+    parser.add_argument("--backend", default="asu_glm_5_2")
     parser.add_argument("--fixture", type=Path, default=DEFAULT_FIXTURE)
     parser.add_argument("--output-root", type=Path, default=ROOT / "runs")
     args = parser.parse_args()
@@ -82,7 +82,7 @@ def main() -> int:
             item["status"] == "reached_gate" for item in cell["candidate_boundaries"]
         )
 
-    writer = JsonlTraceWriter(args.output_root, "w4_a_slot_paired_deepseek_smoke")
+    writer = JsonlTraceWriter(args.output_root, f"w4_a_slot_paired_{backend.name}_smoke")
     manifest = {
         "experiment_id": "w4_a_slot_paired_provider_substituted_smoke",
         "run_id": writer.run_id,
@@ -116,7 +116,9 @@ def main() -> int:
                 "compatibility_boundary_complete"
                 if cell["valid_candidate_count"] > 0 else "no_valid_candidate"
             ),
-            "warnings": ["Provider-substituted DeepSeek writer; no task-performance claim."],
+            "warnings": [
+                f"Provider-substituted {backend.model} writer; no task-performance claim."
+            ],
         })
     comparison = _comparison(a0, a1)
     writer.write_summary({
@@ -184,7 +186,7 @@ def _run_a0(grasp_root: Path, backend, failures, evidence_id: str):
             call_usage=usage,
         )
         return {
-            "cell_id": "A0_GRASP_DEEPSEEK",
+            "cell_id": f"A0_GRASP_{backend.name.upper()}",
             "producer": "GRASP classify_diagnose_group_propose",
             "failure_labels": labels,
             "new_failure_labels": new_labels,
@@ -221,7 +223,7 @@ def _run_a1(skillrl_root: Path, backend, failures, current_skills, evidence_id: 
         decoding={"temperature": 0, "provider_substituted": True}, call_usage=usage,
     )
     return {
-        "cell_id": "A1_SKILLRL_DEEPSEEK",
+        "cell_id": f"A1_SKILLRL_{backend.name.upper()}",
         "producer": "SkillRL analyze_failures prompt_parser",
         "prepared_request": prepared,
         "raw_model_content": completion["content"],

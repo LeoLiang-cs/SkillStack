@@ -42,8 +42,19 @@ class ParseResponseTests(unittest.TestCase):
 class BackendConfigTests(unittest.TestCase):
     def test_load_backends_from_repo_config(self):
         backends = load_backends()
+        self.assertIn("asu_glm_5_2", backends)
+        self.assertIn("asu_qwen3_235b_thinking_2507", backends)
         self.assertIn("zhipu_glm_flashx", backends)
         self.assertIn("deepseek_v4_flash", backends)
+        asu = backends["asu_glm_5_2"]
+        self.assertEqual("https://openai.rc.asu.edu/v1/chat/completions", asu.base_url)
+        self.assertEqual("glm-5-2", asu.model)
+        self.assertEqual("ASU_API_KEY", asu.api_key_env)
+        self.assertFalse(asu.thinking_disabled)
+        asu_qwen = backends["asu_qwen3_235b_thinking_2507"]
+        self.assertEqual("qwen3-235b-a22b-thinking-2507", asu_qwen.model)
+        self.assertEqual("ASU_API_KEY", asu_qwen.api_key_env)
+        self.assertFalse(asu_qwen.thinking_disabled)
         glm = backends["zhipu_glm_flashx"]
         self.assertEqual("glm-4.7-flashx", glm.model)
         self.assertTrue(glm.thinking_disabled)

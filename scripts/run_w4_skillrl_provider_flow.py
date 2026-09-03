@@ -31,7 +31,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--skillrl-root", type=Path, required=True)
     parser.add_argument("--grasp-root", type=Path, required=True)
-    parser.add_argument("--backend", default="zhipu_glm_flashx")
+    parser.add_argument("--backend", default="asu_glm_5_2")
     parser.add_argument("--fixture", type=Path, default=DEFAULT_FIXTURE)
     parser.add_argument("--output-root", type=Path, default=ROOT / "runs")
     args = parser.parse_args()

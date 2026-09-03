@@ -63,11 +63,12 @@ class LlmClient:
 
     def chat(
         self,
-        messages: List[Dict[str, str]],
+        messages: List[Dict[str, Any]],
         max_tokens: Optional[int] = None,
         temperature: Optional[float] = None,
+        tools: Optional[List[Dict[str, Any]]] = None,
     ) -> Dict[str, Any]:
-        """Send one chat completion and return content + usage + latency."""
+        """Send one chat completion and retain content or native tool calls."""
 
         max_tokens = max_tokens if max_tokens is not None else int(self.backend.defaults.get("max_tokens_per_step", 512))
         temperature = temperature if temperature is not None else float(self.backend.defaults.get("temperature", 0))
@@ -79,6 +80,8 @@ class LlmClient:
         }
         if self.backend.thinking_disabled:
             payload["thinking"] = {"type": "disabled"}
+        if tools:
+            payload["tools"] = tools
 
         for attempt in range(1, self.max_retries + 1):
             started = time.monotonic()
@@ -132,12 +135,23 @@ class LlmClient:
     @staticmethod
     def _parse_response(body: Dict[str, Any], latency_seconds: float) -> Dict[str, Any]:
         try:
-            content = body["choices"][0]["message"]["content"] or ""
-        except (KeyError, IndexError) as error:
+            native_message = body["choices"][0]["message"]
+            content = native_message.get("content") or ""
+            tool_calls = native_message.get("tool_calls") or []
+            if not content and not tool_calls:
+                raise KeyError("message has neither content nor tool_calls")
+        except (KeyError, IndexError, TypeError) as error:
             raise LlmError(f"Malformed completion response: {error}") from error
         usage = body.get("usage") or {}
+        message = {
+            "role": native_message.get("role") or "assistant",
+            "content": content,
+        }
+        if tool_calls:
+            message["tool_calls"] = tool_calls
         return {
             "content": content,
+            "message": message,
             "usage": {
                 "prompt_tokens": usage.get("prompt_tokens", 0),
                 "completion_tokens": usage.get("completion_tokens", 0),

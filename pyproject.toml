@@ -1,14 +1,33 @@
 [project]
 name = "skillstack"
-version = "0.0.1"
+version = "0.1.0a0"
 description = "Experimental harness for studying composable Skill Agent components"
 readme = "README.md"
 requires-python = ">=3.9,<3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
 dependencies = [
-    "alfworld",
-    "openai",
     "pyyaml",
 ]
 
-[tool.uv]
-package = false
+[project.optional-dependencies]
+alfworld = [
+    "alfworld",
+]
+
+[project.scripts]
+skillstack = "skillstack.cli:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

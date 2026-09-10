@@ -3,14 +3,110 @@
 SkillStack studies whether independently designed Skill Agent components can be
 swapped and composed without hidden assumptions breaking execution.
 
-## Current milestone: P0.0 vertical slice
+## Installation and command-line entry
+
+SkillStack currently supports Python 3.9 and 3.10. Install the repository and
+run the zero-model preflight with `uv`:
+
+```bash
+uv sync
+uv run skillstack --version
+uv run skillstack preflight
+```
+
+The preflight reads only local repository files. It downloads no benchmark
+data, makes no network requests, and requires no API key. The historical script
+entry remains available as `uv run python scripts/preflight.py`.
+
+ALFWorld experiments are optional and use a separate dependency extra:
+
+```bash
+uv sync --extra alfworld
+```
+
+LLM-backed experiments use provider credentials from environment variables.
+Copy `.env.example` to the git-ignored `.env`, fill only the provider you plan
+to use, and never commit that file. Installing SkillStack or running the
+preflight does not make a model call.
+
+## Quality checks
+
+The local quality gate uses no benchmark data, credentials, network requests or
+model calls:
+
+```bash
+uv run skillstack check-repo
+uv run python -m compileall -q src scripts tests
+uv run python -m unittest discover -s tests -q
+uv build
+```
+
+GitHub Actions runs the same checks on Python 3.9 and 3.10. The repository
+scanner validates local Markdown links, JSON/YAML syntax, UTF-8 text, final
+newlines, private absolute paths and common credential patterns.
+
+Before preparing a tag, run the isolated public-snapshot check. It creates a
+temporary local Git repository, clones it, and repeats installation, preflight,
+repository scan, Demo, tests, and package build:
+
+```bash
+uv run skillstack release-check
+```
+
+
+## Zero-model composability demo
+
+The repository includes a one-task, deterministic fixture that exercises two
+retriever cells through the same adapter, recorded-action executor, trace
+writer, and CLI path. It requires no ALFWorld data, credentials, model calls,
+or network access:
+
+```bash
+uv run skillstack demo
+```
+
+See [`examples/demo/README.md`](examples/demo/README.md) for the output files
+and interpretation. Fixture completion and a changed retrieval selection are
+runtime demonstrations only; they are not benchmark or agent-performance
+claims.
+
+## Current status: composability harness with Week 1–5 evidence
+
+The repository contains a working research harness, controlled component-swap
+experiments, adapter and lifecycle checks, and claim-bounded reports through
+Week 5. The current implementation is an experimental testbed, not a finished
+agent product and not a validated implementation of the proposed BLM method.
+
+## Research scope and claim boundary
+
+SkillStack studies whether independently designed Skill Agent components can be
+swapped and composed without hidden assumptions breaking execution. Its main
+research object is component composability and interaction, not ranking one
+agent implementation as universally better than another.
+
+The BLM cards retained privately under `docs/final_cards/` are a proposed
+research direction and are excluded from the public alpha snapshot. They are
+not evidence that atom census, saved-state replay, or differentiated
+restoration has already been implemented.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development and evidence rules,
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for redistributed material,
+and the
+[`third-party provenance register`](docs/open_source/THIRD_PARTY_PROVENANCE.md)
+for external integration boundaries.
+
+SkillStack-authored code and documentation are released under the
+[`MIT License`](LICENSE). Third-party material retains its separately recorded
+license and notice.
+
+## Historical P0.0 vertical slice
 
 P0.0 is an operational validation, not a performance claim. It will establish
 a reproducible ALFWorld text-environment pipeline with a small static skill
 library, a control configuration, structured traces, and an adapter-friction
 ledger.
 
-### In scope tonight
+### Historical scope
 
 - A text-only ALFWorld smoke test.
 - Five fixed `valid_unseen` tasks and reproducibility settings.
@@ -18,7 +114,7 @@ ledger.
 - A no-skill control and one transparent debug retriever.
 - Raw episode traces and an adapter-friction ledger.
 
-### Explicitly out of scope tonight
+### Historical non-goals
 
 - Reproducing SkillReranker or GraSP.
 - A full Retrieval x Composition factorial experiment.
@@ -30,11 +126,19 @@ ledger.
 ```text
 configs/                 Reproducible experiment settings
 skills/alfworld_static/  Native static skill artifacts
+examples/demo/           Zero-model deterministic fixture and expected fingerprint
 src/skillstack/          Environment, retrieval, execution, and tracing code
 scripts/                 Runnable entry points
 runs/                    Immutable raw run outputs (git-ignored)
 reports/week1/           P0.0 milestone reports (Phases 0–7)
 reports/week2/           Phase 2A plan and results
+reports/week3/           executor-swap and LLM pilot experiments
+reports/week3_2/         retrieval × composition factorial evidence
+reports/week4/           cross-paper portability evidence
+reports/week5/           SkillOps maintenance and A-slot evidence
+docs/original/            original framework and runtime contracts
+docs/open_source/         release scope and publication audit
+docs/final_cards/         held research candidate cards
 tests/                   Lightweight checks
 ```
 
@@ -97,7 +201,7 @@ perform one genuine ALFWorld reset for each with:
 uv run python scripts/validate_p0_tasks.py
 ```
 
-[`docs/p0_runtime_contracts.md`](docs/p0_runtime_contracts.md) defines the
+[`docs/original/p0_runtime_contracts.md`](docs/original/p0_runtime_contracts.md) defines the
 small P0.0 boundary payloads used by the loader and forthcoming retriever,
 adapter, executor, and trace writer. These are not a Canonical Skill Interface.
 
@@ -220,6 +324,7 @@ uv run python scripts/summarize_w3_react_pilot.py --backend zhipu_glm_flashx \
 
 ## Reports organization
 
-`reports/` is organized by research week. `reports/week1/` holds the P0.0
-vertical-slice milestone reports (Phases 0–7). `reports/week2/` holds the
-Phase 2A plan and results. Future weeks receive their own directories.
+`reports/` is organized by research week. Start with
+[`reports/README.md`](reports/README.md) for the complete map, status labels and
+claim boundaries. The original framework and current research-candidate policy
+are documented under [`docs/`](docs/README.md).

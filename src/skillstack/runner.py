@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
 
 from skillstack.adapters.retrieval_to_execution import adapt_retrieval_for_execution
 from skillstack.contracts import TASK_RECORD_FIELDS, require_fields
@@ -20,11 +20,15 @@ class EpisodeRunner:
         native_skills: List[Dict[str, Any]],
         retriever: Any,
         executor: Any,
+        environment_factory: Optional[
+            Callable[[Path, Dict[str, Any]], Tuple[Any, str, Dict[str, Any]]]
+        ] = None,
     ) -> None:
         self.data_root = data_root.resolve()
         self.native_skills = native_skills
         self.retriever = retriever
         self.executor = executor
+        self.environment_factory = environment_factory
 
     def run(
         self,
@@ -47,9 +51,14 @@ class EpisodeRunner:
         }
         env = None
         try:
-            env, initial_observation, initial_info = create_single_game_environment(
-                self.data_root, task_record["game_file"]
-            )
+            if self.environment_factory is None:
+                env, initial_observation, initial_info = create_single_game_environment(
+                    self.data_root, task_record["game_file"]
+                )
+            else:
+                env, initial_observation, initial_info = self.environment_factory(
+                    self.data_root, task_record
+                )
             retrieval_response = self.retriever.retrieve(
                 task_record, initial_observation, self.native_skills, top_k
             )
@@ -92,4 +101,3 @@ class EpisodeRunner:
             if env is not None:
                 env.close()
         return trace
-

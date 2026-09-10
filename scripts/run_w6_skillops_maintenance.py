@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 from skillstack.experiments.skillops_maintenance import (
@@ -26,8 +27,11 @@ from skillstack.experiments.skillops_performance import (
 from skillstack.llm import load_env_file
 
 
-DEFAULT_SKILLOPS = Path("/Users/leo/Project/Research/USC/FORTIS/_external/week6/SkillOps")
-DEFAULT_GRASP = Path("/Users/leo/Project/Research/USC/FORTIS/_external/week5/GRASP")
+EXTERNAL_ROOT = Path(
+    os.environ.get("SKILLSTACK_EXTERNAL_ROOT", str(Path(__file__).resolve().parents[2] / "_external"))
+).expanduser()
+DEFAULT_SKILLOPS = EXTERNAL_ROOT / "week6" / "SkillOps"
+DEFAULT_GRASP = EXTERNAL_ROOT / "week5" / "GRASP"
 
 
 def parse_args() -> argparse.Namespace:

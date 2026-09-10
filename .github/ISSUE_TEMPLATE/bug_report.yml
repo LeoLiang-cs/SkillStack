@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible defect in the SkillStack harness.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please remove credentials, private paths, and generated model content before submitting.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the exact command and smallest safe fixture or configuration.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SkillStack version or commit
+      placeholder: v0.1.0-alpha or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Execution path
+      options:
+        - Zero-model local path
+        - ALFWorld optional integration
+        - GRASP external integration
+        - SkillRL external integration
+        - SkillOps external integration
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Safe output or trace reference
+      description: Paste a redacted error or link a claim-bounded repository artifact.
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Submission checks
+      options:
+        - label: I removed secrets, private absolute paths, and private data.
+          required: true
+        - label: I stated whether this used an external checkout, provider, or benchmark service.
+          required: true

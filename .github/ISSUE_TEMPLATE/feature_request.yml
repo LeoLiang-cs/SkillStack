@@ -1,0 +1,44 @@
+name: Feature request
+description: Propose a scoped harness, interface, or reproducibility improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and research value
+      description: Describe the missing capability without assuming a particular solution.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Proposed scope
+      description: Name the affected component slots, interfaces, and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Falsifiable acceptance criteria
+      description: State the fixture, control, trace, or test that would show the change works.
+    validations:
+      required: true
+  - type: dropdown
+    id: fidelity
+    attributes:
+      label: External-method impact
+      options:
+        - No external method
+        - Existing fidelity label unchanged
+        - Fidelity register update required
+        - Unsure
+    validations:
+      required: true
+  - type: checkboxes
+    id: claim
+    attributes:
+      label: Claim boundary
+      options:
+        - label: I am not treating a proposed feature as an implemented or validated research result.
+          required: true

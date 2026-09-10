@@ -1,0 +1,40 @@
+name: Research evidence or fidelity correction
+description: Report an evidence mismatch, provenance gap, or overclaim.
+title: "[Evidence]: "
+labels: [research-evidence]
+body:
+  - type: input
+    id: artifact
+    attributes:
+      label: Affected artifact or claim
+      placeholder: reports/week4/... or component_fidelity.yaml entry
+    validations:
+      required: true
+  - type: textarea
+    id: mismatch
+    attributes:
+      label: Observed mismatch
+      description: Distinguish implementation, compatibility, acceptance, and measured performance.
+    validations:
+      required: true
+  - type: textarea
+    id: provenance
+    attributes:
+      label: Source and provenance
+      description: Provide the upstream repository, commit, paper section, fixture, or trace.
+    validations:
+      required: true
+  - type: dropdown
+    id: proposed_label
+    attributes:
+      label: Proposed fidelity label
+      options:
+        - paper_faithful
+        - source_variant
+        - reconstructed
+        - paper_inspired
+        - blocked
+        - not_applicable_local
+        - No label change
+    validations:
+      required: true

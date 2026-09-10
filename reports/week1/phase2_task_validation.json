@@ -3,7 +3,7 @@
   "phase": "2_and_4_0",
   "timestamp_utc": "2026-08-10T22:21:12.388380+00:00",
   "manifest": "configs/p0_tasks.json",
-  "data_root": "/Users/leo/Project/Research/USC/FORTIS/SkillStack/data/alfworld",
+  "data_root": "data/alfworld",
   "task_count": 5,
   "status": "passed",
   "checks": [

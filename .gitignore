@@ -14,6 +14,12 @@ data/alfworld/
 # Local secrets: API keys must never be committed.
 .env
 .env.*
+!.env.example
+
+# Local Python build outputs.
+build/
+dist/
+*.egg-info/
 
 # Throwaway dev probes and unrelated local files (contract scans, one-off scripts).
 tmp/

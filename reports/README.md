@@ -2,7 +2,8 @@
 
 Reports are organized by research week. Each week directory is append-mostly:
 plans are committed before runs, summaries refuse to overwrite, and raw
-evidence stays immutable under `runs/`.
+evidence stays immutable under `runs/`. Reports are evidence artifacts, not a
+substitute for source-faithful reproduction or statistical validation.
 
 | Directory | Content | Status |
 |---|---|---|
@@ -11,6 +12,7 @@ evidence stays immutable under `runs/`.
 | `week3/` | Phase 2C+2D: LLM ReAct executor swap, ceiling finding, tight-budget skill signal, GLM few-shot attribution | Complete |
 | `week3_2/` | Phase 3: RQ3 retrieval × composition 2×2 factorial + Canonical Interface v1 induction | Complete |
 | `week4/` | Cross-paper A-slot component portability: GRASP proposer vs SkillRL updater under a fixed GRASP gate | Compatibility complete; task performance environment-blocked |
+| `week5/` | SkillOps maintenance cycle and A-slot performance evidence | Complete with source/provider limitations recorded |
 
 ## Week 1 (P0.0)
 
@@ -48,7 +50,7 @@ evidence stays immutable under `runs/`.
 - `w3_2_friction_ledger.md` — ledger additions (F-22 … F-25)
 - `w3_2_rq1_assessment.md` — RQ1 reference-architecture assessment
 - `w3_2_advisor_brief.md` / `_zh.md` — fifth advisor update
-- `docs/canonical_interface_v1.md` — interface induction draft
+- `../docs/original/canonical_interface_v1.md` — interface induction draft
 
 ## Week 4 (Cross-paper component portability)
 
@@ -61,3 +63,24 @@ evidence stays immutable under `runs/`.
 - `04_matrices/` — paper-native, portability and dry-run matrices
 - `05_experiments/` — source, gate-parity, provider and paired-compatibility evidence
 - `90_archive/` — superseded planning and daily progress notes retained for provenance
+
+## Week 5 (SkillOps maintenance and A-slot evidence)
+
+- `01_planning/skillops_maintenance_experiment_plan_zh.md` — frozen plan and
+  execution commands with external roots supplied by arguments or
+  `SKILLSTACK_EXTERNAL_ROOT`
+- `02_paper_analysis/skillops_refresh_zh.md` — source and method refresh
+- `05_experiments/` — maintenance summaries and evidence audit
+- `00_overview/` and `skill/` — advisor brief, weekly report and meeting outline
+
+Week 5 distinguishes model/provider substitution, compatibility, lifecycle
+maintenance, and measured task performance. A passing adapter or gate check is
+not by itself a general portability or superiority claim.
+
+## Thursday open-source validation
+
+The repository-level zero-model composability demo is documented in
+[`../examples/demo/README.md`](../examples/demo/README.md). It exercises C0/C1
+retrieval through the shared adapter, recorded executor, deterministic fixture,
+and immutable trace writer. Its fixture completion and stable fingerprint are
+runtime checks only, not benchmark evidence.

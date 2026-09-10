@@ -198,11 +198,11 @@ M1–M5 harness 已存在。下面 M4/M5 命令作为已完成运行的复现与
 ### 先做零成本 preflight
 
 ```bash
-cd /Users/leo/Project/Research/USC/FORTIS/SkillStack
+cd <skillstack-root>
 PYTHONPATH=src uv run python scripts/run_w6_skillops_maintenance.py \
   --phase preflight \
-  --skillops-root /Users/leo/Project/Research/USC/FORTIS/_external/week6/SkillOps \
-  --grasp-root /Users/leo/Project/Research/USC/FORTIS/_external/week5/GRASP \
+  --skillops-root <external-root>/week6/SkillOps \
+  --grasp-root <external-root>/week5/GRASP \
   --source-run runs/week5/w5_a_slot_seed2_deepseek_flash \
   --preflight-only
 ```
@@ -217,7 +217,7 @@ split 完整、`model_calls_made=false`。短阶段不需要 5060/5061、Docker 
 `--resume`，只用于恢复中断运行。
 
 ```bash
-cd /Users/leo/Project/Research/USC/FORTIS/SkillStack
+cd <skillstack-root>
 PYTHONPATH=src uv run python scripts/run_w6_skillops_maintenance.py \
   --phase evaluate \
   --split val \
@@ -234,7 +234,7 @@ PYTHONPATH=src uv run python scripts/run_w6_skillops_maintenance.py \
 144 episodes、2,224 次模型调用、估算成本 **$1.29214**。
 
 ```bash
-cd /Users/leo/Project/Research/USC/FORTIS/SkillStack
+cd <skillstack-root>
 PYTHONPATH=src uv run python scripts/run_w6_skillops_maintenance.py \
   --phase evaluate \
   --split val \

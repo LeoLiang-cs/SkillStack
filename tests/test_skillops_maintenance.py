@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,7 +13,13 @@ from skillstack.experiments.skillops_maintenance import (
 )
 
 
-SKILLOPS_ROOT = Path("/Users/leo/Project/Research/USC/FORTIS/_external/week6/SkillOps")
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+SKILLOPS_ROOT = Path(
+    os.environ.get(
+        "SKILLSTACK_SKILLOPS_ROOT",
+        str(REPOSITORY_ROOT.parent / "_external" / "week6" / "SkillOps"),
+    )
+).expanduser()
 
 
 @unittest.skipUnless((SKILLOPS_ROOT / "skillops" / "maintenance.py").is_file(), "pinned SkillOps checkout unavailable")

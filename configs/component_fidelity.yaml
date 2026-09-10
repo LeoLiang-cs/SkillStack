@@ -1,0 +1,53 @@
+schema_version: 1
+vocabulary_source: reports/week4/03_protocols/performance_matrix_protocol.md
+labels:
+  paper_faithful: Paper algorithm, assets, split, and required controls are preserved.
+  source_variant: Released source behavior differs materially from the paper and the difference is named.
+  reconstructed: Behavior is reconstructed from public descriptions without complete source artifacts.
+  paper_inspired: The component is motivated by a paper but does not reproduce its method.
+  blocked: Required artifacts, credentials, or environment are unavailable and no success is claimed.
+  not_applicable_local: SkillStack-native diagnostic or control with no paper-fidelity claim.
+qualifiers:
+  source_component_experiment: A released component is exercised without claiming a full-method reproduction.
+  cross_paper_slot_experiment: A component is adapted into another method's fixed slot boundary.
+  provider_substituted: The original model provider is replaced and the result is not source-faithful.
+components:
+  skillstack_fixture_demo:
+    source: SkillStack
+    fidelity: not_applicable_local
+    redistributed: true
+    claim: Deterministic local compatibility demonstration only.
+  grasp_proposer_under_grasp_gate:
+    source: https://github.com/jomoll/GRASP
+    commit: 9d7d125a3e9b46ed591692475eb07aff4ae67d34
+    fidelity: source_variant
+    qualifiers: [source_component_experiment]
+    redistributed: false
+    claim: Source component and repository-boundary compatibility, not full GRASP reproduction.
+  skillrl_updater_under_grasp_gate:
+    source: https://github.com/aiming-lab/SkillRL
+    commit: 8e66726ed866a4e0a7f053586a41022798192e6c
+    fidelity: source_variant
+    qualifiers: [cross_paper_slot_experiment]
+    redistributed: false
+    claim: Adapted ADD-only updater compatibility; MODIFY and REMOVE are unsupported.
+  skillrl_provider_substituted_flow:
+    source: https://github.com/aiming-lab/SkillRL
+    commit: 8e66726ed866a4e0a7f053586a41022798192e6c
+    fidelity: source_variant
+    qualifiers: [cross_paper_slot_experiment, provider_substituted]
+    redistributed: false
+    claim: Released prompt and parser path with a substituted provider, not source-faithful SkillRL.
+  skillops_maintenance_sweep:
+    source: https://github.com/Hik289/SkillOps
+    commit: c80b05246369c0b9d82a293390ca5add675c516a
+    fidelity: source_variant
+    qualifiers: [source_component_experiment]
+    redistributed: false
+    claim: Released maintenance primitives in a local sweep, not the complete paper loop or CGPD result.
+  complete_skillops_method:
+    source: https://github.com/Hik289/SkillOps
+    commit: c80b05246369c0b9d82a293390ca5add675c516a
+    fidelity: blocked
+    redistributed: false
+    claim: Missing released artifacts prevent a complete paper-faithful result.

@@ -60,8 +60,11 @@ from skillstack.llm import LlmClient, load_backends, load_env_file
 
 
 BACKEND_NAME = "deepseek_v4_flash"
-DEFAULT_GRASP_ROOT = Path("/Users/leo/Project/Research/USC/FORTIS/_external/week5/GRASP")
-DEFAULT_SKILLRL_ROOT = Path("/Users/leo/Project/Research/USC/FORTIS/_external/week5/SkillRL")
+EXTERNAL_ROOT = Path(
+    os.environ.get("SKILLSTACK_EXTERNAL_ROOT", str(ROOT.parent / "_external"))
+).expanduser()
+DEFAULT_GRASP_ROOT = EXTERNAL_ROOT / "week5" / "GRASP"
+DEFAULT_SKILLRL_ROOT = EXTERNAL_ROOT / "week5" / "SkillRL"
 DEFAULT_OUTPUT_ROOT = ROOT / "runs" / "week5"
 DEFAULT_RUN_NAME = "w5_a_slot_seed2_deepseek_flash"
 

@@ -1,4 +1,4 @@
-"""Backward-compatible wrapper for the installed SkillStack preflight command."""
+"""Compatibility wrapper for the public zero-model composability demo."""
 
 from __future__ import annotations
 
@@ -9,11 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from skillstack.preflight import run_preflight
-
-
-def main() -> int:
-    return run_preflight(ROOT)
+from skillstack.demo import main
 
 
 if __name__ == "__main__":

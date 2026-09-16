@@ -14,7 +14,7 @@
 | repository | repository root（本轮 invocation cwd） |
 | baseline HEAD | `67957b9b0630bbe80fde76ca9ca10a7834fad57a` |
 | plan commit | `67957b9` (`docs: plan R1-R0 BLM calibration preparation`) |
-| execution evidence commit | `5939faf140511aefc5055dc2b457760ac6560447`（最小 replay fixture、协议与审计制品） |
+| execution evidence commit | `5939fafc312a2d3a84ff87c12a49ca5f6b501c64`（最小 replay fixture、协议与审计制品） |
 | branch | `main` |
 | upstream | `origin/main` |
 | ahead / behind | `0 / 0` |

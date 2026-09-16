@@ -1,0 +1,40 @@
+{
+  "schema_version": "skillstack-r1-00-replay-evidence-v1",
+  "audit_date": "2026-09-16",
+  "baseline_commit": "67957b9b0630bbe80fde76ca9ca10a7834fad57a",
+  "command": "uv run python -m unittest -v tests.test_blm_r1_00_replay",
+  "network_calls": 0,
+  "model_calls": 0,
+  "test_count": 3,
+  "test_status": "pass",
+  "reference_reconstruction_count": 3,
+  "reference_exact_match": true,
+  "noop_exact_match": true,
+  "reference": {
+    "selected_skill_ids": ["skill_heat_then_place"],
+    "actions": [
+      "go to shelf 1",
+      "take mug 1 from shelf 1",
+      "go to microwave 1",
+      "heat mug 1 with microwave 1",
+      "go to desk 1",
+      "move mug 1 to desk 1"
+    ],
+    "stop_reason": "environment_done",
+    "success": true,
+    "consumer_branch": "skill_heat_then_place"
+  },
+  "no_skill_control": {
+    "selected_skill_ids": [],
+    "actions": [
+      "go to shelf 1",
+      "take mug 1 from shelf 1",
+      "go to desk 1",
+      "move mug 1 to desk 1"
+    ],
+    "stop_reason": "environment_done",
+    "success": false,
+    "consumer_branch": "generic_no_skill_plan"
+  },
+  "claim_boundary": "calibration-only feasibility evidence; not ALFWorld benchmark or natural-case evidence"
+}

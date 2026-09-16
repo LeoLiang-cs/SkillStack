@@ -31,7 +31,7 @@ G0 与 G1 的拆分原本是发布工程顺序，而不是科研边界：
 | 阶段 | 内容 | 出口条件 | 状态 |
 |---|---|---|---|
 | F0 研究工程基础 | 原 G0+G1：repo 基线、运行契约、trace/resume、测试、package smoke、CI、安全边界 | 本地与 hosted gate 通过；研究运行可追踪、可恢复 | complete (`fc6a446`) |
-| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | R1-R0 planning |
+| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | R1-00 complete；R1-01 next |
 | R2 自然案例与增量 | 筛选真实跨组件案例；比较 schema check、ablation、restoration 等简单基线 | 至少一个有效自然案例或有价值的可靠阴性；明确 BLM 的增量与成本 | planned |
 | R3 正式协议与实验 | 冻结任务、arms、重复数、预算、统计、排除和停止规则；执行确认实验 | raw evidence 完整；结果可重算；发现集与确认集分离 | planned |
 | R4 论文完成 | 完成方法、实验、相关工作、限制、图表和 claim-evidence map | 每项论文主张能映射到实际数据、代码和 manifest | planned |
@@ -41,16 +41,17 @@ F0 之后不再插入独立“开源完成 gate”。只有会损害实验正确
 
 ## 4. 当前下一阶段：R1 BLM 定义与校准
 
-R1 首先执行 [R1-R0 BLM 校准准备计划](r1_r0_blm_calibration_preparation_plan_list_zh.md)，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls；通过后才进入以下 R1-01～R1-05。
+R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 精确 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。
 
-### R1-01 冻结第一个测量边界
+### R1-01 实现第一个测量边界
 
-- 选择一个明确的 D→C（Discovery/Selection → Composition/Execution）handoff。
-- 固定 Consumer、任务起始状态和正常消费路径。
-- 列出 declared semantics、实际传输字段、Consumer read sites 与 outcome。
-- 不用 A→L proposer/updater 实验替代 D→C 场景。
+- 使用 R1-00 已选的 `Retriever → adapter → SkillPlanExecutor`，不再重新选 boundary。
+- 在 adapter return 后、Consumer read 前增加默认关闭的最小 capture/intervention hook；不改变 Consumer 让其读取新字段。
+- 只实现 first-handoff boundary record、donor/type/state validation、identity read atom 与 unread negative probes。
+- opt-in trace 保存 original/effective input hash、read-map ID、arm、Consumer branch 与 validity reason；禁止 outcome setter。
+- focused test 复用 R1-00 heat fixture，并运行完整 core/credential/hosted CI gate。
 
-验收：可以用一张表回答“谁产生什么、谁读取什么、在哪里读取、结果如何判定”。
+验收：default-off、3× replay 与 no-op exact；合法 intervention 在 Consumer read 前生效；invalid donor/type/state 在 Consumer 前拒绝；unread changes 不产生 semantic effect。完整 R1-01 文件与测试入口以 R1-00 completion record 为准。
 
 ### R1-02 建立状态重建与 no-op 基线
 

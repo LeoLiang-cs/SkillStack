@@ -1,0 +1,92 @@
+schema_version: skillstack-blm-calibration-protocol-v1
+protocol_id: r1_00_c1_skillplan
+status: frozen_not_executed_as_full_protocol
+audit_date: "2026-09-16"
+baseline_commit: 67957b9b0630bbe80fde76ca9ca10a7834fad57a
+
+boundary:
+  producer_family: Retriever
+  adapter: skillstack.adapters.retrieval_to_execution.adapt_retrieval_for_execution
+  consumer: skillstack.execution.skillplan.SkillPlanExecutor
+  intervention_point: after_adapter_before_consumer_read
+  task_id: r1_00_heat_calibration
+  consumer_fixed: true
+  replay_state_fixed: true
+  budget:
+    top_k: 1
+    max_steps: 12
+    step_budget_per_plan_step: 24
+
+outcomes:
+  primary: environment_task_oracle
+  exact_compare:
+    - boundary_input
+    - actions
+    - stop_reason
+    - success
+    - consumer_branch
+  retained:
+    - action_trace
+    - stop_reason
+    - consumer_branch
+    - validity_reason
+  forbidden_direct_interventions:
+    - action
+    - reward
+    - done
+    - success
+  statistics: exact_deterministic_comparison_no_p_value_no_power_claim
+
+arms:
+  - id: reference
+    input: reference_producer_output
+    expected_role: positive_calibration
+  - id: crossed
+    input: crossed_producer_output
+    expected_role: calibration_fault_baseline
+  - id: crossed_noop
+    input: crossed_output_observed_but_unchanged
+    expected_role: instrumentation_control
+  - id: crossed_single_atom
+    input: restore_one_preregistered_read_atom_from_valid_donor
+    expected_role: atom_effect
+  - id: matched_carrier_control
+    input: same_type_length_position_without_reference_semantics
+    expected_role: carrier_confound_control
+  - id: crossed_full_reference_restoration
+    input: restore_preregistered_reference_group_before_consumer_read
+    expected_role: full_restoration_control
+  - id: invalid_donor_rejection
+    input: donor_with_invalid_provenance_or_semantics
+    expected_role: reject_before_consumer
+  - id: invalid_type_state_rejection
+    input: schema_type_or_replay_state_mismatch
+    expected_role: reject_before_consumer
+  - id: irrelevant_unread_information
+    input: modify_selected_scores_or_unread_payload_without_read_atom_change
+    expected_role: negative_control
+
+validity_order:
+  - replay_complete
+  - noop_exact
+  - donor_valid
+  - type_and_state_valid
+  - intervention_precedes_consumer_read
+  - outcome_observed
+
+stop_conditions:
+  carrier_matches_semantic_effect: abstained_carrier_confound
+  noop_changes_result: measurement_invalid_noop_changed_result
+  donor_leaks_answer: invalid_donor
+  replay_mismatch: abstained_replay_state_incomplete
+  consumer_does_not_read_atom: negative_control_only
+  requires_consumer_replacement: abstained_wrong_boundary
+
+claim_boundary:
+  allowed: deterministic_calibration_measurement_result
+  prohibited:
+    - blm_is_effective
+    - natural_case_evidence
+    - alfworld_benchmark_result
+    - general_contract_completeness
+    - novelty

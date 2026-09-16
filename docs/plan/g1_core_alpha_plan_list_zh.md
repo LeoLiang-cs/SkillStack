@@ -1,7 +1,7 @@
 # G1 健全核心 Alpha 完成计划清单
 
 - 日期：2026-09-16
-- 状态：`in_progress_hosted_pending`；核心实现与本地验收已收口，等待验收提交的 Ubuntu/macOS、Python 3.11/3.12 hosted CI。正式 release packet、tag、GitHub Release、PyPI、`CITATION.cff` 和 BLM 实验按项目负责人决定延期，不阻塞核心 G1。
+- 状态：`core_complete`；验收提交 `fc6a446` 已通过 Ubuntu/macOS、Python 3.11/3.12 hosted CI。正式 release packet、tag、GitHub Release、PyPI、`CITATION.cff` 和 BLM 实验按项目负责人决定延期，不阻塞核心 G1。
 - 对应总计划：[SkillStack 开源工程与 BLM 完整计划 v3](skillstack_blm_master_plan_v3_zh.md)
 - 对应任务：O02–O07 / G1
 - 目标工期：单人约 6–10 个专注工作日；以 gate 为准，不以日历自动结束。
@@ -28,18 +28,18 @@ G1 只有在以下结果同时成立时完成：
 7. 路径、凭证、网络重试、预算、失败保留和发布回滚边界通过检查。
 8. 本轮完成记录绑定唯一验收 SHA、制品 hash、支持矩阵、测试摘要、已知限制和回滚边界；正式 release packet 延期。
 
-## 2. 当前已知缺口
+## 2. 收口结果与保留边界
 
-- `skillstack demo` 的安装包资源缺口已在 Batch 1 修复；wheel/sdist 已在 Python 3.10 historical 与 Python 3.12 macOS fresh venv 通过 package smoke，hosted/Ubuntu evidence 仍待补。
+- `skillstack demo` 的安装包资源缺口已在 Batch 1 修复；wheel/sdist 已在 Python 3.10 historical、Python 3.12 macOS local 与 Python 3.12 hosted Ubuntu fresh venv 通过 package smoke。
 - `src/skillstack/llm/client.py` 已加入包内安全 metadata fallback，`.env` 默认仅看当前工作目录；O02-02 的配置优先级、schema/字段校验和未知 backend 诊断已收口。
-- `preflight`、`check-repo`、`release-check` 是 repo/contributor 命令，但目前与普通用户命令共用同一入口，边界说明不足。
-- `pyproject.toml`、锁文件和 CI 已配置 3.11/3.12 maintained matrix；Python 3.12 macOS local full core gate 已通过，尚无 hosted Linux/macOS 实际结果。
+- `preflight`、`check-repo`、`release-check` 是 repo/contributor 命令；CLI 诊断和文档已将其与普通安装包用户入口分开。
+- `pyproject.toml`、锁文件和 CI 已配置 3.11/3.12 maintained matrix；四个 hosted Linux/macOS cells 均已通过 full core gate。
 - demo/core path 已使用统一 manifest/summary/status schema、identity hash 和 writer resume 检查；Week 2–5 脚本仍保留 historical entrypoint，尚未迁移。
 - `JsonlTraceWriter` 已规范化用户 `run_id` 并拒绝绝对路径、`..` 和 output-root 逃逸；partial-tail/cancelled/missing-summary、retry/budget policy fixture 已补。
-- CI 已配置 Ubuntu 3.11/3.12 与 macOS 3.11/3.12；wheel/sdist 历史环境已通过脱离 checkout smoke，hosted gate 结果仍待补。
+- CI 已验证 Ubuntu 3.11/3.12 与 macOS 3.11/3.12；Ubuntu 3.12 wheel/sdist 已通过脱离 checkout smoke。
 - README、CONTRIBUTING、release notes、publication audit 和 O06 指南已同步当前边界；旧版本表述仅保留为 historical reproduction 说明。
 
-这些是 G1 的输入问题，不是已经完成的能力。
+上述条目记录核心 G1 的实际完成面；Week 2–5 historical entrypoint 迁移、Windows、正式发布与 BLM 仍在当前范围之外。
 
 ## 3. 依赖与执行顺序
 
@@ -118,7 +118,7 @@ O02 exit：安装包在非 repo 目录可使用；所有默认资源来自包内
 
 ### O03-00 冻结支持声明
 
-- [x] maintained core：Python 3.11、3.12；Ubuntu Linux 与 macOS（矩阵已配置，实际 hosted 证据待补）。
+- [x] maintained core：Python 3.11、3.12；Ubuntu Linux 与 macOS（hosted matrix 已验证）。
 - [x] Windows 标为 `unverified`，不写成支持或不支持。
 - [x] Python 3.9/3.10 标为 `historical reproduction`，不再作为 maintained core 承诺。
 - [x] ALFWorld、AgentBench、GRASP、SkillRL、SkillOps 使用各自锁定环境/服务边界，不因 core 升级改写历史证据。
@@ -136,10 +136,10 @@ O02 exit：安装包在非 repo 目录可使用；所有默认资源来自包内
 
 ### O03-02 平台矩阵验证
 
-- [ ] Ubuntu：Python 3.11/3.12 跑 core offline gate（hosted evidence pending）。
-- [x] macOS：Python 3.12 已跑 import、demo、tests、wheel/sdist install smoke；若宣称 3.11 也支持，则补同等级证据。
-- [x] 记录本地 macOS 架构、Python patch、uv 版本、依赖锁 hash 和运行日期；hosted Linux 记录仍待 CI。
-- [ ] 平台特有失败进入 known issues；不能用另一平台通过替代。
+- [x] Ubuntu：Python 3.11/3.12 已跑 hosted core offline gate；3.12 另跑 packaging acceptance。
+- [x] macOS：Python 3.11/3.12 已跑 hosted core offline gate；3.12 另有 local wheel/sdist install smoke。
+- [x] 记录本地与 hosted 架构、Python patch、uv 版本、依赖锁 hash、运行日期和 hosted URL。
+- [x] 平台特有失败进入 known issues；当前验收无平台特有失败。
 
 O03 exit：维护支持与历史复现彻底分开，目标矩阵有实际运行证据，未验证平台不被宣传。
 
@@ -207,18 +207,18 @@ O04 exit：第三方能判断“计划了什么、实际跑了什么、哪些结
 ### O05-01 建立测试入口
 
 - [x] 保留一个快速 core offline 命令，默认零网络、零模型、零外部数据。
-- [x] 新增 packaging acceptance 入口，真实安装构建出的 wheel/sdist，而不是 import checkout 源码（hosted 结果待补）。
+- [x] 新增 packaging acceptance 入口，真实安装构建出的 wheel/sdist，而不是 import checkout 源码；hosted Ubuntu 3.12 已通过。
 - [x] maintained offline contract fixture 合法、轻量、可再分发；`tests/test_offline_contract_integration.py` 重算 raw JSONL 与 summary，外部来源 fidelity 仍由各 adapter 测试覆盖。
 - [x] 对 skip 设置允许原因清单；必需层出现意外 skip 时 gate 失败。
 - [x] `scripts/run_core_gate.py` 输出运行数、skip 数、平台、Python、失败项和可选制品 hash，不只输出退出码。
 
 ### O05-02 更新 CI
 
-- [x] Ubuntu 3.11/3.12 执行 core offline；Ubuntu 3.12 job 已接入 G0 release-check 与 packaging acceptance（hosted 结果待补）。
-- [x] macOS 3.12 执行最小 maintained-platform smoke（workflow 已配置，hosted 结果待补）。
+- [x] Ubuntu 3.11/3.12 执行 core offline；Ubuntu 3.12 job 另执行 packaging acceptance。
+- [x] macOS 3.11/3.12 执行 core offline、demo 和 build smoke。
 - [x] workflow 权限维持 `contents: read`，外部 action 固定不可变 commit，PR 不注入 secrets。
 - [x] 缓存只加速依赖，不作为实验/测试证据来源；core/packaging JSON 摘要独立上传保留。
-- [ ] hosted CI URL、commit 和结果进入 G1 completion record；本地通过不能替代 hosted gate。
+- [x] hosted CI URL、commit 和结果进入 G1 completion record；本地通过未被用于替代 hosted gate。
 
 O05 exit：G1 必需路径无意外 skip；平台/packaging 证据可定位；研究或模型测试仍与普通 CI 隔离。
 
@@ -238,7 +238,7 @@ O05 exit：G1 必需路径无意外 skip；平台/packaging 证据可定位；�
 ### O06-01 文档命令验收
 
 - [x] quickstart 中的 version/help/config/demo 无网络命令在 wheel 和 sdist fresh venv 逐条执行；metadata/license/entrypoint 与卸载后 import 也已检查。
-- [ ] contributor 命令在干净 checkout 执行。
+- [x] contributor 命令在 hosted CI 的干净 checkout 执行。
 - [x] ALFWorld/live provider 命令标明前提、预计调用和未运行状态，不把模板写成完成证据。
 - [x] 扫描 broken links、旧 Python 版本、旧测试计数、作者绝对路径和“BLM 已实现”等过期表述。
 - [x] 历史报告不重写；通过当前索引解释其时间和支持边界。
@@ -285,17 +285,17 @@ O07 exit：安全门禁无 P0 finding；release packet 与验收 SHA、制品 ha
 
 | Gate | 必须满足的证据 | 状态 |
 |---|---|---|
-| G1-A 项目检查点 | G0/G1 基础已按正常项目粒度提交并推送 | verified (`5340b0f`) |
-| G1-B Wheel 用户路径 | 非 repo 全新环境完成 import/version/demo/config smoke | verified_local |
-| G1-C Sdist 用户路径 | 非 repo 全新环境完成同等级验收 | verified_local |
-| G1-D 资源与配置 | 默认资源不依赖 checkout；配置优先级和 secret 边界通过测试 | verified_local |
-| G1-E 支持矩阵 | 3.11/3.12 Linux + macOS 证据与 metadata/CI 一致 | in_progress_hosted_pending |
-| G1-F 输出契约 | manifest/trace/summary schema、identity 和状态模型通过 | verified_local |
-| G1-G Resume/完整性 | 漂移、重复、部分写入、取消、路径逃逸测试通过 | verified_local |
-| G1-H 测试分层 | core/packaging/integration 无意外 skip；可选层状态明确 | in_progress_hosted_pending |
-| G1-I Hosted CI | 验收 SHA 的必需 jobs 全部成功 | planned_hosted |
-| G1-J 文档 | 用户/贡献者/研究文档命令与实际状态一致 | verified_local_hosted_checkout_pending |
-| G1-K 安全维护 | secret、路径、网络、预算、权限、依赖与回滚检查通过 | verified_local_hosted_pending |
+| G1-A 项目检查点 | G0/G1 基础已按正常项目粒度提交并推送 | verified (`fc6a446`) |
+| G1-B Wheel 用户路径 | 非 repo 全新环境完成 import/version/demo/config smoke | verified |
+| G1-C Sdist 用户路径 | 非 repo 全新环境完成同等级验收 | verified |
+| G1-D 资源与配置 | 默认资源不依赖 checkout；配置优先级和 secret 边界通过测试 | verified |
+| G1-E 支持矩阵 | 3.11/3.12 Linux + macOS 证据与 metadata/CI 一致 | verified |
+| G1-F 输出契约 | manifest/trace/summary schema、identity 和状态模型通过 | verified |
+| G1-G Resume/完整性 | 漂移、重复、部分写入、取消、路径逃逸测试通过 | verified |
+| G1-H 测试分层 | core/packaging/integration 无意外 skip；可选层状态明确 | verified |
+| G1-I Hosted CI | 验收 SHA 的必需 jobs 全部成功 | verified ([run 35158925050](https://github.com/LeoLiang-cs/SkillStack/actions/runs/35158925050)) |
+| G1-J 文档 | 用户/贡献者/研究文档命令与实际状态一致 | verified |
+| G1-K 安全维护 | secret、路径、网络、预算、权限、依赖与回滚检查通过 | verified |
 | G1-L Release packet | 正式制品发布整理 | deferred_by_owner_nonblocking |
 
 判定规则：当前核心 G1 要求 G1-A 至 G1-K 全部 `verified`，且没有未关闭 P0 finding。G1-L 已由项目负责人移出当前范围；若未来恢复发布工作，则必须绑定同一验收 SHA，`planned` 或 `pass on a different SHA` 均不算通过。

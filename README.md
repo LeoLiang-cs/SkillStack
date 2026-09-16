@@ -47,8 +47,8 @@ uv run python scripts/run_core_gate.py --summary report/week7/g1_core_gate_local
 uv build
 ```
 
-GitHub Actions runs the same checks on Linux Python 3.11/3.12 and macOS Python
-3.12. The repository
+GitHub Actions runs the same checks on Linux and macOS with Python 3.11/3.12.
+The repository
 scanner validates local Markdown links, JSON/YAML syntax, UTF-8 text, final
 newlines, private absolute paths and common credential patterns.
 `run_core_gate.py` records Python/platform, test/failure/error/skip counts and

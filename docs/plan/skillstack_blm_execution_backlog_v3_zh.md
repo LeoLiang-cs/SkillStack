@@ -2,7 +2,7 @@
 
 - 日期：2026-09-15
 - 配套：[完整总计划](skillstack_blm_master_plan_v3_zh.md)、[方法定义](../original/skillstack_draft_framework_2.md)。
-- 状态：G0 正式 commit gate 仍待 owner；G1 正在执行，O02/O04/O05/O06/O07 的本地技术项已有验收，hosted/final-SHA gate 未完成。旧能力仍不能替代同一验收 SHA 的最终证据。
+- 状态：核心 G1 已在验收提交 `fc6a446` 完成本地与 hosted gate；正式 release packet、tag、PyPI、引用信息和 BLM 实验按项目负责人决定延期，不阻塞核心 G1。旧能力仍不能替代同一验收 SHA 的证据。
 - 本地研究材料；公开清单决定前不纳入release。
 - 优先级P0为所列gate的阻断项，P1为后续完整交付必需；不是删除低优先级任务。
 
@@ -35,9 +35,9 @@
 ### Batch A：发布与核心安装
 
 - G0 的逐项实施、测试和退出条件以 [G0 发布隔离完成计划清单](g0_release_isolation_plan_list_zh.md) 为准。
-- [ ] 保存当前tracked/untracked清单与基线SHA，确保已有用户文件不被混合提交。
-- [ ] O01：修复release选择，新增实际误入路径的回归测试。
-- [x] O02：在隔离环境安装实际发行包，记录资源/配置/root缺口，再完成必要修复；wheel/sdist fresh-venv acceptance 已通过，hosted/final-SHA 仍待补。
+- [x] 保存当前 tracked/untracked 清单与基线 SHA，确保已有用户文件不被混合提交。
+- [x] O01：修复 release 选择，新增实际误入路径的回归测试。
+- [x] O02：在隔离环境安装实际发行包，记录资源/配置/root 缺口并修复；wheel/sdist fresh-venv acceptance 已在本地 macOS 与 hosted Ubuntu 通过。
 - [x] 更新发布文档中的CI状态与测试/skip计数；所有陈述注明验证版本。
 - [x] 输出 G0 记录和 G1 剩余缺口；不把包“build成功”当作包“使用成功”。
 

@@ -31,6 +31,7 @@ environment. Do not list an artifact as verified from `uv build` alone.
 - Integration fixture command and result:
 - Linux/Python 3.11:
 - Linux/Python 3.12:
+- macOS/Python 3.11:
 - macOS/Python 3.12:
 - Hosted CI URL and commit:
 - Test pass/skip counts:

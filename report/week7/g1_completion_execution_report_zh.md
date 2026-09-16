@@ -1,9 +1,9 @@
 # G1 核心 Alpha 完成执行记录
 
 - 日期：2026-09-16
-- 状态：`in_progress_hosted_pending`
+- 状态：`core_complete`
 - 分支：`main`
-- 基础检查点：`5340b0f`（已推送至 `origin/main`）
+- 核心验收提交：`fc6a446`（已推送至 `origin/main`）
 - 范围：O02–O07 中的核心工程、测试、文档与安全门禁
 
 ## 1. 项目决策与完成边界
@@ -51,7 +51,22 @@
 
 <https://github.com/LeoLiang-cs/SkillStack/actions/runs/35157897068>
 
-失败发生在 public-repository file check，而非平台运行逻辑：46 个 reference Markdown 缺失最终换行、一个相对链接错误、五个 package acceptance JSON 含作者绝对路径。上述问题均已修复；新验收提交及 hosted run URL 待本轮提交后补入。
+失败发生在 public-repository file check，而非平台运行逻辑：46 个 reference Markdown 缺失最终换行、一个相对链接错误、五个 package acceptance JSON 含作者绝对路径。上述问题均已修复。
+
+核心验收提交 `fc6a446` 的 GitHub Actions run：
+
+<https://github.com/LeoLiang-cs/SkillStack/actions/runs/35158925050>
+
+四个必需 job 全部通过：
+
+| Hosted runner | Python | Core gate | Optional skips |
+|---|---|---:|---:|
+| Ubuntu x86_64 | 3.11.15 | 140 passed | 2 allowlisted |
+| Ubuntu x86_64 | 3.12.3 | 140 passed | 2 allowlisted |
+| macOS arm64 | 3.11.9 | 140 passed | 2 allowlisted |
+| macOS arm64 | 3.12.10 | 140 passed | 2 allowlisted |
+
+全部 cell 为 0 failures、0 errors、0 unexpected skip。Ubuntu Python 3.12 的 wheel/sdist fresh-environment acceptance 也通过：wheel SHA-256 `b5220ab65b3884c791b202c4de5a934a5dae6ba566dfb01b0a818b1e2c57b2a5`，sdist SHA-256 `a691b63d44769c6ba5d8e28f186d069ad0483fcdea2001dd6289968ab04e8840`。
 
 ## 4. 本地验收证据
 
@@ -65,7 +80,9 @@
 - Python 3.12.13 / macOS 26.6.2 arm64 完整 core gate：140 tests passed，1 个允许的 optional-data skip，0 failures/errors，0 model/network calls。
 - `preflight`、Python compile、`uv build` 与 `git diff --check`：通过。
 - core gate 记录：`g1_core_gate_local_final_312.json`。
-- staged secret scan 和 hosted matrix：待提交前/提交后执行，未推断为通过。
+- staged credential-pattern scan：通过；仅 `.env.example` 被 Git 跟踪，`.env` 未进入提交。
+- hosted matrix 与 Ubuntu packaging acceptance：通过，证据见上述 run。
+- 非阻塞维护提醒：GitHub runner 提示当前 pinned `actions/upload-artifact` 使用的 Node.js 20 action runtime 已被强制迁移到 Node.js 24；artifact 上传成功，不影响本次 gate，后续依赖维护时升级 action pin。
 
 ## 5. 当前无需决策的事项
 

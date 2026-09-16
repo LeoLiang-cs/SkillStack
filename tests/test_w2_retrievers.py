@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import subprocess
+import sys
 import unittest
 
 from skillstack.library import load_static_library
@@ -42,6 +45,19 @@ class RandomRetrieverTests(unittest.TestCase):
         self.assertEqual(3, len(response["ranked_candidates"]))
         for candidate in response["ranked_candidates"]:
             self.assertTrue(candidate["native_payload"].startswith("# "))
+
+    def test_seed_is_stable_across_python_processes(self) -> None:
+        code = (
+            "import json; "
+            "from skillstack.library import load_static_library; "
+            "from skillstack.retrieval import RandomSkillRetriever; "
+            "from skillstack.tasks import load_p0_tasks; "
+            "r=RandomSkillRetriever(42).retrieve(load_p0_tasks()[0], 'obs', load_static_library(), 2); "
+            "print(json.dumps(r['ranked_candidates'], sort_keys=True))"
+        )
+        first = subprocess.check_output([sys.executable, "-c", code], text=True)
+        second = subprocess.check_output([sys.executable, "-c", code], text=True)
+        self.assertEqual(json.loads(first), json.loads(second))
 
 
 if __name__ == "__main__":

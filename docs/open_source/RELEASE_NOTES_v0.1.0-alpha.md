@@ -2,6 +2,11 @@
 
 Status: release candidate documentation; MIT licensed; no tag has been created.
 
+G1 Batch 1 note (2026-09-16): the maintained core target is now Python
+3.11/3.12 on Linux/macOS. The older 3.9/3.10 statements below describe the
+historical alpha draft and are not current maintained-support evidence; see
+[`SUPPORT_MATRIX.md`](SUPPORT_MATRIX.md).
+
 Target tag: `v0.1.0-alpha`
 
 Package version: `0.1.0a0`
@@ -13,24 +18,31 @@ Package version: `0.1.0a0`
   same adapter, executor, and trace path.
 - Repository preflight and public-file scanner for credentials, private paths,
   invalid JSON/YAML, broken local links, and text hygiene.
-- Isolated 243-file public snapshot check that creates and clones a temporary
-  Git repository before repeating installation, Demo, tests, and build.
-- Python 3.9/3.10 CI, contributor guidance, structured issue/PR templates, and
-  third-party provenance plus component-fidelity records.
+- Commit-based public snapshot check with a versioned scope policy, per-file
+  SHA-256 manifest, dirty-worktree isolation, and source/wheel/sdist checks.
+- Maintained-support CI configuration for Python 3.11/3.12 on Linux/macOS;
+  Python 3.9/3.10 remains a historical reproduction boundary.
 
 ## Verified release-candidate checks
 
-On 2026-09-10, the isolated snapshot completed:
+On 2026-09-15, a temporary candidate containing the G0 implementation completed:
 
 - `uv sync --frozen`;
 - `skillstack preflight`;
-- `skillstack check-repo` with 237 files and zero findings;
+- `skillstack check-repo` with 238 files and zero findings;
 - `skillstack demo` with no model calls;
-- 108 unit tests;
+- 112 unit tests (2 conditional skips in the fresh-clone environment);
 - wheel and source-distribution builds.
 
-The same 108-test suite passed locally on Python 3.9 and 3.10, with one
-conditional external-integration test skipped in each environment.
+The temporary candidate selected 244 source files. Its source, wheel, and
+sdist manifests contained no forbidden or unsafe members. The current project
+`HEAD` is intentionally rejected until the scope policy is present in the
+selected commit.
+
+The older 108-test Python 3.9/3.10 result is historical evidence for the alpha
+draft, not a current maintained-support claim. G1 Batch 1 currently has local
+Python 3.10 historical and Python 3.12 macOS evidence; hosted Linux/macOS
+evidence and Python 3.11 remain pending.
 
 ## Scope and limitations
 
@@ -48,12 +60,14 @@ conditional external-integration test skipped in each environment.
 ## Remaining publication gates
 
 - Decide the target venue's anonymity policy before publishing research cards.
-- Push the candidate and observe the first hosted CI run.
+- Commit the G0 implementation in a narrow project commit, then observe the
+  first hosted CI run.
 - Review the final tracked-file list before creating the tag.
 
 ## What this alpha provides
 
-- A Python 3.9/3.10 package and `skillstack` command-line entry point.
+- A package and `skillstack` command-line entry point; the current maintained
+  target is Python 3.11/3.12, while 3.9/3.10 is historical reproduction.
 - Repository preflight and public-file checks that make no network or model
   calls.
 - A deterministic composability demo exercising two retrievers through the
@@ -62,7 +76,7 @@ conditional external-integration test skipped in each environment.
 - Explicit provenance and fidelity labels for GRASP, SkillRL, and SkillOps
   integration cells.
 - CI definitions for preflight, repository scanning, Demo, unit tests, and
-  package build on Python 3.9 and 3.10.
+  package build on the maintained target matrix (hosted result pending).
 
 ## Reproduce the zero-model path
 

@@ -5,8 +5,9 @@ swapped and composed without hidden assumptions breaking execution.
 
 ## Installation and command-line entry
 
-SkillStack currently supports Python 3.9 and 3.10. Install the repository and
-run the zero-model preflight with `uv`:
+SkillStack's maintained core matrix is Python 3.11 and 3.12 on Linux/macOS.
+Python 3.9 and 3.10 remain available only for historical reproduction of older
+experiments. Install the repository and run the zero-model preflight with `uv`:
 
 ```bash
 uv sync
@@ -17,6 +18,11 @@ uv run skillstack preflight
 The preflight reads only local repository files. It downloads no benchmark
 data, makes no network requests, and requires no API key. The historical script
 entry remains available as `uv run python scripts/preflight.py`.
+
+`preflight`, `check-repo`, and `release-check` are contributor/repository-only
+commands. Installed-package users should use `--version`, `demo`, and the
+generated output files; running a repo-only command outside a checkout returns
+an explicit diagnostic.
 
 ALFWorld experiments are optional and use a separate dependency extra:
 
@@ -37,13 +43,29 @@ model calls:
 ```bash
 uv run skillstack check-repo
 uv run python -m compileall -q src scripts tests
-uv run python -m unittest discover -s tests -q
+uv run python scripts/run_core_gate.py --summary report/week7/g1_core_gate_local.json
 uv build
 ```
 
-GitHub Actions runs the same checks on Python 3.9 and 3.10. The repository
+GitHub Actions runs the same checks on Linux Python 3.11/3.12 and macOS Python
+3.12. The repository
 scanner validates local Markdown links, JSON/YAML syntax, UTF-8 text, final
 newlines, private absolute paths and common credential patterns.
+`run_core_gate.py` records Python/platform, test/failure/error/skip counts and
+fails if a skip reason is not on the explicit optional-integration allowlist.
+
+For the slower wheel/sdist acceptance gate, run it deliberately on the target
+Python instead of reusing the development checkout. It builds both artifacts,
+creates fresh environments, installs each one, and runs the packaged demo from
+a non-repository directory:
+
+```bash
+uv run python scripts/check_package_install.py --python 3.12 \
+  --summary report/week7/g1_package_acceptance.json
+```
+
+The script performs no model or benchmark calls. Use `--keep-temp` when a
+failed install needs its logs and virtual environments preserved.
 
 Before preparing a tag, run the isolated public-snapshot check. It creates a
 temporary local Git repository, clones it, and repeats installation, preflight,
@@ -56,10 +78,10 @@ uv run skillstack release-check
 
 ## Zero-model composability demo
 
-The repository includes a one-task, deterministic fixture that exercises two
-retriever cells through the same adapter, recorded-action executor, trace
-writer, and CLI path. It requires no ALFWorld data, credentials, model calls,
-or network access:
+The repository and the installed wheel/sdist include a one-task, deterministic
+fixture that exercises two retriever cells through the same adapter,
+recorded-action executor, trace writer, and CLI path. It requires no ALFWorld
+data, credentials, model calls, or network access:
 
 ```bash
 uv run skillstack demo
@@ -94,6 +116,12 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development and evidence rules,
 and the
 [`third-party provenance register`](docs/open_source/THIRD_PARTY_PROVENANCE.md)
 for external integration boundaries.
+
+User installation, run recovery, architecture extensions, and reproducibility
+guidance are collected under [`docs/user/`](docs/user/),
+[`docs/development/`](docs/development/), and
+[`docs/research/`](docs/research/). The maintenance and release boundaries are
+in [`docs/open_source/MAINTENANCE.md`](docs/open_source/MAINTENANCE.md).
 
 SkillStack-authored code and documentation are released under the
 [`MIT License`](LICENSE). Third-party material retains its separately recorded
@@ -138,6 +166,9 @@ reports/week4/           cross-paper portability evidence
 reports/week5/           SkillOps maintenance and A-slot evidence
 docs/original/            original framework and runtime contracts
 docs/open_source/         release scope and publication audit
+docs/user/                package installation and run-recovery guides
+docs/development/         architecture and extension guidance
+docs/research/            reproducibility and claim boundaries
 docs/final_cards/         held research candidate cards
 tests/                   Lightweight checks
 ```

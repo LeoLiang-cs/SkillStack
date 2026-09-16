@@ -1,0 +1,9 @@
+{
+  "fixture_version": "deterministic_fixture_v1",
+  "task_id": "demo/inspect-lamp-boundary",
+  "task_family": "demo_boundary_validation",
+  "task_instruction": "Inspect an object with a desk lamp.",
+  "game_file": "examples/demo/task.json",
+  "expected_skill_id": "skill_light_inspection",
+  "benchmark_success_claim": false
+}

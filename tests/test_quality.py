@@ -29,6 +29,12 @@ class PublicRepositoryQualityTests(unittest.TestCase):
             {finding["kind"] for finding in findings},
         )
 
+    def test_repo_only_scan_rejects_non_checkout(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = inspect_repository(Path(directory))
+        self.assertEqual("fail", result["status"])
+        self.assertEqual("repo_only_command_requires_checkout", result["findings"][0]["kind"])
+
     def test_detects_broken_relative_markdown_link(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

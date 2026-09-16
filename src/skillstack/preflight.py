@@ -41,6 +41,7 @@ def evaluate_preflight(root: Path) -> Dict[str, Any]:
     """Return a machine-readable repository preflight result without network access."""
 
     workspace = root.expanduser().resolve()
+    repository_marker_present = (workspace / "pyproject.toml").is_file() and (workspace / ".git").exists()
     required_paths = (*REQUIRED_DIRECTORIES, *REQUIRED_FILES)
     missing = [path for path in required_paths if not (workspace / path).exists()]
 
@@ -53,17 +54,25 @@ def evaluate_preflight(root: Path) -> Dict[str, Any]:
     else:
         missing_markers = list(REQUIRED_CONFIG_MARKERS)
 
-    passed = not missing and not missing_markers
+    passed = repository_marker_present and not missing and not missing_markers
+    diagnostic = None
+    if not repository_marker_present:
+        diagnostic = (
+            "preflight is repo-only; run it from a SkillStack checkout or pass "
+            "--root <checkout>"
+        )
     return {
         "check": "skillstack_repository_preflight",
         "experiment_id": "p0_0_vertical_slice",
         "workspace": str(workspace),
+        "repository_marker_present": repository_marker_present,
         "python": sys.version.split()[0],
         "platform": f"{platform.system()} {platform.machine()}",
         "required_directories_present": not missing,
         "configuration_valid": not missing_markers,
         "missing": missing,
         "missing_configuration_markers": missing_markers,
+        "diagnostic": diagnostic,
         "status": "pass" if passed else "fail",
         "network_calls": 0,
         "model_calls": 0,

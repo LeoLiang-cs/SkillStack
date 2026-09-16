@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 from typing import Any, Dict, List
 
@@ -35,7 +36,9 @@ class RandomSkillRetriever:
         validate_retrieval_request(task_record, native_skills, top_k)
         # Shuffle deterministically per task so each task receives its own
         # wrong-skill draw instead of one shared shuffle across all tasks.
-        rng = random.Random((self.seed, task_record["task_id"]))
+        seed_material = f"{self.seed}\0{task_record['task_id']}".encode("utf-8")
+        stable_seed = int.from_bytes(hashlib.sha256(seed_material).digest()[:8], "big")
+        rng = random.Random(stable_seed)
         shuffled = list(native_skills)
         rng.shuffle(shuffled)
 

@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "technical_gate": "pass",
+  "artifact_gate": "pass",
+  "resolved_commit": "2ad50819c55d8586ffb58cfc15454645e97a0dec",
+  "files_selected": 244,
+  "files_copied": 244,
+  "total_bytes": 1264916,
+  "content_sha256": "d6dde494daff17d2ae65f70c7187dd31ee84cfdedfeaf1aa5fa9ef005e18fde5",
+  "manifest_sha256": "742b10475446de84c66f71f9e24e8977c010cc2eaad4cd14948d5c4bb3b00d8b",
+  "policy_sha256": "f948110995eddc9d364458b41196e105921728d446d7f5fcc702c3a1f45b75f7",
+  "license_gate": "pass",
+  "network_calls_by_skillstack": 0,
+  "model_calls": 0,
+  "tests": {
+    "passed": 112,
+    "skipped": 2
+  },
+  "artifacts": [
+    {
+      "path": "skillstack-0.1.0a0-py3-none-any.whl",
+      "bytes": 91330,
+      "sha256": "45912b7ff5f72872d3af0f1c88cbedc8ca5baaa252c4a1c18ea43623cbd1e591",
+      "member_count": 53,
+      "forbidden_members": [],
+      "unsafe_members": []
+    },
+    {
+      "path": "skillstack-0.1.0a0.tar.gz",
+      "bytes": 91006,
+      "sha256": "26fb893646d6742c0560758464724133e7b841b8ef70d7d72d2561bf7122c107",
+      "member_count": 84,
+      "forbidden_members": [],
+      "unsafe_members": []
+    }
+  ]
+}

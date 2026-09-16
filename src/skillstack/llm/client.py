@@ -8,19 +8,105 @@ reports usage and latency so episode traces can estimate cost.
 from __future__ import annotations
 
 import json
+import importlib.resources as package_resources
+import math
 import os
+import re
 import time
 import urllib.error
 import urllib.request
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Mapping, Optional
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 BACKENDS_PATH = REPOSITORY_ROOT / "configs" / "llm_backends.json"
+PACKAGED_BACKENDS = package_resources.files("skillstack.resources").joinpath(
+    "config/llm_backends.json"
+)
 
 
 class LlmError(RuntimeError):
     """Raised when a backend call fails after retries."""
+
+
+class BudgetExceededError(LlmError):
+    """Raised before or after a call would exceed the configured run budget."""
+
+
+@dataclass
+class RunBudget:
+    """Small run-level guard for provider calls and measured usage."""
+
+    max_calls: Optional[int] = None
+    max_prompt_tokens: Optional[int] = None
+    max_completion_tokens: Optional[int] = None
+    max_cost_usd: Optional[float] = None
+    calls: int = 0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    cost_usd: float = 0.0
+
+    @classmethod
+    def from_mapping(cls, values: Mapping[str, Any]) -> "RunBudget":
+        def optional_int(name: str) -> Optional[int]:
+            value = values.get(name)
+            return None if value is None else max(0, int(value))
+
+        def optional_float(name: str) -> Optional[float]:
+            value = values.get(name)
+            return None if value is None else max(0.0, float(value))
+
+        return cls(
+            max_calls=optional_int("max_calls_per_run"),
+            max_prompt_tokens=optional_int("max_prompt_tokens_per_run"),
+            max_completion_tokens=optional_int("max_completion_tokens_per_run"),
+            max_cost_usd=optional_float("max_cost_usd_per_run"),
+        )
+
+    def reserve_call(self) -> None:
+        if self.max_calls is not None and self.calls >= self.max_calls:
+            raise BudgetExceededError(
+                f"run call budget exhausted ({self.calls}/{self.max_calls} calls)"
+            )
+        self.calls += 1
+
+    def record(self, usage: Mapping[str, Any], cost_usd: float) -> None:
+        self.prompt_tokens += int(usage.get("prompt_tokens", 0) or 0)
+        self.completion_tokens += int(usage.get("completion_tokens", 0) or 0)
+        self.cost_usd += float(cost_usd)
+        if (
+            self.max_prompt_tokens is not None
+            and self.prompt_tokens > self.max_prompt_tokens
+        ):
+            raise BudgetExceededError(
+                "run prompt-token budget exhausted "
+                f"({self.prompt_tokens}/{self.max_prompt_tokens})"
+            )
+        if (
+            self.max_completion_tokens is not None
+            and self.completion_tokens > self.max_completion_tokens
+        ):
+            raise BudgetExceededError(
+                "run completion-token budget exhausted "
+                f"({self.completion_tokens}/{self.max_completion_tokens})"
+            )
+        if self.max_cost_usd is not None and self.cost_usd > self.max_cost_usd:
+            raise BudgetExceededError(
+                f"run cost budget exhausted (${self.cost_usd:.6f}/${self.max_cost_usd:.6f})"
+            )
+
+    def snapshot(self) -> Dict[str, Any]:
+        return {
+            "max_calls": self.max_calls,
+            "max_prompt_tokens": self.max_prompt_tokens,
+            "max_completion_tokens": self.max_completion_tokens,
+            "max_cost_usd": self.max_cost_usd,
+            "calls": self.calls,
+            "prompt_tokens": self.prompt_tokens,
+            "completion_tokens": self.completion_tokens,
+            "cost_usd": round(self.cost_usd, 6),
+        }
 
 
 class BackendConfig:
@@ -54,12 +140,25 @@ class LlmClient:
         backend: BackendConfig,
         api_key: Optional[str] = None,
         timeout_seconds: Optional[float] = None,
+        budget: Optional[Mapping[str, Any]] = None,
     ) -> None:
         self.backend = backend
         self.api_key = api_key or backend.resolve_api_key()
-        self.timeout_seconds = timeout_seconds or float(backend.defaults.get("request_timeout_seconds", 120))
-        self.max_retries = int(backend.defaults.get("max_retries_per_call", 3))
-        self.backoff_seconds = float(backend.defaults.get("retry_backoff_seconds", 2.0))
+        self.timeout_seconds = (
+            float(timeout_seconds)
+            if timeout_seconds is not None
+            else float(backend.defaults.get("request_timeout_seconds", 120))
+        )
+        if self.timeout_seconds <= 0:
+            raise ValueError("timeout_seconds must be positive")
+        self.max_retries = max(1, min(int(backend.defaults.get("max_retries_per_call", 3)), 8))
+        self.backoff_seconds = max(
+            0.0, float(backend.defaults.get("retry_backoff_seconds", 2.0))
+        )
+        self.max_backoff_seconds = max(
+            0.0, float(backend.defaults.get("max_retry_backoff_seconds", 30.0))
+        )
+        self.budget = RunBudget.from_mapping(budget or backend.defaults)
 
     def chat(
         self,
@@ -83,17 +182,27 @@ class LlmClient:
         if tools:
             payload["tools"] = tools
 
+        self.budget.reserve_call()
         for attempt in range(1, self.max_retries + 1):
             started = time.monotonic()
             try:
                 body = self._post(payload)
                 latency_seconds = time.monotonic() - started
-                return self._parse_response(body, latency_seconds)
+                response = self._parse_response(body, latency_seconds)
+                self.budget.record(
+                    response["usage"], self.estimate_cost_usd(response["usage"])
+                )
+                return response
             except urllib.error.HTTPError as error:
                 detail = _safe_error_detail(error)
                 if error.code in (408, 429) or 500 <= error.code < 600:
                     if attempt < self.max_retries:
-                        time.sleep(self.backoff_seconds * (2 ** (attempt - 1)))
+                        time.sleep(
+                            min(
+                                self.max_backoff_seconds,
+                                self.backoff_seconds * (2 ** (attempt - 1)),
+                            )
+                        )
                         continue
                 raise LlmError(
                     f"{self.backend.name} call failed after {attempt} attempt(s): "
@@ -101,9 +210,17 @@ class LlmClient:
                 ) from error
             except (urllib.error.URLError, TimeoutError, OSError) as error:
                 if attempt < self.max_retries:
-                    time.sleep(self.backoff_seconds * (2 ** (attempt - 1)))
+                    time.sleep(
+                        min(
+                            self.max_backoff_seconds,
+                            self.backoff_seconds * (2 ** (attempt - 1)),
+                        )
+                    )
                     continue
-                raise LlmError(f"{self.backend.name} call failed after {attempt} attempt(s): {error}") from error
+                detail = _redact_sensitive_text(str(error))
+                raise LlmError(
+                    f"{self.backend.name} call failed after {attempt} attempt(s): {detail}"
+                ) from error
         raise LlmError("Unreachable retry loop exit")
 
     def estimate_cost_usd(self, usage: Dict[str, Any]) -> float:
@@ -162,10 +279,30 @@ class LlmClient:
 
 
 def load_backends(path: Optional[Path] = None) -> Dict[str, BackendConfig]:
-    """Load all backends from configs/llm_backends.json."""
+    """Load metadata with explicit > env > user > checkout > package priority."""
 
-    config_path = (path or BACKENDS_PATH).resolve()
-    document = json.loads(config_path.read_text(encoding="utf-8"))
+    if path is not None:
+        source = path.expanduser().resolve()
+    elif os.environ.get("SKILLSTACK_LLM_CONFIG"):
+        source = Path(os.environ["SKILLSTACK_LLM_CONFIG"]).expanduser().resolve()
+    else:
+        user_source = _user_backend_config_path()
+        if user_source.is_file():
+            source = user_source
+        elif BACKENDS_PATH.exists():
+            source = BACKENDS_PATH
+        else:
+            source = PACKAGED_BACKENDS
+    if not source.is_file():
+        raise FileNotFoundError(f"LLM backend config does not exist: {source}")
+    try:
+        document = json.loads(source.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(
+            f"Invalid LLM backend config {source}: JSON line {error.lineno}, "
+            f"column {error.colno}"
+        ) from error
+    _validate_backend_document(document, source)
     defaults = document.get("defaults", {})
     return {
         name: BackendConfig(name, definition, defaults)
@@ -173,10 +310,99 @@ def load_backends(path: Optional[Path] = None) -> Dict[str, BackendConfig]:
     }
 
 
-def load_env_file(path: Optional[Path] = None) -> None:
-    """Populate os.environ from a git-ignored .env file (never overrides)."""
+def load_backend(name: str, path: Optional[Path] = None) -> BackendConfig:
+    """Load one named backend with a deterministic unknown-name diagnostic."""
 
-    env_path = (path or REPOSITORY_ROOT / ".env").resolve()
+    backends = load_backends(path)
+    if name not in backends:
+        available = ", ".join(sorted(backends)) or "<none>"
+        raise ValueError(
+            f"Unknown LLM backend {name!r}; configured backends: {available}"
+        )
+    return backends[name]
+
+
+def _validate_backend_document(document: Any, source: Path) -> None:
+    """Reject malformed provider metadata before a caller can make a request."""
+
+    if not isinstance(document, dict):
+        raise ValueError(f"Invalid LLM backend config {source}: top-level object required")
+    defaults = document.get("defaults", {})
+    if not isinstance(defaults, dict):
+        raise ValueError(f"Invalid LLM backend config {source}: defaults must be an object")
+    numeric_defaults = {
+        "temperature": (0.0, None),
+        "max_tokens_per_step": (1.0, None),
+        "request_timeout_seconds": (0.0, None),
+        "max_retries_per_call": (1.0, 8.0),
+        "retry_backoff_seconds": (0.0, None),
+        "max_retry_backoff_seconds": (0.0, None),
+        "max_calls_per_run": (0.0, None),
+        "max_prompt_tokens_per_run": (0.0, None),
+        "max_completion_tokens_per_run": (0.0, None),
+        "max_cost_usd_per_run": (0.0, None),
+    }
+    for key, (minimum, maximum) in numeric_defaults.items():
+        if key not in defaults:
+            continue
+        value = defaults[key]
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise ValueError(f"Invalid LLM backend config {source}: defaults.{key} must be numeric")
+        if not math.isfinite(float(value)) or float(value) < minimum:
+            raise ValueError(
+                f"Invalid LLM backend config {source}: defaults.{key} must be finite and >= {minimum}"
+            )
+        if maximum is not None and float(value) > maximum:
+            raise ValueError(
+                f"Invalid LLM backend config {source}: defaults.{key} must be <= {maximum}"
+            )
+
+    backends = document.get("backends")
+    if not isinstance(backends, dict) or not backends:
+        raise ValueError(f"Invalid LLM backend config {source}: backends must be a non-empty object")
+    required_fields = ("base_url", "model", "api_key_env")
+    for name, definition in backends.items():
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"Invalid LLM backend config {source}: backend names must be non-empty strings")
+        if not isinstance(definition, dict):
+            raise ValueError(f"Invalid LLM backend config {source}: backend {name!r} must be an object")
+        for field in required_fields:
+            value = definition.get(field)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(
+                    f"Invalid LLM backend config {source}: backend {name!r} requires non-empty {field}"
+                )
+        if not definition["base_url"].lower().startswith(("http://", "https://")):
+            raise ValueError(
+                f"Invalid LLM backend config {source}: backend {name!r} base_url must use http(s)"
+            )
+        prices = definition.get("prices_usd_per_1m", {})
+        if not isinstance(prices, dict):
+            raise ValueError(
+                f"Invalid LLM backend config {source}: backend {name!r} prices_usd_per_1m must be an object"
+            )
+        for price_name, price in prices.items():
+            if isinstance(price, bool) or not isinstance(price, (int, float)):
+                raise ValueError(
+                    f"Invalid LLM backend config {source}: backend {name!r} price {price_name!r} must be numeric"
+                )
+            if not math.isfinite(float(price)) or float(price) < 0:
+                raise ValueError(
+                    f"Invalid LLM backend config {source}: backend {name!r} price {price_name!r} must be finite and >= 0"
+                )
+
+
+def _user_backend_config_path() -> Path:
+    config_home = os.environ.get("XDG_CONFIG_HOME")
+    if config_home:
+        return Path(config_home).expanduser() / "skillstack" / "llm_backends.json"
+    return Path.home() / ".config" / "skillstack" / "llm_backends.json"
+
+
+def load_env_file(path: Optional[Path] = None) -> None:
+    """Populate os.environ from an explicit or current-directory .env file."""
+
+    env_path = (path or Path.cwd() / ".env").expanduser().resolve()
     if not env_path.exists():
         return
     for line in env_path.read_text(encoding="utf-8").splitlines():
@@ -202,6 +428,23 @@ def _cached_prompt_tokens(usage: Dict[str, Any]) -> int:
 def _safe_error_detail(error: urllib.error.HTTPError) -> str:
     try:
         body = error.read().decode("utf-8", errors="replace")[:200]
-        return body.replace("\n", " ")
+        return _redact_sensitive_text(body.replace("\n", " "))
     except Exception:
-        return str(error)
+        return _redact_sensitive_text(str(error))
+
+
+_SENSITIVE_TEXT_PATTERNS = (
+    (re.compile(r"(authorization\s*:\s*bearer\s+)[^\s,;]+", re.IGNORECASE), r"\1[REDACTED]"),
+    (re.compile(r"((?:cookie|set-cookie)\s*[=:]\s*)[^\s,;]+", re.IGNORECASE), r"\1[REDACTED]"),
+    (re.compile(r"((?:api[_-]?key|token|secret|password)\s*[=:]\s*)[^\s,;]+", re.IGNORECASE), r"\1[REDACTED]"),
+    (re.compile(r"\b(?:sk|gh[pousr]|AIza)[-_A-Za-z0-9]{12,}\b"), "[REDACTED]"),
+)
+
+
+def _redact_sensitive_text(text: str) -> str:
+    """Keep provider diagnostics useful without echoing credential-like values."""
+
+    redacted = text
+    for pattern, replacement in _SENSITIVE_TEXT_PATTERNS:
+        redacted = pattern.sub(replacement, redacted)
+    return redacted[:200]

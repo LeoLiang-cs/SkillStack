@@ -1,0 +1,24 @@
+{
+  "demo_id": "skillstack_zero_model_demo_v1",
+  "task_id": "demo/inspect-lamp-boundary",
+  "comparison": {
+    "action_sequence_equal": true,
+    "adapter_lossless_all": true,
+    "benchmark_success_claim": false,
+    "c0_selected_skill_ids": [],
+    "c1_selected_skill_ids": [
+      "skill_light_inspection",
+      "skill_clean_then_place"
+    ],
+    "cells": [
+      "c0_no_skill",
+      "c1_debug_lexical"
+    ],
+    "fixture_outcome_equal": true,
+    "selection_changed": true
+  },
+  "comparison_fingerprint": "266c773e6beb483d91121de31ad65bd75c1eb673bcca4f3d30ed0f097089e0f2",
+  "benchmark_success_claim": false,
+  "network_calls": 0,
+  "model_calls": 0
+}

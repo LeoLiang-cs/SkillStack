@@ -57,8 +57,8 @@ def build_parser() -> argparse.ArgumentParser:
     demo.add_argument(
         "--root",
         type=Path,
-        default=Path.cwd(),
-        help="repository root containing examples/demo and skills (default: current directory)",
+        default=None,
+        help="repository root containing examples/demo and skills (default: packaged fixture)",
     )
     demo.add_argument(
         "--output-root",
@@ -89,6 +89,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="repository root to snapshot (default: current directory)",
     )
     release_check.add_argument(
+        "--ref",
+        default="HEAD",
+        help="Git commit, tag, or branch to snapshot; the resolved commit is recorded",
+    )
+    release_check.add_argument(
         "--allow-license-pending",
         action="store_true",
         help="verify technical reproducibility before the owner selects a project license",
@@ -117,6 +122,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.command == "release-check":
         return run_fresh_clone_check(
             args.root,
+            ref=args.ref,
             allow_license_pending=args.allow_license_pending,
         )
     raise AssertionError(f"Unhandled command: {args.command}")

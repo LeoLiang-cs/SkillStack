@@ -5,7 +5,8 @@ harness, so reproducibility and claim accuracy matter as much as code quality.
 
 ## Set up a development checkout
 
-SkillStack supports Python 3.9 and 3.10.
+SkillStack's maintained core supports Python 3.11 and 3.12 on Linux/macOS.
+Python 3.9 and 3.10 are historical reproduction environments only.
 
 ```bash
 git clone <your-fork-url>
@@ -29,12 +30,19 @@ uv run skillstack preflight
 uv run skillstack check-repo
 uv run skillstack demo
 uv run python -m compileall -q src scripts tests
-uv run python -m unittest discover -s tests -q
+uv run python scripts/run_core_gate.py --summary report/week7/g1_core_gate_local.json
 uv build
 ```
 
 These commands must not require API keys, private checkouts, benchmark data, or
 network access after dependencies are installed.
+
+The wheel/sdist gate is intentionally user- or CI-triggered because it creates
+fresh environments and may download a selected Python runtime:
+
+```bash
+uv run python scripts/check_package_install.py --python 3.12 --keep-temp
+```
 
 ## Research evidence rules
 
@@ -69,3 +77,7 @@ that supports it.
 
 By contributing, you agree that your contribution will be distributed under
 the repository's MIT License.
+
+For suspected credential exposure, path escape, unsafe execution, or supply-
+chain issues, follow [`SECURITY.md`](SECURITY.md) and do not include secrets in
+public issues or pull requests.

@@ -1,0 +1,29 @@
+{
+  "artifacts": [
+    {
+      "bytes": 104481,
+      "path": "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/dist/skillstack-0.1.0a0-py3-none-any.whl",
+      "run_directories": [
+        "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/outputs-wheel/demo/package_wheel_c0_no_skill",
+        "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/outputs-wheel/demo/package_wheel_c1_debug_lexical"
+      ],
+      "sha256": "a5b36ae9b7753cdf36e5abf5fcd21a4e984052806327e18476c1366af284b076",
+      "type": "wheel"
+    },
+    {
+      "bytes": 103445,
+      "path": "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/dist/skillstack-0.1.0a0.tar.gz",
+      "run_directories": [
+        "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/outputs-sdist/demo/package_sdist_c0_no_skill",
+        "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-12ggdq77/outputs-sdist/demo/package_sdist_c1_debug_lexical"
+      ],
+      "sha256": "7d37cb30d37c1afaeb961e13bea75e82b5ac13bcc25eff95f72f2ea971d740d9",
+      "type": "sdist"
+    }
+  ],
+  "model_calls": 0,
+  "network_calls": 0,
+  "python_selector": "3.12",
+  "root": "/Users/leo/Project/Research/USC/FORTIS/SkillStack",
+  "status": "pass"
+}

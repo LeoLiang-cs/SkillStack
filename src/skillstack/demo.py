@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.resources as package_resources
 import json
 import re
 from datetime import datetime, timezone
@@ -16,12 +17,11 @@ from skillstack.execution import RecordedActionExecutor
 from skillstack.library import load_static_library
 from skillstack.retrieval import DebugLexicalRetriever, NoSkillRetriever
 from skillstack.runner import EpisodeRunner
-from skillstack.tracing import JsonlTraceWriter
+from skillstack.tracing import JsonlTraceWriter, RUN_MANIFEST_SCHEMA
 
 
 DEMO_ID = "skillstack_zero_model_demo_v1"
 DEMO_SEED = 42
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 CONFIGURATION_TYPES: Tuple[Tuple[str, Type[Any]], ...] = (
     ("c0_no_skill", NoSkillRetriever),
     ("c1_debug_lexical", DebugLexicalRetriever),
@@ -65,7 +65,33 @@ def run_demo(
     benchmark-success or agent-performance claim.
     """
 
-    repository = (root or REPOSITORY_ROOT).expanduser().resolve()
+    if root is None:
+        # The installed wheel/sdist carries a small, deterministic fixture.  A
+        # temporary filesystem path is used only while the demo is running;
+        # generated traces still go to the caller's output directory.
+        packaged_demo = package_resources.files("skillstack.resources").joinpath("demo")
+        with package_resources.as_file(packaged_demo) as packaged_root:
+            return _run_demo(
+                Path(packaged_root),
+                output_root or (Path.cwd() / "runs"),
+                configuration,
+                top_k,
+                run_id_prefix,
+            )
+    return _run_demo(
+        root.expanduser().resolve(), output_root, configuration, top_k, run_id_prefix
+    )
+
+
+def _run_demo(
+    repository: Path,
+    output_root: Optional[Path],
+    configuration: str,
+    top_k: int,
+    run_id_prefix: Optional[str],
+) -> Dict[str, Any]:
+    """Run the demo against either checkout fixtures or packaged resources."""
+
     if configuration not in {"all", "c0_no_skill", "c1_debug_lexical"}:
         raise ValueError(f"Unknown demo configuration: {configuration}")
     if top_k < 1:
@@ -178,8 +204,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--root",
         type=Path,
-        default=Path.cwd(),
-        help="repository root containing examples/demo and skills (default: current directory)",
+        default=None,
+        help="repository root containing examples/demo and skills (default: packaged fixture)",
     )
     parser.add_argument(
         "--output-root",
@@ -232,7 +258,7 @@ def _build_manifest(
     top_k: int,
 ) -> Dict[str, Any]:
     return {
-        "schema_version": "skillstack-demo-manifest-v1",
+        "schema_version": RUN_MANIFEST_SCHEMA,
         "demo_id": DEMO_ID,
         "experiment_id": "zero_model_composability_demo",
         "run_id": writer.run_id,
@@ -249,6 +275,33 @@ def _build_manifest(
         "environment_kind": "deterministic_fixture",
         "environment_version": "deterministic_fixture_v1",
         "input_hashes": input_hashes,
+        "task_data_hashes": input_hashes,
+        "components": {
+            "retriever": {
+                "id": retriever_name,
+                "source": "SkillStack",
+                "fidelity": "not_applicable_local",
+            },
+            "executor": {
+                "id": executor_name,
+                "source": "SkillStack",
+                "fidelity": "not_applicable_local",
+            },
+            "adapter": {
+                "id": "retrieval_to_execution_adapter",
+                "source": "SkillStack",
+                "fidelity": "not_applicable_local",
+            },
+        },
+        "config_hash": _sha256_json(
+            {"configuration": _configuration_for_retriever(retriever_name), "top_k": top_k}
+        ),
+        "model_effective_id": "none",
+        "prompt_hash": "not_applicable",
+        "decoding": {"temperature": 0},
+        "budget": {"model_calls": 0, "network_calls": 0},
+        "seed_scope": {"demo": DEMO_SEED},
+        "oracle": False,
         "network_calls": 0,
         "model_calls": 0,
         "benchmark_success_claim": False,
@@ -276,7 +329,7 @@ def _build_summary(
         "adapter_lossless": lossless_count == len(adapter_events),
     }
     return {
-        "schema_version": "skillstack-demo-summary-v1",
+        "schema_version": "skillstack-run-summary-v1",
         "demo_id": DEMO_ID,
         "run_id": writer.run_id,
         "configuration_name": _configuration_for_retriever(trace["retriever_name"]),
@@ -289,6 +342,10 @@ def _build_summary(
         "adapter_event_count": len(adapter_events),
         "lossless_adapter_event_count": lossless_count,
         "warning_count": len(trace.get("warnings", [])),
+        "status_counts": writer.recompute_status_counts(),
+        "run_status": trace.get("run_status"),
+        "measurement_status": trace.get("measurement_status"),
+        "task_success": trace.get("task_success"),
         "network_calls": 0,
         "model_calls": 0,
         "benchmark_success_claim": False,

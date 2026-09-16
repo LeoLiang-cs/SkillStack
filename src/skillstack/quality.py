@@ -134,6 +134,21 @@ def check_text(path: Path, text: str, root: Path) -> List[Dict[str, str]]:
 
 def inspect_repository(root: Path) -> Dict[str, object]:
     repository = root.expanduser().resolve()
+    if not (repository / "pyproject.toml").is_file() or not (repository / ".git").exists():
+        return {
+            "check": "skillstack_public_repository",
+            "status": "fail",
+            "files_checked": 0,
+            "findings": [
+                _finding(
+                    "repo_only_command_requires_checkout",
+                    ".",
+                    "run from a SkillStack checkout or pass --root <checkout>",
+                )
+            ],
+            "network_calls": 0,
+            "model_calls": 0,
+        }
     findings: List[Dict[str, str]] = []
     files = collect_public_files(repository)
     for path in files:

@@ -11,6 +11,10 @@ runs/*
 data/alfworld/
 !data/.gitkeep
 
+# External research sources and generated idea-run artifacts stay local.
+papers/
+ideaspark_run/
+
 # Local secrets: API keys must never be committed.
 .env
 .env.*

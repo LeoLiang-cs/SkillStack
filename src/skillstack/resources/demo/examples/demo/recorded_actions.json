@@ -1,0 +1,9 @@
+{
+  "fixture_version": "deterministic_fixture_v1",
+  "purpose": "Complete the deterministic fixture once to validate the shared pipeline; this is not an agent policy.",
+  "actions_by_task_id": {
+    "demo/inspect-lamp-boundary": [
+      "look"
+    ]
+  }
+}

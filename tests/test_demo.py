@@ -37,6 +37,22 @@ class DeterministicFixtureTests(unittest.TestCase):
 
 
 class DemoRunTests(unittest.TestCase):
+    def test_packaged_fixture_runs_without_repository_root(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = run_demo(None, Path(directory), run_id_prefix="packaged")
+            self.assertEqual("skillstack_zero_model_demo_v1", result["demo_id"])
+            self.assertEqual(
+                (ROOT / "examples" / "demo" / "expected_fingerprint.txt")
+                .read_text(encoding="utf-8")
+                .strip(),
+                result["comparison_fingerprint"],
+            )
+            self.assertEqual(0, result["network_calls"])
+            self.assertEqual(0, result["model_calls"])
+            self.assertEqual(2, len(result["runs"]))
+            for record in result["runs"]:
+                self.assertTrue(Path(record["run_directory"]).is_dir())
+
     def test_all_cells_share_pipeline_and_change_only_selection(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             result = run_demo(ROOT, Path(directory), run_id_prefix="test")
@@ -60,6 +76,20 @@ class DemoRunTests(unittest.TestCase):
                 self.assertEqual(1, summary["completed_count"])
                 self.assertEqual(1, summary["fixture_success_count"])
                 self.assertFalse(summary["benchmark_success_claim"])
+                self.assertEqual(1, summary["status_counts"]["planned"])
+                self.assertEqual(1, summary["status_counts"]["completed"])
+                self.assertEqual(1, summary["status_counts"]["success"])
+                self.assertEqual("completed", summary["run_status"])
+                self.assertEqual("not_applicable", summary["measurement_status"])
+                manifest = json.loads(
+                    (Path(record["run_directory"]) / "run_manifest.json").read_text(
+                        encoding="utf-8"
+                    )
+                )
+                self.assertEqual("skillstack-run-manifest-v1", manifest["schema_version"])
+                self.assertTrue(manifest["run_identity_sha256"])
+                self.assertEqual("none", manifest["model_effective_id"])
+                self.assertEqual("not_applicable_local", manifest["components"]["retriever"]["fidelity"])
                 episode_path = Path(record["run_directory"]) / "episodes.jsonl"
                 self.assertEqual(1, len(episode_path.read_text(encoding="utf-8").splitlines()))
                 episode = json.loads(episode_path.read_text(encoding="utf-8").splitlines()[0])

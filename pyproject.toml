@@ -3,12 +3,14 @@ name = "skillstack"
 version = "0.1.0a0"
 description = "Experimental harness for studying composable Skill Agent components"
 readme = "README.md"
-requires-python = ">=3.9,<3.11"
+requires-python = ">=3.9,<3.13"
 license = "MIT"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
 classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
     "pyyaml",
@@ -31,3 +33,10 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+skillstack = [
+    "resources/config/*",
+    "resources/demo/examples/demo/*",
+    "resources/demo/skills/alfworld_static/*",
+]

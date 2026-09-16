@@ -1,0 +1,79 @@
+schema_version: 1
+
+# These patterns are evaluated against the tracked Git tree of the selected
+# commit. Anything that matches no category is unknown and is excluded.
+public:
+  - .env.example
+  - .github/**
+  - .gitignore
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - README.md
+  - THIRD_PARTY_NOTICES.md
+  - configs/**
+  - docs/README.md
+  - docs/open_source/**
+  - docs/original/SkillStack_Draft_Framework.md
+  - docs/original/canonical_interface_v1.md
+  - docs/original/p0_runtime_contracts.md
+  - examples/**
+  - fixtures/**
+  - pyproject.toml
+  - reports/README.md
+  - reports/week1/**
+  - reports/week2/**
+  - reports/week3/**
+  - reports/week3_2/**
+  - reports/week4/**
+  - reports/week5/**
+  - scripts/**
+  - skills/**
+  - src/**
+  - tests/**
+  - uv.lock
+  - data/.gitkeep
+  - runs/.gitkeep
+  - .agents/skills/benchmark-extractor/**
+  - .agents/skills/experiment-log-summarizer/**
+  - .agents/skills/paper-deep-note/**
+  - .agents/skills/research-gap-finder/**
+  - .agents/skills/survey-writer/**
+  - .agents/skills/weekly-lab-update/**
+
+held_research:
+  - docs/plan/**
+  - docs/final_cards/**
+  - docs/scoop_ check/**
+  - docs/original/skillstack_draft_framework_0.md
+  - docs/original/skillstack_draft_framework_1.md
+  - docs/original/skillstack_draft_framework_2.md
+  - reports/week6/**
+  - report/week7/**
+  - .agents/skills/idea-spark/**
+
+external_data:
+  - data/alfworld/**
+  - papers/**
+
+generated:
+  - ideaspark_run/**
+  - tmp/**
+  - build/**
+  - dist/**
+  - .venv/**
+  - .DS_Store
+  - '**/.DS_Store'
+  - __pycache__/**
+  - '**/__pycache__/**'
+  - '*.pyc'
+  - '**/*.pyc'
+  - '*.egg-info/**'
+
+required:
+  - LICENSE
+  - README.md
+  - pyproject.toml
+  - configs/public_release_scope.yaml
+  - src/skillstack/__init__.py
+  - tests/test_release.py

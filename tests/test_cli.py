@@ -31,6 +31,8 @@ class PreflightTests(unittest.TestCase):
             len(REQUIRED_DIRECTORIES) + len(REQUIRED_FILES), len(result["missing"])
         )
         self.assertEqual(list(REQUIRED_CONFIG_MARKERS), result["missing_configuration_markers"])
+        self.assertFalse(result["repository_marker_present"])
+        self.assertIn("repo-only", result["diagnostic"])
 
     def test_cli_preflight_uses_explicit_root(self) -> None:
         root = Path(__file__).resolve().parents[1]

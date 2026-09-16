@@ -6,6 +6,7 @@
 - Origin Mode: validate / reproducibility audit
 - Audit Date: 2026-09-16
 - Baseline Commit: `67957b9b0630bbe80fde76ca9ca10a7834fad57a`
+- Execution Evidence Commit: `5939faf140511aefc5055dc2b457760ac6560447`
 - Verification Status: VERIFIED — R1-00 exit gate 完成；不表示 BLM 已实现、有效或具有 novelty。
 - Measurement Status: `boundary_feasible_for_deterministic_calibration`
 

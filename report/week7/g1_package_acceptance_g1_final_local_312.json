@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "bytes": 107256,
+      "metadata_license_entrypoint": "pass",
+      "path": "skillstack-0.1.0a0-py3-none-any.whl",
+      "run_directories": [
+        "outputs-wheel/demo/package_wheel_c0_no_skill",
+        "outputs-wheel/demo/package_wheel_c1_debug_lexical"
+      ],
+      "sha256": "e6c1652bb88322a1c7641dce5e56b1c254d0bdbc307745605301dda548eee441",
+      "type": "wheel",
+      "uninstall": "pass"
+    },
+    {
+      "bytes": 108407,
+      "metadata_license_entrypoint": "pass",
+      "path": "skillstack-0.1.0a0.tar.gz",
+      "run_directories": [
+        "outputs-sdist/demo/package_sdist_c0_no_skill",
+        "outputs-sdist/demo/package_sdist_c1_debug_lexical"
+      ],
+      "sha256": "845945727e045628934b7a6ebc616d713fc2887979b8999926dc8d4e23770a43",
+      "type": "sdist",
+      "uninstall": "pass"
+    }
+  ],
+  "model_calls": 0,
+  "network_calls": 0,
+  "python_selector": "3.12",
+  "source_checkout": "SkillStack",
+  "status": "pass",
+  "workspace_isolation": "temporary_directory"
+}

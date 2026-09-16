@@ -29,4 +29,3 @@ object before it is put in/on a receptacle.
 - The sink basin or destination is confused with another nearby receptacle.
 - The agent continues after a failed cleaning action instead of re-checking the
   object's state.
-

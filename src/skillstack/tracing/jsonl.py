@@ -11,6 +11,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+try:
+    import fcntl
+except ImportError:  # pragma: no cover - Windows remains unverified.
+    fcntl = None
+
 
 RUN_ID_PATTERN = re.compile(r"[^a-zA-Z0-9_.-]+")
 RUN_MANIFEST_SCHEMA = "skillstack-run-manifest-v1"
@@ -107,18 +112,7 @@ class JsonlTraceWriter:
             raise ValueError(
                 f"Episode trace schema_version must be {EPISODE_TRACE_SCHEMA!r}"
             )
-        episode_id = normalized["episode_id"]
-        for line in self.episodes_path.read_text(encoding="utf-8").splitlines() if self.episodes_path.exists() else ():
-            try:
-                existing = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise ValueError(f"Cannot resume past malformed episode trace: {error}") from error
-            if existing.get("episode_id") == episode_id:
-                raise ValueError(f"Episode ID already exists: {episode_id}")
-        with self.episodes_path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(normalized, ensure_ascii=False, sort_keys=True) + "\n")
-            handle.flush()
-            os.fsync(handle.fileno())
+        _append_episode_line(self.episodes_path, normalized)
         trace.update(normalized)
         return self.episodes_path
 
@@ -189,6 +183,60 @@ def _make_run_id(label: str) -> str:
     normalized_label = RUN_ID_PATTERN.sub("-", label).strip("-.") or "run"
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     return f"{timestamp}_{normalized_label}"
+
+
+def _append_episode_line(path: Path, trace: Dict[str, Any]) -> None:
+    """Append one complete line while rejecting symlinks and concurrent duplicates."""
+
+    flags = os.O_APPEND | os.O_CREAT | os.O_RDWR
+    if hasattr(os, "O_NOFOLLOW"):
+        flags |= os.O_NOFOLLOW
+    try:
+        descriptor = os.open(path, flags, 0o600)
+    except OSError as error:
+        raise RuntimeError(f"Cannot safely open episode trace: {path}") from error
+
+    original_size = 0
+    try:
+        if fcntl is not None:
+            fcntl.flock(descriptor, fcntl.LOCK_EX)
+        original_size = os.lseek(descriptor, 0, os.SEEK_END)
+        os.lseek(descriptor, 0, os.SEEK_SET)
+        existing_text = b""
+        while True:
+            chunk = os.read(descriptor, 1024 * 1024)
+            if not chunk:
+                break
+            existing_text += chunk
+        for line in existing_text.decode("utf-8").splitlines():
+            try:
+                existing = json.loads(line)
+            except json.JSONDecodeError as error:
+                raise ValueError(
+                    f"Cannot resume past malformed episode trace: {error}"
+                ) from error
+            if existing.get("episode_id") == trace["episode_id"]:
+                raise ValueError(f"Episode ID already exists: {trace['episode_id']}")
+
+        encoded = (
+            json.dumps(trace, ensure_ascii=False, sort_keys=True) + "\n"
+        ).encode("utf-8")
+        os.lseek(descriptor, 0, os.SEEK_END)
+        written = 0
+        while written < len(encoded):
+            count = os.write(descriptor, encoded[written:])
+            if count <= 0:
+                raise OSError("episode trace write made no progress")
+            written += count
+        os.fsync(descriptor)
+    except Exception:
+        os.ftruncate(descriptor, original_size)
+        os.fsync(descriptor)
+        raise
+    finally:
+        if fcntl is not None:
+            fcntl.flock(descriptor, fcntl.LOCK_UN)
+        os.close(descriptor)
 
 
 def _normalize_run_id(value: str) -> str:

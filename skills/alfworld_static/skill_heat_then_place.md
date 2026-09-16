@@ -28,4 +28,3 @@ placing it elsewhere.
 - The microwave is left open when the environment requires it to be closed.
 - The agent forgets to retrieve the heated object after heating.
 - The object is delivered to the destination before the heating step.
-

@@ -24,6 +24,6 @@
   "model_calls": 0,
   "network_calls": 0,
   "python_selector": "3.12",
-  "root": "/Users/leo/Project/Research/USC/FORTIS/SkillStack",
+  "root": ".",
   "status": "pass"
 }

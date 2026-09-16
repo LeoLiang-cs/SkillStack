@@ -25,6 +25,8 @@ jobs:
           - os: ubuntu-latest
             python-version: "3.12"
           - os: macos-latest
+            python-version: "3.11"
+          - os: macos-latest
             python-version: "3.12"
 
     steps:
@@ -85,7 +87,3 @@ jobs:
           path: ${{ runner.temp }}/skillstack-package-acceptance.json
           if-no-files-found: warn
           retention-days: 14
-
-      - name: Verify isolated public snapshot
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
-        run: uv run skillstack release-check

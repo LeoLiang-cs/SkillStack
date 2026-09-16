@@ -21,6 +21,20 @@ integrations referenced by SkillStack.
 “License observed” records the license file present in the inspected source
 snapshot; it is not legal advice and does not change an upstream license.
 
+## Runtime constraints
+
+| Integration | Frozen source/version | Python boundary |
+|---|---|---|
+| Core YAML parsing | PyYAML 6.0.3 in `uv.lock` | Maintained core Python 3.11/3.12 |
+| ALFWorld | PyPI `alfworld==0.4.2` through the optional `alfworld` extra | Separate environment and downloaded assets; not imported by core/demo |
+| GRASP + AgentBench | GRASP commit `9d7d125a3e9b46ed591692475eb07aff4ae67d34` | Pinned external checkout; its historical environment is not resolved by the core lock |
+| SkillRL | commit `8e66726ed866a4e0a7f053586a41022798192e6c` | Pinned external checkout; Python compatibility remains experiment-specific |
+| SkillOps | commit `c80b05246369c0b9d82a293390ca5add675c516a` | Pinned external checkout; Python compatibility remains experiment-specific |
+
+The maintained core upgrade does not rewrite historical external environments.
+An integration whose pinned environment does not resolve on Python 3.11/3.12
+stays historical or isolated instead of lowering the core support baseline.
+
 ## Fidelity register
 
 The machine-readable source of truth is

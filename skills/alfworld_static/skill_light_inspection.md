@@ -27,4 +27,3 @@ with a lamp. Do not use merely because a lamp happens to appear in the room.
 - The agent treats a visually related object as the requested one.
 - The agent assumes that toggling the lamp alone completes the goal without
   confirming the object–lamp relation.
-

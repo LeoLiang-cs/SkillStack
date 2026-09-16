@@ -68,6 +68,10 @@ cross-directory values are rejected. Existing `run_manifest.json` and
 `summary.json` files are never overwritten. Manifest and summary writes use a
 same-directory temporary file followed by an atomic replacement; episode JSONL
 records are append-only and flushed before the call returns.
+Episode appends reject symlink targets, use an OS append handle, and serialize
+writers on maintained Linux/macOS platforms so concurrent writers cannot
+interleave JSON records or admit a duplicate episode ID. A failed append is
+rolled back to the previous complete-file length.
 
 The manifest's `run_identity_sha256` is derived from canonicalized result-
 relevant fields. `JsonlTraceWriter.resume(...)` reads the stored manifest and
@@ -88,6 +92,12 @@ unknown success is not silently converted to `false`. In the zero-model demo a
 `true` value means the deterministic fixture completed; its
 `benchmark_success_claim=false` field keeps that outcome outside benchmark
 evidence.
+
+`skillstack-episode-trace-v1` keeps observations, selected native payloads,
+adapter events, actions, warnings, and the complete executor report. Live ReAct
+executor reports retain per-call usage and provider latency; the zero-model
+fixture records zero model/network calls instead of inventing token or latency
+measurements.
 
 ## Resume and partial evidence
 

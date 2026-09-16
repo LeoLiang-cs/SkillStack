@@ -128,7 +128,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     summary: Dict[str, object] = {
         "status": "not_run",
-        "root": str(root),
+        "source_checkout": root.name,
+        "workspace_isolation": "temporary_directory",
         "python_selector": args.python,
         "artifacts": [],
         "network_calls": 0,
@@ -150,7 +151,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             assert isinstance(cast_artifacts, list)
             artifact_record: Dict[str, object] = {
                 "type": label,
-                "path": str(artifact),
+                "path": artifact.name,
                 "bytes": artifact.stat().st_size,
                 "sha256": _sha256(artifact),
             }
@@ -214,7 +215,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 )
             artifact_record.update(
                 {
-                    "run_directories": [str(path) for path in run_dirs],
+                    "run_directories": [
+                        path.relative_to(temp_dir).as_posix() for path in run_dirs
+                    ],
                     "metadata_license_entrypoint": "pass",
                 }
             )

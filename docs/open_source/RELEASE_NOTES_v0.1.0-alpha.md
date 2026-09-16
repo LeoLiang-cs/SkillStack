@@ -91,7 +91,7 @@ uv build
 ```
 
 Expected Demo fingerprint:
-`266c773e6beb483d91121de31ad65bd75c1eb673bcca4f3d30ed0f097089e0f2`.
+`f5733aedcfbf0303248df0ec97bffb28e911a2f6ad0a79bde678114ce0446838`.
 
 ## Evidence boundary
 

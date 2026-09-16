@@ -27,4 +27,3 @@ The six files cover ALFWorld's supported task families:
 
 Those omissions are intentional: P0.0 should reveal when downstream
 components have to invent such information.
-

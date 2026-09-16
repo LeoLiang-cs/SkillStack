@@ -26,4 +26,3 @@ receptacle or location.
 - The agent assumes it can carry two objects at once when the current state
   does not permit it.
 - The destination is closed or cannot accept the selected placement action.
-

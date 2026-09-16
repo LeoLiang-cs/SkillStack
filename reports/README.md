@@ -13,6 +13,13 @@ substitute for source-faithful reproduction or statistical validation.
 | `week3_2/` | Phase 3: RQ3 retrieval × composition 2×2 factorial + Canonical Interface v1 induction | Complete |
 | `week4/` | Cross-paper A-slot component portability: GRASP proposer vs SkillRL updater under a fixed GRASP gate | Compatibility complete; task performance environment-blocked |
 | `week5/` | SkillOps maintenance cycle and A-slot performance evidence | Complete with source/provider limitations recorded |
+| `week6/` | Framework revision and BLM proposal narrative | Research proposal only; not implementation evidence |
+
+Historical test counts, Python versions, provider results, and environment
+claims remain scoped to the week in which they were recorded. The current core
+support and acceptance status is maintained in
+[`../docs/open_source/SUPPORT_MATRIX.md`](../docs/open_source/SUPPORT_MATRIX.md);
+older reports are not rewritten to match later package or CI results.
 
 ## Week 1 (P0.0)
 

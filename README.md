@@ -199,6 +199,9 @@ uv run python scripts/alfworld_smoke.py
 This validates a deterministic `valid_unseen` game reset and one admissible
 environment action. Its raw result is written to
 `reports/week1/phase1_alfworld_smoke.json`.
+It requires the separately downloaded ALFWorld text assets, performs one local
+reset and one local step, and makes no model/provider call. It was not rerun as
+part of the G1 core acceptance gate.
 
 ## Experiment discipline
 
@@ -342,6 +345,12 @@ fixed. Backends and API keys are configured via
 uv run python scripts/run_w3_react_pilot.py --backend zhipu_glm_flashx
 uv run python scripts/run_w3_react_pilot.py --backend deepseek_v4_flash
 ```
+
+These are historical, manual live-provider commands, not G1 acceptance checks.
+They require the named credential environment variable and may make billable
+model calls. The committed defaults cap one run at 500 calls, 500,000 prompt
+tokens, 100,000 completion tokens, and USD 10; use a smaller caller-supplied
+budget for any new pilot. Neither command was rerun during the G1 core gate.
 
 Bind the four runs of one backend into a reproducible summary:
 

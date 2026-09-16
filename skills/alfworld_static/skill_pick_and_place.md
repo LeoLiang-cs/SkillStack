@@ -31,4 +31,3 @@ is required.
 - A semantically similar object or receptacle is selected instead of the one
   named in the instruction.
 - The object is placed before the requested transformation in a compound task.
-

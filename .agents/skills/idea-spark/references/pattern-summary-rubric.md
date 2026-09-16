@@ -20,7 +20,7 @@ Goal: for each paper in the merged top-30 of a map-mode result, assign 1-3 of th
 14. `characterize_limit_then_surpass` — Characterize a Limit, Then Surpass It
 15. `targeted_self_supervised_objective` — Design a Property-Targeting Pretext Objective
 
-Full operational signatures live in the parent skill's [ideation patterns overview](../../idea_spark/references/ideation-patterns/overview.md). For pattern summary we use the short form below. The `id` values above are the authoritative vocabulary — they must match the parent skill's `pattern_id` set exactly, since Phase 1 and Phase 2.1 join on these ids.
+Full operational signatures live in the parent skill's [ideation patterns overview](ideation-patterns/overview.md). For pattern summary we use the short form below. The `id` values above are the authoritative vocabulary — they must match the parent skill's `pattern_id` set exactly, since Phase 1 and Phase 2.1 join on these ids.
 
 ## Decision rule (for each paper)
 

@@ -28,4 +28,3 @@ object in a fridge before final placement.
 - The cooled object is left in the fridge rather than delivered.
 - The target receptacle is confused with the fridge, causing premature success
   assumptions.
-

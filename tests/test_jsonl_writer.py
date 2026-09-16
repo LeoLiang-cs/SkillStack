@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import os
 import json
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from skillstack.tracing import JsonlTraceWriter, status_counts
@@ -223,6 +225,58 @@ class JsonlTraceWriterTests(unittest.TestCase):
                         "run_identity_sha256": "different",
                     }
                 )
+
+    def test_rejects_symlinked_episode_file(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            writer = JsonlTraceWriter(root / "runs", "unit", run_id="symlink-run")
+            target = root / "outside.jsonl"
+            target.write_text("outside\n", encoding="utf-8")
+            writer.episodes_path.symlink_to(target)
+            with self.assertRaisesRegex(RuntimeError, "safely open episode trace"):
+                writer.append_episode(_episode("symlink-run", "episode-0"))
+            self.assertEqual("outside\n", target.read_text(encoding="utf-8"))
+
+    @unittest.skipIf(os.name == "nt", "POSIX permissions are required")
+    def test_read_only_run_directory_fails_without_partial_trace(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            writer = JsonlTraceWriter(Path(directory), "unit", run_id="readonly-run")
+            writer.run_dir.chmod(0o500)
+            try:
+                with self.assertRaisesRegex(RuntimeError, "safely open episode trace"):
+                    writer.append_episode(_episode("readonly-run", "episode-0"))
+                self.assertFalse(writer.episodes_path.exists())
+            finally:
+                writer.run_dir.chmod(0o700)
+
+    def test_concurrent_appends_remain_complete_jsonl(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            writer = JsonlTraceWriter(Path(directory), "unit", run_id="concurrent-run")
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                list(
+                    pool.map(
+                        lambda index: writer.append_episode(
+                            _episode("concurrent-run", f"episode-{index}")
+                        ),
+                        range(24),
+                    )
+                )
+            traces = [
+                json.loads(line)
+                for line in writer.episodes_path.read_text(encoding="utf-8").splitlines()
+            ]
+            self.assertEqual(24, len(traces))
+            self.assertEqual(24, len({trace["episode_id"] for trace in traces}))
+
+
+def _episode(run_id: str, episode_id: str) -> dict:
+    return {
+        "run_id": run_id,
+        "episode_id": episode_id,
+        "task_id": "task-0",
+        "retriever_name": "no_skill",
+        "executor_name": "recorded_action_executor",
+    }
 
 
 if __name__ == "__main__":

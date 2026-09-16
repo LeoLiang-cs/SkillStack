@@ -1,5 +1,7 @@
 # G0 发布隔离完成计划清单
 
+> 历史工程清单：G0 与 G1 已在[科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)中合并为 F0。本文保留原始发布工程拆解，不再作为当前独立 gate，也不阻塞 BLM。
+
 - 日期：2026-09-15
 - 状态：`in_progress`；实现已通过临时候选验证，正式项目 commit gate 尚未完成。执行证据见 [Week 7 G0 报告](../../report/week7/g0_execution_report_zh.md)。
 - 对应总计划：[SkillStack 开源工程与 BLM 完整计划 v3](skillstack_blm_master_plan_v3_zh.md)

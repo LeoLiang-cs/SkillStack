@@ -1,8 +1,10 @@
 # G1 健全核心 Alpha 完成计划清单
 
+> 历史工程清单：G0 与 G1 已在[科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)中合并为完成的 F0。本文保留验收细节；下一阶段直接进入 BLM R1，正式开源整理移到论文完成之后。
+
 - 日期：2026-09-16
-- 状态：`core_complete`；验收提交 `fc6a446` 已通过 Ubuntu/macOS、Python 3.11/3.12 hosted CI。正式 release packet、tag、GitHub Release、PyPI、`CITATION.cff` 和 BLM 实验按项目负责人决定延期，不阻塞核心 G1。
-- 对应总计划：[SkillStack 开源工程与 BLM 完整计划 v3](skillstack_blm_master_plan_v3_zh.md)
+- 状态：`core_complete`；验收提交 `fc6a446` 已通过 Ubuntu/macOS、Python 3.11/3.12 hosted CI。下一阶段直接进入 BLM；正式 release packet、tag、GitHub Release、PyPI 和 `CITATION.cff` 延期到论文完成后。
+- 对应当前总计划：[SkillStack / BLM 科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)
 - 对应任务：O02–O07 / G1
 - 目标工期：单人约 6–10 个专注工作日；以 gate 为准，不以日历自动结束。
 - G1 目标：交付一个第三方能从实际发行包安装、运行、诊断、扩展和维护的 core alpha；正式发布整理留到完整项目完成后处理。
@@ -12,7 +14,7 @@
 
 - 使用正常项目粒度 commit/push，不再要求开源、BLM 与核心代码分别形成独立提交。
 - `.env`、API key 与其他 credential 不得进入 Git；仅保留无真实密钥的 `.env.example`。
-- 先完成核心项目；开源发布整理与 BLM 实验均在后续单独启动。
+- F0 完成后直接进入 BLM；开源发布整理在研究实验与论文完成后单独启动。
 - 因此 O07-03 作为延期的发布工作保留清单，但不计入当前核心 G1 Exit Gate。
 
 ## 1. G1 的完成定义

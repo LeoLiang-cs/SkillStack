@@ -8,9 +8,9 @@
 
 ## 1. 项目决策与完成边界
 
-项目负责人已决定按正常项目方式管理 commit/push，暂不拆分开源与 BLM scope；完整项目结束后再整理正式开源发布与 BLM 工作。`.env`、API key 和其他 credential 不得进入 Git。
+项目负责人已决定按正常项目方式管理 commit/push，不拆分开源与科研 scope。G0/G1 合并视为已经完成的研究工程基础；下一阶段直接进入 BLM，完整研究和论文结束后再整理正式开源发布。`.env`、API key 和其他 credential 不得进入 Git。
 
-因此，本轮核心 G1 可以直接推进，不需要新的人工决策。正式 release packet、tag、GitHub Release、PyPI、`CITATION.cff` 作者信息和 BLM 实验启动时点均为后续决策，不阻塞本轮验收。
+因此，本轮核心 G1 可以直接收口，不需要新的人工决策。正式 release packet、tag、GitHub Release、PyPI 和 `CITATION.cff` 作者信息推迟到论文完成后；BLM 不再与这些发布事项一起延期。
 
 ## 2. 本轮完成内容
 
@@ -92,6 +92,5 @@
 
 1. 是否以及何时创建正式 alpha tag、GitHub Release 和 PyPI release。
 2. `CITATION.cff` 的作者顺序、公开名称和版本信息。
-3. BLM 实验的启动时间与第一组正式实验预算。
 
-这些事项都不需要在核心 G1 完成前决定。
+这些发布事项都不需要在研究与论文完成前决定。BLM R1 calibration 使用零模型/小规模确定性路径，可按科研主线直接推进；只有进入正式模型实验前才需要确认预算。

@@ -1,5 +1,7 @@
 # SkillStack 开源工程与 BLM 完整执行计划 v3
 
+> 历史计划：2026-09-16 起由[科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)取代。G0/G1 已合并为研究工程基础 F0；项目直接进入 BLM，正式开源整理移到论文完成之后。下文保留用于追溯旧任务编号，不再决定当前优先级。
+
 ## Material Passport
 
 - Origin Skill: ars-codex:academic-research-suite / experiment-agent
@@ -278,15 +280,6 @@ donor来自语义和状态匹配的原生artifact/读取，不来自oracle答案
 
 ## 10. 本轮完成与下一执行批次
 
-截至 2026-09-16 的执行增量：O02/O04/O05/O06/O07 已完成一批可直接推进的本地技术项，
-包括 wheel/sdist fresh-venv 验收、配置优先级、retry/budget、manifest/summary identity、
-offline contract fixture、文档和 CI action pin；代码已改，发布未执行，BLM 仍未运行。
-完整证据见 [Week 7 G1 继续执行报告](../../report/week7/g1_continuation_execution_report_zh.md)。
+本节原执行顺序已于 2026-09-16 停用。G0/G1 的工程结果合并为 F0，当前下一批是 BLM R1 calibration，不再等待 release packet 或公开发布审计。完整当前顺序见[科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)。
 
-下一批按 gate 顺序执行：Leo 确认 G0 窄范围项目 commit → 在同一 SHA 上跑 hosted CI 与最终
-source/wheel/sdist packet → G1 release-ready 审计；随后才进入 BLM G2 calibration。B01/B02
-可以在不改变 core release scope 的情况下准备，但不能把计划卡当作已执行实验。
-
-v2仍保留为历史。framework v2继续定义研究idea，无需为扩充工程计划再发明新方法；本v3新增的是完整工程承诺、证据门禁和实施依赖。
-
-参考：[Python生命周期](https://devguide.python.org/versions/)用于支持矩阵排期；[PyPA packaging guide](https://packaging.python.org/en/latest/tutorials/packaging-projects/)用于区分源码、wheel和sdist交付；这些来源不证明当前项目已经满足分发验收。
+v2、v3 继续作为历史计划保留，不用于判断当前任务优先级。

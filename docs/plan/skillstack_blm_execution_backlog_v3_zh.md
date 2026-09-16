@@ -1,8 +1,10 @@
 # SkillStack / BLM 执行清单 v3
 
+> 历史清单：当前执行顺序见[科研主线计划 v4](skillstack_research_master_plan_v4_zh.md)。旧 O/B/E 与 G0/G1 编号仅用于追溯；不再把开源工程和 BLM 作为两条并行主线。
+
 - 日期：2026-09-15
 - 配套：[完整总计划](skillstack_blm_master_plan_v3_zh.md)、[方法定义](../original/skillstack_draft_framework_2.md)。
-- 状态：核心 G1 已在验收提交 `fc6a446` 完成本地与 hosted gate；正式 release packet、tag、PyPI、引用信息和 BLM 实验按项目负责人决定延期，不阻塞核心 G1。旧能力仍不能替代同一验收 SHA 的证据。
+- 状态：历史 G0+G1 已合并为完成的 F0 研究工程基础；下一阶段直接进入 BLM R1。正式 release packet、tag、PyPI 和引用信息延期到论文完成后。
 - 本地研究材料；公开清单决定前不纳入release。
 - 优先级P0为所列gate的阻断项，P1为后续完整交付必需；不是删除低优先级任务。
 

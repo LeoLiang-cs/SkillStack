@@ -1,13 +1,21 @@
 from __future__ import annotations
 
 import copy
+import importlib.util
 import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.run_blm_calibration import _run
 from skillstack.experiments.blm_calibration import evaluate_calibration_case
+
+
+_SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts" / "run_blm_calibration.py"
+_SCRIPT_SPEC = importlib.util.spec_from_file_location("blm_calibration_runner", _SCRIPT_PATH)
+assert _SCRIPT_SPEC is not None and _SCRIPT_SPEC.loader is not None
+_SCRIPT_MODULE = importlib.util.module_from_spec(_SCRIPT_SPEC)
+_SCRIPT_SPEC.loader.exec_module(_SCRIPT_MODULE)
+_run = _SCRIPT_MODULE._run
 
 
 def case(case_id, measurement_status="valid", **fields):

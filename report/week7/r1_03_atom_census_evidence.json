@@ -1,0 +1,88 @@
+{
+  "boundary_id": "r1_00_c1_skillplan",
+  "branch": "main",
+  "calibration_only": true,
+  "census_config": "configs/blm/r1_03_atom_census.json",
+  "census_schema": "skillstack-blm-atom-census-v1",
+  "census_sha256": "4e125221f55f01682fe5e45a1bddf23267fe6acea35d57fa149b334d60d5d66b",
+  "date": "2026-09-16",
+  "empty_identity_semantic_paths": [],
+  "evidence_class": "verified_this_run",
+  "excluded_claims": [
+    "model-internal read",
+    "transport omission for native/flat",
+    "general hidden-state coverage"
+  ],
+  "experiment_id": "r1_03_blm_boundary_atom_census",
+  "external_data": false,
+  "gates": {
+    "empty_list_no_fabricated_index": true,
+    "four_membership_reads": true,
+    "identity_only_semantic_index": true,
+    "no_consumer_read_added": true,
+    "sequence_exact_3x": true,
+    "top_k_index_zero_only": true
+  },
+  "local_registry_status": "static_verified_runtime_indirect",
+  "model_calls": 0,
+  "network_calls": 0,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "record_count": 7,
+  "repo_sha": "5cd55912aa14acefe6ec07f60ea9da989fed183e",
+  "runtime_sequence": [
+    {
+      "operation": "contains",
+      "path": "selected_skill_ids",
+      "read_type": "schema_validation_read",
+      "sequence": 1
+    },
+    {
+      "operation": "contains",
+      "path": "selected_scores",
+      "read_type": "schema_validation_read",
+      "sequence": 2
+    },
+    {
+      "operation": "contains",
+      "path": "selected_native_skills",
+      "read_type": "schema_validation_read",
+      "sequence": 3
+    },
+    {
+      "operation": "contains",
+      "path": "flat_skill_context",
+      "read_type": "schema_validation_read",
+      "sequence": 4
+    },
+    {
+      "operation": "getitem",
+      "path": "selected_skill_ids",
+      "read_type": "schema_validation_read",
+      "sequence": 5
+    },
+    {
+      "operation": "index",
+      "path": "selected_skill_ids[0]",
+      "read_type": "semantic_read",
+      "sequence": 6
+    }
+  ],
+  "runtime_sequence_exact_three_times": true,
+  "runtime_sequence_sha256": "03ca5458ea337ef4d3e8c0b734bc8b4dc71c56439036546258c5c46131bee206",
+  "schema_version": "skillstack-r1-03-atom-census-evidence-v1",
+  "semantic_events": [
+    {
+      "operation": "index",
+      "path": "selected_skill_ids[0]",
+      "read_type": "semantic_read",
+      "sequence": 6
+    }
+  ],
+  "source_consumer": "skill_plan_executor",
+  "state_scope": "first_handoff_reconstructed_fixture_v1",
+  "top_k_two_semantic_paths": [
+    "selected_skill_ids[0]"
+  ],
+  "unread_atoms_semantic_events": []
+}

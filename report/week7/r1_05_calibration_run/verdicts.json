@@ -1,0 +1,174 @@
+{
+  "schema_version": "skillstack-blm-verdict-set-v1",
+  "verdicts": [
+    {
+      "calibration_only": true,
+      "case_id": "known_identity_dependency",
+      "claim_id": "local-c1-identity-dependency",
+      "contract_verdict": "not_falsified",
+      "evidence_refs": [
+        "episodes.jsonl:r1-05:crossed_single_atom:0",
+        "episodes.jsonl:r1-05:reference:0"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "local_identity_dependency_calibration",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "frozen heat fixture / SkillPlanExecutor identity atom"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "unread_probe:selected_scores[0]",
+      "claim_id": "local-c1-unread-domain",
+      "contract_verdict": "not_falsified",
+      "evidence_refs": [
+        "episodes.jsonl:r1-05:irrelevant_unread_information:selected_scores[0]:0"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "unread_negative_control",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "current SkillPlanExecutor read domain"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "unread_probe:selected_native_skills[0]",
+      "claim_id": "local-c1-unread-domain",
+      "contract_verdict": "not_falsified",
+      "evidence_refs": [
+        "episodes.jsonl:r1-05:irrelevant_unread_information:selected_native_skills[0]:0"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "unread_negative_control",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "current SkillPlanExecutor read domain"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "unread_probe:flat_skill_context",
+      "claim_id": "local-c1-unread-domain",
+      "contract_verdict": "not_falsified",
+      "evidence_refs": [
+        "episodes.jsonl:r1-05:irrelevant_unread_information:flat_skill_context:0"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "unread_negative_control",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "current SkillPlanExecutor read domain"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "declared_field_deleted",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:declared_field_deleted"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "invalid",
+      "reason_code": "adapter_transport_nonconformance",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "opaque_native_or_flat",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:opaque_native_or_flat"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "consumer_semantic_read_unverified",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "synthetic_joint_only",
+      "claim_id": "synthetic-independent-sufficiency",
+      "contract_verdict": "falsified",
+      "evidence_refs": [
+        "synthetic:test-only"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "valid",
+      "reason_code": "synthetic_independent_sufficiency_failed",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "test-only synthetic classifier record"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "invalid_donor_type_group",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:invalid_donor_type_group"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "invalid",
+      "reason_code": "measurement_not_valid",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "replay_state_drift",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:replay_state_drift"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "abstained",
+      "reason_code": "replay_state_incomplete",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "no_op_drift",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:no_op_drift"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "invalid",
+      "reason_code": "no_op_changed_result",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "interrupted_arm",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:interrupted_arm"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "abstained",
+      "reason_code": "incomplete_arm",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    },
+    {
+      "calibration_only": true,
+      "case_id": "budget_exhausted",
+      "claim_id": "diagnostic-only",
+      "contract_verdict": "abstained",
+      "evidence_refs": [
+        "diagnostic:budget_exhausted"
+      ],
+      "excluded_claims": [],
+      "measurement_status": "abstained",
+      "reason_code": "budget_exhausted",
+      "schema_version": "skillstack-blm-verdict-v1",
+      "verdict_scope": "R1 bounded calibration diagnostics"
+    }
+  ]
+}

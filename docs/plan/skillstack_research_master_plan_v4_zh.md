@@ -31,7 +31,7 @@ G0 与 G1 的拆分原本是发布工程顺序，而不是科研边界：
 | 阶段 | 内容 | 出口条件 | 状态 |
 |---|---|---|---|
 | F0 研究工程基础 | 原 G0+G1：repo 基线、运行契约、trace/resume、测试、package smoke、CI、安全边界 | 本地与 hosted gate 通过；研究运行可追踪、可恢复 | complete (`fc6a446`) |
-| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | R1-00/R1-01 complete；R1-02 active |
+| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | complete_calibration_only |
 | R2 自然案例与增量 | 筛选真实跨组件案例；比较 schema check、ablation、restoration 等简单基线 | 至少一个有效自然案例或有价值的可靠阴性；明确 BLM 的增量与成本 | planned |
 | R3 正式协议与实验 | 冻结任务、arms、重复数、预算、统计、排除和停止规则；执行确认实验 | raw evidence 完整；结果可重算；发现集与确认集分离 | planned |
 | R4 论文完成 | 完成方法、实验、相关工作、限制、图表和 claim-evidence map | 每项论文主张能映射到实际数据、代码和 manifest | planned |
@@ -57,7 +57,7 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-02 建立状态重建与 no-op 基线
 
-状态：`active`；唯一实施清单为 [R1-02 首次 handoff replay 清单](r1_02_blm_first_handoff_replay_plan_list_zh.md)。
+状态：`complete`；唯一实施清单为 [R1-02 首次 handoff replay 清单](r1_02_blm_first_handoff_replay_plan_list_zh.md)。
 
 - 保存环境状态、Consumer 本地状态、输入历史、预算和 oracle 所需信息。
 - 在确定性 fixture 上验证相同状态重建后的无干预行为一致。
@@ -67,7 +67,7 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-03 建立 boundary-atom census
 
-执行依赖 R1-02 envelope/replay；唯一实施清单为 [R1-03 boundary-atom census 清单](r1_03_blm_boundary_atom_census_plan_list_zh.md)。
+状态：`complete`；执行依赖 R1-02 envelope/replay；唯一实施清单为 [R1-03 boundary-atom census 清单](r1_03_blm_boundary_atom_census_plan_list_zh.md)。
 
 - atom 由 read site、semantic role 和可独立干预性定义，不只是字段名。
 - 记录 atom 的来源、类型/值域、合法 donor、读取次数和顺序。
@@ -77,7 +77,7 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-04 实现合法 restoration 与 controls
 
-执行依赖 R1-03 census；唯一实施清单为 [R1-04 restoration controls 清单](r1_04_blm_restoration_controls_plan_list_zh.md)。
+状态：`complete`；执行依赖 R1-03 census；唯一实施清单为 [R1-04 restoration controls 清单](r1_04_blm_restoration_controls_plan_list_zh.md)。
 
 - 通过正常 parser/Consumer 路径注入，不绕过被测接口。
 - 最小 arms：reference、crossed、crossed-noop、crossed+atom、载体 control、crossed+full restoration。
@@ -87,7 +87,7 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-05 校准 bounded verdict
 
-执行依赖 R1-04 controls；唯一实施清单为 [R1-05 bounded verdict 清单](r1_05_blm_bounded_verdict_calibration_plan_list_zh.md)。
+状态：`complete_calibration_only`；执行依赖 R1-04 controls；唯一实施清单为 [R1-05 bounded verdict 清单](r1_05_blm_bounded_verdict_calibration_plan_list_zh.md)。
 
 - 分开记录 `measurement_status` 与研究 verdict。
 - verdict 只允许 `falsified`、`not_falsified` 或 `abstained`，并绑定适用范围。
@@ -120,7 +120,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 1. 以 `fc6a446`/`730a37a` 之后的 `main` 作为 F0 工程基线。
 2. 完成 R1-01 的 first-handoff capture、单 atom intervention、unread negative probes 与 validity guards。
 3. 完成 R1-02/R1-03 的 deterministic replay 与 atom census spike。
-4. 通过 R1-04/R1-05 controls 和 calibration 后，再筛选首个自然案例。
+4. 完成 R1-04/R1-05 controls 和 bounded calibration；R1 当前出口为 `complete_calibration_only`。
+5. 下一步只筛选真实自然 D→C 案例和简单基线，不自动进入 live model 或 R3 正式实验。
 5. R2 结果足以支持研究价值后，才冻结 R3 正式协议。
 6. 完成 R4 论文后启动 P1 开源整理，不反向改写历史实验结果。
 

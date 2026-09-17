@@ -1,0 +1,42 @@
+{
+  "arms": [
+    "reference",
+    "crossed",
+    "crossed_noop",
+    "crossed_single_atom",
+    "matched_carrier_control",
+    "crossed_full_reference_restoration",
+    "irrelevant_unread_information:selected_scores[0]",
+    "irrelevant_unread_information:selected_native_skills[0]",
+    "irrelevant_unread_information:flat_skill_context"
+  ],
+  "calibration_module_sha256": "be819012ce4b305bf247097017658c17163faae2eb9a367cb95e96285a14ccef",
+  "code_commit": "5cd55912aa14acefe6ec07f60ea9da989fed183e",
+  "created_at_utc": "2026-09-17T01:11:57.919228+00:00",
+  "external_checkout_commit": "unavailable",
+  "external_data": false,
+  "max_steps": 12,
+  "model_calls": 0,
+  "network_calls": 0,
+  "oracle": "heat_environment_oracle_v1",
+  "package_version": "unavailable",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "repetitions": 3,
+  "repo_dirty": "unavailable",
+  "run_id": "r1_05_calibration_run",
+  "run_identity_sha256": "e9c8aa3836d2f3abbd2a5a421cff885179db2d7a9b1aacf9bc4d7ae4ca958a1a",
+  "run_schema": "skillstack-r1-05-calibration-run-v1",
+  "schema_version": "skillstack-run-manifest-v1",
+  "stage": "r1-05",
+  "state_scope": "first_handoff_reconstructed_fixture_v1",
+  "step_budget_per_plan_step": 24,
+  "task": {
+    "expected_skill_id": "skill_heat_then_place",
+    "game_file": "deterministic://r1-00-heat",
+    "task_family": "pick_heat_then_place_in_recep",
+    "task_id": "r1_00_heat_calibration",
+    "task_instruction": "heat a mug and put it in desk"
+  },
+  "top_k": 1
+}

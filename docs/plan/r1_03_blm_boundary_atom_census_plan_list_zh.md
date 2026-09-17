@@ -1,6 +1,7 @@
 # R1-03 BLM boundary-atom census 清单
 
-- 状态：`PLANNED`（执行期间逐项改为 `VERIFIED`）
+- 状态：`VERIFIED`
+- 执行 SHA：`5cd55912aa14acefe6ec07f60ea9da989fed183e`
 - 依赖：R1-02 exact first-handoff replay
 - 固定 Consumer：`skill_plan_executor`
 
@@ -12,33 +13,33 @@
 
 ### R1-03-00 census contract
 
-- [ ] 固定 `skillstack-blm-atom-census-v1` schema。
-- [ ] 每条记录包含 carrier path、read-map、静态表达式/digest、runtime sequence/count、read type、值域、group/intervenability、donor、trace exposure、evidence class 和 claim boundary。
+- [x] 固定 `skillstack-blm-atom-census-v1` schema。
+- [x] 每条记录包含 carrier path、read-map、静态表达式/digest、runtime sequence/count、read type、值域、group/intervenability、donor、trace exposure、evidence class 和 claim boundary。
 
 ### R1-03-01 默认关闭 read tracker
 
-- [ ] 在 `blm.py` 增加 v2 sidecar `consumer_reads`，保留 v1 行为。
-- [ ] input hash 在包装前计算；dict/list wrapper 保持值、顺序、控制流和类型契约。
-- [ ] 只在 opt-in v2 请求下追踪，default-off 无 sidecar。
+- [x] 在 `blm.py` 增加 v2 sidecar `consumer_reads`，保留 v1 行为。
+- [x] input hash 在包装前计算；dict/list wrapper 保持值、顺序、控制流和类型契约。
+- [x] 只在 opt-in v2 请求下追踪，default-off 无 sidecar。
 
 ### R1-03-02 冻结 census
 
-- [ ] 记录 identity semantic read、top-rank group、score validation-only、native opaque unread、flat derived unread。
-- [ ] local registry 记录为 `static_verified_runtime_indirect`，不伪造 runtime event。
-- [ ] task/observation/admissible commands 标记为 environment state，不是 D→C payload。
-- [ ] 生成 `configs/blm/r1_03_atom_census.json` 与研究文档。
+- [x] 记录 identity semantic read、top-rank group、score validation-only、native opaque unread、flat derived unread。
+- [x] local registry 记录为 `static_verified_runtime_indirect`，不伪造 runtime event。
+- [x] task/observation/admissible commands 标记为 environment state，不是 D→C payload。
+- [x] 生成 `configs/blm/r1_03_atom_census.json` 与研究文档。
 
 ### R1-03-03 测试
 
-- [ ] 四字段均出现 validation membership；只有 `selected_skill_ids[0]` 出现 semantic index read。
-- [ ] 3× sequence exact；top-k>1 只读 index 0；空 list 不伪造 index。
-- [ ] wrapper、default-off 和完整行为投影 exact。
-- [ ] 未知/重复 atom、缺 read-map 或动态/静态冲突 fail-closed 为 `blocked_atom_census_mismatch`。
+- [x] 四字段均出现 validation membership；只有 `selected_skill_ids[0]` 出现 semantic index read。
+- [x] 3× sequence exact；top-k>1 只读 index 0；空 list 不伪造 index。
+- [x] wrapper、default-off 和完整行为投影 exact。
+- [x] 未知/重复 atom、缺 read-map 或动态/静态冲突 fail-closed 为 `blocked_atom_census_mismatch`。
 
 ### R1-03-04 证据与出口
 
-- [ ] 生成 atom census evidence、completion record 和 local gate JSON。
-- [ ] 未执行项目写 `not run`。
+- [x] 生成 atom census evidence、completion record 和 local gate JSON。
+- [x] 未执行项目写 `not run`。
 
 ## Exit Gate
 

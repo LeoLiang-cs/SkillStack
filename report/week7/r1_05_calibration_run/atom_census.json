@@ -1,0 +1,219 @@
+{
+  "boundary_id": "r1_00_c1_skillplan",
+  "records": [
+    {
+      "atom_id": "selected_skill_ids[0]",
+      "carrier_path": "execution_input.selected_skill_ids[0]",
+      "claim_boundary": "local SkillPlanExecutor branch selection on the frozen fixture",
+      "declared_semantics": "top-ranked skill identity selects the Consumer plan skeleton",
+      "donor_categories": [
+        "calibration_oracle",
+        "matched_nonreference",
+        "producer_output_noop"
+      ],
+      "evidence_class": "verified_this_run",
+      "intervenability": "independent_atom",
+      "read_map_id": "r1_00_c1.skillplan.semantic.selected_skill_ids[0]",
+      "read_type": "semantic_read_after_schema_validation",
+      "runtime_access": [
+        {
+          "operation": "contains",
+          "path": "selected_skill_ids",
+          "read_type": "schema_validation_read",
+          "sequence": 1
+        },
+        {
+          "operation": "getitem",
+          "path": "selected_skill_ids",
+          "read_type": "schema_validation_read",
+          "sequence": 5
+        },
+        {
+          "operation": "index",
+          "path": "selected_skill_ids[0]",
+          "read_type": "semantic_read",
+          "sequence": 6
+        }
+      ],
+      "static_read": {
+        "expression": "skill_ids = execution_input[\"selected_skill_ids\"]; top_skill_id = skill_ids[0] if skill_ids else None",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "SkillPlanExecutor.execute",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "top-level selected_skill_ids and v2 sidecar consumer_reads",
+      "transport_status": "transmitted_by_adapter",
+      "value_domain": "non-empty string skill id; index 0 only"
+    },
+    {
+      "atom_id": "top_rank_order",
+      "carrier_path": "execution_input.selected_skill_ids ordering",
+      "claim_boundary": "do not attribute rank independently from identity without a separate Consumer read",
+      "declared_semantics": "rank/order is inseparable from the selected top identity for this Consumer",
+      "donor_categories": [
+        "calibration_oracle",
+        "matched_nonreference"
+      ],
+      "evidence_class": "calibration_only",
+      "intervenability": "inseparable_group_with_selected_skill_ids",
+      "read_map_id": "r1_00_c1.skillplan.semantic.selected_skill_ids[0]",
+      "read_type": "semantic_read",
+      "runtime_access": [
+        {
+          "operation": "index",
+          "path": "selected_skill_ids[0]",
+          "read_type": "semantic_read",
+          "sequence": 6
+        }
+      ],
+      "static_read": {
+        "expression": "skill_ids[0] if skill_ids else None",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "SkillPlanExecutor.execute",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "selected_skill_ids list in top-level trace",
+      "transport_status": "transmitted_by_adapter",
+      "value_domain": "ordered list; top-k rank controls index 0"
+    },
+    {
+      "atom_id": "selected_scores[0]",
+      "carrier_path": "execution_input.selected_scores[0]",
+      "claim_boundary": "negative control only; no claim about hidden model reads",
+      "declared_semantics": "retrieval score is declared metadata but not a known Consumer decision input",
+      "donor_categories": [
+        "calibration_oracle"
+      ],
+      "evidence_class": "verified_this_run",
+      "intervenability": "independent_atom_but_unread_by_current_consumer",
+      "read_map_id": "r1_00_c1.skillplan.validation.selected_scores[0]",
+      "read_type": "validation_only",
+      "runtime_access": [
+        {
+          "operation": "contains",
+          "path": "selected_scores",
+          "read_type": "schema_validation_read",
+          "sequence": 2
+        }
+      ],
+      "static_read": {
+        "expression": "field not in execution_input (field=\"selected_scores\")",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "_validate_execution_input",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "top-level retrieval response and adapter output; no semantic Consumer read",
+      "transport_status": "transmitted_by_adapter",
+      "value_domain": "finite numeric list aligned with candidate lists"
+    },
+    {
+      "atom_id": "selected_native_skills[0]",
+      "carrier_path": "execution_input.selected_native_skills[0]",
+      "claim_boundary": "do not call this transport omission; only an unread negative control",
+      "declared_semantics": "native skill payload is transported and schema-presence validated",
+      "donor_categories": [
+        "calibration_oracle"
+      ],
+      "evidence_class": "verified_this_run",
+      "intervenability": "opaque_unread_information",
+      "read_map_id": "r1_00_c1.skillplan.validation.selected_native_skills[0]",
+      "read_type": "validation_only",
+      "runtime_access": [
+        {
+          "operation": "contains",
+          "path": "selected_native_skills",
+          "read_type": "schema_validation_read",
+          "sequence": 3
+        }
+      ],
+      "static_read": {
+        "expression": "field not in execution_input (field=\"selected_native_skills\")",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "_validate_execution_input",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "top-level selected_native_payloads; not a semantic Consumer read",
+      "transport_status": "transmitted_by_adapter",
+      "value_domain": "opaque native payload string aligned with selected IDs"
+    },
+    {
+      "atom_id": "flat_skill_context",
+      "carrier_path": "execution_input.flat_skill_context",
+      "claim_boundary": "prompt exposure is not evidence of model-internal reading",
+      "declared_semantics": "adapter-derived flat prompt-like carrier",
+      "donor_categories": [
+        "calibration_oracle"
+      ],
+      "evidence_class": "verified_this_run",
+      "intervenability": "opaque_unread_information",
+      "read_map_id": "r1_00_c1.skillplan.validation.flat_skill_context",
+      "read_type": "validation_only",
+      "runtime_access": [
+        {
+          "operation": "contains",
+          "path": "flat_skill_context",
+          "read_type": "schema_validation_read",
+          "sequence": 4
+        }
+      ],
+      "static_read": {
+        "expression": "field not in execution_input (field=\"flat_skill_context\")",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "_validate_execution_input",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "not included in current top-level trace; v2 input hash only",
+      "transport_status": "transmitted_by_adapter",
+      "value_domain": "derived string carrier"
+    },
+    {
+      "atom_id": "consumer_local_registry",
+      "carrier_path": "SkillPlanExecutor.PLAN_STEPS_BY_SKILL",
+      "claim_boundary": "known hand-written calibration mechanism; not a Producer payload atom",
+      "declared_semantics": "hard-coded skill-id to plan mapping used by the Consumer",
+      "donor_categories": [],
+      "evidence_class": "historical_evidence_plus_verified_this_run",
+      "intervenability": "environment_not_producer_atom",
+      "read_map_id": "r1_00_c1.skillplan.local_registry",
+      "read_type": "semantic_read_static_verified_runtime_indirect",
+      "runtime_access": {
+        "events": [],
+        "reason": "wrapper cannot observe module-level registry lookup without changing Consumer code",
+        "status": "static_verified_runtime_indirect"
+      },
+      "static_read": {
+        "expression": "elif top_skill_id in PLAN_STEPS_BY_SKILL: plan = list(PLAN_STEPS_BY_SKILL[top_skill_id])",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "SkillPlanExecutor.execute",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "executor_report.plan_skill_id and plan_steps",
+      "transport_status": "consumer_local_not_transport_payload",
+      "value_domain": "Consumer-local mapping keyed by skill id"
+    },
+    {
+      "atom_id": "task_observation_commands",
+      "carrier_path": "task_record / initial_observation / initial_info.admissible_commands",
+      "claim_boundary": "must not be relabeled as D→C payload",
+      "declared_semantics": "environment/task state used to bind actions",
+      "donor_categories": [],
+      "evidence_class": "verified_this_run",
+      "intervenability": "environment_not_atom",
+      "read_map_id": "r1_00_c1.environment_state",
+      "read_type": "environment_state",
+      "runtime_access": [],
+      "static_read": {
+        "expression": "parse_task_semantics(task_record, initial_observation); current_info=initial_info",
+        "file": "src/skillstack/execution/skillplan.py",
+        "function": "SkillPlanExecutor.execute",
+        "source_sha256": "f49421dc57a48dadfc3697175171c08403ff976f9bf8186d6e1a9bce497afe5d"
+      },
+      "trace_exposure": "top-level task and raw_observations",
+      "transport_status": "environment_state_not_d_to_c_payload",
+      "value_domain": "fixture task and observation state"
+    }
+  ],
+  "schema_version": "skillstack-blm-atom-census-v1",
+  "source_consumer": "skill_plan_executor",
+  "state_scope": "first_handoff_reconstructed_fixture_v1"
+}

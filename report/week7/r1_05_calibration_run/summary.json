@@ -1,0 +1,32 @@
+{
+  "all_expected_episodes_present": true,
+  "calibration_invalid_count": 0,
+  "calibration_valid_count": 27,
+  "code_commit": "5cd55912aa14acefe6ec07f60ea9da989fed183e",
+  "expected_episode_count": 27,
+  "generated_at_utc": "2026-09-17T01:11:57.949639+00:00",
+  "generated_at_utc_excluded_from_identity": true,
+  "mid_episode_snapshot": "not_supported",
+  "raw_episode_count": 27,
+  "run_id": "r1_05_calibration_run",
+  "run_identity_sha256": "e9c8aa3836d2f3abbd2a5a421cff885179db2d7a9b1aacf9bc4d7ae4ca958a1a",
+  "schema_version": "skillstack-run-summary-v1",
+  "stage": "r1-05",
+  "state_scope": "first_handoff_reconstructed_fixture_v1",
+  "status_counts": {
+    "abstained": 0,
+    "cancelled": 0,
+    "completed": 27,
+    "error": 0,
+    "invalid": 0,
+    "planned": 27,
+    "skipped": 0,
+    "started": 27,
+    "success": 9,
+    "task_failure": 18,
+    "timeout": 0,
+    "valid": 0
+  },
+  "verdict_count": 12,
+  "verdicts_recomputed_from_raw": true
+}

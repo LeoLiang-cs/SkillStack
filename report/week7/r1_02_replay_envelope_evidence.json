@@ -1,0 +1,157 @@
+{
+  "arms": [
+    {
+      "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
+      "adapter_input_sha256": "0db2b509da36afccb7df93303967b358a4ad26e102ae27b255cfd332603e5a71",
+      "arm_id": "reference",
+      "branches": [
+        "skill_heat_then_place",
+        "skill_heat_then_place",
+        "skill_heat_then_place"
+      ],
+      "consumer_called": [
+        true,
+        true,
+        true
+      ],
+      "envelope_id": "r1_00_heat_calibration:reference",
+      "envelope_sha256": "f31be5c084d791abeab038a24beab33880ceef4d770a510b70870b7deb306878",
+      "exact_replay": true,
+      "producer": "oracle_skill",
+      "producer_output_sha256": "e94974bccf129d0aff5b75575b5ed2da7019083431888a31042d8a8683683e13",
+      "projection_sha256": [
+        "df5a47ba8e6503343a1bb858df3a1d9f48597912fb53a6de73bc424f32bbda2f",
+        "df5a47ba8e6503343a1bb858df3a1d9f48597912fb53a6de73bc424f32bbda2f",
+        "df5a47ba8e6503343a1bb858df3a1d9f48597912fb53a6de73bc424f32bbda2f"
+      ],
+      "replay_repetitions": 3,
+      "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754",
+      "stop_reasons": [
+        "environment_done",
+        "environment_done",
+        "environment_done"
+      ],
+      "successes": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
+      "adapter_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "arm_id": "crossed",
+      "branches": [
+        "skill_cool_then_place",
+        "skill_cool_then_place",
+        "skill_cool_then_place"
+      ],
+      "consumer_called": [
+        true,
+        true,
+        true
+      ],
+      "envelope_id": "r1_00_heat_calibration:crossed",
+      "envelope_sha256": "1d32e3e47c6f6ea517b445d7f84d7ad558507f75955a08f692a9ae4f00abb693",
+      "exact_replay": true,
+      "producer": "random_skill",
+      "producer_output_sha256": "8562b851db25fc5fa114b06f18e81114466eccf4df7c077db5b198125c59b74f",
+      "projection_sha256": [
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692",
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692",
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692"
+      ],
+      "replay_repetitions": 3,
+      "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754",
+      "stop_reasons": [
+        "plan_step_unavailable",
+        "plan_step_unavailable",
+        "plan_step_unavailable"
+      ],
+      "successes": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
+      "adapter_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "arm_id": "crossed_noop",
+      "branches": [
+        "skill_cool_then_place",
+        "skill_cool_then_place",
+        "skill_cool_then_place"
+      ],
+      "consumer_called": [
+        true,
+        true,
+        true
+      ],
+      "envelope_id": "r1_00_heat_calibration:crossed_noop",
+      "envelope_sha256": "d8149154c16352d35e1acc8e7b3f1c1aa6de5c9b8dd407d3bb6536c481a152e4",
+      "exact_replay": true,
+      "producer": "random_skill",
+      "producer_output_sha256": "8562b851db25fc5fa114b06f18e81114466eccf4df7c077db5b198125c59b74f",
+      "projection_sha256": [
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692",
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692",
+        "9e7060983380b91de6a2b151833105f7437430fa9824d77db880f5a392fc6692"
+      ],
+      "replay_repetitions": 3,
+      "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754",
+      "stop_reasons": [
+        "plan_step_unavailable",
+        "plan_step_unavailable",
+        "plan_step_unavailable"
+      ],
+      "successes": [
+        false,
+        false,
+        false
+      ]
+    }
+  ],
+  "boundary_id": "r1_00_c1_skillplan",
+  "branch": "main",
+  "budget": {
+    "max_steps": 12,
+    "step_budget_per_plan_step": 24,
+    "top_k": 1
+  },
+  "calibration_only": true,
+  "date": "2026-09-16",
+  "drift_rejection_cases": [
+    "task",
+    "environment",
+    "consumer",
+    "producer",
+    "adapter",
+    "native_library",
+    "code_revision"
+  ],
+  "drift_results": "all abstained with reason=replay_state_incomplete before Consumer",
+  "evidence_class": "verified_this_run",
+  "excluded_claims": [
+    "mid-episode snapshot replay",
+    "natural Consumer or ALFWorld benchmark",
+    "BLM validity or novelty"
+  ],
+  "experiment_id": "r1_02_blm_first_handoff_replay",
+  "external_data": false,
+  "fixture_id": "r1_00_heat_calibration",
+  "gates": {
+    "R1-02-A": true,
+    "R1-02-B": true,
+    "R1-02-C": true,
+    "R1-02-D": true,
+    "R1-02-E": true
+  },
+  "model_calls": 0,
+  "network_calls": 0,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "repo_sha": "5cd55912aa14acefe6ec07f60ea9da989fed183e",
+  "schema_version": "skillstack-r1-02-replay-envelope-evidence-v1",
+  "state_scope": "first_handoff_reconstructed_fixture_v1"
+}

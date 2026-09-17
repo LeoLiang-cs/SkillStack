@@ -1,0 +1,139 @@
+{
+  "schema_version": "skillstack-blm-atom-census-v1",
+  "boundary_id": "r2_c2_structured_react_first_handoff",
+  "state_scope": "first_provider_call_reconstructed_alfworld_v1",
+  "consumer": "ReActExecutor(structured_skills=True)",
+  "source_files": [
+    "src/skillstack/execution/react.py",
+    "src/skillstack/adapters/retrieval_to_execution.py",
+    "src/skillstack/blm.py"
+  ],
+  "records": [
+    {
+      "atom_id": "top_candidate_group",
+      "carrier_path": "execution_input.selected_skill_ids[0], selected_scores[0], selected_native_skills[0], flat_skill_context",
+      "read_map_id": "r2_c2.react.group.top_candidate",
+      "declared_semantics": "coherent top candidate identity, score, native payload and regenerated derived context",
+      "transport_status": "all four fields transmitted by adapter; flat context is derived",
+      "static_reads": [
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "ReActExecutor.execute",
+          "expression": "execution_input.get('flat_skill_context')",
+          "read_type": "prompt_exposure"
+        },
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "extract_procedure_steps",
+          "expression": "execution_input.get('selected_native_skills') or []; native_payloads[0]",
+          "read_type": "host_semantic_read_plus_prompt_exposure"
+        },
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "ReActExecutor.execute",
+          "expression": "execution_input.get('selected_skill_ids', [None])[0]",
+          "read_type": "reporting_read_only"
+        }
+      ],
+      "runtime_access": "v3 consumer_reads records mapping.get and list index events; prompt exposure is host-observable only",
+      "intervenability": "inseparable_group",
+      "donor_categories": ["task_semantic_reference", "lexical_crossed", "matched_nonreference", "producer_output"],
+      "claim_boundary": "R2 discovery group; do not attribute flat context independently from its source fields"
+    },
+    {
+      "atom_id": "selected_scores[0]",
+      "carrier_path": "execution_input.selected_scores[0]",
+      "read_map_id": "r2_c2.react.unread.selected_scores[0]",
+      "declared_semantics": "retrieval score metadata",
+      "transport_status": "transmitted_by_adapter",
+      "static_reads": [],
+      "runtime_access": "no semantic or prompt read expected; negative control only",
+      "intervenability": "independent_unread_atom",
+      "donor_categories": ["task_semantic_reference"],
+      "claim_boundary": "current host-side Consumer does not read score; no claim about model-internal hidden reads"
+    },
+    {
+      "atom_id": "selected_native_skills[0]",
+      "carrier_path": "execution_input.selected_native_skills[0]",
+      "read_map_id": "r2_c2.react.semantic.selected_native_skills[0]",
+      "declared_semantics": "native procedure text parsed into grounded steps",
+      "transport_status": "transmitted_by_adapter",
+      "static_reads": [
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "extract_procedure_steps",
+          "expression": "native_payloads = execution_input.get('selected_native_skills') or []; native_payloads[0]",
+          "read_type": "host_semantic_read"
+        }
+      ],
+      "runtime_access": "mapping.get followed by list index 0; resulting steps are appended to the system prompt",
+      "intervenability": "part_of_top_candidate_group; opaque text is not independently decomposed",
+      "donor_categories": ["task_semantic_reference", "matched_nonreference"],
+      "claim_boundary": "host semantic read and prompt exposure, not model-internal read"
+    },
+    {
+      "atom_id": "flat_skill_context",
+      "carrier_path": "execution_input.flat_skill_context",
+      "read_map_id": "r2_c2.react.prompt.flat_skill_context",
+      "declared_semantics": "adapter-derived prompt carrier",
+      "transport_status": "transmitted_by_adapter",
+      "static_reads": [
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "ReActExecutor.execute",
+          "expression": "execution_input.get('flat_skill_context') or '(none provided)'",
+          "read_type": "prompt_exposure"
+        }
+      ],
+      "runtime_access": "mapping.get; prompt hash changes when carrier text changes",
+      "intervenability": "derived_opaque_carrier; not independent of candidate group",
+      "donor_categories": ["task_semantic_reference", "matched_nonreference"],
+      "claim_boundary": "exposure to the provider request, never evidence of model-internal reading"
+    },
+    {
+      "atom_id": "selected_skill_ids[0]",
+      "carrier_path": "execution_input.selected_skill_ids[0]",
+      "read_map_id": "r2_c2.react.reporting.selected_skill_ids[0]",
+      "declared_semantics": "skill identity recorded in action rationale/report",
+      "transport_status": "transmitted_by_adapter",
+      "static_reads": [
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "ReActExecutor.execute",
+          "expression": "execution_input.get('selected_skill_ids', [None])[0]",
+          "read_type": "reporting_read"
+        }
+      ],
+      "runtime_access": "mapping.get and conditional index after an environment action; absent when no action occurs",
+      "intervenability": "not_a_strategy_read; included in top_candidate_group for coherent handoff",
+      "donor_categories": ["task_semantic_reference", "matched_nonreference"],
+      "claim_boundary": "reporting read alone cannot support a strategy-dependence claim"
+    },
+    {
+      "atom_id": "task_observation_admissible_commands",
+      "carrier_path": "task_record / initial_observation / initial_info.admissible_commands",
+      "read_map_id": "r2_c2.environment_state",
+      "declared_semantics": "task and environment state used to construct the request and validate actions",
+      "transport_status": "environment_state_not_D_to_C_payload",
+      "static_reads": [
+        {
+          "file": "src/skillstack/execution/react.py",
+          "function": "ReActExecutor.execute",
+          "expression": "task_record['task_instruction']; initial_info['admissible_commands']",
+          "read_type": "environment_or_prompt_state"
+        }
+      ],
+      "runtime_access": "recorded in envelope/request projection, not as a Producer atom",
+      "intervenability": "environment_not_atom",
+      "donor_categories": [],
+      "claim_boundary": "never relabel task/environment information as D→C payload"
+    }
+  ],
+  "label_assistance": {
+    "task_semantic_retriever_reads": ["task_family", "task_instruction", "initial_observation"],
+    "forbidden": ["expected_skill_id", "trajectory", "reward", "future_observation", "oracle_answer"],
+    "deployment_unassisted": false
+  },
+  "evidence_class": "verified_this_run",
+  "claim_boundary": "static source map plus FakeClient/dynamic host-side reads; no claim about model-internal reads"
+}

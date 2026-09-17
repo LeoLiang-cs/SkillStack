@@ -9,6 +9,7 @@ from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple
 from skillstack.adapters.retrieval_to_execution import adapt_retrieval_for_execution
 from skillstack.blm import (
     BLM_BOUNDARY_SCHEMA_V2,
+    BLM_INTERVENTION_SCHEMA_V3,
     STATE_SCOPE,
     apply_boundary_intervention,
     finalize_boundary_record,
@@ -75,7 +76,18 @@ class EpisodeRunner:
             )
             execution_input, adapter_event = adapt_retrieval_for_execution(retrieval_response)
             blm_boundary = None
+            blm_v3 = (
+                isinstance(blm_intervention, Mapping)
+                and blm_intervention.get("schema_version") == BLM_INTERVENTION_SCHEMA_V3
+            )
             if blm_intervention is not None:
+                natural_apply = None
+                if blm_v3:
+                    from skillstack.experiments.blm_natural import (
+                        apply_natural_boundary_intervention,
+                    )
+
+                    natural_apply = apply_natural_boundary_intervention
                 context = {
                     "task_record": task_record,
                     "initial_observation": initial_observation,
@@ -95,9 +107,35 @@ class EpisodeRunner:
                     "state_scope": STATE_SCOPE,
                     "retrieval_response": retrieval_response,
                 }
-                effective_input, blm_boundary = apply_boundary_intervention(
-                    execution_input, blm_intervention, context
-                )
+                if blm_v3:
+                    from skillstack.experiments.blm_natural import build_natural_context
+
+                    prompt_template = getattr(self.executor, "prompt_template", "")
+                    backend = getattr(getattr(self.executor, "client", None), "backend", None)
+                    natural_context = build_natural_context(
+                        env,
+                        task_record,
+                        initial_observation,
+                        initial_info,
+                        self.native_skills,
+                        top_k=top_k,
+                        max_steps=max_steps if max_steps is not None else 50,
+                        prompt_template=prompt_template,
+                        backend_name=getattr(backend, "name", None) or "unknown",
+                        model=getattr(backend, "model", None) or "unknown",
+                        max_tokens_per_step=getattr(self.executor, "max_tokens_per_step", None)
+                        or 512,
+                        consumer_step_budget=getattr(
+                            self.executor, "step_budget_per_plan_step", None
+                        ),
+                    )
+                    effective_input, blm_boundary = natural_apply(
+                        execution_input, blm_intervention, natural_context
+                    )
+                else:
+                    effective_input, blm_boundary = apply_boundary_intervention(
+                        execution_input, blm_intervention, context
+                    )
                 if effective_input is None:
                     warning = f"BLM intervention rejected: {blm_boundary['validity_reason']}"
                     trace.update(
@@ -125,6 +163,10 @@ class EpisodeRunner:
                 execution_input = effective_input
                 if blm_boundary.get("schema_version") == BLM_BOUNDARY_SCHEMA_V2:
                     execution_input, read_tracker = instrument_execution_input(execution_input)
+                elif blm_v3:
+                    execution_input, read_tracker = instrument_execution_input(
+                        execution_input, mode="v3"
+                    )
             executor_report = self.executor.execute(
                 env,
                 initial_observation,
@@ -157,11 +199,20 @@ class EpisodeRunner:
                 }
             )
             if blm_boundary is not None:
-                trace["blm_boundary"] = finalize_boundary_record(
-                    blm_boundary,
-                    executor_report,
-                    consumer_reads,
-                )
+                if blm_v3:
+                    from skillstack.experiments.blm_natural import (
+                        finalize_natural_boundary_record,
+                    )
+
+                    trace["blm_boundary"] = finalize_natural_boundary_record(
+                        blm_boundary, executor_report, consumer_reads
+                    )
+                else:
+                    trace["blm_boundary"] = finalize_boundary_record(
+                        blm_boundary,
+                        executor_report,
+                        consumer_reads,
+                    )
         except Exception as error:
             trace.update(
                 {

@@ -32,14 +32,14 @@ G0 与 G1 的拆分原本是发布工程顺序，而不是科研边界：
 |---|---|---|---|
 | F0 研究工程基础 | 原 G0+G1：repo 基线、运行契约、trace/resume、测试、package smoke、CI、安全边界 | 本地与 hosted gate 通过；研究运行可追踪、可恢复 | complete (`fc6a446`) |
 | R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | complete_calibration_only |
-| R2 自然案例与增量 | 筛选真实跨组件案例；比较 schema check、ablation、restoration 等简单基线 | 至少一个有效自然案例或有价值的可靠阴性；明确 BLM 的增量与成本 | planned |
+| R2 自然案例与增量 | 筛选真实跨组件案例；比较 schema check、ablation、restoration 等简单基线 | 至少一个有效自然案例或有价值的可靠阴性；明确 BLM 的增量与成本 | active (implementation_complete_live_not_run) |
 | R3 正式协议与实验 | 冻结任务、arms、重复数、预算、统计、排除和停止规则；执行确认实验 | raw evidence 完整；结果可重算；发现集与确认集分离 | planned |
 | R4 论文完成 | 完成方法、实验、相关工作、限制、图表和 claim-evidence map | 每项论文主张能映射到实际数据、代码和 manifest | planned |
 | P1 论文后开源整理 | 重组上手路径、示例、文档、CITATION、release packet、tag/GitHub Release/PyPI | 新用户在干净环境完成教程；公开范围与论文制品一致 | deferred_after_paper |
 
 F0 之后不再插入独立“开源完成 gate”。只有会损害实验正确性、证据完整性、可恢复性或安全性的工程问题，才阻塞 R1–R4。
 
-## 4. 当前下一阶段：R1 BLM 定义与校准
+## 4. 已完成阶段：R1 BLM 定义与校准
 
 R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。R1-01 已完成首次 boundary instrumentation；R1-02～R1-05 依次实现 replay、atom census、restoration controls 与 bounded verdict，分别以独立清单为准。
 
@@ -95,7 +95,13 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 验收：全部预定义案例产生预期判断；任一 calibration failure 阻塞自然案例。
 
-## 5. R2–R4 科研规则
+## 5. 当前阶段：R2 自然案例与增量验证
+
+R2 的唯一执行清单为 [R2 自然案例筛选与增量验证](r2_blm_natural_case_increment_plan_list_zh.md)。R1 只提供 calibration-only evidence；R2 实现 Structured ReAct 首次 handoff 的 additive v3 envelope、read/exposure map、候选筛选、固定 arms 和 dry-run。TaskSemantic 是 repository-native、label-assisted reference，只能读取 `task_family`，不得读取 `expected_skill_id`，因此不称为 deployment-unassisted retriever。
+
+当前本地 dry-run 由于 optional ALFWorld runtime 未安装而没有 eligible live case；候选输出保留三个任务、历史 pre-screen 和排除理由，live provider 为 `not run`。不得把该状态写成 BLM 通过或自然案例阴性结论。只有 Leo 审核 dry-run 并明确启动后，才可运行 DeepSeek provider；R2 发现仍须交给 R3 独立确认。
+
+## 6. R2–R4 科研规则
 
 - 先做小规模确定性 calibration，再使用 live model；单次成功不作为证据。
 - 自然案例筛选必须保留失败、无差异和被排除候选，不能只报告正例。
@@ -104,7 +110,7 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 - 超过 30 分钟或涉及训练/大规模模型调用的任务写成可恢复脚本，由 Leo 启动。
 - 阴性结果可以完成研究；不通过调整任务或 claim 追逐预设正结论。
 
-## 6. 当前不做的开源工作
+## 7. 当前不做的开源工作
 
 在 R4 完成前，不以以下事项阻塞科研：
 
@@ -115,14 +121,14 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 仍持续执行的底线包括：`.env`/credential 不入 Git、raw evidence 不覆盖、运行可恢复、CI 不被破坏、外部来源与 fidelity 可追踪。
 
-## 7. 当前执行顺序
+## 8. 当前执行顺序
 
 1. 以 `fc6a446`/`730a37a` 之后的 `main` 作为 F0 工程基线。
 2. 完成 R1-01 的 first-handoff capture、单 atom intervention、unread negative probes 与 validity guards。
 3. 完成 R1-02/R1-03 的 deterministic replay 与 atom census spike。
 4. 完成 R1-04/R1-05 controls 和 bounded calibration；R1 当前出口为 `complete_calibration_only`。
-5. 下一步只筛选真实自然 D→C 案例和简单基线，不自动进入 live model 或 R3 正式实验。
-5. R2 结果足以支持研究价值后，才冻结 R3 正式协议。
-6. 完成 R4 论文后启动 P1 开源整理，不反向改写历史实验结果。
+5. 执行 R2 candidate screen、Structured ReAct contract、v3 first-provider envelope 与 dry-run；live provider 需人工启动。
+6. R2 结果足以支持研究价值后，才冻结 R3 正式协议。
+7. 完成 R4 论文后启动 P1 开源整理，不反向改写历史实验结果。
 
 当前不需要重新选择 boundary。只有实现中出现多个同等可行但回答不同论文问题的 handoff、所有 D→C 候选失效、或需要 live model/训练/超过 30 分钟验证时，才暂停请求人工决策；其他 R1-01 源码审计、确定性测试、文档、质量 gate、commit、push 和 CI 修复直接推进。

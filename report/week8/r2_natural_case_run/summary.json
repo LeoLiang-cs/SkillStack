@@ -1,0 +1,9 @@
+{
+  "schema_version": "skillstack-blm-r2-natural-run-summary-v1",
+  "status": "not run",
+  "episode_count": 0,
+  "valid": 0,
+  "invalid": 0,
+  "abstained": 0,
+  "claim_boundary": "no natural outcome or incremental verdict"
+}

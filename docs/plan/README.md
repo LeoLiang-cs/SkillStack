@@ -9,12 +9,13 @@
 5. [R1-03 boundary-atom census 清单](r1_03_blm_boundary_atom_census_plan_list_zh.md)：runtime read tracking 与 atom 冻结。
 6. [R1-04 restoration controls 清单](r1_04_blm_restoration_controls_plan_list_zh.md)：合法 restoration、matched carrier 与 unread controls。
 7. [R1-05 bounded verdict 清单](r1_05_blm_bounded_verdict_calibration_plan_list_zh.md)：有限范围 verdict 与 R1 exit audit。
-8. [研究 framework v2](../original/skillstack_draft_framework_2.md)：BLM 当前方法定义与研究主张边界。
-9. [G0 发布隔离清单](g0_release_isolation_plan_list_zh.md)与 [G1 核心 Alpha 清单](g1_core_alpha_plan_list_zh.md)：仅作为 F0 的历史工程记录。
-10. [v3 总计划](skillstack_blm_master_plan_v3_zh.md)与 [v3 执行清单](skillstack_blm_execution_backlog_v3_zh.md)：保留用于理解旧编号，不再决定执行优先级。
+8. [R2 自然案例筛选与增量验证清单](r2_blm_natural_case_increment_plan_list_zh.md)：Structured ReAct 首次 handoff、候选筛选、固定 arms 与 dry-run；live provider 需人工启动。
+9. [研究 framework v2](../original/skillstack_draft_framework_2.md)：BLM 当前方法定义与研究主张边界。
+10. [G0 发布隔离清单](g0_release_isolation_plan_list_zh.md)与 [G1 核心 Alpha 清单](g1_core_alpha_plan_list_zh.md)：仅作为 F0 的历史工程记录。
+11. [v3 总计划](skillstack_blm_master_plan_v3_zh.md)与 [v3 执行清单](skillstack_blm_execution_backlog_v3_zh.md)：保留用于理解旧编号，不再决定执行优先级。
 
 F0 工程完成证据：[Week 7 G1 完成执行报告](../../report/week7/g1_completion_execution_report_zh.md)。
 
 [项目计划 v2](project_plan_v2_zh.md) 保留作历史。
 
-当前状态：F0（历史 G0+G1）、R1-00～R1-05 已完成；R1 状态为 `complete_calibration_only`，下一步是 R2 的真实自然 D→C 案例筛选和简单基线。正式开源整理延期到研究实验与论文完成之后。这些全局规划文件不自动属于公开发布内容。
+当前状态：F0（历史 G0+G1）、R1-00～R1-05 已完成；R1 状态为 `complete_calibration_only`，R2 实现已进入 `implementation_complete_live_not_run`，当前 dry-run 没有可验证的 live case（optional ALFWorld runtime 未安装）。正式开源整理延期到研究实验与论文完成之后。这些全局规划文件不自动属于公开发布内容。

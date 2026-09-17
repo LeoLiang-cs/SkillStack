@@ -1,0 +1,19 @@
+{
+  "schema_version": "skillstack-blm-r2-core-gate-local-v1",
+  "status": "implementation_complete_live_not_run",
+  "checks": [
+    {"id": "R2-00-baseline-plan", "status": "verified", "evidence": "r2_baseline_inventory_zh.md and unique R2 plan"},
+    {"id": "R2-01-candidate-screen", "status": "verified_with_environment_block", "evidence": "r2_candidate_screen_evidence.json; 3 tasks logged; 0 eligible"},
+    {"id": "R2-02-contract-census", "status": "verified", "evidence": "r2_structured_react_atom_census.json and boundary contract"},
+    {"id": "R2-03-v3-envelope", "status": "verified_offline", "evidence": "blm_natural.py and FakeClient tests"},
+    {"id": "R2-04-protocol", "status": "verified_protocol_not_live", "evidence": "r2_natural_case_protocol.yaml"},
+    {"id": "R2-05-focused-tests", "status": "verified", "evidence": "7 R2 tests + 37 R1 regression tests"},
+    {"id": "R2-08-core-suite", "status": "verified", "evidence": "report/week8/r2_core_suite.json: 184 tests, 1 allowlisted skip, 0 failures/errors"},
+    {"id": "R2-05-dry-run", "status": "verified", "evidence": "r2_dry_run_evidence.json"},
+    {"id": "R2-06-live-provider", "status": "not run", "evidence": "manual confirmation required; no provider call"},
+    {"id": "R2-07-natural-diagnostics", "status": "not run", "evidence": "no live episodes"},
+    {"id": "R2-08-credential-scan", "status": "verified", "evidence": "scripts/check_public_repo.py: 464 files, 0 findings; no tracked credential-like files beyond .env.example"},
+    {"id": "R2-08-hosted-ci", "status": "not run", "evidence": "run after commit/push"}
+  ],
+  "claim_boundary": "no natural BLM verdict; implementation and deterministic host-side machinery only"
+}

@@ -1,0 +1,26 @@
+{
+  "artifacts": [
+    {
+      "bytes": 133280,
+      "path": "skillstack-0.1.0a0-py3-none-any.whl",
+      "sha256": "32349c6379da8f42188437e42ccc7441eb7e142a728b903842e6369e8e164664",
+      "type": "wheel"
+    }
+  ],
+  "error": {
+    "message": "Command '['/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-4r50bta7/venv-wheel/bin/skillstack', '--version']' returned non-zero exit status 1.",
+    "type": "CalledProcessError"
+  },
+  "failed_command": [
+    "/var/folders/l4/1_60qty9167fmjy9d55w0c440000gn/T/skillstack-package-4r50bta7/venv-wheel/bin/skillstack",
+    "--version"
+  ],
+  "model_calls": 0,
+  "network_calls": 0,
+  "python_selector": "3.12",
+  "returncode": 1,
+  "source_checkout": "SkillStack",
+  "status": "not_run",
+  "interpretation": "uv build completed; isolated --no-deps CLI smoke was not accepted as a package failure because PyYAML was intentionally not installed under the zero-network R2 audit. No provider or model call occurred.",
+  "workspace_isolation": "temporary_directory"
+}

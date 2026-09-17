@@ -1,0 +1,48 @@
+{
+  "schema_version": "skillstack-blm-r2-baseline-comparison-v1",
+  "status": "implementation_complete_live_not_run",
+  "candidate_cases": 0,
+  "dimensions": [
+    {
+      "baseline": "schema/static read check",
+      "available": true,
+      "observed": "Structured ReAct host-side map is documented; provider outcome not run",
+      "evidence_class": "verified_this_run",
+      "increment_claim": "not_verified"
+    },
+    {
+      "baseline": "raw Producer-output diff",
+      "available": true,
+      "observed": "three-task deterministic pre-screen retained carrier and score differences",
+      "evidence_class": "verified_this_run plus historical_evidence",
+      "increment_claim": "not_verified_without_live_reset/provider"
+    },
+    {
+      "baseline": "no-skill ablation",
+      "available": true,
+      "observed": "protocol/request materializer implemented; no R2 live episode",
+      "evidence_class": "implemented",
+      "increment_claim": "not_run"
+    },
+    {
+      "baseline": "full-handoff swap",
+      "available": true,
+      "observed": "v3 full_handoff_group validation/materialization implemented; no R2 live episode",
+      "evidence_class": "implemented",
+      "increment_claim": "not_run"
+    },
+    {
+      "baseline": "BLM coherent top-group restoration",
+      "available": true,
+      "observed": "FakeClient boundary test confirms coherent group and regenerated flat context",
+      "evidence_class": "verified_this_run",
+      "increment_claim": "calibration of implementation only; not natural outcome"
+    }
+  ],
+  "excluded_claims": [
+    "BLM is supported or falsified in natural cases",
+    "provider/model internal read has been observed",
+    "DeepSeek or ALFWorld benchmark result",
+    "statistical significance, power, novelty, or deployment-unassisted retrieval"
+  ]
+}

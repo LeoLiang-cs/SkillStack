@@ -1,0 +1,12 @@
+{
+  "schema_version": "skillstack-blm-r2-natural-run-manifest-v1",
+  "status": "not run",
+  "run_id": null,
+  "protocol": "configs/blm/r2_natural_case_protocol.yaml",
+  "eligible_case_count": 0,
+  "planned_episodes": 0,
+  "provider": "DeepSeek V4 Flash",
+  "provider_called": false,
+  "reason": "optional ALFWorld runtime unavailable during zero-network implementation audit",
+  "credential_policy": "no API key, Authorization, or complete HTTP headers recorded"
+}

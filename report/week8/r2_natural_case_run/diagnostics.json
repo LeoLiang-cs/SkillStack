@@ -1,0 +1,7 @@
+{
+  "schema_version": "skillstack-blm-r2-diagnostics-v1",
+  "status": "not run",
+  "arms": {},
+  "reason": "no eligible case passed initial reset/reconstruction gate",
+  "next_action": "human review and optional ALFWorld runtime verification"
+}

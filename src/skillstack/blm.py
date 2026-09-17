@@ -32,8 +32,10 @@ from skillstack.task_semantics import APPLIANCE_BY_SKILL, SYNONYMS, TRANSFORM_VE
 
 BLM_INTERVENTION_SCHEMA = "skillstack-blm-intervention-v1"
 BLM_INTERVENTION_SCHEMA_V2 = "skillstack-blm-intervention-v2"
+BLM_INTERVENTION_SCHEMA_V3 = "skillstack-blm-intervention-v3"
 BLM_BOUNDARY_SCHEMA = "skillstack-blm-boundary-v1"
 BLM_BOUNDARY_SCHEMA_V2 = "skillstack-blm-boundary-v2"
+BLM_BOUNDARY_SCHEMA_V3 = "skillstack-blm-boundary-v3"
 BOUNDARY_ID = "r1_00_c1_skillplan"
 STATE_SCOPE = "first_handoff_reconstructed_fixture_v1"
 INTERVENTION_POSITION = "post_adapter_pre_consumer_read"
@@ -584,27 +586,43 @@ class _ReadTracker:
 
 
 class _TrackedList(list):
-    def __init__(self, values: list, tracker: _ReadTracker, path: str) -> None:
+    def __init__(
+        self,
+        values: list,
+        tracker: _ReadTracker,
+        path: str,
+        semantic_paths: Optional[set] = None,
+        reporting_paths: Optional[set] = None,
+    ) -> None:
         super().__init__(values)
         self._tracker = tracker
         self._path = path
+        self._semantic_paths = semantic_paths or set()
+        self._reporting_paths = reporting_paths or set()
 
     def __getitem__(self, index):
         value = super().__getitem__(index)
         if isinstance(index, int):
-            read_type = (
-                "semantic_read"
-                if self._path == "selected_skill_ids"
-                else "value_read"
-            )
+            if self._path in self._semantic_paths:
+                read_type = "semantic_read"
+            elif self._path in self._reporting_paths:
+                read_type = "reporting_read"
+            else:
+                read_type = "value_read"
             self._tracker.record(f"{self._path}[{index}]", "index", read_type)
         return value
 
 
 class _TrackedExecutionInput(dict):
-    def __init__(self, values: Mapping[str, Any], tracker: _ReadTracker) -> None:
+    def __init__(
+        self,
+        values: Mapping[str, Any],
+        tracker: _ReadTracker,
+        track_gets: bool = False,
+    ) -> None:
         super().__init__(values)
         self._tracker = tracker
+        self._track_gets = track_gets
 
     def __contains__(self, key: object) -> bool:
         result = super().__contains__(key)
@@ -617,14 +635,39 @@ class _TrackedExecutionInput(dict):
         self._tracker.record(key, "getitem", "schema_validation_read")
         return value
 
+    def get(self, key: str, default: Any = None) -> Any:
+        value = super().get(key, default)
+        if self._track_gets and key in _EXECUTION_FIELDS:
+            if key == "flat_skill_context":
+                read_type = "prompt_exposure"
+            elif key == "selected_native_skills":
+                read_type = "host_semantic_read"
+            elif key == "selected_skill_ids":
+                read_type = "reporting_read"
+            else:
+                read_type = "mapping_get"
+            self._tracker.record(key, "get", read_type)
+        return value
+
 
 def instrument_execution_input(
     execution_input: Mapping[str, Any],
+    *,
+    mode: str = "v2",
 ) -> Tuple[Mapping[str, Any], _ReadTracker]:
     """Wrap one v2 input without changing values or default behavior."""
 
+    if mode not in {"v2", "v3"}:
+        raise ValueError(f"unsupported read-tracking mode: {mode}")
     tracker = _ReadTracker()
     values: Dict[str, Any] = copy.deepcopy(dict(execution_input))
+    semantic_paths = {"selected_skill_ids"}
+    reporting_paths = set()
+    if mode == "v3":
+        semantic_paths = {"selected_native_skills"}
+        reporting_paths = {"selected_skill_ids"}
     for field in ("selected_skill_ids", "selected_scores", "selected_native_skills"):
-        values[field] = _TrackedList(values[field], tracker, field)
-    return _TrackedExecutionInput(values, tracker), tracker
+        values[field] = _TrackedList(
+            values[field], tracker, field, semantic_paths, reporting_paths
+        )
+    return _TrackedExecutionInput(values, tracker, track_gets=mode == "v3"), tracker

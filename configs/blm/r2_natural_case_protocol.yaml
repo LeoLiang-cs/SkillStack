@@ -1,0 +1,32 @@
+schema_version: skillstack-blm-natural-protocol-v1
+boundary_id: r2_c2_structured_react_first_handoff
+backend:
+  name: deepseek_v4_flash
+  model: deepseek-v4-flash
+  temperature: 0
+  structured_skills: true
+top_k: 2
+max_steps: 20
+repetitions: 5
+shuffle_seed: 42
+arms:
+- reference
+- crossed
+- crossed-noop
+- crossed+top-candidate
+- matched-carrier
+- crossed+full-reference
+- score-negative-control
+- no-skill-ablation
+cases: []
+live_caps:
+  max_episodes: 40
+  max_provider_calls: 1600
+  max_prompt_tokens: 3000000
+  max_completion_tokens: 100000
+  max_cost_usd: 2.0
+execution:
+  requires_manual_confirmation: true
+  live_provider_called_by_implementation_turn: false
+  output_root: runs
+claim_boundary: R2 discovery only; same-set findings require independent R3 confirmation

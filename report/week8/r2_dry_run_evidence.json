@@ -1,0 +1,40 @@
+{
+  "commands": {
+    "resume": "uv run python scripts/run_blm_natural.py resume --run-id <run-id> --output-root runs",
+    "run": "uv run python scripts/run_blm_natural.py run --protocol configs/blm/r2_natural_case_protocol.yaml --output-root runs --approve-live R2-LIVE-APPROVED",
+    "summarize": "uv run python scripts/run_blm_natural.py summarize --run-id <run-id> --output-root runs"
+  },
+  "credential_redaction": {
+    "excluded_fields": [
+      "api_key",
+      "Authorization",
+      "complete_http_headers"
+    ],
+    "recorded_fields": [
+      "backend_name",
+      "model",
+      "api_key_env"
+    ],
+    "status": "verified"
+  },
+  "eligible_case_count": 0,
+  "estimated_completion_tokens_upper_bound": 0,
+  "estimated_cost_usd_upper_bound": 2.0,
+  "estimated_duration": "provider-dependent; not run in this implementation turn",
+  "estimated_prompt_tokens_upper_bound": 0,
+  "excluded_case_count": 3,
+  "live_provider": "not run; requires separate human confirmation",
+  "maximum_provider_calls": 0,
+  "planned_arms": [
+    "reference",
+    "crossed",
+    "crossed-noop",
+    "crossed+top-candidate",
+    "matched-carrier",
+    "crossed+full-reference",
+    "score-negative-control",
+    "no-skill-ablation"
+  ],
+  "planned_episodes": 0,
+  "schema_version": "skillstack-blm-r2-dry-run-v1"
+}

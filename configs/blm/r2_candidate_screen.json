@@ -1,0 +1,923 @@
+{
+  "boundary_id": "r2_c2_structured_react_first_handoff",
+  "claim_boundary": "candidate discovery only; no R2 live outcome or R3 verdict",
+  "code_revision": {
+    "git_sha": "28a02d1008049865efd63ea2001cee3ba41e59c3",
+    "module_path": "src/skillstack/experiments/blm_natural.py",
+    "module_sha256": "34ade11467482f25bd27279bb64d81b4b52c1104a85b525315565199aaf99a43",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "data_root": "data/alfworld",
+  "eligible_cases": [],
+  "evidence_class": "not_verified",
+  "excluded_cases": [
+    "r2_trial_T20190907_051013_060265",
+    "r2_trial_T20190908_010306_215435",
+    "r2_trial_T20190907_163240_345855"
+  ],
+  "generated_by": "zero_model_deterministic_candidate_screen",
+  "max_steps": 20,
+  "schema_version": "skillstack-blm-natural-candidate-screen-v1",
+  "task_manifest": "configs/p0_tasks_picktwo.json",
+  "tasks": [
+    {
+      "carrier_difference": true,
+      "case_id": "r2_trial_T20190907_051013_060265",
+      "consumer": {
+        "library_sha256": "2e1483a6be686f7f879ecd2a554093eb760e3498d4f207bbad8b6e8dbc816134",
+        "max_steps": 20,
+        "name": "react_executor",
+        "prompt_sha256": "41c1bc8813e56bd12ab9b6229d2fd29af284851ac5c464763389472b5bff548b",
+        "structured_skills": true,
+        "top_k": 2
+      },
+      "consumer_read_domain_difference": {
+        "flat_skill_context": true,
+        "selected_native_skills": true,
+        "selected_scores": true,
+        "selected_skill_ids": true
+      },
+      "eligible": false,
+      "environment": {
+        "lexical": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "6e8bb840f56fbcd1c1917f4a5ffb25c81cda5ac0470949511fd04bb736b8b454",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        },
+        "task_semantic": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "6e8bb840f56fbcd1c1917f4a5ffb25c81cda5ac0470949511fd04bb736b8b454",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        }
+      },
+      "environment_runtime": {
+        "available": false,
+        "error": "ModuleNotFoundError: No module named 'alfworld'"
+      },
+      "gate_reasons": [
+        "initial_reset_not_reconstructable",
+        "alfworld_runtime_unavailable"
+      ],
+      "historical_evidence": {
+        "classification": "historical_evidence",
+        "not_used_as_r2_outcome": true,
+        "paths": [
+          "runs/20260818T150521707631Z_w3_picktwo_deepseek_no_skill"
+        ]
+      },
+      "measurement_status": "not_verified",
+      "producers": {
+        "lexical": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_light_inspection\n\n# Inspect an object with a desk lamp\n\n**Task family:** `look_at_obj_in_light`\n\n## Purpose\n\nMake a named object observable under a named desk lamp.\n\n## Procedure\n\n1. Locate the requested object; open containers as needed to access it.\n2. Take the object if the task requires it to be brought to the lamp.\n3. Locate the desk lamp named or implied by the task.\n4. Turn on the lamp.\n5. Perform the environment action that examines the object with the active\n   lamp, or check task feedback after the lamp/object condition is satisfied.\n\n## When to use\n\nUse for instructions involving looking at, examining, or inspecting an object\nwith a lamp. Do not use merely because a lamp happens to appear in the room.\n\n## Common failure modes\n\n- The lamp is found but remains off.\n- The target object has not been retrieved from a container.\n- The agent treats a visually related object as the requested one.\n- The agent assumes that toggling the lamp alone completes the goal without\n  confirming the object–lamp relation.\n\n\n---\n\n### Selected skill 2: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+            "selected_native_skills": [
+              "# Inspect an object with a desk lamp\n\n**Task family:** `look_at_obj_in_light`\n\n## Purpose\n\nMake a named object observable under a named desk lamp.\n\n## Procedure\n\n1. Locate the requested object; open containers as needed to access it.\n2. Take the object if the task requires it to be brought to the lamp.\n3. Locate the desk lamp named or implied by the task.\n4. Turn on the lamp.\n5. Perform the environment action that examines the object with the active\n   lamp, or check task feedback after the lamp/object condition is satisfied.\n\n## When to use\n\nUse for instructions involving looking at, examining, or inspecting an object\nwith a lamp. Do not use merely because a lamp happens to appear in the room.\n\n## Common failure modes\n\n- The lamp is found but remains off.\n- The target object has not been retrieved from a container.\n- The agent treats a visually related object as the requested one.\n- The agent assumes that toggling the lamp alone completes the goal without\n  confirming the object–lamp relation.\n",
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n"
+            ],
+            "selected_scores": [
+              2.252762968495368,
+              2.252762968495368
+            ],
+            "selected_skill_ids": [
+              "skill_light_inspection",
+              "skill_pick_two_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "fc0a336c06e75f1e20418269a135377ffe94140d8b6a8ee62b17e94462b4fbf9",
+            "flat_context_sha256": "e9089d49558b754f4af21a4b1bbefb26926b5193e8ce6826f82b2382438676aa",
+            "native_payload_sha256": "f586ad8bc659c067ef3a4214d2271debacbe195473769c1d7c963a7379732ab1",
+            "retrieval_response_sha256": "a7da604ef79d4aeef9529a6e73ed243873d9c27eea2f7436faba14232b0464cd"
+          },
+          "producer_config": {
+            "selection_policy": "task_instruction_only"
+          },
+          "producer_name": "debug_lexical_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Inspect an object with a desk lamp\n\n**Task family:** `look_at_obj_in_light`\n\n## Purpose\n\nMake a named object observable under a named desk lamp.\n\n## Procedure\n\n1. Locate the requested object; open containers as needed to access it.\n2. Take the object if the task requires it to be brought to the lamp.\n3. Locate the desk lamp named or implied by the task.\n4. Turn on the lamp.\n5. Perform the environment action that examines the object with the active\n   lamp, or check task feedback after the lamp/object condition is satisfied.\n\n## When to use\n\nUse for instructions involving looking at, examining, or inspecting an object\nwith a lamp. Do not use merely because a lamp happens to appear in the room.\n\n## Common failure modes\n\n- The lamp is found but remains off.\n- The target object has not been retrieved from a container.\n- The agent treats a visually related object as the requested one.\n- The agent assumes that toggling the lamp alone completes the goal without\n  confirming the object–lamp relation.\n",
+                "score": 2.252762968495368,
+                "skill_id": "skill_light_inspection"
+              },
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 2.252762968495368,
+                "skill_id": "skill_pick_two_then_place"
+              }
+            ],
+            "raw_output": {
+              "observation_characters": 373,
+              "overlap_tokens_by_skill_id": {
+                "skill_clean_then_place": [],
+                "skill_cool_then_place": [],
+                "skill_heat_then_place": [],
+                "skill_light_inspection": [
+                  "desk"
+                ],
+                "skill_pick_and_place": [],
+                "skill_pick_two_then_place": [
+                  "two"
+                ]
+              },
+              "query_source": "task_instruction_only",
+              "query_tokens": [
+                "cds",
+                "desk",
+                "transfer",
+                "two",
+                "vault"
+              ],
+              "requested_top_k": 2,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 0.0,
+                "skill_cool_then_place": 0.0,
+                "skill_heat_then_place": 0.0,
+                "skill_light_inspection": 2.252762968495368,
+                "skill_pick_and_place": 0.0,
+                "skill_pick_two_then_place": 2.252762968495368
+              },
+              "scoring": "idf_weighted_token_overlap"
+            },
+            "retriever_name": "debug_lexical_top_k",
+            "warnings": []
+          }
+        },
+        "task_semantic": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n\n\n---\n\n### Selected skill 2: skill_clean_then_place\n\n# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+            "selected_native_skills": [
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+              "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n"
+            ],
+            "selected_scores": [
+              5.0,
+              0.0
+            ],
+            "selected_skill_ids": [
+              "skill_pick_two_then_place",
+              "skill_clean_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "8f1c4457034cfcc25382227181504ad2394aa4506fc7d5ffb85194fb10dfcbf7",
+            "flat_context_sha256": "2a23bc861515b47e6742351fbf211776b56a345d1f32482507c4a4f762fd216d",
+            "native_payload_sha256": "919d4456f7e08fc45a071630bf600e9d37e12d3cd5d8b8422b64a346ecde463e",
+            "retrieval_response_sha256": "09289f70a4ac20f8f56aa2bd67fd03b02b8f5a172076cd57bf226edd7801e8dc"
+          },
+          "producer_config": {
+            "allowed_task_record_field": "task_family",
+            "forbidden_task_record_fields": [
+              "expected_skill_id"
+            ],
+            "selection_policy": "task_family_label_assisted_semantics"
+          },
+          "producer_name": "task_semantic_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 5.0,
+                "skill_id": "skill_pick_two_then_place"
+              },
+              {
+                "native_payload": "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+                "score": 0.0,
+                "skill_id": "skill_clean_then_place"
+              }
+            ],
+            "raw_output": {
+              "breakdown_by_skill_id": {
+                "skill_clean_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_cool_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_heat_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_light_inspection": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_and_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_two_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 5.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                }
+              },
+              "extracted_semantics": {
+                "appliance": null,
+                "destination": "safe",
+                "goal_operation": "place_two",
+                "object": "them",
+                "required_transformation": null,
+                "task_family": "pick_two_obj_and_place",
+                "task_line_used": "find two cd and put them in safe"
+              },
+              "query_source": "task_semantics_heuristic",
+              "requested_top_k": 2,
+              "required_appliance": null,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 0.0,
+                "skill_cool_then_place": 0.0,
+                "skill_heat_then_place": 0.0,
+                "skill_light_inspection": 0.0,
+                "skill_pick_and_place": 0.0,
+                "skill_pick_two_then_place": 5.0
+              },
+              "scoring": "field_match_plus_applicability"
+            },
+            "retriever_name": "task_semantic_top_k",
+            "warnings": []
+          }
+        }
+      },
+      "task": {
+        "expected_skill_id": "skill_pick_two_then_place",
+        "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/game.tw-pddl",
+        "task_family": "pick_two_obj_and_place",
+        "task_id": "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+        "task_instruction": "Transfer the two CDs from the desk to the vault.",
+        "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/traj_data.json"
+      },
+      "task_family_label_assistance": {
+        "deployment_unassisted": false,
+        "expected_skill_id_read": false,
+        "field": "task_family",
+        "used": true
+      }
+    },
+    {
+      "carrier_difference": false,
+      "case_id": "r2_trial_T20190908_010306_215435",
+      "consumer": {
+        "library_sha256": "2e1483a6be686f7f879ecd2a554093eb760e3498d4f207bbad8b6e8dbc816134",
+        "max_steps": 20,
+        "name": "react_executor",
+        "prompt_sha256": "41c1bc8813e56bd12ab9b6229d2fd29af284851ac5c464763389472b5bff548b",
+        "structured_skills": true,
+        "top_k": 2
+      },
+      "consumer_read_domain_difference": {
+        "flat_skill_context": false,
+        "selected_native_skills": false,
+        "selected_scores": true,
+        "selected_skill_ids": false
+      },
+      "eligible": false,
+      "environment": {
+        "lexical": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "557dcc6bee799db61fa0687fc1ecb69d5ab45fef22583826f024790d65edef3f",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        },
+        "task_semantic": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "557dcc6bee799db61fa0687fc1ecb69d5ab45fef22583826f024790d65edef3f",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        }
+      },
+      "environment_runtime": {
+        "available": false,
+        "error": "ModuleNotFoundError: No module named 'alfworld'"
+      },
+      "gate_reasons": [
+        "no_consumer_read_domain_carrier_difference",
+        "initial_reset_not_reconstructable",
+        "alfworld_runtime_unavailable"
+      ],
+      "historical_evidence": {
+        "classification": "historical_evidence",
+        "not_used_as_r2_outcome": true,
+        "paths": [
+          "runs/20260818T150521707631Z_w3_picktwo_deepseek_no_skill"
+        ]
+      },
+      "measurement_status": "not_verified",
+      "producers": {
+        "lexical": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n\n\n---\n\n### Selected skill 2: skill_clean_then_place\n\n# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+            "selected_native_skills": [
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+              "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n"
+            ],
+            "selected_scores": [
+              2.252762968495368,
+              1.336472236621213
+            ],
+            "selected_skill_ids": [
+              "skill_pick_two_then_place",
+              "skill_clean_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "583dda36e1896a6dc1e47559d8252a089d80de77a1550b0c3c53b6446e0e6b53",
+            "flat_context_sha256": "2a23bc861515b47e6742351fbf211776b56a345d1f32482507c4a4f762fd216d",
+            "native_payload_sha256": "919d4456f7e08fc45a071630bf600e9d37e12d3cd5d8b8422b64a346ecde463e",
+            "retrieval_response_sha256": "b7ef53e12cf57ffb9a8e8fab9e1eb3ed658a255fb2054c3cff6c67eb8b4b4ffb"
+          },
+          "producer_config": {
+            "selection_policy": "task_instruction_only"
+          },
+          "producer_name": "debug_lexical_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 2.252762968495368,
+                "skill_id": "skill_pick_two_then_place"
+              },
+              {
+                "native_payload": "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+                "score": 1.336472236621213,
+                "skill_id": "skill_clean_then_place"
+              }
+            ],
+            "raw_output": {
+              "observation_characters": 512,
+              "overlap_tokens_by_skill_id": {
+                "skill_clean_then_place": [
+                  "put"
+                ],
+                "skill_cool_then_place": [
+                  "put"
+                ],
+                "skill_heat_then_place": [
+                  "put"
+                ],
+                "skill_light_inspection": [],
+                "skill_pick_and_place": [
+                  "put"
+                ],
+                "skill_pick_two_then_place": [
+                  "two"
+                ]
+              },
+              "query_source": "task_instruction_only",
+              "query_tokens": [
+                "drawer",
+                "put",
+                "shaker",
+                "two"
+              ],
+              "requested_top_k": 2,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 1.336472236621213,
+                "skill_cool_then_place": 1.336472236621213,
+                "skill_heat_then_place": 1.336472236621213,
+                "skill_light_inspection": 0.0,
+                "skill_pick_and_place": 1.336472236621213,
+                "skill_pick_two_then_place": 2.252762968495368
+              },
+              "scoring": "idf_weighted_token_overlap"
+            },
+            "retriever_name": "debug_lexical_top_k",
+            "warnings": []
+          }
+        },
+        "task_semantic": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n\n\n---\n\n### Selected skill 2: skill_clean_then_place\n\n# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+            "selected_native_skills": [
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+              "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n"
+            ],
+            "selected_scores": [
+              5.0,
+              0.0
+            ],
+            "selected_skill_ids": [
+              "skill_pick_two_then_place",
+              "skill_clean_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "8f1c4457034cfcc25382227181504ad2394aa4506fc7d5ffb85194fb10dfcbf7",
+            "flat_context_sha256": "2a23bc861515b47e6742351fbf211776b56a345d1f32482507c4a4f762fd216d",
+            "native_payload_sha256": "919d4456f7e08fc45a071630bf600e9d37e12d3cd5d8b8422b64a346ecde463e",
+            "retrieval_response_sha256": "d600a87fe8954eee1868592e0b6b769cb6341cead53f00e08deb075e28de77e5"
+          },
+          "producer_config": {
+            "allowed_task_record_field": "task_family",
+            "forbidden_task_record_fields": [
+              "expected_skill_id"
+            ],
+            "selection_policy": "task_family_label_assisted_semantics"
+          },
+          "producer_name": "task_semantic_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 5.0,
+                "skill_id": "skill_pick_two_then_place"
+              },
+              {
+                "native_payload": "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+                "score": 0.0,
+                "skill_id": "skill_clean_then_place"
+              }
+            ],
+            "raw_output": {
+              "breakdown_by_skill_id": {
+                "skill_clean_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_cool_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_heat_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_light_inspection": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_and_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_two_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 5.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                }
+              },
+              "extracted_semantics": {
+                "appliance": null,
+                "destination": "drawer",
+                "goal_operation": "place_two",
+                "object": "peppershaker",
+                "required_transformation": null,
+                "task_family": "pick_two_obj_and_place",
+                "task_line_used": "put two peppershaker in drawer"
+              },
+              "query_source": "task_semantics_heuristic",
+              "requested_top_k": 2,
+              "required_appliance": null,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 0.0,
+                "skill_cool_then_place": 0.0,
+                "skill_heat_then_place": 0.0,
+                "skill_light_inspection": 0.0,
+                "skill_pick_and_place": 0.0,
+                "skill_pick_two_then_place": 5.0
+              },
+              "scoring": "field_match_plus_applicability"
+            },
+            "retriever_name": "task_semantic_top_k",
+            "warnings": []
+          }
+        }
+      },
+      "task": {
+        "expected_skill_id": "skill_pick_two_then_place",
+        "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435/game.tw-pddl",
+        "task_family": "pick_two_obj_and_place",
+        "task_id": "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435",
+        "task_instruction": "Put two shakers in a drawer.",
+        "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435/traj_data.json"
+      },
+      "task_family_label_assistance": {
+        "deployment_unassisted": false,
+        "expected_skill_id_read": false,
+        "field": "task_family",
+        "used": true
+      }
+    },
+    {
+      "carrier_difference": false,
+      "case_id": "r2_trial_T20190907_163240_345855",
+      "consumer": {
+        "library_sha256": "2e1483a6be686f7f879ecd2a554093eb760e3498d4f207bbad8b6e8dbc816134",
+        "max_steps": 20,
+        "name": "react_executor",
+        "prompt_sha256": "41c1bc8813e56bd12ab9b6229d2fd29af284851ac5c464763389472b5bff548b",
+        "structured_skills": true,
+        "top_k": 2
+      },
+      "consumer_read_domain_difference": {
+        "flat_skill_context": false,
+        "selected_native_skills": false,
+        "selected_scores": true,
+        "selected_skill_ids": false
+      },
+      "eligible": false,
+      "environment": {
+        "lexical": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "6a797675b46bfa0d055f7ff1813640feaf4a453c71b1b8f5be88ad710cde7c35",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        },
+        "task_semantic": {
+          "environment_class": "not_available",
+          "initial_info_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "initial_observation_sha256": "6a797675b46bfa0d055f7ff1813640feaf4a453c71b1b8f5be88ad710cde7c35",
+          "observation_source": "historical_trace_pre_screen",
+          "reset_reconstructable": false
+        }
+      },
+      "environment_runtime": {
+        "available": false,
+        "error": "ModuleNotFoundError: No module named 'alfworld'"
+      },
+      "gate_reasons": [
+        "no_consumer_read_domain_carrier_difference",
+        "initial_reset_not_reconstructable",
+        "alfworld_runtime_unavailable"
+      ],
+      "historical_evidence": {
+        "classification": "historical_evidence",
+        "not_used_as_r2_outcome": true,
+        "paths": [
+          "runs/20260818T150521707631Z_w3_picktwo_deepseek_no_skill"
+        ]
+      },
+      "measurement_status": "not_verified",
+      "producers": {
+        "lexical": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n\n\n---\n\n### Selected skill 2: skill_clean_then_place\n\n# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+            "selected_native_skills": [
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+              "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n"
+            ],
+            "selected_scores": [
+              2.252762968495368,
+              1.336472236621213
+            ],
+            "selected_skill_ids": [
+              "skill_pick_two_then_place",
+              "skill_clean_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "583dda36e1896a6dc1e47559d8252a089d80de77a1550b0c3c53b6446e0e6b53",
+            "flat_context_sha256": "2a23bc861515b47e6742351fbf211776b56a345d1f32482507c4a4f762fd216d",
+            "native_payload_sha256": "919d4456f7e08fc45a071630bf600e9d37e12d3cd5d8b8422b64a346ecde463e",
+            "retrieval_response_sha256": "441b192c0fc1f5f423e39b3952ecf49228311bd1eaed766a1200e7d95eee23ee"
+          },
+          "producer_config": {
+            "selection_policy": "task_instruction_only"
+          },
+          "producer_name": "debug_lexical_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 2.252762968495368,
+                "skill_id": "skill_pick_two_then_place"
+              },
+              {
+                "native_payload": "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+                "score": 1.336472236621213,
+                "skill_id": "skill_clean_then_place"
+              }
+            ],
+            "raw_output": {
+              "observation_characters": 490,
+              "overlap_tokens_by_skill_id": {
+                "skill_clean_then_place": [
+                  "put"
+                ],
+                "skill_cool_then_place": [
+                  "put"
+                ],
+                "skill_heat_then_place": [
+                  "put"
+                ],
+                "skill_light_inspection": [],
+                "skill_pick_and_place": [
+                  "put"
+                ],
+                "skill_pick_two_then_place": [
+                  "two"
+                ]
+              },
+              "query_source": "task_instruction_only",
+              "query_tokens": [
+                "pillow",
+                "put",
+                "sofa",
+                "two"
+              ],
+              "requested_top_k": 2,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 1.336472236621213,
+                "skill_cool_then_place": 1.336472236621213,
+                "skill_heat_then_place": 1.336472236621213,
+                "skill_light_inspection": 0.0,
+                "skill_pick_and_place": 1.336472236621213,
+                "skill_pick_two_then_place": 2.252762968495368
+              },
+              "scoring": "idf_weighted_token_overlap"
+            },
+            "retriever_name": "debug_lexical_top_k",
+            "warnings": []
+          }
+        },
+        "task_semantic": {
+          "adapter_event": {
+            "approximated": [],
+            "component": "retrieval_to_execution_adapter",
+            "defaulted": [],
+            "dropped": [],
+            "generated": [
+              "selected_skill_ids",
+              "selected_scores",
+              "selected_native_skills",
+              "flat_skill_context"
+            ],
+            "read": [
+              "ranked_candidates[*].skill_id",
+              "ranked_candidates[*].score",
+              "ranked_candidates[*].native_payload"
+            ],
+            "warnings": []
+          },
+          "evidence_class": "historical_evidence",
+          "execution_input": {
+            "flat_skill_context": "### Selected skill 1: skill_pick_two_then_place\n\n# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n\n\n---\n\n### Selected skill 2: skill_clean_then_place\n\n# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+            "selected_native_skills": [
+              "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+              "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n"
+            ],
+            "selected_scores": [
+              5.0,
+              0.0
+            ],
+            "selected_skill_ids": [
+              "skill_pick_two_then_place",
+              "skill_clean_then_place"
+            ]
+          },
+          "hashes": {
+            "execution_input_sha256": "8f1c4457034cfcc25382227181504ad2394aa4506fc7d5ffb85194fb10dfcbf7",
+            "flat_context_sha256": "2a23bc861515b47e6742351fbf211776b56a345d1f32482507c4a4f762fd216d",
+            "native_payload_sha256": "919d4456f7e08fc45a071630bf600e9d37e12d3cd5d8b8422b64a346ecde463e",
+            "retrieval_response_sha256": "f240114f14af2ce6b2c9eede7a9474a7ea1555546adc7ab52637f9e83402171b"
+          },
+          "producer_config": {
+            "allowed_task_record_field": "task_family",
+            "forbidden_task_record_fields": [
+              "expected_skill_id"
+            ],
+            "selection_policy": "task_family_label_assisted_semantics"
+          },
+          "producer_name": "task_semantic_top_k",
+          "retrieval_response": {
+            "ranked_candidates": [
+              {
+                "native_payload": "# Pick two objects and place both\n\n**Task family:** `pick_two_obj_and_place`\n\n## Purpose\n\nDeliver two named objects to the same requested destination.\n\n## Procedure\n\n1. Extract both object identities and the common destination from the task.\n2. Locate the first object, take it, and place it at the destination.\n3. Locate the second object, take it, and place it at the same destination.\n4. Open source or destination containers whenever access requires it.\n5. Verify that both objects, not merely one, satisfy the destination condition.\n\n## When to use\n\nUse when the task names two distinct objects that must both end up in one\nreceptacle or location.\n\n## Common failure modes\n\n- Only the first object is delivered.\n- Both objects are confused because they have similar names or appearances.\n- The agent assumes it can carry two objects at once when the current state\n  does not permit it.\n- The destination is closed or cannot accept the selected placement action.\n",
+                "score": 5.0,
+                "skill_id": "skill_pick_two_then_place"
+              },
+              {
+                "native_payload": "# Clean an object, then place it\n\n**Task family:** `pick_clean_then_place_in_recep`\n\n## Purpose\n\nClean one named object with a sink basin before placing it at its destination.\n\n## Procedure\n\n1. Identify the object, sink basin, and destination from the task.\n2. Locate and take the object; open its current container if necessary.\n3. Locate the sink basin and apply the environment's cleaning action to the\n   object.\n4. Confirm that cleaning succeeded from the observation or task feedback.\n5. Navigate to the destination, open it if needed, and place the cleaned\n   object there.\n\n## When to use\n\nUse when the instruction explicitly requires cleaning, washing, or rinsing an\nobject before it is put in/on a receptacle.\n\n## Common failure modes\n\n- The object is placed at the destination before being cleaned.\n- A generic “use sink” action is attempted without holding or targeting the\n  requested object.\n- The sink basin or destination is confused with another nearby receptacle.\n- The agent continues after a failed cleaning action instead of re-checking the\n  object's state.\n",
+                "score": 0.0,
+                "skill_id": "skill_clean_then_place"
+              }
+            ],
+            "raw_output": {
+              "breakdown_by_skill_id": {
+                "skill_clean_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_cool_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_heat_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_light_inspection": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_and_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 0.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                },
+                "skill_pick_two_then_place": {
+                  "appliance_present": 0.0,
+                  "destination_term": 0.0,
+                  "family_match": 5.0,
+                  "object_term": 0.0,
+                  "transformation_match": 0.0
+                }
+              },
+              "extracted_semantics": {
+                "appliance": null,
+                "destination": "sofa",
+                "goal_operation": "place_two",
+                "object": "them",
+                "required_transformation": null,
+                "task_family": "pick_two_obj_and_place",
+                "task_line_used": "find two pillow and put them in sofa"
+              },
+              "query_source": "task_semantics_heuristic",
+              "requested_top_k": 2,
+              "required_appliance": null,
+              "scores_by_skill_id": {
+                "skill_clean_then_place": 0.0,
+                "skill_cool_then_place": 0.0,
+                "skill_heat_then_place": 0.0,
+                "skill_light_inspection": 0.0,
+                "skill_pick_and_place": 0.0,
+                "skill_pick_two_then_place": 5.0
+              },
+              "scoring": "field_match_plus_applicability"
+            },
+            "retriever_name": "task_semantic_top_k",
+            "warnings": []
+          }
+        }
+      },
+      "task": {
+        "expected_skill_id": "skill_pick_two_then_place",
+        "game_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/game.tw-pddl",
+        "task_family": "pick_two_obj_and_place",
+        "task_id": "valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+        "task_instruction": "Put two pillows on the sofa.",
+        "trajectory_file": "json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855/traj_data.json"
+      },
+      "task_family_label_assistance": {
+        "deployment_unassisted": false,
+        "expected_skill_id_read": false,
+        "field": "task_family",
+        "used": true
+      }
+    }
+  ],
+  "top_k": 2
+}

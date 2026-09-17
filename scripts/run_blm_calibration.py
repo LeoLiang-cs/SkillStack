@@ -94,6 +94,7 @@ def _run(output_root: Path, *, run_id: str = RUN_ID, resume: bool = False) -> in
     output_root = output_root.expanduser().resolve()
     manifest = _manifest()
     if resume:
+        _assert_stored_manifest_integrity(output_root, run_id)
         writer = JsonlTraceWriter.resume(output_root, run_id, expected_manifest=manifest)
     else:
         # The caller may pass either a parent directory or the requested run
@@ -319,6 +320,20 @@ def _manifest() -> Dict[str, Any]:
     }
 
 
+def _assert_stored_manifest_integrity(output_root: Path, run_id: str) -> None:
+    manifest_path = output_root / run_id / "run_manifest.json"
+    stored = json.loads(manifest_path.read_text(encoding="utf-8"))
+    stored_identity = stored.get("run_identity_sha256")
+    stable = {
+        key: value
+        for key, value in stored.items()
+        if key not in {"created_at_utc", "run_identity_sha256"}
+    }
+    actual_identity = _sha256_json(stable)
+    if not isinstance(stored_identity, str) or stored_identity != actual_identity:
+        raise ValueError("Run manifest identity drift detected")
+
+
 def _git_commit() -> str:
     try:
         return subprocess.run(
@@ -334,6 +349,14 @@ def _git_commit() -> str:
 
 def _file_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _sha256_json(value: Any) -> str:
+    return hashlib.sha256(
+        json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
+            "utf-8"
+        )
+    ).hexdigest()
 
 
 def _write_json(path: Path, payload: Mapping[str, Any]) -> None:

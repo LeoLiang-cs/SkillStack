@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import copy
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
+from scripts.run_blm_calibration import _run
 from skillstack.experiments.blm_calibration import evaluate_calibration_case
 
 
@@ -94,6 +98,33 @@ class R105BoundedVerdictTests(unittest.TestCase):
         missing = evaluate_calibration_case(case("missing", observed_relation="unknown"))
         self.assertEqual("abstained", missing["contract_verdict"])
         self.assertNotIn("supported", str(missing).lower())
+
+    def test_interrupted_run_resumes_without_duplicate_episode_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _run(root)
+            run_dir = root / "r1_05_calibration_run"
+            episodes = run_dir / "episodes.jsonl"
+            lines = episodes.read_text(encoding="utf-8").splitlines()
+            episodes.write_text("\n".join(lines[:5]) + "\n", encoding="utf-8")
+            for name in ("summary.json", "verdicts.json", "atom_census.json"):
+                (run_dir / name).unlink()
+            _run(root, resume=True)
+            resumed = episodes.read_text(encoding="utf-8").splitlines()
+            ids = [json.loads(line)["episode_id"] for line in resumed]
+            self.assertEqual(27, len(ids))
+            self.assertEqual(27, len(set(ids)))
+
+    def test_resume_rejects_manifest_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _run(root)
+            manifest_path = root / "r1_05_calibration_run" / "run_manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["stage"] = "tampered"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                _run(root, resume=True)
 
 
 if __name__ == "__main__":

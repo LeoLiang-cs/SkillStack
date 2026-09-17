@@ -6,6 +6,7 @@
 - Implementation discipline: `ponytail:ponytail`
 - Audit date: 2026-09-16
 - Baseline commit: `c31f270827f5c50a6c82562d02323f1ad688fc94`
+- Implementation commit: `4e3e4179b98a184faa9333d4d557e7dcf205b44c`
 - Execution evidence: [r1_01_boundary_fixture_evidence.json](r1_01_boundary_fixture_evidence.json)
 - Local gate evidence: [r1_01_core_gate_local.json](r1_01_core_gate_local.json)
 - Plan: [r1_01_blm_boundary_instrumentation_plan_list_zh.md](../../docs/plan/r1_01_blm_boundary_instrumentation_plan_list_zh.md)

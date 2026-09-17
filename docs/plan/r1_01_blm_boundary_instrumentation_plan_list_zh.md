@@ -7,6 +7,7 @@
 - Plan status: `IN_PROGRESS`
 - Plan date: 2026-09-16
 - Starting commit: `c31f270827f5c50a6c82562d02323f1ad688fc94`
+- Implementation commit: `4e3e4179b98a184faa9333d4d557e7dcf205b44c`
 - Starting branch: `main`
 - Starting worktree: clean; synchronized with `origin/main`
 - Evidence boundary: zero-model, zero-network, deterministic first-handoff fixture

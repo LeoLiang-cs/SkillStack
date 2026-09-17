@@ -41,7 +41,7 @@
         "top_k": 1
       },
       "code_revision": {
-        "git_commit": "b213d48f7623c04b2e08ca683196e63c136e2b36",
+        "git_commit": "2ca2fd73e880d98f2e4716deb63761231977639c",
         "module_path": "src/skillstack/experiments/blm_calibration.py",
         "module_sha256": "be819012ce4b305bf247097017658c17163faae2eb9a367cb95e96285a14ccef",
         "platform": "macOS-26.6.2-arm64-arm-64bit",
@@ -200,7 +200,7 @@
       "hashes": {
         "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
         "adapter_input_sha256": "0db2b509da36afccb7df93303967b358a4ad26e102ae27b255cfd332603e5a71",
-        "envelope_sha256": "8609f5a4e1d2088349193eda6cc790ccb6141e4b84b8bd9cb1818853ffb99ebd",
+        "envelope_sha256": "ffce1716094ae9d2250959cb351fbe89827928a2b0f02f3ce64f09a3f8fb0783",
         "oracle_sha256": "34c87a063675db5e68294fb60f28e600799653a666796d41b4a2bab17b184dfe",
         "producer_output_sha256": "e94974bccf129d0aff5b75575b5ed2da7019083431888a31042d8a8683683e13",
         "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754"
@@ -328,7 +328,7 @@
         "top_k": 1
       },
       "code_revision": {
-        "git_commit": "b213d48f7623c04b2e08ca683196e63c136e2b36",
+        "git_commit": "2ca2fd73e880d98f2e4716deb63761231977639c",
         "module_path": "src/skillstack/experiments/blm_calibration.py",
         "module_sha256": "be819012ce4b305bf247097017658c17163faae2eb9a367cb95e96285a14ccef",
         "platform": "macOS-26.6.2-arm64-arm-64bit",
@@ -487,7 +487,7 @@
       "hashes": {
         "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
         "adapter_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
-        "envelope_sha256": "ba845663e748afdc1d3467cdf2592897c7a3ea386523e461fd47dbe0796c4cfc",
+        "envelope_sha256": "ab1be4a618d19d362460a0ef02ace5f4bdf769aeb42ba281bf57ab9ad3766dca",
         "oracle_sha256": "34c87a063675db5e68294fb60f28e600799653a666796d41b4a2bab17b184dfe",
         "producer_output_sha256": "8562b851db25fc5fa114b06f18e81114466eccf4df7c077db5b198125c59b74f",
         "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754"
@@ -619,7 +619,7 @@
         "top_k": 1
       },
       "code_revision": {
-        "git_commit": "b213d48f7623c04b2e08ca683196e63c136e2b36",
+        "git_commit": "2ca2fd73e880d98f2e4716deb63761231977639c",
         "module_path": "src/skillstack/experiments/blm_calibration.py",
         "module_sha256": "be819012ce4b305bf247097017658c17163faae2eb9a367cb95e96285a14ccef",
         "platform": "macOS-26.6.2-arm64-arm-64bit",
@@ -778,7 +778,7 @@
       "hashes": {
         "adapter_event_sha256": "de64f7678d3784a91a198b8190ee262be7f453b9a5fbde2a2e6d74fec3e57a3f",
         "adapter_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
-        "envelope_sha256": "6170c0e2529aa50ed69b1507cfa2bcb85ce83f5091038ae570a019c1615aff4c",
+        "envelope_sha256": "fedeb0a79acba0118a958998324ca54b24f2904a1b92984eb02ca34845863b9b",
         "oracle_sha256": "34c87a063675db5e68294fb60f28e600799653a666796d41b4a2bab17b184dfe",
         "producer_output_sha256": "8562b851db25fc5fa114b06f18e81114466eccf4df7c077db5b198125c59b74f",
         "state_sha256": "3e146eb653cea3c4e2a77defeacd0601d84eb5edcecd93c6f199f7bfa99e9754"

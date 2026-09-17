@@ -11,7 +11,7 @@
   "credential_scan": "pass: .env.example only; no keys/authorization tracked",
   "date": "2026-09-16",
   "diff_check": "pass",
-  "hosted_ci": "pending until final push",
+  "hosted_ci": "pass: GitHub Actions run 35169959655 (all 4 matrix jobs)",
   "model_calls": 0,
   "network_calls": 0,
   "platform": "macOS-26.6.2-arm64-arm-64bit",

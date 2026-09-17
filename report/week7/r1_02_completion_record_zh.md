@@ -29,7 +29,7 @@ R1-02 已将 reference、crossed、crossed-noop 的首次 handoff 保存为完�
 | R1-02-C no-op 与 crossed exact | verified | crossed/no-op projection exact |
 | R1-02-D 状态/代码/fixture 漂移 pre-Consumer 停止 | verified | 七类 drift rejection cases |
 | R1-02-E 不宣称中途 snapshot | verified | scope 明确为首次 handoff；mid-episode `not supported` |
-| R1-02-F local/credential/push/hosted CI | verified | [`r1_02_core_gate_local.json`](r1_02_core_gate_local.json)；hosted CI 在 R1 总出口统一记录 |
+| R1-02-F local/credential/push/hosted CI | verified | [`r1_02_core_gate_local.json`](r1_02_core_gate_local.json)；GitHub Actions run `35169959655` 四矩阵通过 |
 
 ## Claim boundary
 

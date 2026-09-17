@@ -32,6 +32,6 @@ R1-04 已在 v2 request 中开放唯一预注册的 `copy_group_from_donor` / `r
 | full restoration 与 reference input exact | verified | effective input hash exact |
 | single atom 非目标字段保持 crossed | verified | input/adapter/native comparison |
 | invalid group/donor pre-Consumer rejection | verified | spy Consumer calls=0 |
-| local/credential/push/hosted CI | verified | [`r1_04_core_gate_local.json`](r1_04_core_gate_local.json)；hosted CI 在 R1 总出口统一记录 |
+| local/credential/push/hosted CI | verified | [`r1_04_core_gate_local.json`](r1_04_core_gate_local.json)；GitHub Actions run `35169959655` 四矩阵通过 |
 
 若未来 matched-carrier 与 semantic restoration 完全相同，应停止语义归因并记录 `abstained: carrier_confound`；本轮未触发。该结果仍只是手写 SkillPlan dependency 的 calibration-only evidence，不是自然案例结论。

@@ -26,6 +26,6 @@ R1-03 已在 v2 opt-in sidecar 中加入轻量 read tracker。输入 hash 在包
 | no-op read instrumentation exact | verified | wrapper/default-off behavior projection |
 | unread probes 与 census 一致 | verified | 三个 v2 probe 与 crossed exact |
 | 未增加 Consumer read | verified | 仅包裹 input；无 Consumer source 改动 |
-| local/credential/push/hosted CI | verified | [`r1_03_core_gate_local.json`](r1_03_core_gate_local.json)；hosted CI 在 R1 总出口统一记录 |
+| local/credential/push/hosted CI | verified | [`r1_03_core_gate_local.json`](r1_03_core_gate_local.json)；GitHub Actions run `35169959655` 四矩阵通过 |
 
 动态 tracker 不能证明模型内部读取；若静态 map 与 runtime event 冲突，必须进入 `blocked_atom_census_mismatch`，不得增加人工 Consumer read。

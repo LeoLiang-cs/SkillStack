@@ -15,5 +15,6 @@
   "skips": 1,
   "status": "pass",
   "tests_run": 177,
-  "unexpected_skip_reasons": []
+  "unexpected_skip_reasons": [],
+  "hosted_ci": "pass: GitHub Actions run 35169959655 (all 4 matrix jobs)"
 }

@@ -34,7 +34,7 @@ raw 运行包含 9 个 execution arms × 3 次 = 27 条 JSONL episode；resume �
 | R1-05 案例得到预期判断 | verified | `r1_05_calibration_run/verdicts.json` |
 | raw → summary → verdict 可重算 | verified | run summary 与 verdict tests |
 | full local/preflight/repo/compile/build/diff/credential gate | verified | [`r1_05_core_gate_local.json`](r1_05_core_gate_local.json) |
-| push + hosted CI 全矩阵 | verified | 最终 push 后记录 run ID |
+| push + hosted CI 全矩阵 | verified | GitHub Actions run `35169959655` 四矩阵通过 |
 | claim boundary 保持 calibration-only | verified | 本报告与 verdict schema |
 
 ## 研究边界与下一步

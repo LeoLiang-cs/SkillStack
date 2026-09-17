@@ -88,7 +88,8 @@ R2 discovery 不输出论文级 `falsified`，不运行自然案例 provider、A
 
 - [x] 交付 candidate screen、contract/census、protocol、dry-run 和离线 focused evidence。
 - [x] R2 local implementation gate 记录为 `implementation_complete_live_not_run`；live-dependent gates 明确 `not run`。
-- [ ] live raw → summary → diagnostics 可重算；hosted CI 只在本轮代码/doc commit 后验证本地实现，不替代 live gate。
+- [x] public/credential scan、commit `2cd1dcb`、push 和 hosted CI run `35176808369` 实际通过；hosted CI 不替代 live gate。
+- [ ] live raw → summary → diagnostics 可重算；当前 live-dependent item 保持 `not run`。
 - [ ] 只有 live pilot 完成且所有限制可审查时，才可将状态改为 `complete_candidate_ready_for_r3` 或 `complete_bounded_negative`。
 
 ## 3. 当前证据与停止条件

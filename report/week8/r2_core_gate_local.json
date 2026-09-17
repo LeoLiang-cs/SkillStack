@@ -13,7 +13,7 @@
     {"id": "R2-06-live-provider", "status": "not run", "evidence": "manual confirmation required; no provider call"},
     {"id": "R2-07-natural-diagnostics", "status": "not run", "evidence": "no live episodes"},
     {"id": "R2-08-credential-scan", "status": "verified", "evidence": "scripts/check_public_repo.py: 464 files, 0 findings; no tracked credential-like files beyond .env.example"},
-    {"id": "R2-08-hosted-ci", "status": "not run", "evidence": "run after commit/push"}
+    {"id": "R2-08-hosted-ci", "status": "verified", "evidence": "GitHub Actions CI run 35176808369; macOS 3.11/3.12 and Ubuntu 3.11/3.12 all success"}
   ],
   "claim_boundary": "no natural BLM verdict; implementation and deterministic host-side machinery only"
 }

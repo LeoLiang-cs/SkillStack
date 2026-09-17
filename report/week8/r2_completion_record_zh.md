@@ -35,7 +35,7 @@
 - DeepSeek V4 Flash live response、action trajectory、provider variability、token/latency/cost 和 environment oracle outcome。
 - matched-carrier、no-skill、full-handoff 与 coherent top-group 的自然 outcome 对比。
 - R2 `candidate_signal_ready_for_r3`、`complete_bounded_negative` 或 control-confound 状态。
-- credential scan、commit/push 后 hosted CI 的最终本轮结果（在提交前质量门禁执行）。
+- credential scan、commit/push 后 hosted CI 已完成：public scan 0 findings；commit `2cd1dcb` 已 push；GitHub Actions run `35176808369` 的 macOS/Ubuntu Python 3.11/3.12 全部 success。
 
 ## 排除的 claim
 

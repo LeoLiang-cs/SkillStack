@@ -1,0 +1,170 @@
+{
+  "schema_version": "skillstack-r1-01-boundary-evidence-v1",
+  "experiment_id": "r1_01_blm_boundary_instrumentation",
+  "evidence_class": "verified_this_run",
+  "calibration_claim": "calibration_only",
+  "environment_scope": "first_handoff_reconstructed_fixture_v1",
+  "baseline_commit": "c31f270827f5c50a6c82562d02323f1ad688fc94",
+  "python": "3.12.13",
+  "platform": "macOS-arm64",
+  "model_calls": 0,
+  "network_calls": 0,
+  "state_sha256": "735d745d23475a993973a4bb3a8d6ff01de08e413c90fabbaf38027cebe73300",
+  "library_sha256": "c70025f3880e53afd9bfec23ef61debac9dd2154109c59573ba181f3f3c6262a",
+  "replay": {
+    "reference_behavior_sha256": [
+      "a62fda0f5a996d788da894836fc1ebc7261ee99103b4c8a0536003a977a559c5",
+      "a62fda0f5a996d788da894836fc1ebc7261ee99103b4c8a0536003a977a559c5",
+      "a62fda0f5a996d788da894836fc1ebc7261ee99103b4c8a0536003a977a559c5"
+    ],
+    "reference_exact_three_times": true,
+    "crossed_behavior_sha256": "f185c3e1d604d856934b4c9c786201cb433813709bc9150fd15f439f58aa3cc6",
+    "crossed_capture_exact": true,
+    "crossed_noop_exact": true
+  },
+  "arms": [
+    {
+      "arm_id": "reference",
+      "producer": "oracle_skill",
+      "operation": "capture",
+      "atom": null,
+      "read_map_id": "r1_00_c1.skillplan.execution_input",
+      "original_input_sha256": "0db2b509da36afccb7df93303967b358a4ad26e102ae27b255cfd332603e5a71",
+      "effective_input_sha256": "0db2b509da36afccb7df93303967b358a4ad26e102ae27b255cfd332603e5a71",
+      "changed": false,
+      "validity": "valid",
+      "validity_reason": "capture",
+      "consumer_branch": "skill_heat_then_place",
+      "actions": [
+        "go to shelf 1",
+        "take mug 1 from shelf 1",
+        "go to microwave 1",
+        "heat mug 1 with microwave 1",
+        "go to desk 1",
+        "move mug 1 to desk 1"
+      ],
+      "stop_reason": "environment_done",
+      "success": true,
+      "action_trace_sha256": "f1d8e60db5e5009822a1e90a4366b63fe65fd58cd1161d8ba3fd07d0a8e2263e"
+    },
+    {
+      "arm_id": "crossed",
+      "producer": "random_skill(seed=1)",
+      "operation": "capture",
+      "atom": null,
+      "read_map_id": "r1_00_c1.skillplan.execution_input",
+      "original_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "effective_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "changed": false,
+      "validity": "valid",
+      "validity_reason": "capture",
+      "consumer_branch": "skill_cool_then_place",
+      "actions": ["go to shelf 1", "take mug 1 from shelf 1"],
+      "stop_reason": "plan_step_unavailable",
+      "success": false,
+      "action_trace_sha256": "2e4e1533eaff9658e44238ad23bdda5bff7f5bfc4e72d7bafc4233b0be661e74"
+    },
+    {
+      "arm_id": "crossed_noop",
+      "producer": "random_skill(seed=1)",
+      "operation": "copy_atom_from_donor",
+      "atom": "selected_skill_ids[0]",
+      "read_map_id": "r1_00_c1.skillplan.semantic.selected_skill_ids[0]",
+      "original_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "effective_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "changed": false,
+      "validity": "valid",
+      "validity_reason": "intervention_applied",
+      "consumer_branch": "skill_cool_then_place",
+      "actions": ["go to shelf 1", "take mug 1 from shelf 1"],
+      "stop_reason": "plan_step_unavailable",
+      "success": false,
+      "action_trace_sha256": "2e4e1533eaff9658e44238ad23bdda5bff7f5bfc4e72d7bafc4233b0be661e74",
+      "donor": {"kind": "producer_output", "producer": "random_skill", "calibration_only": false}
+    },
+    {
+      "arm_id": "crossed_single_atom",
+      "producer": "random_skill(seed=1)",
+      "operation": "copy_atom_from_donor",
+      "atom": "selected_skill_ids[0]",
+      "read_map_id": "r1_00_c1.skillplan.semantic.selected_skill_ids[0]",
+      "original_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "effective_input_sha256": "457c916567efa4ef6d574b63f0e075e8aeb24c2ff073c54fea9da8c753ad124a",
+      "changed": true,
+      "validity": "valid",
+      "validity_reason": "intervention_applied",
+      "consumer_branch": "skill_heat_then_place",
+      "actions": [
+        "go to shelf 1",
+        "take mug 1 from shelf 1",
+        "go to microwave 1",
+        "heat mug 1 with microwave 1",
+        "go to desk 1",
+        "move mug 1 to desk 1"
+      ],
+      "stop_reason": "environment_done",
+      "success": true,
+      "action_trace_sha256": "f1d8e60db5e5009822a1e90a4366b63fe65fd58cd1161d8ba3fd07d0a8e2263e",
+      "donor": {
+        "kind": "calibration_oracle",
+        "producer": "oracle_skill",
+        "skill_id": "skill_heat_then_place",
+        "source_path": "skills/alfworld_static/skill_heat_then_place.md",
+        "native_payload_sha256": "2436452e3581126a81b8470d1b0af71d56462bdade30b3b2dc54416e125ee366",
+        "calibration_only": true
+      }
+    },
+    {
+      "arm_id": "irrelevant_unread_information",
+      "producer": "random_skill(seed=1)",
+      "operation": "copy_atom_from_donor",
+      "atoms": ["selected_scores[0]", "selected_native_skills[0]", "flat_skill_context"],
+      "read_map_ids": [
+        "r1_00_c1.skillplan.validation.selected_scores[0]",
+        "r1_00_c1.skillplan.validation.selected_native_skills[0]",
+        "r1_00_c1.skillplan.validation.flat_skill_context"
+      ],
+      "original_input_sha256": "8400516fdff079cde9314303766fd36c8fb292a5daad5d68dc105206d803b237",
+      "effective_input_sha256": {
+        "selected_scores[0]": "4c1f223a3f438f8b2b820ba46c256da3742bb7a5dc5aa96aef89ef24e7ce6fa8",
+        "selected_native_skills[0]": "1c1b70a44c5efd9207a5b95adf56242dfcb566b69d7765e3cd9bd63e8f301896",
+        "flat_skill_context": "646d600a4e5eb710b456036c297b4bad555361f6ff20f8bec4c53e8bd8dad04f"
+      },
+      "changed": true,
+      "validity": "valid",
+      "validity_reason": "intervention_applied",
+      "consumer_branch": "skill_cool_then_place",
+      "actions": ["go to shelf 1", "take mug 1 from shelf 1"],
+      "stop_reason": "plan_step_unavailable",
+      "success": false,
+      "action_trace_sha256": "2e4e1533eaff9658e44238ad23bdda5bff7f5bfc4e72d7bafc4233b0be661e74",
+      "behavior_matches_crossed": {
+        "selected_scores[0]": true,
+        "selected_native_skills[0]": true,
+        "flat_skill_context": true
+      }
+    }
+  ],
+  "invalid_cases": [
+    "invalid_donor_task",
+    "invalid_donor_state",
+    "invalid_donor_payload",
+    "invalid_donor_score",
+    "forbidden_outcome_content",
+    "invalid_list_alignment"
+  ],
+  "invalid_case_result": {
+    "consumer_calls": 0,
+    "stop_reason": "invalid_input",
+    "actions": [],
+    "measurement_status": "invalid",
+    "task_success": null
+  },
+  "excluded_claims": [
+    "BLM supported/falsified verdict",
+    "natural-case or ALFWorld benchmark evidence",
+    "model-internal read evidence",
+    "generic mid-episode snapshot replay",
+    "novelty, p-value, or power claim"
+  ]
+}

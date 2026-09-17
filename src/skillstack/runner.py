@@ -4,9 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple
 
 from skillstack.adapters.retrieval_to_execution import adapt_retrieval_for_execution
+from skillstack.blm import (
+    STATE_SCOPE,
+    apply_boundary_intervention,
+    finalize_boundary_record,
+)
 from skillstack.contracts import TASK_RECORD_FIELDS, require_fields
 from skillstack.environments.alfworld_text import create_single_game_environment
 
@@ -36,6 +41,8 @@ class EpisodeRunner:
         recorded_actions: Optional[Iterable[str]] = None,
         top_k: int = 2,
         max_steps: Optional[int] = None,
+        *,
+        blm_intervention: Optional[Mapping[str, Any]] = None,
     ) -> Dict[str, Any]:
         require_fields(task_record, TASK_RECORD_FIELDS, "episode task record")
         trace: Dict[str, Any] = {
@@ -63,6 +70,55 @@ class EpisodeRunner:
                 task_record, initial_observation, self.native_skills, top_k
             )
             execution_input, adapter_event = adapt_retrieval_for_execution(retrieval_response)
+            blm_boundary = None
+            if blm_intervention is not None:
+                context = {
+                    "task_record": task_record,
+                    "initial_observation": initial_observation,
+                    "initial_info": initial_info,
+                    "environment_class": (
+                        f"{type(env).__module__}.{type(env).__qualname__}"
+                    ),
+                    "consumer_name": getattr(
+                        self.executor, "name", type(self.executor).__name__
+                    ),
+                    "consumer_step_budget": getattr(
+                        self.executor, "step_budget_per_plan_step", None
+                    ),
+                    "native_skills": self.native_skills,
+                    "top_k": top_k,
+                    "effective_max_steps": max_steps if max_steps is not None else 50,
+                    "state_scope": STATE_SCOPE,
+                    "retrieval_response": retrieval_response,
+                }
+                effective_input, blm_boundary = apply_boundary_intervention(
+                    execution_input, blm_intervention, context
+                )
+                if effective_input is None:
+                    warning = f"BLM intervention rejected: {blm_boundary['validity_reason']}"
+                    trace.update(
+                        {
+                            "raw_observations": [initial_observation],
+                            "retrieval_response": retrieval_response,
+                            "selected_skill_ids": execution_input["selected_skill_ids"],
+                            "selected_native_payloads": execution_input[
+                                "selected_native_skills"
+                            ],
+                            "adapter_events": [adapter_event],
+                            "executor_report": {},
+                            "actions": [],
+                            "action_rationales": [],
+                            "rewards": [],
+                            "success": False,
+                            "stop_reason": "invalid_input",
+                            "warnings": retrieval_response["warnings"]
+                            + adapter_event["warnings"]
+                            + [warning],
+                            "blm_boundary": blm_boundary,
+                        }
+                    )
+                    return trace
+                execution_input = effective_input
             executor_report = self.executor.execute(
                 env,
                 initial_observation,
@@ -90,6 +146,10 @@ class EpisodeRunner:
                     + executor_report["warnings"],
                 }
             )
+            if blm_boundary is not None:
+                trace["blm_boundary"] = finalize_boundary_record(
+                    blm_boundary, executor_report
+                )
         except Exception as error:
             trace.update(
                 {

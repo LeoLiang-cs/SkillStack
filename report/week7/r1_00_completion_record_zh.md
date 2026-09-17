@@ -62,12 +62,14 @@ R1-00 status：`complete`。`blocked_boundary_redesign` 未触发；没有两个
 
 目标：在不改变 Consumer semantics 的前提下，把 C1 的 first-handoff capture、pre-read intervention validation 与 validity record 做成 opt-in、可测试的最小路径；只覆盖 `selected_skill_ids[0]` 和 unread negative probes，不执行完整 R1-02～R1-05。
 
-代码改动面：
+代码改动面（已由独立 R1-01 清单冻结）：
 
 1. 新增单一最小模块 `src/skillstack/blm.py`：定义 boundary record、allowed atom、donor/type/state validation 与 no-op/capture helper；不建通用 framework。
 2. `src/skillstack/runner.py`：在 adapter return 后、`executor.execute` 前加入默认关闭的 optional boundary hook；关闭时现有 trace/behavior 不变。
 3. opt-in trace 仅增加 versioned `blm_boundary` side-car，记录 original/effective input hash、read-map ID、arm、validity reason；不把 action/reward/done/success 作为可写字段。
 4. `tests/test_blm_r1_01_boundary.py`：复用 R1-00 heat fixture，覆盖 capture/no-op、合法 identity change、invalid type/state/donor rejection、unread score/payload negative probes。
+
+执行清单：[R1-01 BLM 首次边界捕获与干预机制实现清单](../../docs/plan/r1_01_blm_boundary_instrumentation_plan_list_zh.md)。
 
 测试入口：
 

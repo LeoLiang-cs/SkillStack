@@ -41,7 +41,7 @@ F0 之后不再插入独立“开源完成 gate”。只有会损害实验正确
 
 ## 4. 当前下一阶段：R1 BLM 定义与校准
 
-R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 精确 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。
+R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 精确 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。R1-01 的唯一实施清单为 [R1-01 BLM 首次边界捕获与干预机制实现清单](r1_01_blm_boundary_instrumentation_plan_list_zh.md)。
 
 ### R1-01 实现第一个测量边界
 
@@ -108,10 +108,10 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 ## 7. 当前执行顺序
 
 1. 以 `fc6a446`/`730a37a` 之后的 `main` 作为 F0 工程基线。
-2. 完成 R1-01 的 D→C handoff 与 read-site 表。
+2. 完成 R1-01 的 first-handoff capture、单 atom intervention、unread negative probes 与 validity guards。
 3. 完成 R1-02/R1-03 的 deterministic replay 与 atom census spike。
 4. 通过 R1-04/R1-05 controls 和 calibration 后，再筛选首个自然案例。
 5. R2 结果足以支持研究价值后，才冻结 R3 正式协议。
 6. 完成 R4 论文后启动 P1 开源整理，不反向改写历史实验结果。
 
-当前需要的人工决策不是“开源还是科研”，而只是在 R1-01 给出多个同等可行 handoff 时选择首个研究边界；在出现该分叉前可直接推进。
+当前不需要重新选择 boundary。只有实现中出现多个同等可行但回答不同论文问题的 handoff、所有 D→C 候选失效、或需要 live model/训练/超过 30 分钟验证时，才暂停请求人工决策；其他 R1-01 源码审计、确定性测试、文档、质量 gate、commit、push 和 CI 修复直接推进。

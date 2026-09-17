@@ -1,0 +1,16 @@
+{
+  "artifact_hash": null,
+  "errors": 0,
+  "failures": 0,
+  "model_calls": 0,
+  "network_calls": 0,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "skip_reasons": [
+    "no pick_two tasks in default manifest"
+  ],
+  "skips": 1,
+  "status": "pass",
+  "tests_run": 153,
+  "unexpected_skip_reasons": []
+}

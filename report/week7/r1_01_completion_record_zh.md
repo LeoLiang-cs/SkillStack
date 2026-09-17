@@ -7,10 +7,12 @@
 - Audit date: 2026-09-16
 - Baseline commit: `c31f270827f5c50a6c82562d02323f1ad688fc94`
 - Implementation commit: `4e3e4179b98a184faa9333d4d557e7dcf205b44c`
+- Verification commit: `aa58fad85d8e094800296ac9a1a26f4bc8e46c70`
+- Hosted CI: run `35165519894`, all 4 matrix jobs passed
 - Execution evidence: [r1_01_boundary_fixture_evidence.json](r1_01_boundary_fixture_evidence.json)
 - Local gate evidence: [r1_01_core_gate_local.json](r1_01_core_gate_local.json)
 - Plan: [r1_01_blm_boundary_instrumentation_plan_list_zh.md](../../docs/plan/r1_01_blm_boundary_instrumentation_plan_list_zh.md)
-- Verification status: `IN_PROGRESS` until hosted CI completes
+- Verification status: `VERIFIED`
 - Measurement status: `boundary_instrumentation_verified_calibration_only`
 
 ## 结论先行
@@ -67,9 +69,9 @@ R1-01 已在 R1-00 冻结的 C1 路径上实现一个默认关闭的 first-hando
 | R1-01-H sidecar/provenance | `verified` | schema、state/input hashes、read-map、arm、branch、reason、donor provenance |
 | R1-01-I local quality/credential/build | `verified` | 153 tests、preflight、check-repo、compileall、`uv build`、isolated wheel/sdist acceptance |
 | R1-01-J claim boundary | `verified` | 本报告和 evidence 明确 calibration-only 与 excluded claims |
-| R1-01-K hosted CI | `not run` | push 后等待 hosted CI |
+| R1-01-K hosted CI | `verified` | run `35165519894`：Ubuntu/macOS × Python 3.11/3.12 全部通过 |
 
-在 hosted CI 完成前，R1-01 的总体状态保持 `in_progress`，不能写成最终 `complete`。
+R1-01 status：`complete`。本状态只表示本阶段实现与质量门禁完成，不表示 BLM 已被证明有效或具有 novelty。
 
 ## Evidence classification
 

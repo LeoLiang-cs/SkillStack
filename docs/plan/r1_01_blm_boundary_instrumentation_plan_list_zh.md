@@ -4,10 +4,11 @@
 
 - Origin Skill: `ars-codex:academic-research-suite / experiment-agent`
 - Implementation discipline: `ponytail:ponytail`
-- Plan status: `IN_PROGRESS`
+- Plan status: `VERIFIED`
 - Plan date: 2026-09-16
 - Starting commit: `c31f270827f5c50a6c82562d02323f1ad688fc94`
 - Implementation commit: `4e3e4179b98a184faa9333d4d557e7dcf205b44c`
+- Hosted CI run: `35165519894` (all matrix jobs passed)
 - Starting branch: `main`
 - Starting worktree: clean; synchronized with `origin/main`
 - Evidence boundary: zero-model, zero-network, deterministic first-handoff fixture
@@ -97,8 +98,8 @@ R1-01 在 R1-00 已选定的真实路径上实现最小、默认关闭的测量�
 - [x] 运行 focused boundary tests、R1-00 replay regression 和完整 core gate。
 - [x] 运行 repository preflight、public/credential scan、compile、package build 和 `git diff --check`。
 - [x] 检查当前 diff 不含 `.env`、API key、Authorization、credential、generated runs 或外部数据。
-- [ ] 正常单一 commit、push 当前分支并等待 hosted CI 完成。
-- [ ] CI 失败若可在本地安全修复则直接修复、重新验证并 push；否则保留失败证据。
+- [x] 正常 commit、push 当前分支并等待 hosted CI 完成。
+- [x] CI 结果为全矩阵通过；未触发需要修复的失败路径。
 
 ## 3. 冻结的 request / donor / sidecar contract
 

@@ -45,6 +45,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-01 实现第一个测量边界
 
+状态：`complete`（实现与 hosted CI 已验证；仅限 calibration instrumentation，不是 BLM validity verdict）。
+
 - 使用 R1-00 已选的 `Retriever → adapter → SkillPlanExecutor`，不再重新选 boundary。
 - 在 adapter return 后、Consumer read 前增加默认关闭的最小 capture/intervention hook；不改变 Consumer 让其读取新字段。
 - 只实现 first-handoff boundary record、donor/type/state validation、identity read atom 与 unread negative probes。

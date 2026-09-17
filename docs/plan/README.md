@@ -13,4 +13,4 @@ F0 工程完成证据：[Week 7 G1 完成执行报告](../../report/week7/g1_com
 
 [项目计划 v2](project_plan_v2_zh.md) 保留作历史。
 
-当前状态：F0（历史 G0+G1）与 R1-00 已完成；R1-01 最小 boundary instrumentation 正在执行。正式开源整理延期到研究实验与论文完成之后。这些全局规划文件不自动属于公开发布内容。
+当前状态：F0（历史 G0+G1）、R1-00 与 R1-01 最小 boundary instrumentation 已完成并通过 hosted CI。下一步为 R1-02。正式开源整理延期到研究实验与论文完成之后。这些全局规划文件不自动属于公开发布内容。

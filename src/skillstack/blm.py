@@ -226,7 +226,8 @@ def boundary_state_sha256(context: Mapping[str, Any]) -> str:
 def _validate_request(request: Any) -> None:
     if not isinstance(request, Mapping):
         raise _BoundaryValidationError("invalid_request_type")
-    _reject_forbidden_keys(request)
+    if request.get("schema_version") == BLM_INTERVENTION_SCHEMA_V2:
+        _reject_forbidden_keys(request)
     if set(request) != _REQUEST_FIELDS:
         raise _BoundaryValidationError("invalid_request_schema")
     if request["schema_version"] not in {

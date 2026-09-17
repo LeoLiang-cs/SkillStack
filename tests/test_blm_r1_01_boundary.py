@@ -12,11 +12,7 @@ from skillstack.library import load_static_library
 from skillstack.retrieval import NoSkillRetriever, OracleSkillRetriever, RandomSkillRetriever
 from skillstack.runner import EpisodeRunner
 from skillstack.tracing import JsonlTraceWriter, status_counts
-
-try:
-    from tests.test_blm_r1_00_replay import TASK, create_environment
-except ModuleNotFoundError:  # unittest discovery imports tests as top-level modules.
-    from test_blm_r1_00_replay import TASK, create_environment
+from skillstack.experiments.blm_calibration import TASK, create_environment
 
 
 SCHEMA = "skillstack-blm-intervention-v1"

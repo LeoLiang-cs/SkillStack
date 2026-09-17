@@ -31,7 +31,7 @@ G0 与 G1 的拆分原本是发布工程顺序，而不是科研边界：
 | 阶段 | 内容 | 出口条件 | 状态 |
 |---|---|---|---|
 | F0 研究工程基础 | 原 G0+G1：repo 基线、运行契约、trace/resume、测试、package smoke、CI、安全边界 | 本地与 hosted gate 通过；研究运行可追踪、可恢复 | complete (`fc6a446`) |
-| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | R1-00 complete；R1-01 next |
+| R1 BLM 定义与校准 | 明确 D→C handoff、Consumer read sites、boundary atoms、合法 donor、replay 与 controls | 确定性校准套件判断正确；无效干预会拒绝或 abstain | R1-00/R1-01 complete；R1-02 active |
 | R2 自然案例与增量 | 筛选真实跨组件案例；比较 schema check、ablation、restoration 等简单基线 | 至少一个有效自然案例或有价值的可靠阴性；明确 BLM 的增量与成本 | planned |
 | R3 正式协议与实验 | 冻结任务、arms、重复数、预算、统计、排除和停止规则；执行确认实验 | raw evidence 完整；结果可重算；发现集与确认集分离 | planned |
 | R4 论文完成 | 完成方法、实验、相关工作、限制、图表和 claim-evidence map | 每项论文主张能映射到实际数据、代码和 manifest | planned |
@@ -41,7 +41,7 @@ F0 之后不再插入独立“开源完成 gate”。只有会损害实验正确
 
 ## 4. 当前下一阶段：R1 BLM 定义与校准
 
-R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 精确 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。R1-01 的唯一实施清单为 [R1-01 BLM 首次边界捕获与干预机制实现清单](r1_01_blm_boundary_instrumentation_plan_list_zh.md)。
+R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibration_preparation_plan_list_zh.md) 完成，冻结候选边界、四层契约、read-site map、replay envelope、donor 与 controls。执行证据与 R1-01 handoff 见 [R1-00 completion record](../../report/week7/r1_00_completion_record_zh.md)。R1-01 已完成首次 boundary instrumentation；R1-02～R1-05 依次实现 replay、atom census、restoration controls 与 bounded verdict，分别以独立清单为准。
 
 ### R1-01 实现第一个测量边界
 
@@ -57,6 +57,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-02 建立状态重建与 no-op 基线
 
+状态：`active`；唯一实施清单为 [R1-02 首次 handoff replay 清单](r1_02_blm_first_handoff_replay_plan_list_zh.md)。
+
 - 保存环境状态、Consumer 本地状态、输入历史、预算和 oracle 所需信息。
 - 在确定性 fixture 上验证相同状态重建后的无干预行为一致。
 - no-op intervention 不得改变后续行为；漂移时停止因果解释。
@@ -64,6 +66,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 验收：重复执行产生一致状态与行为；漂移被明确检测，而不是被 summary 吞掉。
 
 ### R1-03 建立 boundary-atom census
+
+执行依赖 R1-02 envelope/replay；唯一实施清单为 [R1-03 boundary-atom census 清单](r1_03_blm_boundary_atom_census_plan_list_zh.md)。
 
 - atom 由 read site、semantic role 和可独立干预性定义，不只是字段名。
 - 记录 atom 的来源、类型/值域、合法 donor、读取次数和顺序。
@@ -73,6 +77,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 
 ### R1-04 实现合法 restoration 与 controls
 
+执行依赖 R1-03 census；唯一实施清单为 [R1-04 restoration controls 清单](r1_04_blm_restoration_controls_plan_list_zh.md)。
+
 - 通过正常 parser/Consumer 路径注入，不绕过被测接口。
 - 最小 arms：reference、crossed、crossed-noop、crossed+atom、载体 control、crossed+full restoration。
 - donor 必须语义与状态匹配，不能包含 oracle 答案、未来轨迹或额外解题提示。
@@ -80,6 +86,8 @@ R1-00 已按 [BLM 测量可行性与实验协议审计清单](r1_00_blm_calibrat
 验收：错误 donor/type/state 被拒绝；control 能区分信息效应与注入载体效应。
 
 ### R1-05 校准 bounded verdict
+
+执行依赖 R1-04 controls；唯一实施清单为 [R1-05 bounded verdict 清单](r1_05_blm_bounded_verdict_calibration_plan_list_zh.md)。
 
 - 分开记录 `measurement_status` 与研究 verdict。
 - verdict 只允许 `falsified`、`not_falsified` 或 `abstained`，并绑定适用范围。

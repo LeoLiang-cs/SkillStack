@@ -8,9 +8,11 @@ from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple
 
 from skillstack.adapters.retrieval_to_execution import adapt_retrieval_for_execution
 from skillstack.blm import (
+    BLM_BOUNDARY_SCHEMA_V2,
     STATE_SCOPE,
     apply_boundary_intervention,
     finalize_boundary_record,
+    instrument_execution_input,
 )
 from skillstack.contracts import TASK_RECORD_FIELDS, require_fields
 from skillstack.environments.alfworld_text import create_single_game_environment
@@ -57,6 +59,8 @@ class EpisodeRunner:
             "warnings": [],
         }
         env = None
+        read_tracker = None
+        consumer_reads = None
         try:
             if self.environment_factory is None:
                 env, initial_observation, initial_info = create_single_game_environment(
@@ -119,6 +123,8 @@ class EpisodeRunner:
                     )
                     return trace
                 execution_input = effective_input
+                if blm_boundary.get("schema_version") == BLM_BOUNDARY_SCHEMA_V2:
+                    execution_input, read_tracker = instrument_execution_input(execution_input)
             executor_report = self.executor.execute(
                 env,
                 initial_observation,
@@ -128,6 +134,10 @@ class EpisodeRunner:
                 task_record=task_record,
                 max_steps=max_steps,
             )
+            if read_tracker is not None:
+                # Freeze the Consumer-only event stream before Runner serializes
+                # selected fields into the top-level trace.
+                consumer_reads = list(read_tracker.events)
             trace.update(
                 {
                     "raw_observations": executor_report["observations"],
@@ -148,7 +158,9 @@ class EpisodeRunner:
             )
             if blm_boundary is not None:
                 trace["blm_boundary"] = finalize_boundary_record(
-                    blm_boundary, executor_report
+                    blm_boundary,
+                    executor_report,
+                    consumer_reads,
                 )
         except Exception as error:
             trace.update(

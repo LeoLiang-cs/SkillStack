@@ -1,0 +1,84 @@
+schema_version: skillstack-blm-calibration-arms-v2
+boundary_id: r1_00_c1_skillplan
+state_scope: first_handoff_reconstructed_fixture_v1
+task_id: r1_00_heat_calibration
+consumer: skill_plan_executor
+top_k: 1
+max_steps: 12
+step_budget_per_plan_step: 24
+repetitions: 3
+oracle: heat_environment_oracle_v1
+arms:
+  - arm_id: reference
+    producer: oracle_skill
+    operation: capture
+    expected_branch: skill_heat_then_place
+    expected_success: true
+    evidence_class: calibration_only
+  - arm_id: crossed
+    producer: random_skill
+    producer_seed: 1
+    operation: capture
+    expected_branch: skill_cool_then_place
+    expected_success: false
+    evidence_class: calibration_only
+  - arm_id: crossed_noop
+    producer: random_skill
+    producer_seed: 1
+    operation: copy_atom_from_donor
+    atom: selected_skill_ids[0]
+    donor_kind: producer_output
+    expected_changed: false
+    evidence_class: calibration_only
+  - arm_id: crossed_single_atom
+    producer: random_skill
+    producer_seed: 1
+    operation: copy_atom_from_donor
+    atom: selected_skill_ids[0]
+    donor_kind: calibration_oracle
+    expected_branch: skill_heat_then_place
+    expected_success: true
+    evidence_class: calibration_only
+  - arm_id: matched_carrier_control
+    producer: random_skill
+    producer_seed: 1
+    donor_producer: random_skill
+    donor_seed: 3
+    donor_top_skill_id: skill_light_inspection
+    operation: copy_atom_from_donor
+    atom: selected_skill_ids[0]
+    donor_kind: matched_nonreference
+    expected_success: false
+    evidence_class: calibration_only
+  - arm_id: crossed_full_reference_restoration
+    producer: random_skill
+    producer_seed: 1
+    operation: copy_group_from_donor
+    atom: reference_handoff_group
+    group_members:
+      - selected_skill_ids[0]
+      - selected_scores[0]
+      - selected_native_skills[0]
+      - flat_skill_context
+    donor_kind: calibration_oracle
+    expected_effective_input: reference
+    evidence_class: calibration_only
+unread_controls:
+  - atom: selected_scores[0]
+    expected_branch: skill_cool_then_place
+    expected_success: false
+  - atom: selected_native_skills[0]
+    expected_branch: skill_cool_then_place
+    expected_success: false
+  - atom: flat_skill_context
+    expected_branch: skill_cool_then_place
+    expected_success: false
+guards:
+  - invalid_donor_task
+  - invalid_donor_task_family
+  - invalid_donor_state
+  - invalid_donor_payload
+  - invalid_donor_score
+  - invalid_list_alignment
+  - forbidden_outcome_content
+  - unsupported_consumer

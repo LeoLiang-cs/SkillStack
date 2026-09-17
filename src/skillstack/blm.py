@@ -26,11 +26,14 @@ from skillstack.execution.skillplan import (
     PLAN_STEPS_BY_SKILL,
     RECEPTACLE_TYPE_ORDER,
 )
+from skillstack.retrieval import OracleSkillRetriever, RandomSkillRetriever
 from skillstack.task_semantics import APPLIANCE_BY_SKILL, SYNONYMS, TRANSFORM_VERB_BY_SKILL
 
 
 BLM_INTERVENTION_SCHEMA = "skillstack-blm-intervention-v1"
+BLM_INTERVENTION_SCHEMA_V2 = "skillstack-blm-intervention-v2"
 BLM_BOUNDARY_SCHEMA = "skillstack-blm-boundary-v1"
+BLM_BOUNDARY_SCHEMA_V2 = "skillstack-blm-boundary-v2"
 BOUNDARY_ID = "r1_00_c1_skillplan"
 STATE_SCOPE = "first_handoff_reconstructed_fixture_v1"
 INTERVENTION_POSITION = "post_adapter_pre_consumer_read"
@@ -56,6 +59,7 @@ _ATOMS = {
     "selected_native_skills[0]",
     "flat_skill_context",
 }
+_GROUP_ATOMS = {"reference_handoff_group"}
 _UNREAD_ATOMS = {
     "selected_scores[0]",
     "selected_native_skills[0]",
@@ -67,6 +71,7 @@ _READ_MAP_IDS = {
     "selected_scores[0]": "r1_00_c1.skillplan.validation.selected_scores[0]",
     "selected_native_skills[0]": "r1_00_c1.skillplan.validation.selected_native_skills[0]",
     "flat_skill_context": "r1_00_c1.skillplan.validation.flat_skill_context",
+    "reference_handoff_group": "r1_00_c1.skillplan.group.reference_handoff",
 }
 _FORBIDDEN_KEYS = {
     "action",
@@ -105,8 +110,18 @@ def apply_boundary_intervention(
 
     state_sha256 = boundary_state_sha256(context)
     original = copy.deepcopy(dict(execution_input))
+    request_schema = (
+        request.get("schema_version")
+        if isinstance(request, Mapping)
+        else BLM_BOUNDARY_SCHEMA
+    )
+    boundary_schema = (
+        BLM_BOUNDARY_SCHEMA_V2
+        if request_schema == BLM_INTERVENTION_SCHEMA_V2
+        else BLM_BOUNDARY_SCHEMA
+    )
     record = {
-        "schema_version": BLM_BOUNDARY_SCHEMA,
+        "schema_version": boundary_schema,
         "boundary_id": BOUNDARY_ID,
         "state_scope": STATE_SCOPE,
         "arm_id": request.get("arm_id") if isinstance(request, Mapping) else None,
@@ -124,6 +139,8 @@ def apply_boundary_intervention(
         "consumer_branch": None,
         "outcome_observation": None,
     }
+    if boundary_schema == BLM_BOUNDARY_SCHEMA_V2:
+        record["consumer_reads"] = []
     if isinstance(request, Mapping):
         atom = request.get("atom")
         if atom is None or isinstance(atom, str):
@@ -137,7 +154,7 @@ def apply_boundary_intervention(
         operation = request["operation"]
         atom = request["atom"]
         record["read_map_id"] = _READ_MAP_IDS.get(atom)
-        _validate_arm(arm_id, operation, atom)
+        _validate_arm(arm_id, operation, atom, request["schema_version"])
 
         expected_state = request["expected_state_sha256"]
         if operation == "capture":
@@ -149,7 +166,9 @@ def apply_boundary_intervention(
             if not _is_sha256(expected_state) or expected_state != state_sha256:
                 raise _BoundaryValidationError("invalid_donor_state")
             donor = request["donor"]
-            donor_input, provenance = _validate_donor(donor, context, arm_id)
+            donor_input, provenance = _validate_donor(
+                donor, context, arm_id, request["schema_version"]
+            )
             effective = _copy_atom(original, donor_input, atom)
             record["donor_provenance"] = provenance
             record["validity_reason"] = "intervention_applied"
@@ -164,13 +183,17 @@ def apply_boundary_intervention(
 
 
 def finalize_boundary_record(
-    record: Mapping[str, Any], executor_report: Mapping[str, Any]
+    record: Mapping[str, Any],
+    executor_report: Mapping[str, Any],
+    consumer_reads: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     """Attach Consumer-only observations after a valid intervention executes."""
 
     finalized = copy.deepcopy(dict(record))
     if finalized.get("validity") != "valid":
         return finalized
+    if finalized.get("schema_version") == BLM_BOUNDARY_SCHEMA_V2:
+        finalized["consumer_reads"] = copy.deepcopy(consumer_reads or [])
     finalized["consumer_branch"] = executor_report.get("plan_skill_id")
     finalized["outcome_observation"] = {
         "success": bool(executor_report.get("success", False)),
@@ -203,18 +226,27 @@ def boundary_state_sha256(context: Mapping[str, Any]) -> str:
 def _validate_request(request: Any) -> None:
     if not isinstance(request, Mapping):
         raise _BoundaryValidationError("invalid_request_type")
+    _reject_forbidden_keys(request)
     if set(request) != _REQUEST_FIELDS:
         raise _BoundaryValidationError("invalid_request_schema")
-    if request["schema_version"] != BLM_INTERVENTION_SCHEMA:
+    if request["schema_version"] not in {
+        BLM_INTERVENTION_SCHEMA,
+        BLM_INTERVENTION_SCHEMA_V2,
+    }:
         raise _BoundaryValidationError("invalid_request_schema")
     if not isinstance(request["arm_id"], str) or not isinstance(request["operation"], str):
         raise _BoundaryValidationError("invalid_request_schema")
-    if request["operation"] not in {"capture", "copy_atom_from_donor"}:
+    allowed_operations = {"capture", "copy_atom_from_donor"}
+    if request["schema_version"] == BLM_INTERVENTION_SCHEMA_V2:
+        allowed_operations.add("copy_group_from_donor")
+    if request["operation"] not in allowed_operations:
         raise _BoundaryValidationError("invalid_operation")
     atom = request["atom"]
-    if atom is not None and (not isinstance(atom, str) or atom not in _ATOMS):
+    allowed_atoms = _ATOMS | (
+        _GROUP_ATOMS if request["schema_version"] == BLM_INTERVENTION_SCHEMA_V2 else set()
+    )
+    if atom is not None and (not isinstance(atom, str) or atom not in allowed_atoms):
         raise _BoundaryValidationError("invalid_atom_type")
-    _reject_forbidden_keys(request)
 
 
 def _validate_context(context: Mapping[str, Any]) -> None:
@@ -253,7 +285,12 @@ def _validate_execution_input(value: Mapping[str, Any], label: str) -> None:
         raise _BoundaryValidationError("invalid_current_input_type")
 
 
-def _validate_arm(arm_id: str, operation: str, atom: Optional[str]) -> None:
+def _validate_arm(
+    arm_id: str,
+    operation: str,
+    atom: Optional[str],
+    schema_version: str = BLM_INTERVENTION_SCHEMA,
+) -> None:
     if arm_id in {"reference", "crossed"}:
         if operation != "capture" or atom is not None:
             raise _BoundaryValidationError("invalid_arm_operation")
@@ -270,6 +307,15 @@ def _validate_arm(arm_id: str, operation: str, atom: Optional[str]) -> None:
         if operation != "copy_atom_from_donor" or atom not in _UNREAD_ATOMS:
             raise _BoundaryValidationError("invalid_arm_operation")
         return
+    if schema_version == BLM_INTERVENTION_SCHEMA_V2:
+        if arm_id == "matched_carrier_control":
+            if operation != "copy_atom_from_donor" or atom != "selected_skill_ids[0]":
+                raise _BoundaryValidationError("invalid_arm_operation")
+            return
+        if arm_id == "crossed_full_reference_restoration":
+            if operation != "copy_group_from_donor" or atom != "reference_handoff_group":
+                raise _BoundaryValidationError("invalid_arm_operation")
+            return
     raise _BoundaryValidationError("invalid_arm")
 
 
@@ -277,12 +323,15 @@ def _validate_donor(
     donor: Any,
     context: Mapping[str, Any],
     arm_id: str,
+    schema_version: str = BLM_INTERVENTION_SCHEMA,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    _reject_forbidden_keys(donor)
     if not isinstance(donor, Mapping) or set(donor) != _DONOR_FIELDS:
         raise _BoundaryValidationError("invalid_donor_schema")
     if not isinstance(donor["kind"], str) or donor["kind"] not in {
         "calibration_oracle",
         "producer_output",
+        "matched_nonreference",
     }:
         raise _BoundaryValidationError("invalid_donor_kind")
     if not isinstance(donor["task_id"], str) or not isinstance(
@@ -297,8 +346,34 @@ def _validate_donor(
         raise _BoundaryValidationError("invalid_donor_state")
     retrieval_response = donor["retrieval_response"]
     _validate_retrieval_response(retrieval_response)
+    candidates = retrieval_response["ranked_candidates"]
     if donor["kind"] == "calibration_oracle":
-        if retrieval_response["retriever_name"] != "oracle_skill":
+        if schema_version == BLM_INTERVENTION_SCHEMA_V2:
+            expected = OracleSkillRetriever().retrieve(
+                context["task_record"],
+                context["initial_observation"],
+                context["native_skills"],
+                context["top_k"],
+            )
+        else:
+            expected = None
+        if expected is not None and retrieval_response != expected:
+            raise _BoundaryValidationError("invalid_donor_source")
+    elif donor["kind"] == "matched_nonreference":
+        if arm_id != "matched_carrier_control":
+            raise _BoundaryValidationError("invalid_donor_source")
+        expected = RandomSkillRetriever(seed=3).retrieve(
+            context["task_record"],
+            context["initial_observation"],
+            context["native_skills"],
+            context["top_k"],
+        )
+        if schema_version == BLM_INTERVENTION_SCHEMA_V2 and retrieval_response != expected:
+            raise _BoundaryValidationError("invalid_donor_source")
+        if (
+            candidates[0]["skill_id"]
+            == context["retrieval_response"].get("ranked_candidates", [{}])[0].get("skill_id")
+        ):
             raise _BoundaryValidationError("invalid_donor_source")
     elif arm_id != "crossed_noop":
         raise _BoundaryValidationError("invalid_donor_source")
@@ -310,7 +385,6 @@ def _validate_donor(
         raise _BoundaryValidationError("invalid_donor_adapter") from error
     _validate_execution_input(donor_input, "donor execution input")
     native_by_id, library_sha256 = _native_index(context["native_skills"])
-    candidates = retrieval_response["ranked_candidates"]
     for candidate in candidates:
         skill_id = candidate["skill_id"]
         if skill_id not in native_by_id:
@@ -372,7 +446,23 @@ def _copy_atom(
     original: Mapping[str, Any], donor: Mapping[str, Any], atom: str
 ) -> Dict[str, Any]:
     effective = copy.deepcopy(dict(original))
-    if atom == "selected_skill_ids[0]":
+    if atom == "reference_handoff_group":
+        if not (original["selected_skill_ids"] and donor["selected_skill_ids"]):
+            raise _BoundaryValidationError("invalid_list_alignment")
+        if not (
+            len(original["selected_skill_ids"])
+            == len(original["selected_scores"])
+            == len(original["selected_native_skills"])
+            == len(donor["selected_skill_ids"])
+            == len(donor["selected_scores"])
+            == len(donor["selected_native_skills"])
+        ):
+            raise _BoundaryValidationError("invalid_list_alignment")
+        effective["selected_skill_ids"] = copy.deepcopy(donor["selected_skill_ids"])
+        effective["selected_scores"] = copy.deepcopy(donor["selected_scores"])
+        effective["selected_native_skills"] = copy.deepcopy(donor["selected_native_skills"])
+        effective["flat_skill_context"] = donor["flat_skill_context"]
+    elif atom == "selected_skill_ids[0]":
         if not original["selected_skill_ids"] or not donor["selected_skill_ids"]:
             raise _BoundaryValidationError("invalid_list_alignment")
         effective["selected_skill_ids"][0] = donor["selected_skill_ids"][0]
@@ -473,3 +563,67 @@ def _hash_json(value: Any) -> str:
 
 def _hash_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+class _ReadTracker:
+    def __init__(self) -> None:
+        self.events: List[Dict[str, Any]] = []
+        self._sequence = 0
+
+    def record(self, path: str, operation: str, read_type: str) -> None:
+        self._sequence += 1
+        self.events.append(
+            {
+                "sequence": self._sequence,
+                "path": path,
+                "operation": operation,
+                "read_type": read_type,
+            }
+        )
+
+
+class _TrackedList(list):
+    def __init__(self, values: list, tracker: _ReadTracker, path: str) -> None:
+        super().__init__(values)
+        self._tracker = tracker
+        self._path = path
+
+    def __getitem__(self, index):
+        value = super().__getitem__(index)
+        if isinstance(index, int):
+            read_type = (
+                "semantic_read"
+                if self._path == "selected_skill_ids"
+                else "value_read"
+            )
+            self._tracker.record(f"{self._path}[{index}]", "index", read_type)
+        return value
+
+
+class _TrackedExecutionInput(dict):
+    def __init__(self, values: Mapping[str, Any], tracker: _ReadTracker) -> None:
+        super().__init__(values)
+        self._tracker = tracker
+
+    def __contains__(self, key: object) -> bool:
+        result = super().__contains__(key)
+        if key in _EXECUTION_FIELDS:
+            self._tracker.record(str(key), "contains", "schema_validation_read")
+        return result
+
+    def __getitem__(self, key: str) -> Any:
+        value = super().__getitem__(key)
+        self._tracker.record(key, "getitem", "schema_validation_read")
+        return value
+
+
+def instrument_execution_input(
+    execution_input: Mapping[str, Any],
+) -> Tuple[Mapping[str, Any], _ReadTracker]:
+    """Wrap one v2 input without changing values or default behavior."""
+
+    tracker = _ReadTracker()
+    values: Dict[str, Any] = copy.deepcopy(dict(execution_input))
+    for field in ("selected_skill_ids", "selected_scores", "selected_native_skills"):
+        values[field] = _TrackedList(values[field], tracker, field)
+    return _TrackedExecutionInput(values, tracker), tracker

@@ -1,0 +1,78 @@
+schema_version: skillstack-blm-verdict-calibration-v1
+boundary_id: r1_00_c1_skillplan
+state_scope: first_handoff_reconstructed_fixture_v1
+measurement_statuses:
+  - valid
+  - invalid
+  - abstained
+contract_verdicts:
+  - falsified
+  - not_falsified
+  - abstained
+cases:
+  - case_id: known_identity_dependency
+    measurement_status: valid
+    claim_id: local-c1-identity-dependency
+    claim_type: conformance
+    explicit_claim: true
+    verdict_scope: frozen heat fixture / SkillPlanExecutor identity atom
+    expected_verdict: not_falsified
+    expected_reason: local_identity_dependency_calibration
+  - case_id: unread_probes
+    measurement_status: valid
+    claim_id: local-c1-unread-domain
+    claim_type: conformance
+    explicit_claim: true
+    verdict_scope: current SkillPlanExecutor read domain
+    atoms:
+      - selected_scores[0]
+      - selected_native_skills[0]
+      - flat_skill_context
+    expected_verdict: not_falsified
+  - case_id: declared_field_deleted
+    measurement_status: invalid
+    claim_id: adapter-conformance
+    claim_type: conformance
+    explicit_claim: true
+    expected_verdict: abstained
+    expected_reason: adapter_transport_nonconformance
+  - case_id: opaque_native_or_flat
+    measurement_status: valid
+    claim_id: c1-semantic-read
+    claim_type: sufficiency
+    explicit_claim: true
+    expected_verdict: abstained
+    expected_reason: consumer_semantic_read_unverified
+  - case_id: synthetic_joint_only
+    measurement_status: valid
+    claim_id: synthetic-independent-sufficiency
+    claim_type: synthetic_independent_sufficiency
+    explicit_claim: true
+    synthetic_test_only: true
+    verdict_scope: test-only synthetic classifier record
+    expected_verdict: falsified
+    expected_reason: synthetic_independent_sufficiency_failed
+  - case_id: invalid_donor_type_group
+    measurement_status: invalid
+    expected_verdict: abstained
+  - case_id: replay_state_drift
+    measurement_status: abstained
+    expected_verdict: abstained
+    expected_reason: replay_state_incomplete
+  - case_id: no_op_drift
+    measurement_status: invalid
+    expected_verdict: abstained
+    expected_reason: no_op_changed_result
+  - case_id: interrupted_arm
+    measurement_status: abstained
+    expected_verdict: abstained
+    expected_reason: incomplete_arm
+  - case_id: budget_exhausted
+    measurement_status: abstained
+    expected_verdict: abstained
+    expected_reason: budget_exhausted
+rules:
+  - invalid_or_abstained_never_falsifies
+  - missing_claim_abstains
+  - synthetic_falsification_is_test_only
+  - no_supported_verdict_token

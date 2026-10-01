@@ -17,14 +17,14 @@
     ],
     "status": "verified"
   },
-  "eligible_case_count": 0,
-  "estimated_completion_tokens_upper_bound": 0,
+  "eligible_case_count": 1,
+  "estimated_completion_tokens_upper_bound": 819200,
   "estimated_cost_usd_upper_bound": 2.0,
   "estimated_duration": "provider-dependent; not run in this implementation turn",
-  "estimated_prompt_tokens_upper_bound": 0,
-  "excluded_case_count": 3,
+  "estimated_prompt_tokens_upper_bound": 409600,
+  "excluded_case_count": 2,
   "live_provider": "not run; requires separate human confirmation",
-  "maximum_provider_calls": 0,
+  "maximum_provider_calls": 1600,
   "planned_arms": [
     "reference",
     "crossed",
@@ -35,6 +35,6 @@
     "score-negative-control",
     "no-skill-ablation"
   ],
-  "planned_episodes": 0,
+  "planned_episodes": 40,
   "schema_version": "skillstack-blm-r2-dry-run-v1"
 }

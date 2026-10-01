@@ -18,7 +18,25 @@ arms:
 - crossed+full-reference
 - score-negative-control
 - no-skill-ablation
-cases: []
+cases:
+- case_id: r2_trial_T20190907_051013_060265
+  task:
+    expected_skill_id: skill_pick_two_then_place
+    game_file: json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/game.tw-pddl
+    task_family: pick_two_obj_and_place
+    task_id: valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265
+    task_instruction: Transfer the two CDs from the desk to the vault.
+    trajectory_file: json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/traj_data.json
+  reference:
+    producer: task_semantic_top_k
+    kind: task_semantic_reference
+  crossed:
+    producer: debug_lexical_top_k
+    kind: lexical_crossed
+  reference_top_skill_id: skill_pick_two_then_place
+  crossed_top_skill_id: skill_light_inspection
+  matched_carrier_rule: non-reference/non-crossed native artifact; same section count;
+    closest byte length
 live_caps:
   max_episodes: 40
   max_provider_calls: 1600

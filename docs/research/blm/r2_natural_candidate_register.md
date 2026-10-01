@@ -3,17 +3,17 @@
 本登记只记录零模型 Producer/adapter 预筛选；不把历史 run 当作 R2 live outcome，也不产生 R3 verdict。
 
 - boundary：`r2_c2_structured_react_first_handoff`
-- evidence class：`not_verified`
-- eligible cases：`0`
+- evidence class：`verified_this_run`
+- eligible cases：`1`
 
 ## r2_trial_T20190907_051013_060265
 
 - task：`valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265`
 - instruction：Transfer the two CDs from the desk to the vault.
-- environment runtime：`{'available': False, 'error': "ModuleNotFoundError: No module named 'alfworld'"}`
+- environment runtime：`{'available': True, 'error': None}`
 - carrier difference：`True`
-- eligible：`False`
-- gate reasons：`['initial_reset_not_reconstructable', 'alfworld_runtime_unavailable']`
+- eligible：`True`
+- gate reasons：`['none']`
 - TaskSemantic label assistance：`task_family` only; `expected_skill_id` read = `False`; deployment-unassisted = `False`
 
 - lexical: ['skill_light_inspection', 'skill_pick_two_then_place'] / input `fc0a336c06e75f1e20418269a135377ffe94140d8b6a8ee62b17e94462b4fbf9`
@@ -23,10 +23,10 @@
 
 - task：`valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435`
 - instruction：Put two shakers in a drawer.
-- environment runtime：`{'available': False, 'error': "ModuleNotFoundError: No module named 'alfworld'"}`
+- environment runtime：`{'available': True, 'error': None}`
 - carrier difference：`False`
 - eligible：`False`
-- gate reasons：`['no_consumer_read_domain_carrier_difference', 'initial_reset_not_reconstructable', 'alfworld_runtime_unavailable']`
+- gate reasons：`['no_consumer_read_domain_carrier_difference']`
 - TaskSemantic label assistance：`task_family` only; `expected_skill_id` read = `False`; deployment-unassisted = `False`
 
 - lexical: ['skill_pick_two_then_place', 'skill_clean_then_place'] / input `583dda36e1896a6dc1e47559d8252a089d80de77a1550b0c3c53b6446e0e6b53`
@@ -36,10 +36,10 @@
 
 - task：`valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855`
 - instruction：Put two pillows on the sofa.
-- environment runtime：`{'available': False, 'error': "ModuleNotFoundError: No module named 'alfworld'"}`
+- environment runtime：`{'available': True, 'error': None}`
 - carrier difference：`False`
 - eligible：`False`
-- gate reasons：`['no_consumer_read_domain_carrier_difference', 'initial_reset_not_reconstructable', 'alfworld_runtime_unavailable']`
+- gate reasons：`['no_consumer_read_domain_carrier_difference']`
 - TaskSemantic label assistance：`task_family` only; `expected_skill_id` read = `False`; deployment-unassisted = `False`
 
 - lexical: ['skill_pick_two_then_place', 'skill_clean_then_place'] / input `583dda36e1896a6dc1e47559d8252a089d80de77a1550b0c3c53b6446e0e6b53`

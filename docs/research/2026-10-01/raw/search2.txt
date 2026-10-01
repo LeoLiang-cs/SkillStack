@@ -1,0 +1,353 @@
+
+per-source hits: arxiv=40, crossref=40
+unique papers: 58 (22 cross-source duplicate records merged)
+============================================================
+  [1] (score 6) GraSP: Graph-Structured Skill Compositions for LLM Agents
+      Authors: Tianle Xia, Lingxiang Hu, Yiding Sun...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.17870
+      URL: http://arxiv.org/abs/2604.17870v1
+
+  [2] (score 6) Library Drift: Diagnosing and Fixing a Silent Failure Mode in Self-Evolving LLM Skill Libraries
+      Authors: Xing Zhang, Yanwei Cui, Guanghui Wang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19576
+      URL: http://arxiv.org/abs/2605.19576v3
+
+  [3] (score 6) A Methodological Framework for Self-Evolving Multi-Agent Systems: Toward Adaptive and Continuous Learning in LLM-Based Architectures
+      Authors: Cheonsu Jeong
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-8139402/v2
+      URL: https://doi.org/10.21203/rs.3.rs-8139402/v2
+
+  [4] (score 6) Modular Intelligence: A Skill-Based Paradigm for Scalable AI Agent Architecture
+      Authors: Srinivas Bhargava Jonnalagadda
+      Year: 2026  Citations: 0  Venue: Journal of Information Systems Engineering and Management
+      Sources: crossref  doi:10.52783/jisem.v11i1s.14306
+      URL: https://doi.org/10.52783/jisem.v11i1s.14306
+
+  [5] (score 5) Graph-of-Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills
+      Authors: Dawei Liu, Zongxia Li, Hongyang Du...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.05333
+      URL: http://arxiv.org/abs/2604.05333v4
+
+  [6] (score 5) From Interaction Traces to Persistent Skills: Online Evolution for Computer-Use Agents
+      Authors: Longtao Hu, Xiao Liang, Linchao Zhu
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.04869
+      URL: http://arxiv.org/abs/2609.04869v1
+
+  [7] (score 5) The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents
+      Authors: Xing Zhang, Yanwei Cui, Guanghui Wang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.07436
+      URL: http://arxiv.org/abs/2607.07436v2
+
+  [8] (score 5) Auto-Policy, not Auto-Skill: Compiled Agent Skills for the Physical World
+      Authors: Zhonghao Zhan, Hamed Haddadi
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25091
+      URL: http://arxiv.org/abs/2608.25091v1
+
+  [9] (score 5) Agent Skills for Large Language Models: Architecture, Acquisition, Security, and the Path Forward
+      Authors: Renjun Xu, Yang Yan
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.12430
+      URL: http://arxiv.org/abs/2602.12430v4
+
+  [10] (score 5) Contradiction-Aware Strategy Synthesis in Agent Skills via Loop Engineering: A Controlled Empirical Comparison with Conventional Search
+      Authors: Piyush Omanwar
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-10330269/v1
+      URL: https://doi.org/10.21203/rs.3.rs-10330269/v1
+
+  [11] (score 4) Super Library Agent: Joint Generation and Maintenance of Multiple Applications Beyond the Single Codebase
+      Authors: Daegyu Sung, Yukyeong Lee, Geon Park...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.29310
+      URL: http://arxiv.org/abs/2608.29310v1
+
+  [12] (score 4) Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM Agents
+      Authors: Hao Wang, Guozhi Wang, Han Xiao...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.10674
+      URL: http://arxiv.org/abs/2604.10674v1
+
+  [13] (score 4) SkillNet: Create, Evaluate, and Connect AI Skills
+      Authors: Yuan Liang, Ruobin Zhong, Haoming Xu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04448
+      URL: http://arxiv.org/abs/2603.04448v3
+
+  [14] (score 4) Skill Training with Corruption and Reconstruction Loop
+      Authors: Mo Li, Zixin Yin, Qihao Wu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.27557
+      URL: http://arxiv.org/abs/2607.27557v2
+
+  [15] (score 4) Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents
+      Authors: Xing Zhang, Guanghui Wang, Yanwei Cui...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.12790
+      URL: http://arxiv.org/abs/2607.12790v2
+
+  [16] (score 4) Zombie Agents: Persistent Control of Self-Evolving LLM Agents via Self-Reinforcing Injections
+      Authors: Xianglin Yang, Yufei He, Shuo Ji...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.15654
+      URL: http://arxiv.org/abs/2602.15654v2
+
+  [17] (score 4) Evidence-Calibrated Runtime Reconstruction for Agent Skills Across Heterogeneous Coding Agents
+      Authors: Xueping Gao
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.08793
+      URL: http://arxiv.org/abs/2608.08793v1
+
+  [18] (score 4) GraphShield: A Graph-Structured Defense Framework for Prompt Injection in RAG and Multi-Agent LLM Systems
+      Authors: Shreya Singh
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7082874
+      URL: https://doi.org/10.2139/ssrn.7082874
+
+  [19] (score 4) Pipette: Encoding scientific literature into an executable Skill Graph for multi-agent bioinformatics
+      Authors: Chirag Gupta, Ananya Sharma
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.64898/2026.04.08.717332
+      URL: https://doi.org/10.64898/2026.04.08.717332
+
+  [20] (score 4) An Operation‐Trajectory Guided Self-Evolving Reasoning Multimodal LLM Agent for Oxygen Lance Control in BOF Steelmaking
+      Authors: Zhenquan Mao, Zhuoyu Li, Mengyin Liu...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6675475
+      URL: https://doi.org/10.2139/ssrn.6675475
+
+  [21] (score 4) A Self-Evolving Wireless Sensor Network Architecture Integrating Temporal Graph Neural Networks and Multi-Agent Deep Reinforcement Learning
+      Authors: Mojtaba Jahanian, Hossein Yarahmadi, Maryam Hajiei...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-8398972/v1
+      URL: https://doi.org/10.21203/rs.3.rs-8398972/v1
+
+  [22] (score 4) Hardening vibe-coded web applications with an automated security-audit skill: a controlled comparison of two builds of the same app
+      Authors: Piyush Omanwar
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-10441031/v1
+      URL: https://doi.org/10.21203/rs.3.rs-10441031/v1
+
+  [23] (score 3) Modular Task Decomposition and Dynamic Collaboration in Multi-Agent Systems Driven by Large Language Models
+      Authors: Shuaidong Pan, Di Wu
+      Year: 2025  Citations: 14  Venue: 2025 6th International Conference on Information Science, Parallel and Distributed Systems (ISPDS)
+      Sources: crossref  doi:10.1109/ispds67367.2025.11390999
+      URL: https://doi.org/10.1109/ispds67367.2025.11390999
+
+  [24] (score 3) Multi-Agent LLM Systems: From Emergent Collaboration to Structured Collective Intelligence
+      Authors: Feng Chen
+      Year: None  Citations: 1  Venue: 
+      Sources: crossref  doi:10.20944/preprints202511.1370.v1
+      URL: https://doi.org/10.20944/preprints202511.1370.v1
+
+  [25] (score 3) Research on a Multi-Strategy Dynamic Evolving Intelligent Agent for Tibet Tourism Knowledge Graph Based on LLM
+      Authors: Shuai Yan, Xiaodong Huang, Wang Xiang...
+      Year: 2025  Citations: 1  Venue: 2025 6th International Conference on Information Science, Parallel and Distributed Systems (ISPDS)
+      Sources: crossref  doi:10.1109/ispds67367.2025.11390897
+      URL: https://doi.org/10.1109/ispds67367.2025.11390897
+
+  [26] (score 3) Poise: Position-Aware One-Instruction Skill Injection for Silent Execution on LLM Agents
+      Authors: Haochang Hao, Dehai Min, Zhifang Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.07943
+      URL: http://arxiv.org/abs/2606.07943v2
+
+  [27] (score 3) Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents
+      Authors: Timothy Kassis, Vinayak Agarwal, Yuhuan He...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.00065
+      URL: http://arxiv.org/abs/2609.00065v2
+
+  [28] (score 3) Skill-as-Pseudocode: Refactoring Skill Libraries to Pseudocode for LLM Agents
+      Authors: Xinze Li, Yuhang Zang, Yixin Cao...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.27955
+      URL: http://arxiv.org/abs/2605.27955v2
+
+  [29] (score 3) Progressive Agent Skill Generation via Reinforcement Learning
+      Authors: Junhao Shen, Zhanqiu Zhang, Yiwen Guo...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.01678
+      URL: http://arxiv.org/abs/2608.01678v2
+
+  [30] (score 3) SEVerA: Verified Synthesis of Self-Evolving Agents
+      Authors: Debangshu Banerjee, Changming Xu, Eugene Ie...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.25111
+      URL: http://arxiv.org/abs/2603.25111v2
+
+  [31] (score 3) QSDKT: Graph-Based Dynamic Knowledge Tracing through Question-Skill Similarity
+      Authors: Yue Li, Xianghong Lin
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-6856481/v1
+      URL: https://doi.org/10.21203/rs.3.rs-6856481/v1
+
+  [32] (score 3) Responsibility Vacuum in agent Skill Ecosystems: An Exploratory Anticipatory Governance Framework from the Pacing Problem Perspective Authors
+      Authors: Shuren Zhang
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6881658
+      URL: https://doi.org/10.2139/ssrn.6881658
+
+  [33] (score 3) Beyond Prescribed Intelligence: Toward Self-Directed Skill Acquisition in LLM-Based Cybersecurity Agents
+      Authors: Mika D Ayenson
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6438922
+      URL: https://doi.org/10.2139/ssrn.6438922
+
+  [34] (score 3) Adversarial-Test-Driven Multi-Agent LLM Defense: A Self-Evolving Framework via Inference-Time Prompt Optimization
+      Authors: Yang Qu, Yuwei He, Lei Cao...
+      Year: 2026  Citations: 0  Venue: Electronics
+      Sources: crossref  doi:10.3390/electronics15112365
+      URL: https://doi.org/10.3390/electronics15112365
+
+  [35] (score 3) A modular skill and orchestration framework for traceable agentic computational chemistry
+      Authors: Ruixing Wang, Jinhua Cai, Jin-Cheng Liu
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.26434/chemrxiv.15005810/v1
+      URL: https://doi.org/10.26434/chemrxiv.15005810/v1
+
+  [36] (score 3) Exploring the effects of modular decomposition in object detection using YOLOv8
+      Authors: M Dinesh Reddy
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.175245316.60360004/v1
+      URL: https://doi.org/10.36227/techrxiv.175245316.60360004/v1
+
+  [37] (score 2) Agent-as-a-Graph: Knowledge Graph-Based Tool and Agent Retrieval for LLM Multi-Agent Systems
+      Authors: Faheem Nizar, Elias Lumer, Anmol Gulati...
+      Year: 2026  Citations: 1  Venue: Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+      Sources: crossref  doi:10.5220/0014473600004052
+      URL: https://doi.org/10.5220/0014473600004052
+
+  [38] (score 2) Toward User Comprehension Supports for LLM Agent Skill Specifications
+      Authors: Zikai Alex Wen
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19362
+      URL: http://arxiv.org/abs/2605.19362v2
+
+  [39] (score 2) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [40] (score 2) Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning
+      Authors: Yinghui He, Ling Yang, Jiarui Liu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.05139
+      URL: http://arxiv.org/abs/2608.05139v1
+
+  [41] (score 2) Video-Skill-CoT: Skill-based Chain-of-Thoughts for Domain-Adaptive Video Reasoning
+      Authors: Daeun Lee, Jaehong Yoon, Jaemin Cho...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2506.03525
+      URL: http://arxiv.org/abs/2506.03525v2
+
+  [42] (score 2) Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents
+      Authors: Ting Liu
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.22634
+      URL: http://arxiv.org/abs/2605.22634v2
+
+  [43] (score 2) LLM Agent Development Lifecycle (LADL): A Structured Engineering Framework for Probabilistic Autonomous Systems Beyond Agile Methodologies
+      Authors: Arzoo Taj
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6913179
+      URL: https://doi.org/10.2139/ssrn.6913179
+
+  [44] (score 2) Detecting Compositional Attacks in Multi-Agent LLM Systems via Graph-Topological Feature Analysis
+      Authors: Arif Mohamed Khan Rabi Ahamad
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6530594
+      URL: https://doi.org/10.2139/ssrn.6530594
+
+  [45] (score 2) What Changes When an LLM agent Searches Your Library Catalogue?
+      Authors: Chee Hsien Tay
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.59350/226ff-as984
+      URL: https://doi.org/10.59350/226ff-as984
+
+  [46] (score 2) Harnessing Agent Skills: Architectural Patterns and a Reference Architecture for Skill-Mediated LLM Agents
+      Authors: Boming Xia, Liming Zhu, Zhenchang Xing...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6871959
+      URL: https://doi.org/10.2139/ssrn.6871959
+
+  [47] (score 2) Skill Poisoning: Attack Taxonomies and Defense Architectures for Composable Agent Skill Ecosystems in AI-Driven Cyber-Physical Systems
+      Authors: Vivek Acharya
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6408998
+      URL: https://doi.org/10.2139/ssrn.6408998
+
+  [48] (score 2) Agent, Sub-Agent, Skill, or Tool? A Practitioner's Guide to Extending Agentic AI Systems
+      Authors: Deepak Babu Piskala
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.177204917.78786098/v1
+      URL: https://doi.org/10.36227/techrxiv.177204917.78786098/v1
+
+  [49] (score 2) SkillRoute: Geospatial Skill-routed Multi-agent Collaboration for Remote Sensing Visual Question Answering
+      Authors: Miguel Rivera
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7417419
+      URL: https://doi.org/10.2139/ssrn.7417419
+
+  [50] (score 2) Graph-KnowScreen: Explainable AI Resume Screening Using Directed Knowledge Graphs and Structural Skill Matching
+      Authors: Saloni Bhimellu, Aditya Patil, Shreta Das
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6693819
+      URL: https://doi.org/10.2139/ssrn.6693819
+
+  [51] (score 2) Library staffing in the 4th Industrial Revolution: Skill-gap Analysis of library professionals
+      Authors: Magnus Osahon Igbinovia, Joseph Bayor Odelami, Philip Gana Malgwi
+      Year: 2025  Citations: 0  Venue: Ghana Library Journal
+      Sources: crossref  doi:10.4314/glj.v30i1.6
+      URL: https://doi.org/10.4314/glj.v30i1.6
+
+  [52] (score 2) Semantic-Geometric-Physical-Driven Robot Manipulation Skill Transfer via Skill Library and Tactile Representation
+      Authors: Mingchao Qi, Yuanjin Li, Xing Liu...
+      Year: 2025  Citations: 0  Venue: 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+      Sources: crossref  doi:10.1109/iros60139.2025.11246218
+      URL: https://doi.org/10.1109/iros60139.2025.11246218
+
+  [53] (score 2) Self-Evolving LLM Ecosystems for Precision Medicine
+      Authors: 
+      Year: 2025  Citations: 0  Venue: International Journal of Intelligent Systems and Applications in Engineering
+      Sources: crossref  doi:10.17762/ijisae.v13i1s.7793
+      URL: https://doi.org/10.17762/ijisae.v13i1s.7793
+
+  [54] (score 2) HormoneHub: Modular Hormonal Modulation for Multi-Agent Cognitive Systems
+      Authors: Timur Urmanov
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.31219/osf.io/u5kc3_v1
+      URL: https://doi.org/10.31219/osf.io/u5kc3_v1
+
+  [55] (score 1) From unstructured to structured: opportunities, risks and engineering practices for LLM-based data extraction in chemistry and materials
+      Authors: Weijian Chen, Haoxiang Xu, Daojian Cheng
+      Year: 2026  Citations: 4  Venue: AI Agent
+      Sources: crossref  doi:10.20517/aiagent.2026.06
+      URL: https://doi.org/10.20517/aiagent.2026.06
+
+  [56] (score 1) Skill
+      Authors: 
+      Year: 2026  Citations: 0  Venue: The Practical Mind
+      Sources: crossref  doi:10.1017/9781009336895.002
+      URL: https://doi.org/10.1017/9781009336895.002
+
+  [57] (score 5) [survey] Self-Evolving Agents as Dynamic Graph Transformation: A Survey and New Perspective
+      Authors: Yuanyuan Xu, Wenjie Zhang, Yin Chen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.18104
+      URL: http://arxiv.org/abs/2608.18104v1
+
+  [58] (score 3) [survey] A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems
+      Authors: Jinyuan Fang, Yanwen Peng, Xi Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.07407
+      URL: http://arxiv.org/abs/2508.07407v2
+
+Total: 58 unique papers (ranked; surveys sunk to the bottom).

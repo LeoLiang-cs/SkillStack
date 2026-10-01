@@ -1,0 +1,77 @@
+
+per-source hits: arxiv=18
+unique papers: 12 (6 cross-source duplicate records merged)
+============================================================
+  [1] (score 6) SkillDAG: Self-Evolving Typed Skill Graphs for LLM Skill Selection at Scale
+      Authors: Tong Bai, Zhenglin Wan, Pengfei Zhou...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.03056
+      URL: http://arxiv.org/abs/2606.03056v2
+
+  [2] (score 6) SE-GoS: Self-Evolving Graph-of-Skills for Skill Library at Scale
+      Authors: Dawei Fu, Cheng Jiang, Sitian Qian...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.08228
+      URL: http://arxiv.org/abs/2609.08228v1
+
+  [3] (score 6) HyperSkill: Self-Evolving LLM Agents via Hypergraph-Structured Skill Memory
+      Authors: Ruiyao Xu, Tiankai Yang, Wei-Chieh Huang
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.16114
+      URL: http://arxiv.org/abs/2608.16114v1
+
+  [4] (score 5) From Interaction Traces to Persistent Skills: Online Evolution for Computer-Use Agents
+      Authors: Longtao Hu, Xiao Liang, Linchao Zhu
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.04869
+      URL: http://arxiv.org/abs/2609.04869v1
+
+  [5] (score 5) CaSKG: Counterfactual-Causal Skill Graphs for Scalable Agent Skill Retrieval
+      Authors: Zhiyuan Li, Linyuan Gao, Xuechun Ding...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25500
+      URL: http://arxiv.org/abs/2608.25500v1
+
+  [6] (score 3) Progressive Agent Skill Generation via Reinforcement Learning
+      Authors: Junhao Shen, Zhanqiu Zhang, Yiwen Guo...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.01678
+      URL: http://arxiv.org/abs/2608.01678v2
+
+  [7] (score 3) SkillNet: Create, Evaluate, and Connect AI Skills
+      Authors: Yuan Liang, Ruobin Zhong, Haoming Xu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04448
+      URL: http://arxiv.org/abs/2603.04448v3
+
+  [8] (score 3) AI Agent-Driven Framework for Automated Product Knowledge Graph Construction in E-Commerce
+      Authors: Dimitar Peshevski, Riste Stojanov, Dimitar Trajanov
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.5281/zenodo.16913321 arXiv:2511.11017
+      URL: http://arxiv.org/abs/2511.11017v1
+
+  [9] (score 3) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [10] (score 2) Toward User Comprehension Supports for LLM Agent Skill Specifications
+      Authors: Zikai Alex Wen
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19362
+      URL: http://arxiv.org/abs/2605.19362v2
+
+  [11] (score 1) Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning
+      Authors: Yinghui He, Ling Yang, Jiarui Liu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.05139
+      URL: http://arxiv.org/abs/2608.05139v1
+
+  [12] (score 1) Video-Skill-CoT: Skill-based Chain-of-Thoughts for Domain-Adaptive Video Reasoning
+      Authors: Daeun Lee, Jaehong Yoon, Jaemin Cho...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2506.03525
+      URL: http://arxiv.org/abs/2506.03525v2
+
+Total: 12 unique papers (ranked; surveys sunk to the bottom).

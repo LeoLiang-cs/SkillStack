@@ -1,0 +1,360 @@
+[dblp] Error on query 'LLM agent skill library graph retrieval ALFWorld': ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+[dblp] Error on query 'SkillRL skill reinforcement learning agent': ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+[dblp] Error on query 'agent component modularity interface swap': ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+[dblp] Error on query 'GraSP graph skill agent': ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+[open_alex] Error on query 'LLM agent skill library graph retrieval ALFWorld': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=LLM+agent+skill+library+graph+retrieval+ALFWorld&filter=publication_year%3A2025-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'SkillRL skill reinforcement learning agent': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=SkillRL+skill+reinforcement+learning+agent&filter=publication_year%3A2025-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'agent component modularity interface swap': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=agent+component+modularity+interface+swap&filter=publication_year%3A2025-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'GraSP graph skill agent': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=GraSP+graph+skill+agent&filter=publication_year%3A2025-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[openreview] Error on query 'LLM agent skill library graph retrieval ALFWorld': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 17 requests, surpassing the limit of 3 requests. Please try again in 19 seconds (2026-10-01-1969230)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-01T05:13:30.849Z', 'used': 17, 'current': 17, 'reqId': '2026-10-01-1969230'}}
+[openreview] Error on query 'SkillRL skill reinforcement learning agent': {'name': 'Error', 'message': '<!doctype html><meta charset="utf-8"><meta name=viewport content="width=device-width, initial-scale=1"><title>429</title>429 Too Many Requests'}
+[openreview] Error on query 'agent component modularity interface swap': {'name': 'Error', 'message': '<!doctype html><meta charset="utf-8"><meta name=viewport content="width=device-width, initial-scale=1"><title>429</title>429 Too Many Requests'}
+[openreview] Error on query 'GraSP graph skill agent': {'name': 'Error', 'message': '<!doctype html><meta charset="utf-8"><meta name=viewport content="width=device-width, initial-scale=1"><title>429</title>429 Too Many Requests'}
+[semantic_scholar] Error on query 'LLM agent skill library graph retrieval ALFWorld': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=LLM+agent+skill+library+graph+retrieval+ALFWorld&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2025-2026
+[semantic_scholar] Error on query 'SkillRL skill reinforcement learning agent': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=SkillRL+skill+reinforcement+learning+agent&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2025-2026
+[semantic_scholar] Error on query 'agent component modularity interface swap': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=agent+component+modularity+interface+swap&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2025-2026
+[semantic_scholar] Error on query 'GraSP graph skill agent': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=GraSP+graph+skill+agent&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2025-2026
+
+per-source hits: arxiv=32, dblp=0, open_alex=0, openreview=0, semantic_scholar=0, crossref=32
+unique papers: 56 (8 cross-source duplicate records merged)
+============================================================
+  [1] (score 8) SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning
+      Authors: Peng Xia, Jianwen Chen, Hanyang Wang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.08234
+      URL: http://arxiv.org/abs/2602.08234v1
+
+  [2] (score 7) Graph-of-Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills
+      Authors: Dawei Liu, Zongxia Li, Hongyang Du...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.05333
+      URL: http://arxiv.org/abs/2604.05333v4
+
+  [3] (score 7) CaSKG: Counterfactual-Causal Skill Graphs for Scalable Agent Skill Retrieval
+      Authors: Zhiyuan Li, Linyuan Gao, Xuechun Ding...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25500
+      URL: http://arxiv.org/abs/2608.25500v1
+
+  [4] (score 6) Skill-as-Pseudocode: Refactoring Skill Libraries to Pseudocode for LLM Agents
+      Authors: Xinze Li, Yuhang Zang, Yixin Cao...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.27955
+      URL: http://arxiv.org/abs/2605.27955v2
+
+  [5] (score 6) GraSP: Graph-Structured Skill Compositions for LLM Agents
+      Authors: Tianle Xia, Lingxiang Hu, Yiding Sun...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.17870
+      URL: http://arxiv.org/abs/2604.17870v1
+
+  [6] (score 5) Group of Skills: Group-Structured Skill Retrieval for Agent Skill Libraries
+      Authors: Kun Zeng, Yu Huo, Siyu Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.06978
+      URL: http://arxiv.org/abs/2605.06978v1
+
+  [7] (score 5) Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning
+      Authors: Mingyue Cheng, Shuo Yu, Daoyu Wang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2511.14460
+      URL: http://arxiv.org/abs/2511.14460v2
+
+  [8] (score 5) GRASP: Gated Regression-Aware Skill Proposer for Self-Improving LLM Agents
+      Authors: Johannes Moll, Jean-Philippe Corbeil, Jiazhen Pan...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.29668
+      URL: http://arxiv.org/abs/2605.29668v3
+
+  [9] (score 5) A multi-agent reinforcement learning algorithm for collaborative skill transfer in physical education
+      Authors: Hui Ma, Bing Liu
+      Year: 2026  Citations: 0  Venue: Discover Artificial Intelligence
+      Sources: crossref  doi:10.1007/s44163-026-01642-0
+      URL: https://doi.org/10.1007/s44163-026-01642-0
+
+  [10] (score 4) Personalized skill transfer optimization in swimming training through multi-agent reinforcement learning driven digital twin environments
+      Authors: Zhengliang Wu
+      Year: 2026  Citations: 1  Venue: Scientific Reports
+      Sources: crossref  doi:10.1038/s41598-026-35877-9
+      URL: https://doi.org/10.1038/s41598-026-35877-9
+
+  [11] (score 4) Progressive Agent Skill Generation via Reinforcement Learning
+      Authors: Junhao Shen, Zhanqiu Zhang, Yiwen Guo...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.01678
+      URL: http://arxiv.org/abs/2608.01678v2
+
+  [12] (score 4) Interference-Aware K-Step Reachable Communication in Multi-Agent Reinforcement Learning
+      Authors: Ziyu Cheng, Jinsheng Ren, Zhouxian Jiang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.15054
+      URL: http://arxiv.org/abs/2603.15054v1
+
+  [13] (score 4) Causal-Paced Deep Reinforcement Learning
+      Authors: Geonwoo Cho, Jaegyun Im, Doyoon Kim...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2507.02910
+      URL: http://arxiv.org/abs/2507.02910v1
+
+  [14] (score 4) Neuron-level Balance between Stability and Plasticity in Deep Reinforcement Learning
+      Authors: Jiahua Lan, Sen Zhang, Haixia Pan...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2504.08000
+      URL: http://arxiv.org/abs/2504.08000v1
+
+  [15] (score 4) Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM Agents
+      Authors: Hao Wang, Guozhi Wang, Han Xiao...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.10674
+      URL: http://arxiv.org/abs/2604.10674v1
+
+  [16] (score 4) GRASP-SQL: Graph Retrieval and Agentic Schema Pruning for Recall-First Text-to-SQL
+      Authors: Hyeonjin Kim, Wooyoung Kim, Wooju Kim
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7194451
+      URL: https://doi.org/10.2139/ssrn.7194451
+
+  [17] (score 3) Multi-Agent Causal Reinforcement Learning
+      Authors: André Meyer-Vitali
+      Year: 2025  Citations: 2  Venue: Proceedings of the 13th International Conference on Model-Based Software and Systems Engineering
+      Sources: crossref  doi:10.5220/0013400100003896
+      URL: https://doi.org/10.5220/0013400100003896
+
+  [18] (score 3) Agent-as-a-Graph: Knowledge Graph-Based Tool and Agent Retrieval for LLM Multi-Agent Systems
+      Authors: Faheem Nizar, Elias Lumer, Anmol Gulati...
+      Year: 2026  Citations: 1  Venue: Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+      Sources: crossref  doi:10.5220/0014473600004052
+      URL: https://doi.org/10.5220/0014473600004052
+
+  [19] (score 3) Exploring Communication in Multi-Agent Reinforcement Learning Under Agent Malfunction
+      Authors: Rafael Pina, Varuna De Silva
+      Year: 2025  Citations: 1  Venue: Proceedings of the 14th International Conference on Pattern Recognition Applications and Methods
+      Sources: crossref  doi:10.5220/0013383400003905
+      URL: https://doi.org/10.5220/0013383400003905
+
+  [20] (score 3) Value Bonuses using Ensemble Errors for Exploration in Reinforcement Learning
+      Authors: Abdul Wahab, Raksha Kumaraswamy, Martha White
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.12375
+      URL: http://arxiv.org/abs/2602.12375v1
+
+  [21] (score 3) AOAD-MAT: Transformer-based multi-agent deep reinforcement learning model considering agents' order of action decisions
+      Authors: Shota Takayama, Katsuhide Fujita
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1007/978-3-032-13562-9_23 arXiv:2510.13343
+      URL: http://arxiv.org/abs/2510.13343v1
+
+  [22] (score 3) Orchestrate-on-Graph: A Multi-Agent Hybrid Retrieval and Reasoning Framework for Reliable LLM Reasoning
+      Authors: Bohan Cao, Gewei Lu, Liping Shen
+      Year: 2025  Citations: 0  Venue: 2025 IEEE International Conference on Big Data (BigData)
+      Sources: crossref  doi:10.1109/bigdata66926.2025.11401568
+      URL: https://doi.org/10.1109/bigdata66926.2025.11401568
+
+  [23] (score 3) Symmetry-Aware Knowledge Graph Compression for LLM Grounding via Symbolic Retrieval
+      Authors: Vaibhav Prakash, Jayasri Dontabhaktuni
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6826298
+      URL: https://doi.org/10.2139/ssrn.6826298
+
+  [24] (score 3) ImageIndex: An LLM Agent-based Hybrid Framework for Reasoning-driven Image Retrieval
+      Authors: Shu-ping Peng, Canjin Wang
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7358569
+      URL: https://doi.org/10.2139/ssrn.7358569
+
+  [25] (score 3) Detecting Compositional Attacks in Multi-Agent LLM Systems via Graph-Topological Feature Analysis
+      Authors: Arif Mohamed Khan Rabi Ahamad
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6530594
+      URL: https://doi.org/10.2139/ssrn.6530594
+
+  [26] (score 3) Adaptive Skill Mixture Architecture: A Multi-Skill Framework for Enhanced Reinforcement Learning
+      Authors: Gunaputra Nagendra Pavan Yedida
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.5852782
+      URL: https://doi.org/10.2139/ssrn.5852782
+
+  [27] (score 3) Last Skills Standing: Adaptive Skill Discovery in Unsupervised Reinforcement Learning
+      Authors: Gayathri Rangu, Shivashankar Nair
+      Year: 2026  Citations: 0  Venue: Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+      Sources: crossref  doi:10.5220/0014160500004052
+      URL: https://doi.org/10.5220/0014160500004052
+
+  [28] (score 3) Policy-Gradient Reinforcement Learning as a General Theory of Practice-Based Motor Skill Learning
+      Authors: Adrian M Haith
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.7554/elife.109934
+      URL: https://doi.org/10.7554/elife.109934
+
+  [29] (score 3) Multi-Agent Reinforcement Learning
+      Authors: Jonas Hellgren, Johannes Lindgren
+      Year: 2026  Citations: 0  Venue: Reinforcement Learning Explained
+      Sources: crossref  doi:10.1201/9781003634409-15
+      URL: https://doi.org/10.1201/9781003634409-15
+
+  [30] (score 3) Aptamer–Sensor Interface Concept Note:&amp;nbsp;Bio-Computational Interface Definition Fixing Aptamer G-Iodine as a Non-Therapeutic Signal Interface Component
+      Authors: Jinho Lee
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6179599
+      URL: https://doi.org/10.2139/ssrn.6179599
+
+  [31] (score 3) Pipette: Encoding scientific literature into an executable Skill Graph for multi-agent bioinformatics
+      Authors: Chirag Gupta, Ananya Sharma
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.64898/2026.04.08.717332
+      URL: https://doi.org/10.64898/2026.04.08.717332
+
+  [32] (score 3) Skill Poisoning: Attack Taxonomies and Defense Architectures for Composable Agent Skill Ecosystems in AI-Driven Cyber-Physical Systems
+      Authors: Vivek Acharya
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6408998
+      URL: https://doi.org/10.2139/ssrn.6408998
+
+  [33] (score 3) QSDKT: Graph-Based Dynamic Knowledge Tracing through Question-Skill Similarity
+      Authors: Yue Li, Xianghong Lin
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-6856481/v1
+      URL: https://doi.org/10.21203/rs.3.rs-6856481/v1
+
+  [34] (score 2) Toward User Comprehension Supports for LLM Agent Skill Specifications
+      Authors: Zikai Alex Wen
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19362
+      URL: http://arxiv.org/abs/2605.19362v2
+
+  [35] (score 2) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [36] (score 2) RoleRAG: Enhancing LLM Role-Playing via Graph Guided Retrieval
+      Authors: Yongjie Wang, Jonathan Leung, Zhiqi Shen
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2505.18541
+      URL: http://arxiv.org/abs/2505.18541v1
+
+  [37] (score 2) Poise: Position-Aware One-Instruction Skill Injection for Silent Execution on LLM Agents
+      Authors: Haochang Hao, Dehai Min, Zhifang Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.07943
+      URL: http://arxiv.org/abs/2606.07943v2
+
+  [38] (score 2) The Open Ant: A Robot Platform for Reinforcement Learning Research
+      Authors: Elena Sorina Lupu, Patrick Spieler, Khurram Javed...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.18488
+      URL: http://arxiv.org/abs/2607.18488v1
+
+  [39] (score 2) Agentic Social Affordance Framework (ASAF): Agent Identity Design as a Collaboration Interface in Multi-Agent Systems
+      Authors: Meng-Han Lee
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.3389/fcomp.2026.1860996 arXiv:2606.09832
+      URL: http://arxiv.org/abs/2606.09832v2
+
+  [40] (score 2) Concepts for designing modern C++ interfaces for MPI
+      Authors: C. Nicole Avans, Alfredo A. Correa, Sayan Ghosh...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1007/978-3-032-07194-1_10 arXiv:2506.14610
+      URL: http://arxiv.org/abs/2506.14610v2
+
+  [41] (score 2) Auto-Policy, not Auto-Skill: Compiled Agent Skills for the Physical World
+      Authors: Zhonghao Zhan, Hamed Haddadi
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25091
+      URL: http://arxiv.org/abs/2608.25091v1
+
+  [42] (score 2) Lightning Grasp: High Performance Procedural Grasp Synthesis with Contact Fields
+      Authors: Zhao-Heng Yin, Pieter Abbeel
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2511.07418
+      URL: http://arxiv.org/abs/2511.07418v1
+
+  [43] (score 2) Maximum Entropy Source-Anchored Sparse Retrieval with LLM-Free Indexing for Graph-Augmented RAG
+      Authors: Haranadh Gavara
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6970419
+      URL: https://doi.org/10.2139/ssrn.6970419
+
+  [44] (score 2) What Changes When an LLM agent Searches Your Library Catalogue?
+      Authors: Chee Hsien Tay
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.59350/s2vwp-xa181
+      URL: https://doi.org/10.59350/s2vwp-xa181
+
+  [45] (score 2) Exploring the Modularity of
+                  <i>Thalassiosira oceanica</i>
+                  Aureochrome1 Photoreceptor-Transcription Factor: Characterization and Component Engineering
+      Authors: Anwesha Deb, Piu Sarkar, Devrani Mitra
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.1101/2025.03.07.642083
+      URL: https://doi.org/10.1101/2025.03.07.642083
+
+  [46] (score 2) 14 Component–Component Interfaces
+Component component interface
+      Authors: 
+      Year: 2025  Citations: 0  Venue: Biomechanics of Spine Stabilization
+      Sources: crossref  doi:10.1055/b-0045-209499
+      URL: https://doi.org/10.1055/b-0045-209499
+
+  [47] (score 2) Design User Interface of Uni-Fast Swap Charger for Electric Motorcycle
+      Authors: B S Aprillia, M I Baharudin
+      Year: 2025  Citations: 0  Venue: Journal of Physics: Conference Series
+      Sources: crossref  doi:10.1088/1742-6596/2942/1/012019
+      URL: https://doi.org/10.1088/1742-6596/2942/1/012019
+
+  [48] (score 2) COMPONENT SWAP ON VIRTUAL CATAPULTS FOR PROBLEM-SOLVING IN ENGINEERING EDUCATION
+      Authors: Marc Nutzmann, Thomas Dietmüller, Tobias Venzky-Stalling...
+      Year: 2026  Citations: 0  Venue: Proceedings of the International Conference on  Engineering and Product Design Education EPDE 2026
+      Sources: crossref  doi:10.35199/epde.2026.32
+      URL: https://doi.org/10.35199/epde.2026.32
+
+  [49] (score 2) Agent, Sub-Agent, Skill, or Tool? A Practitioner's Guide to Extending Agentic AI Systems
+      Authors: Deepak Babu Piskala
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.177204917.78786098/v1
+      URL: https://doi.org/10.36227/techrxiv.177204917.78786098/v1
+
+  [50] (score 2) AgentsGrasp: A Multi-Agent Cooperative Reasoning Architecture for Semantic Scene Understanding and Grasp Planning
+      Authors: Songtao Ding, Mengsen Zhao, Zhen Fang...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6139650
+      URL: https://doi.org/10.2139/ssrn.6139650
+
+  [51] (score 2) Agent-Hive: A Fractal Research Graph Architecture for Long-Running Scientific Agent Swarms
+      Authors: Huan Ning, Xiao Huang
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7380678
+      URL: https://doi.org/10.2139/ssrn.7380678
+
+  [52] (score 1) SQUASH: A SWAP-Based Quantum Attack to Sabotage Hybrid Quantum Neural Networks
+      Authors: Rahul Kumar, Wenqi Wei, Ying Mao...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2506.24081
+      URL: http://arxiv.org/abs/2506.24081v1
+
+  [53] (score 1) SWEnergy: An Empirical Study on Energy Efficiency in Agentic Issue Resolution Frameworks with SLMs
+      Authors: Arihant Tripathy, Ch Pavan Harshit, Karthik Vaidhyanathan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3786167.3788406 arXiv:2512.09543
+      URL: http://arxiv.org/abs/2512.09543v2
+
+  [54] (score 1) AMAP Agentic Planning Technical Report
+      Authors: AMAP AI Agent Team, Yulan Hu, Xiangwen Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.24957
+      URL: http://arxiv.org/abs/2512.24957v2
+
+  [55] (score 1) Modularity from $q$-series
+      Authors: Ken Ono
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2509.20316
+      URL: http://arxiv.org/abs/2509.20316v5
+
+  [56] (score 2) [survey] Review for "Internal Interface Engineering in Single-Component Hydrogels for Interfacial Solar Evaporation"
+      Authors: 
+      Year: 2025  Citations: 0  Venue: 
+      Sources: crossref  doi:10.1039/d5el00097a/v1/review1
+      URL: https://doi.org/10.1039/d5el00097a/v1/review1
+
+Total: 56 unique papers (ranked; surveys sunk to the bottom).

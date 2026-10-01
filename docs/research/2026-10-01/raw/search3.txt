@@ -1,0 +1,504 @@
+
+per-source hits: arxiv=50, crossref=50
+unique papers: 83 (17 cross-source duplicate records merged)
+============================================================
+  [1] (score 12) AgentSquare: Automatic LLM Agent Search in Modular Design Space
+      Authors: Yu Shang, Yu Li, Keyu Zhao...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2410.06153
+      URL: http://arxiv.org/abs/2410.06153v3
+
+  [2] (score 10) Graph-of-Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills
+      Authors: Dawei Liu, Zongxia Li, Hongyang Du...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.05333
+      URL: http://arxiv.org/abs/2604.05333v4
+
+  [3] (score 10) Memento-Skills: Let Agents Design Agents
+      Authors: Huichi Zhou, Siyuan Guo, Anjie Liu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.18743
+      URL: http://arxiv.org/abs/2603.18743v1
+
+  [4] (score 10) Are We Ready For An Agent-Native Memory System?
+      Authors: Wei Zhou, Xuanhe Zhou, Shaokun Han...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.24775
+      URL: http://arxiv.org/abs/2606.24775v1
+
+  [5] (score 10) When Does Diversity Rescue Evolutionary Search of LLM Agent Strategies? A Controlled Landscape Study of Monoculture Collapse and the Novelty Escape
+      Authors: MOHAMMAD ALOBED
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7291548
+      URL: https://doi.org/10.2139/ssrn.7291548
+
+  [6] (score 10) Retrieval Beats Cheap Structured Memory: A Cost–Retention Study of LLM Agent Memory on Real Long-Conversation Benchmarks
+      Authors: Ishan Gautam, Kushal K.C.
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.20944/preprints202608.1369.v1
+      URL: https://doi.org/10.20944/preprints202608.1369.v1
+
+  [7] (score 9) Generative Skill Composition for LLM Agents
+      Authors: Xinyu Zhao, Zhen Tan, Vaishnav Tadiparthi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.32025
+      URL: http://arxiv.org/abs/2606.32025v1
+
+  [8] (score 9) SkillNet: Create, Evaluate, and Connect AI Skills
+      Authors: Yuan Liang, Ruobin Zhong, Haoming Xu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04448
+      URL: http://arxiv.org/abs/2603.04448v3
+
+  [9] (score 9) Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose
+      Authors: Xueping Gao
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.18051
+      URL: http://arxiv.org/abs/2606.18051v1
+
+  [10] (score 9) Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering
+      Authors: Chenyu Zhou, Huacan Chai, Wenteng Chen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.08224
+      URL: http://arxiv.org/abs/2604.08224v1
+
+  [11] (score 9) Lunar base agent-based modeling - A benchmark for simulating crewed space missions
+      Authors: Raymond Vera, Anamaria Berea, William G. Kennedy
+      Year: 2026  Citations: 0  Venue: PLOS One
+      Sources: crossref  doi:10.1371/journal.pone.0348882
+      URL: https://doi.org/10.1371/journal.pone.0348882
+
+  [12] (score 9) Asterism: A Hebbian-Weighted Knowledge Graph as a Priority Index over Long-Term LLM Memory
+      Authors: Bidit Das
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7257118
+      URL: https://doi.org/10.2139/ssrn.7257118
+
+  [13] (score 8) Agent Skills for Large Language Models: Architecture, Acquisition, Security, and the Path Forward
+      Authors: Renjun Xu, Yang Yan
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.12430
+      URL: http://arxiv.org/abs/2602.12430v4
+
+  [14] (score 8) Evaluating Skills, Not Just Agents: Agentic Continuous Evaluation of Skills
+      Authors: Christopher Kevin, Narendran Raghavan, Jean-Francois Puget...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.20614
+      URL: http://arxiv.org/abs/2608.20614v1
+
+  [15] (score 8) Group of Skills: Group-Structured Skill Retrieval for Agent Skill Libraries
+      Authors: Kun Zeng, Yu Huo, Siyu Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.06978
+      URL: http://arxiv.org/abs/2605.06978v1
+
+  [16] (score 8) The Model Proposes, the Code Disposes: A Pre-Registered Ablation of a Verifier-and-Acceptance Stage in an LLM-Orchestrated Offensive-Security Agent
+      Authors: Theodoros Moutesidis
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.15887
+      URL: http://arxiv.org/abs/2609.15887v1
+
+  [17] (score 7) Long-Horizon Analog Design Bench: Benchmarking Agents on Hours-Long Analog and Mixed-Signal Circuit Design Tasks
+      Authors: Analog Design Bench Team
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.33356
+      URL: http://arxiv.org/abs/2609.33356v1
+
+  [18] (score 7) SWEnergy: An Empirical Study on Energy Efficiency in Agentic Issue Resolution Frameworks with SLMs
+      Authors: Arihant Tripathy, Ch Pavan Harshit, Karthik Vaidhyanathan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3786167.3788406 arXiv:2512.09543
+      URL: http://arxiv.org/abs/2512.09543v2
+
+  [19] (score 7) Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning
+      Authors: Mingyue Cheng, Shuo Yu, Daoyu Wang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2511.14460
+      URL: http://arxiv.org/abs/2511.14460v2
+
+  [20] (score 7) SkillRet: A Large-Scale Benchmark for Skill Retrieval in LLM Agents
+      Authors: Ryangkyung Kang, Hongcheol Cho, Youngeun Kim
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.05726
+      URL: http://arxiv.org/abs/2605.05726v3
+
+  [21] (score 7) CraniMem: Cranial Inspired Gated and Bounded Memory for Agentic Systems
+      Authors: Pearl Mody, Mihir Panchal, Rishit Kar...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.15642
+      URL: http://arxiv.org/abs/2603.15642v1
+
+  [22] (score 7) Coordination as an Architectural Layer for LLM-Based Multi-Agent Systems: An Information-Controlled Empirical Study on Prediction Markets  
+&lt;br&gt;
+      Authors: Maksym Nechepurenko, Pavel Shuvalov
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6687518
+      URL: https://doi.org/10.2139/ssrn.6687518
+
+  [23] (score 7) A Critical Review of LLM Agents for Automated Penetration Testing: Benchmark Realism and Evidence Grading
+      Authors: Zhou Yinhang, Xu Weihua
+      Year: 2026  Citations: 0  Venue: 數據科學與人工智能學報
+      Sources: crossref  doi:10.71411/dsai.2026.v1i1.1768
+      URL: https://doi.org/10.71411/dsai.2026.v1i1.1768
+
+  [24] (score 7) From Organizational Knowledge to AI Agent Memory: Empirical Validation of the SECI Model on the LongMemEval Benchmark
+      Authors: Dmitrij Żatuchin
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-9801639/v1
+      URL: https://doi.org/10.21203/rs.3.rs-9801639/v1
+
+  [25] (score 7) CompToolBench: A Compositional Benchmark for Fine-Grained Tool-Use Evaluation of Large Language Models
+      Authors: Md A Rahman
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6369558
+      URL: https://doi.org/10.2139/ssrn.6369558
+
+  [26] (score 6) ASIC-Agent: An Autonomous Multi-Agent System for ASIC Design with Benchmark Evaluation
+      Authors: Ahmed Allam, Youssef Mansour, Mohamed Shalan
+      Year: 2025  Citations: 5  Venue: arXiv
+      Sources: arxiv,crossref  doi:10.1109/ICLAD65226.2025.00033 arXiv:2508.15940
+      URL: http://arxiv.org/abs/2508.15940v1
+
+  [27] (score 6) HANDBOOK.md: A Benchmark for Long-Context Agentic Instruction Following
+      Authors: Liudas Panavas, Sebastian Minus, Bradley Monton...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.25398
+      URL: http://arxiv.org/abs/2607.25398v3
+
+  [28] (score 6) RecoAtlas: From Semantic Plausibility to Set-Level Utility in LLM Recommendation Agents
+      Authors: Imad Aouali, Flavian Vasile, Otmane Sakhi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.18805
+      URL: http://arxiv.org/abs/2605.18805v1
+
+  [29] (score 6) AblationBench: Evaluating Automated Planning of Ablations in Empirical AI Research
+      Authors: Talor Abramovich, Gal Chechik
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2507.08038
+      URL: http://arxiv.org/abs/2507.08038v3
+
+  [30] (score 6) Securing LLM-Agent Long-Term Memory Against Poisoning: Non-Malleable, Origin-Bound Authority with Machine-Checked Guarantees
+      Authors: Yedidel Louck
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.24322
+      URL: http://arxiv.org/abs/2606.24322v1
+
+  [31] (score 6) Does Memory Credit Travel? Paired Factorial Audits of LLM-Agent Memory
+      Authors: Alessio Rocchi
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7160321
+      URL: https://doi.org/10.2139/ssrn.7160321
+
+  [32] (score 6) Detecting Compositional Attacks in Multi-Agent LLM Systems via Graph-Topological Feature Analysis
+      Authors: Arif Mohamed Khan Rabi Ahamad
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6530594
+      URL: https://doi.org/10.2139/ssrn.6530594
+
+  [33] (score 6) Can You Trust the Graph Beneath the Agent? A Reliability Metrology for Enterprise Skills Graphs: The FACTS Dimensions and the Skills Graph Reliability Index
+      Authors: Sathyaraj Asaithambi
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.32388/cq9g1l
+      URL: https://doi.org/10.32388/cq9g1l
+
+  [34] (score 6) Semantic Method Naming and LLM Agent Accuracy: A Controlled Benchmark of REST/CRUD versus Agentic API Design
+      Authors: Chris Hood
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6460766
+      URL: https://doi.org/10.2139/ssrn.6460766
+
+  [35] (score 6) Accounting State Space as a Foundation for Economic Agent-Based Modeling: An Input–Output Benchmark and Inventory Extension
+      Authors: Kaya Akagi
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-8485050/v2
+      URL: https://doi.org/10.21203/rs.3.rs-8485050/v2
+
+  [36] (score 6) Information Retrieval Misses the Mark for LLM Agents
+      Authors: Yiqun Sun, Pengfei Wei, Lawrence B. Hsieh
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6903579
+      URL: https://doi.org/10.2139/ssrn.6903579
+
+  [37] (score 6) Graph-Structured Persistent Memory for Efficient LLM-Based Computer Use Agents
+      Authors: Danylo Vorvul, Andrii Musienko, Iryna Galchenko...
+      Year: 2026  Citations: 0  Venue: Axioms
+      Sources: crossref  doi:10.3390/axioms15060415
+      URL: https://doi.org/10.3390/axioms15060415
+
+  [38] (score 5) Auto-Policy, not Auto-Skill: Compiled Agent Skills for the Physical World
+      Authors: Zhonghao Zhan, Hamed Haddadi
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25091
+      URL: http://arxiv.org/abs/2608.25091v1
+
+  [39] (score 5) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [40] (score 5) Agentic Social Affordance Framework (ASAF): Agent Identity Design as a Collaboration Interface in Multi-Agent Systems
+      Authors: Meng-Han Lee
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.3389/fcomp.2026.1860996 arXiv:2606.09832
+      URL: http://arxiv.org/abs/2606.09832v2
+
+  [41] (score 5) Poise: Position-Aware One-Instruction Skill Injection for Silent Execution on LLM Agents
+      Authors: Haochang Hao, Dehai Min, Zhifang Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.07943
+      URL: http://arxiv.org/abs/2606.07943v2
+
+  [42] (score 5) Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models
+      Authors: Zhengliang Shi, Yuhan Wang, Lingyong Yan...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2503.01763
+      URL: http://arxiv.org/abs/2503.01763v2
+
+  [43] (score 5) Agentic Skill Discovery
+      Authors: Xufeng Zhao, Cornelius Weber, Stefan Wermter
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2405.15019
+      URL: http://arxiv.org/abs/2405.15019v2
+
+  [44] (score 5) MRMMIA: Membership Inference Attacks on Memory in Chat Agents
+      Authors: Kai Chen, Yan Pang, Tianhao Wang
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.27825
+      URL: http://arxiv.org/abs/2605.27825v1
+
+  [45] (score 5) Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents
+      Authors: Richmond Alake, Cesare Bernardis, Paul Cayet...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.13157
+      URL: http://arxiv.org/abs/2607.13157v1
+
+  [46] (score 5) AMAP Agentic Planning Technical Report
+      Authors: AMAP AI Agent Team, Yulan Hu, Xiangwen Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.24957
+      URL: http://arxiv.org/abs/2512.24957v2
+
+  [47] (score 5) When Does LLM Orchestration Pay? GEAR: Graph-Controlled Execution with Adaptive Routing under Inference Budgets
+      Authors: Cheng Zhu, Bai Jiangyao, Zhaoyun Ding...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7541005
+      URL: https://doi.org/10.2139/ssrn.7541005
+
+  [48] (score 5) GraphShield: A Graph-Structured Defense Framework for Prompt Injection in RAG and Multi-Agent LLM Systems
+      Authors: Shreya Singh
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7082874
+      URL: https://doi.org/10.2139/ssrn.7082874
+
+  [49] (score 5) The complexity-performance paradox in electricity market design: An agent-based benchmark of eight competing architectures
+      Authors: Markus Doepfert, Jiahe Chu, Hermann Kraus...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6866478
+      URL: https://doi.org/10.2139/ssrn.6866478
+
+  [50] (score 5) Beyond Prescribed Intelligence: Toward Self-Directed Skill Acquisition in LLM-Based Cybersecurity Agents
+      Authors: Mika D Ayenson
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6438922
+      URL: https://doi.org/10.2139/ssrn.6438922
+
+  [51] (score 5) StrataKV:&amp;nbsp;Coherent Memory Geometry, Thermodynamic Exhalation, and Dynamic Kernel Orchestration for Resident Multi-Agent Tool Swarms
+      Authors: Stewart Barteau
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7453438
+      URL: https://doi.org/10.2139/ssrn.7453438
+
+  [52] (score 5) Memory in LLM-based Multi-agent Systems: Mechanisms, Challenges, and Collective Intelligence
+      Authors: Shanglin Wu, Kai Shu
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.176539617.79044553/v1
+      URL: https://doi.org/10.36227/techrxiv.176539617.79044553/v1
+
+  [53] (score 4) Agent-as-a-Graph: Knowledge Graph-Based Tool and Agent Retrieval for LLM Multi-Agent Systems
+      Authors: Faheem Nizar, Elias Lumer, Anmol Gulati...
+      Year: 2026  Citations: 1  Venue: Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+      Sources: crossref  doi:10.5220/0014473600004052
+      URL: https://doi.org/10.5220/0014473600004052
+
+  [54] (score 4) The Use of Multiple-choice Questions as an Assessment Tool in First-year University Physics Modules
+      Authors: Nishaal Bhaw, Jeanne Kriek, Gaotsiwe Rampho
+      Year: 2025  Citations: 1  Venue: Journal of Education and Practice
+      Sources: crossref  doi:10.25159/unisarxiv/000088.v1
+      URL: https://doi.org/10.25159/unisarxiv/000088.v1
+
+  [55] (score 4) Efficient Benchmarking in Production: A Study of an Evolving LLM Agent
+      Authors: Yining She, Lei Lin
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.21267
+      URL: http://arxiv.org/abs/2609.21267v1
+
+  [56] (score 4) GitSkills: A Dataset of Agent Skills on GitHub
+      Authors: Giuseppe Destefanis, Daniel Graziotin, Matteo Vaccargiu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.10906
+      URL: http://arxiv.org/abs/2608.10906v3
+
+  [57] (score 4) Distilling Feedback into Memory-as-a-Tool
+      Authors: Víctor Gallego
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2601.05960
+      URL: http://arxiv.org/abs/2601.05960v2
+
+  [58] (score 4) When Lower Privileges Suffice: Investigating Over-Privileged Tool Selection in LLM Agents
+      Authors: Kaiyue Yang, Yuyan Bu, Jingwei Yi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.20023
+      URL: http://arxiv.org/abs/2606.20023v2
+
+  [59] (score 4) TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory, with a Human-Validated Draft-Alignment
+      Authors: Subrat Panda
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.28575
+      URL: http://arxiv.org/abs/2609.28575v1
+
+  [60] (score 4) Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices
+      Authors: Yakov Pyotr Shkolnikov
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04428
+      URL: http://arxiv.org/abs/2603.04428v1
+
+  [61] (score 4) Optimization of Quota Benchmark Coefficient and Mechanism Design Based on Multi-Agent Evolution under the Background of Carbon Market Expansion
+      Authors: 
+      Year: 2026  Citations: 0  Venue: Environment, Resource and Ecology Journal
+      Sources: crossref  doi:10.23977/erej.2026.100108
+      URL: https://doi.org/10.23977/erej.2026.100108
+
+  [62] (score 4) Benchmark, Agent, and Tool-Use Harnesses for Large Language Models: A Taxonomy of Evaluation Infrastructure
+      Authors: Ziqian Bi, Junfeng Hao, Yue Ma...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.20944/preprints202609.0236.v1
+      URL: https://doi.org/10.20944/preprints202609.0236.v1
+
+  [63] (score 4) Benchmark Modules: A Better Interim Assessment? Evidence From Statewide Use of Benchmark Modules in Utah
+      Authors: Kyla N. McClure
+      Year: 2025  Citations: 0  Venue: AERA Open
+      Sources: crossref  doi:10.1177/23328584251369828
+      URL: https://doi.org/10.1177/23328584251369828
+
+  [64] (score 4) Attacks That Score, Attacks That Transfer: Guardrail Asymmetry, the Confused Deputy, and Hidden-Evaluator Reconstruction in a Multi-Step Tool-Agent Security Benchmark
+      Authors: Uchechukwu Ajuzieogu
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7399538
+      URL: https://doi.org/10.2139/ssrn.7399538
+
+  [65] (score 3) Efficient Multi-Agent Collaboration with Tool Use for Online Planning in Complex Table Question Answering
+      Authors: Wei Zhou, Mohsen Mesgar, Annemarie Friedrich...
+      Year: 2025  Citations: 5  Venue: Findings of the Association for Computational Linguistics: NAACL 2025
+      Sources: crossref  doi:10.18653/v1/2025.findings-naacl.54
+      URL: https://doi.org/10.18653/v1/2025.findings-naacl.54
+
+  [66] (score 3) Model-Based Systems Engineering for Sustainable Modular Design: Integrating Design, Manufacturing Operations, and Component Functionality
+      Authors: Nima Roudbarian, Amirhossein Isfahani, Lukas Kettenhofen...
+      Year: 2025  Citations: 2  Venue: 2025 IEEE Conference on Technologies for Sustainability (SusTech)
+      Sources: crossref  doi:10.1109/sustech63138.2025.11025754
+      URL: https://doi.org/10.1109/sustech63138.2025.11025754
+
+  [67] (score 3) Multi-Agent Collective Construction of General Modular Structures
+      Authors: Irina Kostitsyna, James Gloyd, Kenneth Cheung
+      Year: 2025  Citations: 1  Venue: 2025 IEEE International Conference on Robotics and Automation (ICRA)
+      Sources: crossref  doi:10.1109/icra55743.2025.11128525
+      URL: https://doi.org/10.1109/icra55743.2025.11128525
+
+  [68] (score 3) ClawTrace: Cost-Aware Tracing for LLM Agent Skill Distillation
+      Authors: Boqin Yuan, Yue Su, Renchu Song...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.23853
+      URL: http://arxiv.org/abs/2604.23853v2
+
+  [69] (score 3) Focus Agent: LLM-Powered Virtual Focus Group
+      Authors: Taiyu Zhang, Xuesong Zhang, Robbe Cools...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3652988.3673918 arXiv:2409.01907
+      URL: http://arxiv.org/abs/2409.01907v1
+
+  [70] (score 3) What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema
+      Authors: Mahdi Naser Moghadasi, Faezeh Ghaderi
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.21404
+      URL: http://arxiv.org/abs/2605.21404v1
+
+  [71] (score 3) Optimized Modular Design and Development of a Tilt-Rotor Bicopter Drone
+      Authors: Saideep Verma, Nimisha Tatapudi, Akshay Arjun...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.30222
+      URL: http://arxiv.org/abs/2608.30222v1
+
+  [72] (score 3) A modular, phased-array architecture for terawatt-scale space solar power stations: System design and orbital dynamics
+      Authors: Diyan Daddu
+      Year: 2026  Citations: 0  Venue: Space Solar Power and Wireless Transmission
+      Sources: crossref  doi:10.1016/j.sspwt.2026.08.005
+      URL: https://doi.org/10.1016/j.sspwt.2026.08.005
+
+  [73] (score 3) PriceBench: A Diagnostic Benchmark for Price, Quality, and Brand Preferences in LLM Booking Agents
+      Authors: Pavel Kireyev
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7452458
+      URL: https://doi.org/10.2139/ssrn.7452458
+
+  [74] (score 3) LLM Agents Factory: Retrieval of Domain-Specific LLM Agents
+      Authors: Vitalii Belov, Artyom Sosedka, Andrey Sakhovskiy...
+      Year: 2026  Citations: 0  Venue: Proceedings of the 49th International ACM SIGIR Conference on Research and Development in Information Retrieval
+      Sources: crossref  doi:10.1145/3805712.3808515
+      URL: https://doi.org/10.1145/3805712.3808515
+
+  [75] (score 3) Learned Importance Scoring for Adaptive Memory Compaction in LLM-Based Agent Systems
+      Authors: Yong Sun
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6576151
+      URL: https://doi.org/10.2139/ssrn.6576151
+
+  [76] (score 2) DOES A MINIMAL LLM ASSISTANT HELP STUDENTS START? A PILOT EVALUATION OF AN LLM-BASED IDEATION TOOL
+      Authors: Kamyab Farokhi, Stefania Zourlidou, Frank Hopfgartner
+      Year: 2026  Citations: 0  Venue: INTED Proceedings INTED2026 Proceedings
+      Sources: crossref  doi:10.21125/inted.2026.1134
+      URL: https://doi.org/10.21125/inted.2026.1134
+
+  [77] (score 2) Adaptive Orchestration with Cross-Episode Memory for Dynamic LLM-based Agent Pools
+      Authors: Marleen Lukei, Philine Thalia Kowol
+      Year: 2026  Citations: 0  Venue: WOCHAT2026: Workshop on Chatbots and Agentic Technologies
+      Sources: crossref  doi:10.21437/wochat.2026-4
+      URL: https://doi.org/10.21437/wochat.2026-4
+
+  [78] (score 2) Auditable Storage Reduction for Growing LLM Agent Memory
+      Authors: Parag Paul, Avinash Anand, Ashutosh Sahoo...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7170498
+      URL: https://doi.org/10.2139/ssrn.7170498
+
+  [79] (score 1) Advancing Heliophysics and Space Weather Modeling through Open Science
+      Authors: C. Corti, M. M. Kuznetsova, M. A. Reiss...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1029/2025SW004922 arXiv:2605.30626
+      URL: http://arxiv.org/abs/2605.30626v1
+
+  [80] (score 1) SmartSwap: Swap-Based Memory Optimization for LLM Training under Varying Operator Sequences
+      Authors: Zibo Wang, Yuhang Zhou, Zhibin Wang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2509.11076
+      URL: http://arxiv.org/abs/2509.11076v2
+
+  [81] (score 7) [survey] A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents
+      Authors: Wei-Chieh Huang, Weizhi Zhang, Yueqing Liang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2602.06052
+      URL: http://arxiv.org/abs/2602.06052v4
+
+  [82] (score 7) [survey] The Agent Loop: A Survey of Control Strategies, Skills, and Harnesses for LLM Agents
+      Authors: Jungseob Lee, Chanjun Park
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7186738
+      URL: https://doi.org/10.2139/ssrn.7186738
+
+  [83] (score 3) [survey] Review of: "MedAgentBench: A Realistic Virtual EHR Environment to Benchmark Medical LLM Agents"
+      Authors: Ethan Sacoransky
+      Year: 2025  Citations: 0  Venue: 
+      Sources: crossref  doi:10.32388/6k4anl
+      URL: https://doi.org/10.32388/6k4anl
+
+Total: 83 unique papers (ranked; surveys sunk to the bottom).

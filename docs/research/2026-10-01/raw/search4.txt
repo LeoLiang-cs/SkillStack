@@ -1,0 +1,389 @@
+
+per-source hits: arxiv=80
+unique papers: 64 (16 cross-source duplicate records merged)
+============================================================
+  [1] (score 15) From Interaction Traces to Persistent Skills: Online Evolution for Computer-Use Agents
+      Authors: Longtao Hu, Xiao Liang, Linchao Zhu
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.04869
+      URL: http://arxiv.org/abs/2609.04869v1
+
+  [2] (score 12) Inference-Time Graph Engineering for Multi-Agent LLM Workflows
+      Authors: Katherine Tieu, Dongqi Fu, Yinglong Xia...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.05774
+      URL: http://arxiv.org/abs/2609.05774v1
+
+  [3] (score 12) SE-GoS: Self-Evolving Graph-of-Skills for Skill Library at Scale
+      Authors: Dawei Fu, Cheng Jiang, Sitian Qian...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.08228
+      URL: http://arxiv.org/abs/2609.08228v1
+
+  [4] (score 11) Generative Skill Composition for LLM Agents
+      Authors: Xinyu Zhao, Zhen Tan, Vaishnav Tadiparthi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.32025
+      URL: http://arxiv.org/abs/2606.32025v1
+
+  [5] (score 11) GraSP: Graph-Structured Skill Compositions for LLM Agents
+      Authors: Tianle Xia, Lingxiang Hu, Yiding Sun...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.17870
+      URL: http://arxiv.org/abs/2604.17870v1
+
+  [6] (score 11) From Relevance to Execution Utility: Reward-Aware Dynamic Execution Gating for Skill-Based LLM Agents
+      Authors: Liang He, Jingbo Wen, Hongyu Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.09168
+      URL: http://arxiv.org/abs/2608.09168v1
+
+  [7] (score 11) SEVerA: Verified Synthesis of Self-Evolving Agents
+      Authors: Debangshu Banerjee, Changming Xu, Eugene Ie...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.25111
+      URL: http://arxiv.org/abs/2603.25111v2
+
+  [8] (score 11) Are We Ready For An Agent-Native Memory System?
+      Authors: Wei Zhou, Xuanhe Zhou, Shaokun Han...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.24775
+      URL: http://arxiv.org/abs/2606.24775v1
+
+  [9] (score 10) Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents
+      Authors: Xing Zhang, Guanghui Wang, Yanwei Cui...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.12790
+      URL: http://arxiv.org/abs/2607.12790v2
+
+  [10] (score 10) SEW: Self-Evolving Agentic Workflows for Automated Code Generation
+      Authors: Siwei Liu, Jinyuan Fang, Han Zhou...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2505.18646
+      URL: http://arxiv.org/abs/2505.18646v2
+
+  [11] (score 10) Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents
+      Authors: Timothy Kassis, Vinayak Agarwal, Yuhuan He...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.00065
+      URL: http://arxiv.org/abs/2609.00065v2
+
+  [12] (score 10) Graph-of-Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills
+      Authors: Dawei Liu, Zongxia Li, Hongyang Du...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.05333
+      URL: http://arxiv.org/abs/2604.05333v4
+
+  [13] (score 10) Agentic Workflow for Education: Concepts and Applications
+      Authors: Yuan-Hao Jiang, Yijie Lu, Ling Dai...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.58459/icce.2025.6061 arXiv:2509.01517
+      URL: http://arxiv.org/abs/2509.01517v1
+
+  [14] (score 10) Agint: Agentic Graph Compilation for Software Engineering Agents
+      Authors: Abhi Chivukula, Jay Somasundaram, Vijay Somasundaram
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2511.19635
+      URL: http://arxiv.org/abs/2511.19635v1
+
+  [15] (score 9) SkillSentry: Reliable Skill Execution for LLM Agents via Runtime Assurance
+      Authors: You Lu, Xinyu Huang, Bihuan Chen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.09253
+      URL: http://arxiv.org/abs/2608.09253v1
+
+  [16] (score 9) HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents
+      Authors: Zian Zhai, Xingyu Tan, Gaowang Zou...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.02650
+      URL: http://arxiv.org/abs/2608.02650v1
+
+  [17] (score 9) Embodied Tree of Thoughts: Deliberate Manipulation Planning with Embodied World Model
+      Authors: Wenjiang Xu, Cindy Wang, Rui Fang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.08188
+      URL: http://arxiv.org/abs/2512.08188v1
+
+  [18] (score 9) BadRobot: Jailbreaking Embodied LLM Agents in the Physical World
+      Authors: Hangtao Zhang, Chenyu Zhu, Xianlong Wang...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2407.20242
+      URL: http://arxiv.org/abs/2407.20242v5
+
+  [19] (score 9) SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents
+      Authors: Sheng Yin, Xianghe Pang, Yuanzhuo Ding...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2412.13178
+      URL: http://arxiv.org/abs/2412.13178v5
+
+  [20] (score 9) Self-evolving LLM agents with in-distribution Optimization
+      Authors: Yudi Zhang, Meng Fang, Zhenfang Chen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.07367
+      URL: http://arxiv.org/abs/2606.07367v1
+
+  [21] (score 9) Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering
+      Authors: Chenyu Zhou, Huacan Chai, Wenteng Chen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.08224
+      URL: http://arxiv.org/abs/2604.08224v1
+
+  [22] (score 9) Learning Hierarchical Procedural Memory for LLM Agents through Bayesian Selection and Contrastive Refinement
+      Authors: Saman Forouzandeh, Wei Peng, Parham Moradi...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.18950
+      URL: http://arxiv.org/abs/2512.18950v1
+
+  [23] (score 9) A Case-Driven Multi-Agent Framework for E-Commerce Search Relevance
+      Authors: Global E-Commerce Search Relevance Team
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.05991
+      URL: http://arxiv.org/abs/2605.05991v1
+
+  [24] (score 8) Evidence-Calibrated Runtime Reconstruction for Agent Skills Across Heterogeneous Coding Agents
+      Authors: Xueping Gao
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.08793
+      URL: http://arxiv.org/abs/2608.08793v1
+
+  [25] (score 8) Small LLMs Are Weak Tool Learners: A Multi-LLM Agent
+      Authors: Weizhou Shen, Chenliang Li, Hongzhan Chen...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2401.07324
+      URL: http://arxiv.org/abs/2401.07324v3
+
+  [26] (score 8) TREK: A Travel Reasoning and Evaluation Kit for LLM Agents in Complex Trip Planning
+      Authors: Jinhu Qi, Wentao Zhang, Siu Man Ng...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.26977
+      URL: http://arxiv.org/abs/2607.26977v2
+
+  [27] (score 8) KG-Agent: An Efficient Autonomous Agent Framework for Complex Reasoning over Knowledge Graph
+      Authors: Jinhao Jiang, Kun Zhou, Wayne Xin Zhao...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2402.11163
+      URL: http://arxiv.org/abs/2402.11163v1
+
+  [28] (score 8) EMAC+: Embodied Multimodal Agent for Collaborative Planning with VLM+LLM
+      Authors: Shuang Ao, Flora D. Salim, Simon Khan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2505.19905
+      URL: http://arxiv.org/abs/2505.19905v2
+
+  [29] (score 8) Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents
+      Authors: Richmond Alake, Cesare Bernardis, Paul Cayet...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.13157
+      URL: http://arxiv.org/abs/2607.13157v1
+
+  [30] (score 8) GraphSkillAA: Attribution-Guided Skill-Graph Updating with Targeted Validation and Rollback
+      Authors: Ziqiao Shang, Ling-Yue Ge, Lan-Zhe Guo
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.20455
+      URL: http://arxiv.org/abs/2609.20455v2
+
+  [31] (score 7) Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code
+      Authors: Muhammad Haseeb
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.08322
+      URL: http://arxiv.org/abs/2508.08322v1
+
+  [32] (score 7) Progressive Agent Skill Generation via Reinforcement Learning
+      Authors: Junhao Shen, Zhanqiu Zhang, Yiwen Guo...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.01678
+      URL: http://arxiv.org/abs/2608.01678v2
+
+  [33] (score 7) ProgRouter: Online Progress-Guided Orchestration for Multi-Agent LLM Workflows under Quality-Cost Tradeoffs
+      Authors: Songyuan Li, Ahmed M. Abdelmoniem, Shiqiang Wang
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25992
+      URL: http://arxiv.org/abs/2608.25992v2
+
+  [34] (score 7) Breaking Planner Integrity Boundary: Enviroment State-Text Injection Attack on LLM-Driven Embodied Agents
+      Authors: Jiawei Liu, Jiacheng Guo, Tian Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.16806
+      URL: http://arxiv.org/abs/2608.16806v3
+
+  [35] (score 7) Library Drift: Diagnosing and Fixing a Silent Failure Mode in Self-Evolving LLM Skill Libraries
+      Authors: Xing Zhang, Yanwei Cui, Guanghui Wang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19576
+      URL: http://arxiv.org/abs/2605.19576v3
+
+  [36] (score 7) Skill Training with Corruption and Reconstruction Loop
+      Authors: Mo Li, Zixin Yin, Qihao Wu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.27557
+      URL: http://arxiv.org/abs/2607.27557v2
+
+  [37] (score 7) Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows
+      Authors: Patara Trirat, Wonyong Jeong, Sung Ju Hwang
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2505.19764
+      URL: http://arxiv.org/abs/2505.19764v2
+
+  [38] (score 6) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [39] (score 6) Poise: Position-Aware One-Instruction Skill Injection for Silent Execution on LLM Agents
+      Authors: Haochang Hao, Dehai Min, Zhifang Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.07943
+      URL: http://arxiv.org/abs/2606.07943v2
+
+  [40] (score 6) Agents at Risk: How Users Unwittingly Undermine LLM Safety
+      Authors: Fengchao Chen, Tingmin Wu, Van Nguyen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2601.10758
+      URL: http://arxiv.org/abs/2601.10758v3
+
+  [41] (score 6) CATP-LLM: Empowering Large Language Models for Cost-Aware Tool Planning
+      Authors: Duo Wu, Jinghe Wang, Yuan Meng...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2411.16313
+      URL: http://arxiv.org/abs/2411.16313v3
+
+  [42] (score 6) Bridging Tool Dependencies and Domain Knowledge: A Graph-Based Framework for In-Context Planning
+      Authors: Shengjie Liu, Li Dong, Zhenyu Zhang
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2510.24690
+      URL: http://arxiv.org/abs/2510.24690v1
+
+  [43] (score 6) Automating Attack Graph Construction for Agentic Pentesting. Towards Neuro-Symbolic Vulnerability Hunting
+      Authors: Oliver Stevanovic, Jasmin Wachter
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.15523
+      URL: http://arxiv.org/abs/2609.15523v1
+
+  [44] (score 5) Toward User Comprehension Supports for LLM Agent Skill Specifications
+      Authors: Zikai Alex Wen
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19362
+      URL: http://arxiv.org/abs/2605.19362v2
+
+  [45] (score 5) A Plan Reuse Mechanism for LLM-Driven Agent
+      Authors: Guopeng Li, Ruiqi Wu, Haisheng Tan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.21309
+      URL: http://arxiv.org/abs/2512.21309v2
+
+  [46] (score 5) Reflex First, Reflect Later: Latency-Aware Embodied LLM Agents for Dynamic Response
+      Authors: Yangqing Zheng, Shunqi Mao, Dingxin Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2506.07223
+      URL: http://arxiv.org/abs/2506.07223v2
+
+  [47] (score 5) RecoAtlas: From Semantic Plausibility to Set-Level Utility in LLM Recommendation Agents
+      Authors: Imad Aouali, Flavian Vasile, Otmane Sakhi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.18805
+      URL: http://arxiv.org/abs/2605.18805v1
+
+  [48] (score 5) AI Agent-Driven Framework for Automated Product Knowledge Graph Construction in E-Commerce
+      Authors: Dimitar Peshevski, Riste Stojanov, Dimitar Trajanov
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.5281/zenodo.16913321 arXiv:2511.11017
+      URL: http://arxiv.org/abs/2511.11017v1
+
+  [49] (score 5) Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices
+      Authors: Yakov Pyotr Shkolnikov
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04428
+      URL: http://arxiv.org/abs/2603.04428v1
+
+  [50] (score 5) Agentic Skill Discovery
+      Authors: Xufeng Zhao, Cornelius Weber, Stefan Wermter
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2405.15019
+      URL: http://arxiv.org/abs/2405.15019v2
+
+  [51] (score 5) PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows
+      Authors: Renan Souza, Amal Gueroudji, Stephen DeWitt...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.02866
+      URL: http://arxiv.org/abs/2508.02866v3
+
+  [52] (score 5) Securing the Agent: Vendor-Neutral, Multitenant Enterprise Retrieval and Tool Use
+      Authors: Francisco Javier Arceo, Varsha Prasad Narsing
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3786335.3813145 arXiv:2605.05287
+      URL: http://arxiv.org/abs/2605.05287v1
+
+  [53] (score 4) When Lower Privileges Suffice: Investigating Over-Privileged Tool Selection in LLM Agents
+      Authors: Kaiyue Yang, Yuyan Bu, Jingwei Yi...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.20023
+      URL: http://arxiv.org/abs/2606.20023v2
+
+  [54] (score 4) Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower-Cost Workflows in Production
+      Authors: Arun Malik
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2607.07052
+      URL: http://arxiv.org/abs/2607.07052v1
+
+  [55] (score 4) Securing Generative AI Agentic Workflows: Risks, Mitigation, and a Proposed Firewall Architecture
+      Authors: Sunil Kumar Jang Bahadur, Gopala Dhar
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2506.17266
+      URL: http://arxiv.org/abs/2506.17266v1
+
+  [56] (score 4) MRMMIA: Membership Inference Attacks on Memory in Chat Agents
+      Authors: Kai Chen, Yan Pang, Tianhao Wang
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.27825
+      URL: http://arxiv.org/abs/2605.27825v1
+
+  [57] (score 4) ODA: Observation-Driven Agent for integrating LLMs and Knowledge Graphs
+      Authors: Lei Sun, Zhengwei Tao, Youdi Li...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2404.07677
+      URL: http://arxiv.org/abs/2404.07677v2
+
+  [58] (score 4) Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning
+      Authors: Yinghui He, Ling Yang, Jiarui Liu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.05139
+      URL: http://arxiv.org/abs/2608.05139v1
+
+  [59] (score 3) LLM Agents for Interactive Workflow Provenance: Reference Architecture and Evaluation Methodology
+      Authors: Renan Souza, Timothy Poteet, Brian Etz...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3731599.3767582 arXiv:2509.13978
+      URL: http://arxiv.org/abs/2509.13978v2
+
+  [60] (score 3) Efficient Benchmarking in Production: A Study of an Evolving LLM Agent
+      Authors: Yining She, Lei Lin
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.21267
+      URL: http://arxiv.org/abs/2609.21267v1
+
+  [61] (score 2) Focus Agent: LLM-Powered Virtual Focus Group
+      Authors: Taiyu Zhang, Xuesong Zhang, Robbe Cools...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3652988.3673918 arXiv:2409.01907
+      URL: http://arxiv.org/abs/2409.01907v1
+
+  [62] (score 1) The Qudit Cirq Library: An Extension of Google's Cirq Library for Qudits
+      Authors: Svyatoslav Kushnarev, Hassan Jameel Asghar
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2501.07812
+      URL: http://arxiv.org/abs/2501.07812v2
+
+  [63] (score 13) [survey] From Static Templates to Dynamic Runtime Graphs: A Survey of Workflow Optimization for LLM Agents
+      Authors: Ling Yue, Kushal Raj Bhandari, Ching-Yun Ko...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.22386
+      URL: http://arxiv.org/abs/2603.22386v1
+
+  [64] (score 8) [survey] A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems
+      Authors: Jinyuan Fang, Yanwen Peng, Xi Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.07407
+      URL: http://arxiv.org/abs/2508.07407v2
+
+Total: 64 unique papers (ranked; surveys sunk to the bottom).

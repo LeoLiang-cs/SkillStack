@@ -1,0 +1,424 @@
+[dblp] Error on query 'modular LLM agent component swap interface undeclared dependency': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'causal intervention restoration LLM agent failure attribution': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'counterfactual replay agent trajectory intervention skill interface': Expecting value: line 1 column 1 (char 0)
+[dblp] HTTP 429; retrying in 3s (attempt 2/4)
+[dblp] Error on query 'agent skill composition interoperability contract': HTTPSConnectionPool(host='dblp.org', port=443): Read timed out. (read timeout=300.0)
+[open_alex] Error on query 'modular LLM agent component swap interface undeclared dependency': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=modular+LLM+agent+component+swap+interface+undeclared+dependency&filter=publication_year%3A2023-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'causal intervention restoration LLM agent failure attribution': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=causal+intervention+restoration+LLM+agent+failure+attribution&filter=publication_year%3A2023-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'counterfactual replay agent trajectory intervention skill interface': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=counterfactual+replay+agent+trajectory+intervention+skill+interface&filter=publication_year%3A2023-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+[open_alex] Error on query 'agent skill composition interoperability contract': 401 Client Error: Unauthorized for url: https://api.openalex.org/works?search.semantic=agent+skill+composition+interoperability+contract&filter=publication_year%3A2023-2026&sort=relevance_score%3Adesc&page=1&per-page=8
+
+Getting V1 Notes:   0%|          | 0/3792 [00:00<?, ?it/s]
+Getting V1 Notes:  26%|██▋       | 1000/3792 [00:00<00:01, 2566.58it/s]
+Getting V1 Notes:  53%|█████▎    | 1999/3792 [00:00<00:00, 2466.44it/s]
+Getting V1 Notes:  79%|███████▉  | 2998/3792 [00:01<00:00, 3071.34it/s]
+Getting V1 Notes: 100%|█████████▉| 3788/3792 [00:01<00:00, 3193.68it/s]
+
+Getting V2 Notes:   0%|          | 0/2260 [00:00<?, ?it/s]
+Getting V2 Notes:  44%|████▍     | 1000/2260 [00:00<00:00, 2363.12it/s]
+Getting V2 Notes:  88%|████████▊ | 1999/2260 [00:00<00:00, 3204.16it/s]
+Getting V2 Notes: 100%|█████████▉| 2257/2260 [00:00<00:00, 2833.11it/s]
+
+Getting V2 Notes:   0%|          | 0/3703 [00:00<?, ?it/s]
+Getting V2 Notes:  27%|██▋       | 1000/3703 [00:00<00:01, 2155.93it/s]
+Getting V2 Notes:  54%|█████▍    | 1999/3703 [00:01<00:01, 1597.34it/s]
+Getting V2 Notes:  81%|████████  | 2998/3703 [00:01<00:00, 2034.37it/s]
+Getting V2 Notes: 100%|█████████▉| 3699/3703 [00:01<00:00, 2239.67it/s]
+
+Getting V2 Notes:   0%|          | 0/5351 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▊        | 1000/5351 [00:00<00:02, 2095.18it/s]
+Getting V2 Notes:  37%|███▋      | 1999/5351 [00:00<00:01, 2215.30it/s]
+Getting V2 Notes:  56%|█████▌    | 2998/5351 [00:01<00:00, 2359.99it/s]
+Getting V2 Notes:  75%|███████▍  | 3997/5351 [00:02<00:00, 1754.74it/s]
+Getting V2 Notes:  93%|█████████▎| 4996/5351 [00:02<00:00, 2135.41it/s]
+Getting V2 Notes: 100%|█████████▉| 5345/5351 [00:02<00:00, 2141.96it/s]
+
+Getting V2 Notes:   0%|          | 0/3218 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3218 [00:00<00:01, 2060.45it/s]
+Getting V2 Notes:  62%|██████▏   | 1999/3218 [00:00<00:00, 2468.48it/s]
+Getting V2 Notes:  93%|█████████▎| 2998/3218 [00:01<00:00, 3101.80it/s]
+Getting V2 Notes: 100%|█████████▉| 3214/3218 [00:01<00:00, 2749.51it/s]
+
+Getting V2 Notes:   0%|          | 0/4035 [00:00<?, ?it/s]
+Getting V2 Notes:  25%|██▍       | 1000/4035 [00:00<00:00, 3309.53it/s]
+Getting V2 Notes:  50%|████▉     | 1999/4035 [00:00<00:00, 3225.31it/s]
+Getting V2 Notes:  74%|███████▍  | 2998/4035 [00:00<00:00, 3388.95it/s]
+Getting V2 Notes:  99%|█████████▉| 3997/4035 [00:01<00:00, 4443.59it/s]
+Getting V2 Notes: 100%|█████████▉| 4030/4035 [00:01<00:00, 3577.41it/s]
+
+Getting V2 Notes:   0%|          | 0/5286 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▉        | 1000/5286 [00:00<00:02, 1608.63it/s]
+Getting V2 Notes:  38%|███▊      | 1999/5286 [00:01<00:01, 2033.01it/s]
+Getting V2 Notes:  57%|█████▋    | 2998/5286 [00:01<00:00, 2446.76it/s]
+Getting V2 Notes:  76%|███████▌  | 3997/5286 [00:01<00:00, 2703.27it/s]
+Getting V2 Notes:  95%|█████████▍| 4996/5286 [00:01<00:00, 3349.70it/s]
+Getting V2 Notes: 100%|█████████▉| 5280/5286 [00:01<00:00, 2646.04it/s]
+
+Getting V2 Notes:   0%|          | 0/1828 [00:00<?, ?it/s]
+Getting V2 Notes:  55%|█████▍    | 1000/1828 [00:00<00:00, 4167.41it/s]
+Getting V2 Notes: 100%|█████████▉| 1826/1828 [00:00<00:00, 4530.78it/s]
+
+Getting V2 Notes:   0%|          | 0/2610 [00:00<?, ?it/s]
+Getting V2 Notes:  38%|███▊      | 1000/2610 [00:00<00:00, 2991.53it/s]
+Getting V2 Notes:  77%|███████▋  | 1999/2610 [00:00<00:00, 3834.98it/s]
+Getting V2 Notes: 100%|█████████▉| 2607/2610 [00:00<00:00, 4053.96it/s]
+
+Getting V2 Notes:   0%|          | 0/3257 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3257 [00:00<00:00, 2743.52it/s]
+Getting V2 Notes:  61%|██████▏   | 1999/3257 [00:00<00:00, 2759.26it/s]
+Getting V2 Notes:  92%|█████████▏| 2998/3257 [00:00<00:00, 3344.24it/s]
+Getting V2 Notes: 100%|█████████▉| 3253/3257 [00:01<00:00, 3078.65it/s]
+[openreview] Error on query 'causal intervention restoration LLM agent failure attribution': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 7 requests, surpassing the limit of 3 requests. Please try again in 31 seconds (2026-10-01-1967994)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-01T05:13:30.850Z', 'used': 7, 'current': 7, 'reqId': '2026-10-01-1967994'}}
+[openreview] Error on query 'counterfactual replay agent trajectory intervention skill interface': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 14 requests, surpassing the limit of 3 requests. Please try again in 21 seconds (2026-10-01-1968978)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-01T05:13:30.849Z', 'used': 14, 'current': 14, 'reqId': '2026-10-01-1968978'}}
+[openreview] Error on query 'agent skill composition interoperability contract': {'name': 'Error', 'message': '<!doctype html><meta charset="utf-8"><meta name=viewport content="width=device-width, initial-scale=1"><title>429</title>429 Too Many Requests'}
+[semantic_scholar] Error on query 'modular LLM agent component swap interface undeclared dependency': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=modular+LLM+agent+component+swap+interface+undeclared+dependency&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2023-2026
+[semantic_scholar] Error on query 'causal intervention restoration LLM agent failure attribution': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=causal+intervention+restoration+LLM+agent+failure+attribution&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2023-2026
+[semantic_scholar] Error on query 'counterfactual replay agent trajectory intervention skill interface': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=counterfactual+replay+agent+trajectory+intervention+skill+interface&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2023-2026
+[semantic_scholar] Error on query 'agent skill composition interoperability contract': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=agent+skill+composition+interoperability+contract&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2023-2026
+
+per-source hits: arxiv=32, dblp=0, open_alex=0, openreview=0, semantic_scholar=0, crossref=32
+unique papers: 57 (7 cross-source duplicate records merged)
+============================================================
+  [1] (score 8) Causal Agent Replay: Counterfactual Attribution for LLM-Agent Failures
+      Authors: Jaineet Shah
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.08275
+      URL: http://arxiv.org/abs/2606.08275v1
+
+  [2] (score 7) Abduct, Act, Predict: Scaffolding Causal Inference for Automated Failure Attribution in Multi-Agent Systems
+      Authors: Alva West, Yixuan Weng, Minjun Zhu...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2509.10401
+      URL: http://arxiv.org/abs/2509.10401v2
+
+  [3] (score 6) CausalFlow: Causal Attribution and Counterfactual Repair for LLM Agent Failures
+      Authors: Akash Bonagiri, Devang Borkar, Gerard Janno Anderias...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.25338
+      URL: http://arxiv.org/abs/2605.25338v1
+
+  [4] (score 6) A Study on an Explainable Causal-Enhanced LLM Agent for Predicting the Forming Quality of Automotive Component Materials
+      Authors: Jingcheng Zhao, Jiayu Fan, Liangze Li
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.31224/7383
+      URL: https://doi.org/10.31224/7383
+
+  [5] (score 5) Causal Intervention and Counterfactual Reasoning for Multimodal Pedestrian Trajectory Prediction
+      Authors: Xinyu Han, Huosheng Xu
+      Year: 2025  Citations: 2  Venue: Journal of Imaging
+      Sources: crossref  doi:10.3390/jimaging11110379
+      URL: https://doi.org/10.3390/jimaging11110379
+
+  [6] (score 5) SkillAlign: Aligning Skill Interfaces for LLM-based Agents
+      Authors: Shuo Ren, Xiaomian Kang, Jiajun Zhang
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.07255
+      URL: http://arxiv.org/abs/2609.07255v1
+
+  [7] (score 5) The Ordo-Causal Attribution Deficit: A Prudential Capital Framework for Autonomous Multi-Agent Coding Systems in Financial Infrastructure
+      Authors: Marcel Osmond
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6261540
+      URL: https://doi.org/10.2139/ssrn.6261540
+
+  [8] (score 4) VerifyMAS: Hypothesis Verification for Failure Attribution in LLM Multi-Agent Systems
+      Authors: Hezhe Qiao, Hanghang Tong, Ee-Peng Lim...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.17467
+      URL: http://arxiv.org/abs/2605.17467v1
+
+  [9] (score 4) The Replay Gap: Static Evaluation of Model Switching in LLM Agents Scores the Wrong World
+      Authors: Ashritha Gonuguntla
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.08239
+      URL: http://arxiv.org/abs/2608.08239v1
+
+  [10] (score 4) Evidence-Calibrated Runtime Reconstruction for Agent Skills Across Heterogeneous Coding Agents
+      Authors: Xueping Gao
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.08793
+      URL: http://arxiv.org/abs/2608.08793v1
+
+  [11] (score 3) Seeing the Whole Elephant: A Benchmark for Failure Attribution in LLM-based Multi-Agent Systems
+      Authors: Mengzhuo Chen, Junjie Wang, Fangwen Mu...
+      Year: 2026  Citations: 1  Venue: Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+      Sources: crossref  doi:10.18653/v1/2026.acl-long.912
+      URL: https://doi.org/10.18653/v1/2026.acl-long.912
+
+  [12] (score 3) Small LLMs Are Weak Tool Learners: A Multi-LLM Agent
+      Authors: Weizhou Shen, Chenliang Li, Hongzhan Chen...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2401.07324
+      URL: http://arxiv.org/abs/2401.07324v3
+
+  [13] (score 3) Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code
+      Authors: Muhammad Haseeb
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.08322
+      URL: http://arxiv.org/abs/2508.08322v1
+
+  [14] (score 3) Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems
+      Authors: Shaokun Zhang, Ming Yin, Jieyu Zhang...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2505.00212
+      URL: http://arxiv.org/abs/2505.00212v3
+
+  [15] (score 3) Toward User Comprehension Supports for LLM Agent Skill Specifications
+      Authors: Zikai Alex Wen
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.19362
+      URL: http://arxiv.org/abs/2605.19362v2
+
+  [16] (score 3) Progressive Agent Skill Generation via Reinforcement Learning
+      Authors: Junhao Shen, Zhanqiu Zhang, Yiwen Guo...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.01678
+      URL: http://arxiv.org/abs/2608.01678v2
+
+  [17] (score 3) SkillNet: Create, Evaluate, and Connect AI Skills
+      Authors: Yuan Liang, Ruobin Zhong, Haoming Xu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.04448
+      URL: http://arxiv.org/abs/2603.04448v3
+
+  [18] (score 3) LLM-Based Control for Simulated Physical Reasoning: Modular Evaluation in the NeurIPS Embodied Agent Interface Challenge
+      Authors: Hilmi Demirhan, Wlodek Zadrozny
+      Year: 2026  Citations: 0  Venue: AI
+      Sources: crossref  doi:10.3390/ai7040131
+      URL: https://doi.org/10.3390/ai7040131
+
+  [19] (score 3) A Modular Interface for Multi-Agent Marine Autonomy Simulation
+      Authors: Mathew Schwartzman, Charles Benjamin
+      Year: 2025  Citations: 0  Venue: OCEANS 2025 - Great Lakes
+      Sources: crossref  doi:10.23919/oceans59106.2025.11245128
+      URL: https://doi.org/10.23919/oceans59106.2025.11245128
+
+  [20] (score 3) Coarse-to-Fine Failure Attribution for Long-Horizon LLM Multi-Agent Systems
+      Authors: Lei Zhao, Xiaofeng Xie, Zhenhao Xu...
+      Year: 2026  Citations: 0  Venue: 2026 2nd International Conference on Mechatronics, Robotics, and Artificial Intelligence (MRAI)
+      Sources: crossref  doi:10.1109/mrai70020.2026.11621223
+      URL: https://doi.org/10.1109/mrai70020.2026.11621223
+
+  [21] (score 3) CausLab: LLM-driven Multi-agent Bayesian Framework for Causal Discovery and Inference
+      Authors: Chen Wang, Shan Huang, Shichao Han...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6286418
+      URL: https://doi.org/10.2139/ssrn.6286418
+
+  [22] (score 3) Pre-Execution Authorization at the Actuation Boundary: Counterfactual Replay Across 81 Public Cyber-Physical Incidents
+      Authors: Mu Zi
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6967159
+      URL: https://doi.org/10.2139/ssrn.6967159
+
+  [23] (score 3) FedRANBench: A FAIR-Aligned Benchmark for AI-Native Wireless Control with Counterfactual Replay and Public Trace Normalization
+      Authors: Jianzhao Li, Jiaqi Kang, Guoqing Tao...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6848443
+      URL: https://doi.org/10.2139/ssrn.6848443
+
+  [24] (score 3) Seamless Skill Transitions with Hierarchical Reward Shaping and Failure-Driven Replay
+      Authors: Liming Xin, Hanbin Tian, Bin Sheng
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.5351403
+      URL: https://doi.org/10.2139/ssrn.5351403
+
+  [25] (score 3) Freshness Is Not Authenticity: Symbolic Replay Semantics for Agent Evidence Packages
+      Authors: Anton Sokolov
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6916026
+      URL: https://doi.org/10.2139/ssrn.6916026
+
+  [26] (score 3) Topic-Aware Causal Intervention for Counterfactual Detection
+      Authors: Thong Nguyen, Truc-My Nguyen
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.24225808.v2
+      URL: https://doi.org/10.36227/techrxiv.24225808.v2
+
+  [27] (score 3) Operationalizing Multi-Agent Interoperability via Contract-Driven Model Context Protocols
+      Authors: Aswathnarayan Muthukrishnan Kirubakaran, Vinoth Punniyamoorthy, Adithya Parthasarathy...
+      Year: 2026  Citations: 0  Venue: SoutheastCon 2026
+      Sources: crossref  doi:10.1109/southeastcon63549.2026.11476405
+      URL: https://doi.org/10.1109/southeastcon63549.2026.11476405
+
+  [28] (score 3) Skill Poisoning: Attack Taxonomies and Defense Architectures for Composable Agent Skill Ecosystems in AI-Driven Cyber-Physical Systems
+      Authors: Vivek Acharya
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6408998
+      URL: https://doi.org/10.2139/ssrn.6408998
+
+  [29] (score 2) Developing a Structural Standard for Smart Contract Electronic Health Records Based on the HL7 Fast Healthcare Interoperability Resources
+      Authors: Christian Pulmano, Proceso Fernandez
+      Year: 2024  Citations: 2  Venue: Proceedings of the 10th International Conference on Information and Communication Technologies for Ageing Well and e-Health
+      Sources: crossref  doi:10.5220/0012624100003699
+      URL: https://doi.org/10.5220/0012624100003699
+
+  [30] (score 2) Focus Agent: LLM-Powered Virtual Focus Group
+      Authors: Taiyu Zhang, Xuesong Zhang, Robbe Cools...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3652988.3673918 arXiv:2409.01907
+      URL: http://arxiv.org/abs/2409.01907v1
+
+  [31] (score 2) Lang-PINN: From Language to Physics-Informed Neural Networks via a Multi-Agent Framework
+      Authors: Xin He, Liangliang You, Hongduan Tian...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2510.05158
+      URL: http://arxiv.org/abs/2510.05158v1
+
+  [32] (score 2) VQ-Jarvis: Retrieval-Augmented Video Restoration Agent with Sharp Vision and Fast Thought
+      Authors: Xuanyu Zhang, Weiqi Li, Qunliang Xing...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2603.22998
+      URL: http://arxiv.org/abs/2603.22998v1
+
+  [33] (score 2) SoK: Trading Agents or Market Crashers? Dissecting Robustness and Security Failures in Academic Financial LLM Trading Schemes
+      Authors: Mengxiao Wang, Nitesh Saxena
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.19705
+      URL: http://arxiv.org/abs/2609.19705v1
+
+  [34] (score 2) SkCC: Portable and Secure Skill Compilation for Cross-Framework LLM Agents
+      Authors: Yipeng Ouyang, Yi Xiao, Yuhao Gu...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.03353
+      URL: http://arxiv.org/abs/2605.03353v4
+
+  [35] (score 2) Agentic Skill Discovery
+      Authors: Xufeng Zhao, Cornelius Weber, Stefan Wermter
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2405.15019
+      URL: http://arxiv.org/abs/2405.15019v2
+
+  [36] (score 2) Curious Replay for Model-based Adaptation
+      Authors: Isaac Kauvar, Chris Doyle, Linqi Zhou...
+      Year: 2023  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2306.15934
+      URL: http://arxiv.org/abs/2306.15934v1
+
+  [37] (score 2) Auto-Policy, not Auto-Skill: Compiled Agent Skills for the Physical World
+      Authors: Zhonghao Zhan, Hamed Haddadi
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.25091
+      URL: http://arxiv.org/abs/2608.25091v1
+
+  [38] (score 2) Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM Agents
+      Authors: Hao Wang, Guozhi Wang, Han Xiao...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.10674
+      URL: http://arxiv.org/abs/2604.10674v1
+
+  [39] (score 2) A Multi-LLM Agent System for Modular Ontology Population: A Case Study on ADHD
+      Authors: Ibrahim Traore, Yassine Belmabrouk, Imen Megdiche...
+      Year: 2026  Citations: 0  Venue: Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+      Sources: crossref  doi:10.5220/0014462200004052
+      URL: https://doi.org/10.5220/0014462200004052
+
+  [40] (score 2) An LLM-Assisted Multi-agent Framework for Context-aware Triage of Android Inter-component Communication Security Findings
+      Authors: Pradyumna Sharma Kattel
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7233718
+      URL: https://doi.org/10.2139/ssrn.7233718
+
+  [41] (score 2) From Model to Agent: A Modular LLM-Based Framework for Multi-Agent Systems
+      Authors: Tomás Loureiro, Filipa Ferrada, Thais Baldissera
+      Year: 2026  Citations: 0  Venue: 2026 10th International Young Engineers Forum on Electrical and Computer Engineering (YEF-ECE)
+      Sources: crossref  doi:10.1109/yef-ece70590.2026.11614663
+      URL: https://doi.org/10.1109/yef-ece70590.2026.11614663
+
+  [42] (score 2) VIRA: Reliability and Interface Robustness of an LLM-Based Multi-Agent Vulnerability Repair Pipeline
+      Authors: Sana  fatima Soomro, Irshad Khan, Young  woo Kwon
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7498165
+      URL: https://doi.org/10.2139/ssrn.7498165
+
+  [43] (score 2) Enhancing Automated Penetration Testing with Minimal Human Intervention: The AutoPentester LLM Agent Framework
+      Authors: Qinggele Magsar
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.5586676
+      URL: https://doi.org/10.2139/ssrn.5586676
+
+  [44] (score 2) Algorithmic Groupthink: Causal Analysis and Mitigation of Semantic Convergence in Multi-agent LLM Systems
+      Authors: Hideki Muto, Tetsuro Ogi, Takahiro Yakoh
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-10172697/v1
+      URL: https://doi.org/10.21203/rs.3.rs-10172697/v1
+
+  [45] (score 2) Failure Modes in Production Multi-Agent LLM Systems: Lessons from Real Deployments
+      Authors: Alyyan Ahmed, Munim Akbar
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7041478
+      URL: https://doi.org/10.2139/ssrn.7041478
+
+  [46] (score 2) Activity Frames: Deterministic Screen-Activity Compilation for Agent Memory and Replay
+      Authors: Nossa Iyamu
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.7545205
+      URL: https://doi.org/10.2139/ssrn.7545205
+
+  [47] (score 2) Do agent-neutral &amp; agent-relative reasons have a place in The Racial Contract?
+      Authors: Frank M. Kirkland
+      Year: 2025  Citations: 0  Venue: Charles Mills’ The Racial Contract
+      Sources: crossref  doi:10.4324/9781003647454-3
+      URL: https://doi.org/10.4324/9781003647454-3
+
+  [48] (score 2) Agent, Sub-Agent, Skill, or Tool? A Practitioner's Guide to Extending Agentic AI Systems
+      Authors: Deepak Babu Piskala
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.36227/techrxiv.177204917.78786098/v1
+      URL: https://doi.org/10.36227/techrxiv.177204917.78786098/v1
+
+  [49] (score 2) Human Capital, Immigration, and Skill Composition
+      Authors: Murad Zeynalli
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.5387973
+      URL: https://doi.org/10.2139/ssrn.5387973
+
+  [50] (score 2) Skill Matters: Dynamic Skill Learning for Multi-Agent Cooperative Reinforcement Learning
+      Authors: Tong Li, Chenjia Bai, Kang Xu...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.4790564
+      URL: https://doi.org/10.2139/ssrn.4790564
+
+  [51] (score 1) A Plan Reuse Mechanism for LLM-Driven Agent
+      Authors: Guopeng Li, Ruiqi Wu, Haisheng Tan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.21309
+      URL: http://arxiv.org/abs/2512.21309v2
+
+  [52] (score 1) Efficient Benchmarking in Production: A Study of an Evolving LLM Agent
+      Authors: Yining She, Lei Lin
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.21267
+      URL: http://arxiv.org/abs/2609.21267v1
+
+  [53] (score 1) MedAide: Information Fusion and Anatomy of Medical Intents via LLM-based Agent Collaboration
+      Authors: Dingkang Yang, Jinjie Wei, Mingcheng Li...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2410.12532
+      URL: http://arxiv.org/abs/2410.12532v3
+
+  [54] (score 1) The Value of Counterfactual Thinking
+      Authors: 
+      Year: 2026  Citations: 0  Venue: Skill Versus Luck
+      Sources: crossref  doi:10.7551/mitpress/15776.003.0008
+      URL: https://doi.org/10.7551/mitpress/15776.003.0008
+
+  [55] (score 1) Reasonable Care and Skill
+      Authors: Akhileshwar Pathak
+      Year: 2025  Citations: 0  Venue: Contract Terms in International Business
+      Sources: crossref  doi:10.1007/978-981-96-8146-4_16
+      URL: https://doi.org/10.1007/978-981-96-8146-4_16
+
+  [56] (score 0) YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition
+      Authors: PSBC LLM Team, Huawei LLM Team, Ruihan Long...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.05868
+      URL: http://arxiv.org/abs/2606.05868v1
+
+  [57] (score 4) [survey] A Survey for LLM Agent Trajectory Analysis: From Failure Attribution to Enhancement
+      Authors: Junjie Wang, Yawen Wang, Mengzhuo Chen...
+      Year: 2026  Citations: 0  Venue: IEEE Transactions on Software Engineering
+      Sources: crossref  doi:10.1109/tse.2026.3717765
+      URL: https://doi.org/10.1109/tse.2026.3717765
+
+Total: 57 unique papers (ranked; surveys sunk to the bottom).

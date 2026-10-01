@@ -13,6 +13,8 @@ data/alfworld/
 
 # External research sources and generated idea-run artifacts stay local.
 papers/
+docs/research/*/raw/papers/
+.claude/logs/
 ideaspark_run/
 
 # Local secrets: API keys must never be committed.

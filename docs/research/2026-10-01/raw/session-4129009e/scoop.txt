@@ -1,0 +1,179 @@
+[semantic_scholar] Error on query 'swapping components between LLM agent systems undeclared interface dependencies': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=swapping+components+between+LLM+agent+systems+undeclared+interface+dependencies&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+[semantic_scholar] Error on query 'LLM agent modular component ablation interchangeability': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=LLM+agent+modular+component+ablation+interchangeability&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+[semantic_scholar] Error on query 'counterfactual interface field ablation agent component boundary': 403 Client Error: Forbidden for url: https://api.semanticscholar.org/graph/v1/paper/search?query=counterfactual+interface+field+ablation+agent+component+boundary&offset=0&limit=8&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+
+Getting V1 Notes:   0%|          | 0/3792 [00:00<?, ?it/s]
+Getting V1 Notes:  26%|██▋       | 1000/3792 [00:00<00:00, 2999.22it/s]
+Getting V1 Notes:  53%|█████▎    | 1999/3792 [00:00<00:00, 3516.48it/s]
+Getting V1 Notes:  79%|███████▉  | 2998/3792 [00:00<00:00, 4007.41it/s]
+Getting V1 Notes: 100%|█████████▉| 3788/3792 [00:00<00:00, 4314.10it/s]
+
+Getting V2 Notes:   0%|          | 0/2260 [00:00<?, ?it/s]
+Getting V2 Notes:  44%|████▍     | 1000/2260 [00:00<00:00, 2170.77it/s]
+Getting V2 Notes:  88%|████████▊ | 1999/2260 [00:00<00:00, 3559.26it/s]
+Getting V2 Notes: 100%|█████████▉| 2257/2260 [00:00<00:00, 3149.17it/s]
+
+Getting V2 Notes:   0%|          | 0/3703 [00:00<?, ?it/s]
+Getting V2 Notes:  27%|██▋       | 1000/3703 [00:00<00:01, 2097.89it/s]
+Getting V2 Notes:  54%|█████▍    | 1999/3703 [00:00<00:00, 2419.20it/s]
+Getting V2 Notes:  81%|████████  | 2998/3703 [00:01<00:00, 2320.09it/s]
+Getting V2 Notes: 100%|█████████▉| 3699/3703 [00:01<00:00, 2556.39it/s]
+
+Getting V2 Notes:   0%|          | 0/5351 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▊        | 1000/5351 [00:00<00:03, 1441.56it/s]
+Getting V2 Notes:  37%|███▋      | 1999/5351 [00:01<00:01, 1894.63it/s]
+Getting V2 Notes:  56%|█████▌    | 2998/5351 [00:01<00:01, 2113.14it/s]
+Getting V2 Notes:  75%|███████▍  | 3997/5351 [00:02<00:00, 2013.78it/s]
+Getting V2 Notes:  93%|█████████▎| 4996/5351 [00:02<00:00, 2528.45it/s]
+Getting V2 Notes: 100%|█████████▉| 5345/5351 [00:02<00:00, 2062.40it/s]
+
+Getting V2 Notes:   0%|          | 0/3218 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3218 [00:00<00:00, 2243.58it/s]
+Getting V2 Notes:  62%|██████▏   | 1999/3218 [00:00<00:00, 2119.48it/s]
+Getting V2 Notes:  93%|█████████▎| 2998/3218 [00:01<00:00, 3048.97it/s]
+Getting V2 Notes: 100%|█████████▉| 3214/3218 [00:01<00:00, 2621.13it/s]
+
+Getting V2 Notes:   0%|          | 0/4035 [00:00<?, ?it/s]
+Getting V2 Notes:  25%|██▍       | 1000/4035 [00:00<00:00, 3545.87it/s]
+Getting V2 Notes:  50%|████▉     | 1999/4035 [00:00<00:00, 3513.20it/s]
+Getting V2 Notes:  74%|███████▍  | 2998/4035 [00:01<00:00, 2837.87it/s]
+Getting V2 Notes:  99%|█████████▉| 3997/4035 [00:01<00:00, 3847.92it/s]
+Getting V2 Notes: 100%|█████████▉| 4030/4035 [00:01<00:00, 3292.42it/s]
+
+Getting V2 Notes:   0%|          | 0/5286 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▉        | 1000/5286 [00:00<00:01, 2553.89it/s]
+Getting V2 Notes:  38%|███▊      | 1999/5286 [00:00<00:01, 2196.32it/s]
+Getting V2 Notes:  57%|█████▋    | 2998/5286 [00:01<00:00, 2390.81it/s]
+Getting V2 Notes:  76%|███████▌  | 3997/5286 [00:01<00:00, 2514.47it/s]
+Getting V2 Notes:  95%|█████████▍| 4996/5286 [00:01<00:00, 2887.62it/s]
+Getting V2 Notes: 100%|█████████▉| 5280/5286 [00:02<00:00, 2606.05it/s]
+
+Getting V2 Notes:   0%|          | 0/1828 [00:00<?, ?it/s]
+Getting V2 Notes:  55%|█████▍    | 1000/1828 [00:00<00:00, 4231.30it/s]
+Getting V2 Notes: 100%|█████████▉| 1826/1828 [00:00<00:00, 5551.05it/s]
+
+Getting V2 Notes:   0%|          | 0/2610 [00:00<?, ?it/s]
+Getting V2 Notes:  38%|███▊      | 1000/2610 [00:00<00:00, 2710.77it/s]
+Getting V2 Notes:  77%|███████▋  | 1999/2610 [00:00<00:00, 1934.11it/s]
+Getting V2 Notes: 100%|█████████▉| 2607/2610 [00:01<00:00, 2264.57it/s]
+
+Getting V2 Notes:   0%|          | 0/3257 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3257 [00:00<00:01, 1237.97it/s]
+Getting V2 Notes:  61%|██████▏   | 1999/3257 [00:01<00:00, 1680.25it/s]
+Getting V2 Notes:  92%|█████████▏| 2998/3257 [00:01<00:00, 2353.45it/s]
+Getting V2 Notes: 100%|█████████▉| 3253/3257 [00:01<00:00, 2060.09it/s]
+[openreview] Error on query 'LLM agent modular component ablation interchangeability': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 7 requests, surpassing the limit of 3 requests. Please try again in 29 seconds (2026-10-01-1980397)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-01T05:15:36.710Z', 'used': 7, 'current': 7, 'reqId': '2026-10-01-1980397'}}
+[openreview] Error on query 'counterfactual interface field ablation agent component boundary': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 11 requests, surpassing the limit of 3 requests. Please try again in 20 seconds (2026-10-01-1981396)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-01T05:15:36.709Z', 'used': 11, 'current': 11, 'reqId': '2026-10-01-1981396'}}
+
+per-source hits: arxiv=24, semantic_scholar=0, openreview=0
+unique papers: 18 (6 cross-source duplicate records merged)
+============================================================
+  [1] (score 5) Agentic Social Affordance Framework (ASAF): Agent Identity Design as a Collaboration Interface in Multi-Agent Systems
+      Authors: Meng-Han Lee
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.3389/fcomp.2026.1860996 arXiv:2606.09832
+      URL: http://arxiv.org/abs/2606.09832v2
+
+  [2] (score 4) Ablation Based Counterfactuals
+      Authors: Zheng Dai, David K Gifford
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2406.07908
+      URL: http://arxiv.org/abs/2406.07908v1
+
+  [3] (score 3) Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code
+      Authors: Muhammad Haseeb
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.08322
+      URL: http://arxiv.org/abs/2508.08322v1
+
+  [4] (score 3) Thucy: An LLM-based Multi-Agent System for Claim Verification across Relational Databases
+      Authors: Michael Theologitis, Dan Suciu
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.03278
+      URL: http://arxiv.org/abs/2512.03278v2
+
+  [5] (score 3) Small LLMs Are Weak Tool Learners: A Multi-LLM Agent
+      Authors: Weizhou Shen, Chenliang Li, Hongzhan Chen...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2401.07324
+      URL: http://arxiv.org/abs/2401.07324v3
+
+  [6] (score 3) Automated Prompt Generation for Creative and Counterfactual Text-to-image Synthesis
+      Authors: Aleksa Jelaca, Ying Jiao, Chang Tian...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2509.21375
+      URL: http://arxiv.org/abs/2509.21375v1
+
+  [7] (score 3) AblationBench: Evaluating Automated Planning of Ablations in Empirical AI Research
+      Authors: Talor Abramovich, Gal Chechik
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2507.08038
+      URL: http://arxiv.org/abs/2507.08038v3
+
+  [8] (score 2) A Plan Reuse Mechanism for LLM-Driven Agent
+      Authors: Guopeng Li, Ruiqi Wu, Haisheng Tan
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2512.21309
+      URL: http://arxiv.org/abs/2512.21309v2
+
+  [9] (score 2) Learning the Value Systems of Agents with Preference-based and Inverse Reinforcement Learning
+      Authors: Andrés Holgado-Sánchez, Holger Billhardt, Alberto Fernández...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1007/s10458-026-09732-0 arXiv:2602.04518
+      URL: http://arxiv.org/abs/2602.04518v1
+
+  [10] (score 2) MedAide: Information Fusion and Anatomy of Medical Intents via LLM-based Agent Collaboration
+      Authors: Dingkang Yang, Jinjie Wei, Mingcheng Li...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2410.12532
+      URL: http://arxiv.org/abs/2410.12532v3
+
+  [11] (score 2) Lang-PINN: From Language to Physics-Informed Neural Networks via a Multi-Agent Framework
+      Authors: Xin He, Liangliang You, Hongduan Tian...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2510.05158
+      URL: http://arxiv.org/abs/2510.05158v1
+
+  [12] (score 2) Radiation outer boundary conditions and near-to-far field signal transformations for the Bardeen-Press equation
+      Authors: Som Dev Bishoyi, Scott E. Field, Stephen R. Lau
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.22734
+      URL: http://arxiv.org/abs/2604.22734v1
+
+  [13] (score 2) Quantum networks using counterfactual quantum communication
+      Authors: Aakash Warke, Kishore Thapliyal, Anirban Pathak
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2401.17397
+      URL: http://arxiv.org/abs/2401.17397v1
+
+  [14] (score 2) Collective Counterfactual Planning: Coordination, Consent, and Verification under Representational Constraints
+      Authors: Chainarong Amornbunchornvej
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2608.17932
+      URL: http://arxiv.org/abs/2608.17932v1
+
+  [15] (score 1) Focus Agent: LLM-Powered Virtual Focus Group
+      Authors: Taiyu Zhang, Xuesong Zhang, Robbe Cools...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1145/3652988.3673918 arXiv:2409.01907
+      URL: http://arxiv.org/abs/2409.01907v1
+
+  [16] (score 1) Efficient Benchmarking in Production: A Study of an Evolving LLM Agent
+      Authors: Yining She, Lei Lin
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2609.21267
+      URL: http://arxiv.org/abs/2609.21267v1
+
+  [17] (score 1) What if...?: Thinking Counterfactual Keywords Helps to Mitigate Hallucination in Large Multi-modal Models
+      Authors: Junho Kim, Yeon Ju Kim, Yong Man Ro
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2403.13513
+      URL: http://arxiv.org/abs/2403.13513v2
+
+  [18] (score 0) YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition
+      Authors: PSBC LLM Team, Huawei LLM Team, Ruihan Long...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.05868
+      URL: http://arxiv.org/abs/2606.05868v1
+
+Total: 18 unique papers (ranked; surveys sunk to the bottom).
